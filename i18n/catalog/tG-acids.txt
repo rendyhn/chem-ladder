@@ -1,0 +1,510 @@
+##### core
+@1t1x4t2rcur
+battery acid
+@nkn2r3yfxn
+stomach acid
+@1fqk018dfe3
+lemon juice
+@r0b7wz9smm
+coffee
+@tk58dy4rjn
+clean rain
+@2cobdpf9388
+blood
+@1jf4mc6lu3r
+baking soda
+@2cl50n8pbzb
+soap
+@d2cogri2fu
+bleach
+@n57um6z7qy
+drain cleaner
+@2a602z9exp7
+ethanoic (acetic) acid
+@1iihhxlupe
+methanoic (formic) acid
+@fnnw9reqjs
+hydrofluoric acid
+@1fazv91bo9c
+nitrous acid
+@1hk6ohmdj59
+hydrocyanic acid
+
+##### acids-bases-intro
+@1ltcijecxjy  ; 0=FigW(phScaleSvg(EVERYDAY(), { names: [T` | 1=Tbl([T`Indicator`, T`In acid`, T`In alka | 2=Key(T`<p><b>Neutralisation:</b> acid + b | 3=Tbl([T`Acid`, T`Formula`, T`Salts are ca | 4=Tip(T`<p>Test for hydrogen: a lit splint
+
+<p><b>Acids</b> taste sour (lemon juice, vinegar), turn blue litmus red and react with metals and carbonates. <b>Bases</b> are their chemical opposites; bases that dissolve in water are called <b>alkalis</b>: they feel soapy and turn red litmus blue. In water, acids produce hydrogen ions $\ce{H+}$ and alkalis produce hydroxide ions $\ce{OH-}$.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@gz9e70fdd0
+← more acidic
+@11xr3l9qjr9
+neutral
+@21sajsck8ow
+more alkaline →
+@bimfu0wxee
+The pH scale from 0 to 14 in universal indicator colours with everyday examples from battery acid to drain cleaner
+@u1aaqhe6hp
+The pH scale with universal-indicator colours and typical values (US EPA and USGS). Each step of 1 pH unit is a tenfold change in $\ce{H+}$ concentration: lemon juice (pH 2) has 1000 times more $\ce{H+}$ than coffee (pH 5).
+@roij4a19zo
+Indicator
+@1af8prwga1x
+In acid
+@yqm7h6vb5o
+In alkali
+@smxhxmjpnh
+litmus
+@1a43z74k2oy
+blue
+@1p3fu9b5oob
+phenolphthalein
+@29lxtdgz5tn
+colourless
+@13u6vxvyc52
+pink
+@29lrw3gdemu
+methyl orange
+@qec4sw83pz
+universal indicator
+@ftri94yztf
+red → orange → yellow
+@lr89rp10dw
+blue → violet
+@2c60m9om3a
+red cabbage or turmeric extract
+@271qjnddux1
+red / yellow
+@5lhy0qr0bs
+green / red-brown
+@4tdur9xse8
+<p><b>Neutralisation:</b> acid + base → salt + water. The ionic equation is always $\ce{H+(aq) + OH-(aq) -> H2O(l)}$. Other acid reactions:</p><p>acid + metal → salt + hydrogen: $\ce{Zn + 2HCl -> ZnCl2 + H2}$<br>acid + carbonate → salt + water + carbon dioxide: $\ce{CaCO3 + 2HCl -> CaCl2 + H2O + CO2}$<br>acid + metal oxide → salt + water: $\ce{CuO + H2SO4 -> CuSO4 + H2O}$</p>
+@16gvplvac3k
+Acid
+@2e5fwx8zs1w
+Formula
+@v5ojuyzcz0
+Salts are called
+@1ixiy526yg0
+hydrochloric acid
+@1kbglrncmsp
+chlorides
+@1q5fc8ggisg
+sulfuric acid
+@8e8zvimv5o
+sulfates
+@26l87lp0b4j
+nitric acid
+@1pf81t5msfu
+nitrates
+@1p5v8of114k
+ethanoic acid
+@u7fuobgnnv
+ethanoates
+@2l6nxo1oj3
+<p>Test for hydrogen: a lit splint gives a squeaky pop. Test for carbon dioxide: it turns limewater milky. Everyday neutralisation: antacid tablets for stomach acid, lime ($\ce{CaO}$) for acidic soil, toothpaste against acids made by bacteria.</p>
+@1r061252506
+acidic
+@1hmng131vvn
+alkaline
+@r7j7gku88n  ; 0=t | 1=NUM(p)
+⟦0⟧ has a pH of about ⟦1⟧. Is it acidic, neutral or alkaline?
+@iy95orambu  ; 0=a
+Below 7 acidic, 7 neutral, above 7 alkaline: <b>⟦0⟧</b>.
+@1v3ev24xofc  ; 0=p1 | 1=p2
+How many times more $\ce{H+}$ ions does a solution of pH ⟦0⟧ have than one of pH ⟦1⟧?
+@1lm484vk7jp  ; 0=p2 - p1 | 1=f
+Each pH unit is a factor of 10: $10^{⟦0⟧} = ⟦1⟧$.
+@1yg19o6o04l
+an alkali
+@36tvxe0s1n
+an acid
+@6m8l29btzi  ; 0=ind | 1=env
+What colour is ⟦0⟧ in ⟦1⟧?
+@mlk0wnmhqc
+zinc + sulfuric acid
+@soolynwsvu
+zinc sulfate + hydrogen
+@8e08zgtxrw
+magnesium + hydrochloric acid
+@20g2fsqtr60
+magnesium chloride + hydrogen
+@2c8hedybet3
+calcium carbonate + hydrochloric acid
+@1amf5cu8wj2
+calcium chloride + water + carbon dioxide
+@1jksv54suxd
+sodium hydroxide + nitric acid
+@1vdx7ilnyw0
+sodium nitrate + water
+@1ohazez1shm
+copper(II) oxide + sulfuric acid
+@1jemplywi0d
+copper(II) sulfate + water
+@16wf5kfzn4t
+potassium hydroxide + hydrochloric acid
+@jt6u3d2qbz
+potassium chloride + water
+@w1cuvg7l8r  ; 0=r
+What are the products of ⟦0⟧?
+@1f4zn6fxjw6
+Which ion do all acids produce in water?
+@ot3dmczl9t
+Hydrogen ions, $\ce{H+}$ (in water $\ce{H3O+}$).
+@2dcfdq8xrr8
+What is the ionic equation for every neutralisation of an acid by an alkali?
+@1crk8tx6y8t
+The other ions are spectator ions.
+@p9xx12wk1z
+Which gas turns limewater milky?
+@1jsb39boy0y
+$\ce{CO2}$ forms a white precipitate of $\ce{CaCO3}$.
+
+##### acid-base-theories
+@cj90l09haj  ; 0=Tbl([T`Theory`, T`Acid`, T`Base`, T`Exam | 1=Key(T`<p>In a Brønsted–Lowry reaction th | 2=Fig(dissociationSvg({ names: [T`strong a | 3=Key(T`<p>The strength of a weak acid is  | 4=Tip(T`<p>Strong ≠ concentrated. "Strong"
+
+<p>Three definitions, each wider than the last:</p>
+⟦0⟧
+⟦1⟧
+<h3>Strong and weak</h3>
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@26o26inryhr
+Theory
+@8c2gd7nbk9
+Base
+@12sg5j79yv1
+Arrhenius (1884)
+@146nbfxsq22
+gives $\ce{H+}$ in water
+@h4yleosppa
+gives $\ce{OH-}$ in water
+@1pcp534182g
+Brønsted–Lowry (1923)
+@1p6btijb4j3
+proton ($\ce{H+}$) donor
+@1ujoa224plc
+proton acceptor
+@fg6iib1tpm
+Lewis (1923)
+@6wa88mgzm4
+electron-pair acceptor
+@1g57v8cibyc
+electron-pair donor
+@ceyg3q6e3n
+<p>In a Brønsted–Lowry reaction the acid gives $\ce{H+}$ to the base. What remains of the acid is its <b>conjugate base</b>; the base becomes its <b>conjugate acid</b>: $$\underset{\text{acid}}{\ce{HCl}} + \underset{\text{base}}{\ce{H2O}} \ce{->} \underset{\text{conj. acid}}{\ce{H3O+}} + \underset{\text{conj. base}}{\ce{Cl-}}$$ Conjugate pairs differ by exactly one $\ce{H+}$. Water can act as an acid or a base: it is <b>amphoteric</b>.</p>
+@f0qoew4ufw
+strong acid: fully ionised
+@jzpc8m1fmj
+weak acid: mostly molecules
+@287wd87iz8n
+A strong acid is completely split into hydrogen ions and anions; a weak acid is mostly undissociated molecules with only a few ions
+@1i4w0al8t1t
+A <b>strong</b> acid ($\ce{HCl}$, $\ce{HNO3}$, $\ce{H2SO4}$) ionises completely in water. A <b>weak</b> acid ($\ce{CH3COOH}$, citric acid, carbonic acid) ionises only partly: an equilibrium $\ce{HA <=> H+ + A-}$ lies far to the left. For ethanoic acid only about 1% of molecules are ionised at 0.1 M.
+@1n7enc4szqk
+<p>The strength of a weak acid is measured by the <b>acid dissociation constant</b>: $$K_a = \frac{[\ce{H+}][\ce{A-}]}{[\ce{HA}]} \qquad pK_a = -\log K_a$$ The larger $K_a$ (the smaller $pK_a$), the stronger the acid. Ethanoic acid: $K_a = 1.8 \times 10^{-5}$, $pK_a = 4.74$. Similarly $K_b$ for weak bases such as ammonia ($K_b = 1.8 \times 10^{-5}$).</p>
+@rl1fnicvw5
+<p>Strong ≠ concentrated. "Strong" means fully ionised; "concentrated" means a lot of acid per litre. A dilute solution of a strong acid can have the same pH as a concentrated weak acid.</p>
+@2cz59waospi
+the Brønsted–Lowry acid
+@1k10n95r2hj
+the Brønsted–Lowry base
+@1h90bd2a9fu
+the conjugate acid
+@zfcjqti7tq
+the conjugate base
+@19zk6zmeoj0  ; 0=e | 1=N[role]
+In $⟦0⟧$, which species is ⟦1⟧?
+@20vt7m89nc8  ; 0=`$\\ce{${a[0]}}$` | 1=`$\\ce{${a[1]}}$` | 2=`$\\ce{${a[2]}}$` | 3=`$\\ce{${a[3]}}$`
+Acid ⟦0⟧ gives $\ce{H+}$ to base ⟦1⟧; they become ⟦2⟧ (conjugate acid) and ⟦3⟧ (conjugate base).
+@1azjvgcootz  ; 0=x
+What is the conjugate base of $\ce{⟦0⟧}$?
+@2b49mhsezqk  ; 0=c
+Remove one $\ce{H+}$: $\ce{⟦0⟧}$.
+@wn9249sl4b
+strong acid
+@17aadsj601s
+weak acid
+@zqn7fqaglq
+strong base
+@1ufquf5dk5c
+weak base
+@240pxlbjrjl  ; 0=x
+Classify $\ce{⟦0⟧}$.
+@20l6kegy3g4  ; 0=x | 1=N[t]
+$\ce{⟦0⟧}$ is a <b>⟦1⟧</b>.
+@ukqsxyc7fs  ; 0=sel.map(w => `${acName(w[3])} ($K_a = ${
+Which is the strongest acid? ⟦0⟧
+@1p57fjver2m  ; 0=acName(best[3])
+The largest $K_a$ is the strongest acid: <b>⟦0⟧</b>.
+@89an2aj8q4  ; 0=sciT(Ka, 2)
+$K_a = ⟦0⟧$. What is the $pK_a$?
+@12ke3wcofxi
+What is a Lewis acid?
+@1p9uoc4ngft
+An electron-pair acceptor
+@4vaxkr0wus
+An electron-pair donor
+@1k06abkzrzh
+A proton acceptor
+@4eokmo47y
+A substance that gives OH⁻ in water
+@nklpwkbi7x
+e.g. $\ce{BF3}$ accepts the lone pair of $\ce{NH3}$.
+@v9610rvj2q
+Why is water called amphoteric?
+@1euortyq2f8
+It can act as an acid and as a base
+@16y3lmklvmh
+It is neutral
+@11h4mn5u3tb
+It conducts electricity
+@1pt963bzww6
+It dissolves both acids and bases
+@2ao6vfby5kk
+It donates $\ce{H+}$ to $\ce{NH3}$ and accepts $\ce{H+}$ from $\ce{HCl}$.
+
+##### ph-calculations
+@19vquonhznr  ; 0=Key(T`<p>$$\mathrm{pH} = -\log[\ce{H+}]  | 1=Fig(planeSvg({ W: 420, H: 250, x: [0, 14 | 2=Key(T`<p>Only a small fraction ionises,  | 3=Ex(T`<p>pH of 0.10 M ethanoic acid ($K_a | 4=Tip(T`<p>On a calculator: pH = −log(c); 
+
+⟦0⟧
+⟦1⟧
+<h3>Strong acids and bases</h3>
+<p>They ionise completely, so for a monoprotic strong acid $[\ce{H+}] = c$: 0.01 M HCl has pH $= -\log 0.01 = 2$. For a strong base, find $[\ce{OH-}]$, then pOH, then pH $= 14 - \mathrm{pOH}$: 0.01 M NaOH has pOH 2, pH 12. For $\ce{Ba(OH)2}$ or $\ce{H2SO4}$ count 2 per formula.</p>
+<h3>Weak acids and bases</h3>
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@rddy1ad0cd
+<p>$$\mathrm{pH} = -\log[\ce{H+}] \qquad [\ce{H+}] = 10^{-\mathrm{pH}}$$ Water ionises very slightly: $\ce{H2O <=> H+ + OH-}$ with $$K_w = [\ce{H+}][\ce{OH-}] = 1.0 \times 10^{-14} \text{ at } 25\ °\mathrm{C}$$ so $\mathrm{pH} + \mathrm{pOH} = 14$. In pure water $[\ce{H+}] = [\ce{OH-}] = 10^{-7}$ M and pH = 7.</p>
+@12w7e36ot3x
+−log c
+@12s1ovs4772
+As pH rises, the hydrogen ion concentration falls and the hydroxide concentration rises; they are equal at pH 7
+@mazavslxh4
+$-\log[\ce{H+}]$ and $-\log[\ce{OH-}]$ against pH: the lines cross at pH 7, where both are $10^{-7}$ M. Their sum is always 14.
+@1aej1hyslwr
+<p>Only a small fraction ionises, so $[\ce{HA}] \approx c$ and $$[\ce{H+}] = \sqrt{K_a \cdot c} \qquad [\ce{OH-}] = \sqrt{K_b \cdot c}$$ The degree of ionisation is $\alpha = \sqrt{K_a / c}$.</p>
+@1jf4rfz8dhi
+<p>pH of 0.10 M ethanoic acid ($K_a = 1.8 \times 10^{-5}$): $[\ce{H+}] = \sqrt{1.8 \times 10^{-6}} = 1.34 \times 10^{-3}$ M, pH = 2.87. Compare 0.10 M HCl: pH 1.</p>
+@20jmgcy801d
+<p>On a calculator: pH = −log(c); $[\ce{H+}]$ = 10^(−pH). A pH to 2 decimal places matches a concentration to 2 significant figures.</p>
+@17ug4bkkevb  ; 0=NUM(sig(c, 3))
+What is the pH of ⟦0⟧ M HCl?
+@1sezbsp9ufu  ; 0=NUM(c) | 1=b
+What is the pH of ⟦0⟧ M $\ce{⟦1⟧}$?
+@74c28h3puu  ; 0=n > 1 ? n + ' \times ' : '' | 1=M(c) | 2=M(sig(oh, 3)) | 3=M(sig(-lg(oh), 3)) | 4=M(sig(-lg(oh), 3)) | 5=M(p)
+$[\ce{OH-}] = ⟦0⟧⟦1⟧ = ⟦2⟧$ M; pOH $= ⟦3⟧$; pH $= 14 - ⟦4⟧ = ⟦5⟧$.
+@1cypd7rhlae  ; 0=NUM(p)
+A solution has pH ⟦0⟧. What is $[\ce{H+}]$?
+@15zao558bsm  ; 0=NUM(c) | 1=acName(w[3]) | 2=sciT(w[2], 2)
+Find the pH of ⟦0⟧ M ⟦1⟧ ($K_a = ⟦2⟧$).
+@84t0vuivw0  ; 0=sciT(w[2], 2) | 1=M(c) | 2=sciT(sig(h, 3)) | 3=M(p)
+$[\ce{H+}] = \sqrt{⟦0⟧ \times ⟦1⟧} = ⟦2⟧$ M; pH $= ⟦3⟧$.
+@11qnkrcouo0  ; 0=NUM(c)
+Find the pH of ⟦0⟧ M ammonia ($K_b = 1.8 \times 10^{-5}$).
+@1fgki87seoe  ; 0=M(c) | 1=sciT(sig(oh, 3)) | 2=M(sig(-lg(oh), 3)) | 3=M(p)
+$[\ce{OH-}] = \sqrt{1.8 \times 10^{-5} \times ⟦0⟧} = ⟦1⟧$ M; pOH $= ⟦2⟧$; pH $= ⟦3⟧$.
+@2fn4etp3cn1  ; 0=NUM(p)
+A solution has pH ⟦0⟧. What is its pOH?
+@13sbfes7uyl  ; 0=M(p) | 1=M(po)
+pOH $= 14 - ⟦0⟧ = ⟦1⟧$.
+
+##### titration
+@1nhf5icbcsd  ; 0=Fig(titrationSetupSvg({ names: [T`burett | 1=Key(T`<p>At the <b>equivalence point</b> | 2=FigRow([[titrationSvg({ W: 300, H: 250,  | 3=Ex(T`<p>25.0 mL of NaOH needs 20.0 mL of | 4=Tip(T`<p>Rinse the burette with the titr
+
+<p>A <b>titration</b> finds the unknown concentration of a solution by reacting it exactly with a standard solution. A pipette measures a fixed volume of one solution into a conical flask with a few drops of indicator; the other solution is added from a burette until the indicator just changes colour.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@1eo76u2rutw
+burette (titrant)
+@10ifjyg496t
+tap
+@ea1d5nstme
+conical flask + indicator
+@39qeln6ptb
+white tile
+@eylob42gr7
+Titration set-up: a burette clamped above a conical flask standing on a white tile
+@m83cgmazzy
+Titration set-up. Read the burette at the bottom of the meniscus, swirl the flask, and add the titrant drop by drop near the end point. Repeat until two titres agree within 0.10 mL.
+@jct1syj7tm
+<p>At the <b>equivalence point</b> the acid and base have reacted in exactly the ratio of the equation. The <b>end point</b> is where the indicator changes colour; a good indicator changes colour at (close to) the equivalence point. $$n = c \times V \qquad \frac{c_aV_a}{a} = \frac{c_bV_b}{b}$$ for $a$ acid + $b$ base in the equation.</p>
+@ryxbo01099
+V NaOH (mL)
+@28a9k0vs7ct
+equivalence
+@1p34uef24sd
+Titration curve of hydrochloric acid with sodium hydroxide: a steep rise from pH 3 to 11 at 25 millilitres
+@sgpu1cyg5z
+strong acid + strong base: equivalence at pH 7
+@1a1hws0mib0
+Titration curve of ethanoic acid with sodium hydroxide: starts at pH 2.9, equivalence near pH 8.7
+@288mnllu9va
+weak acid + strong base: equivalence at pH 8.7
+@gyl1pebozw
+Curves calculated for 25.0 mL of 0.100 M acid titrated with 0.100 M NaOH. For the strong acid both indicators change within the vertical part. For ethanoic acid the jump is shorter and above 7, so only phenolphthalein works. At half-equivalence (12.5 mL) pH = $pK_a$ = 4.74.
+@14qmrzti3l2
+<p>25.0 mL of NaOH needs 20.0 mL of 0.100 M $\ce{H2SO4}$. $n(\ce{H2SO4}) = 0.100 \times 0.0200 = 2.00 \times 10^{-3}$ mol; $\ce{H2SO4 + 2NaOH -> Na2SO4 + 2H2O}$, so $n(\ce{NaOH}) = 4.00 \times 10^{-3}$ mol and $c = \frac{4.00 \times 10^{-3}}{0.0250} = 0.160$ M.</p>
+@iug62mizrk
+<p>Rinse the burette with the titrant and the pipette with the solution it will measure, but rinse the conical flask with distilled water only: water in the flask does not change the number of moles in it.</p>
+@2c4iao0lxh4  ; 0=Q(Va, 'mL') | 1=NUM(ca) | 2=Q(Vb, 'mL')
+⟦0⟧ of ⟦1⟧ M HCl is neutralised by ⟦2⟧ of NaOH. What is the concentration of the NaOH (in M)?
+@27jurcpgh2j  ; 0=M(ca) | 1=M(Va) | 2=M(Vb) | 3=M(cb)
+1 : 1, so $c_b = \frac{⟦0⟧ \times ⟦1⟧}{⟦2⟧} = ⟦3⟧$ M.
+@1o0usy0tq9b  ; 0=Q(Va, 'mL') | 1=NUM(ca) | 2=Q(Vb, 'mL')
+⟦0⟧ of ⟦1⟧ M $\ce{H2SO4}$ is neutralised by ⟦2⟧ of NaOH ($\ce{H2SO4 + 2NaOH -> Na2SO4 + 2H2O}$). What is the concentration of the NaOH (in M)?
+@mznpinh5jq  ; 0=M(sig(ca * Va / 1000, 3)) | 1=M(sig(2 * ca * Va / 1000, 3)) | 2=M(cb)
+$n(\ce{H2SO4}) = ⟦0⟧$ mol; ×2 for NaOH $= ⟦1⟧$ mol; $c = ⟦2⟧$ M.
+@29xjtjf6ni9
+a strong acid with a strong base
+@1w5e9k8qgbw
+phenolphthalein or methyl orange
+@1g5tjj0ib45
+a weak acid with a strong base
+@26cxlcfsfm6
+a strong acid with a weak base
+@21ozrftf45k  ; 0=t
+Which indicator is suitable for titrating ⟦0⟧?
+@psy544p7cb
+no indicator works
+@1cxqzd5zpq7  ; 0=a
+The indicator must change colour within the steep part of the curve: <b>⟦0⟧</b>.
+@6wg9otqnds
+HCl with NaOH
+@22blzzzrzre
+CH₃COOH with NaOH
+@z3p0pv7scw
+HCl with NH₃
+@b7m8ma9ze8  ; 0=t
+Approximately what is the pH at the equivalence point when titrating ⟦0⟧ (0.1 M each)?
+@2cbp3annj5e
+Strong + strong gives a neutral salt (pH 7); a weak acid gives a basic salt (above 7); a weak base gives an acidic salt (below 7).
+@1mulbsgrdfn  ; 0=NUM(pk)
+In the titration of a weak acid with NaOH, the pH at half-equivalence is ⟦0⟧. What is the $pK_a$ of the acid?
+@wrv2vrmvpm  ; 0=M(pk)
+At half-equivalence $[\ce{HA}] = [\ce{A-}]$, so pH $= pK_a = ⟦0⟧$.
+
+##### buffers-salts
+@25tpauh7ldm  ; 0=Tbl([T`Salt made from`, T`Example`, T`So | 1=Key(T`<p>For a basic salt $[\ce{OH-}] =  | 2=Fig(planeSvg({ W: 420, H: 250, x: [0, 10 | 3=Key(T`<p><b>Henderson–Hasselbalch equati | 4=Tip(T`<p>Blood is buffered at pH 7.35–7.
+
+<p>Salts are not always neutral. The ion from a <b>weak</b> acid or base reacts with water (<b>hydrolysis</b>): $\ce{CH3COO- + H2O <=> CH3COOH + OH-}$ makes sodium ethanoate solution basic; $\ce{NH4+ + H2O <=> NH3 + H3O+}$ makes ammonium chloride solution acidic.</p>
+⟦0⟧
+⟦1⟧
+<h3>Buffers</h3>
+<p>A <b>buffer</b> keeps the pH almost constant when a little acid or base is added. It contains a weak acid and its conjugate base (e.g. $\ce{CH3COOH}$ + $\ce{CH3COONa}$) or a weak base and its conjugate acid ($\ce{NH3}$ + $\ce{NH4Cl}$). Added $\ce{H+}$ is taken up by $\ce{A-}$; added $\ce{OH-}$ is neutralised by $\ce{HA}$.</p>
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@5b9v3i4e9c
+Salt made from
+@20nolk3skah
+strong acid + strong base
+@jw86rd90hr
+neutral (pH 7)
+@1tg9sll62mr
+weak acid + strong base
+@l1zphxhnhm
+basic (pH > 7)
+@9srquzuz0
+strong acid + weak base
+@1m0d5omdiw0
+acidic (pH < 7)
+@1zlozvnf04z
+<p>For a basic salt $[\ce{OH-}] = \sqrt{\frac{K_w}{K_a} \cdot c}$; for an acidic salt $[\ce{H+}] = \sqrt{\frac{K_w}{K_b} \cdot c}$.</p>
+@95yrxgq980
+0.1 M HCl added (mL)
+@5plhv6pl6j
+buffer
+@iw5v9ijlur
+Adding hydrochloric acid to pure water makes the pH fall at once from 7 to about 2; the buffer stays near pH 4.7 until its ethanoate is used up
+@oxw2l33boe
+Adding 0.1 M HCl to 100 mL of pure water and to 100 mL of a buffer (0.1 M ethanoic acid + 0.1 M sodium ethanoate), calculated. One drop sends water from pH 7 to about 4; the buffer barely moves until almost all its ethanoate has reacted (100 mL).
+@1eru7syxht5
+<p><b>Henderson–Hasselbalch equation:</b> $$\mathrm{pH} = pK_a + \log\frac{[\ce{A-}]}{[\ce{HA}]} \qquad [\ce{H+}] = K_a \frac{[\ce{HA}]}{[\ce{A-}]}$$ A buffer works best when $[\ce{HA}] \approx [\ce{A-}]$, i.e. at pH ≈ $pK_a$ ± 1.</p>
+@12uur8pl5dn
+<p>Blood is buffered at pH 7.35–7.45, mainly by $\ce{H2CO3}$/$\ce{HCO3-}$; inside cells phosphate buffers ($\ce{H2PO4-}$/$\ce{HPO4^2-}$) work too. A change of just 0.2 pH units can be life-threatening.</p>
+@vg3ybyv2pf
+basic
+@1f154h30qlh  ; 0=s
+Is an aqueous solution of $\ce{⟦0⟧}$ acidic, neutral or basic?
+@1qfh3lq6l9x
+From a strong acid and a strong base: <b>neutral</b>.
+@26ntzvcdw4k
+The anion comes from a weak acid and hydrolyses to give $\ce{OH-}$: <b>basic</b>.
+@1383kff1a3b
+$\ce{NH4+}$ comes from a weak base and hydrolyses to give $\ce{H3O+}$: <b>acidic</b>.
+@182jr5clx5j  ; 0=M(r)
+A buffer contains ethanoic acid ($pK_a = 4.74$) and sodium ethanoate with $\frac{[\ce{A-}]}{[\ce{HA}]} = ⟦0⟧$. What is its pH?
+@fo796n08wm  ; 0=M(r) | 1=M(p)
+pH $= 4.74 + \log ⟦0⟧ = ⟦1⟧$.
+@1h4uo3zfl0x  ; 0=NUM(ha) | 1=NUM(na)
+Find the pH of a buffer containing ⟦0⟧ M $\ce{CH3COOH}$ and ⟦1⟧ M $\ce{CH3COONa}$ ($K_a = 1.8 \times 10^{-5}$).
+@eiwznuqjzy  ; 0=M(ha) | 1=M(na) | 2=sciT(sig(h, 3)) | 3=M(p)
+$[\ce{H+}] = K_a \frac{[\ce{HA}]}{[\ce{A-}]} = 1.8 \times 10^{-5} \times \frac{⟦0⟧}{⟦1⟧} = ⟦2⟧$ M; pH $= ⟦3⟧$.
+@21sdnp33yal  ; 0=NUM(c)
+Find the pH of ⟦0⟧ M sodium ethanoate ($K_a$ of ethanoic acid $= 1.8 \times 10^{-5}$).
+@nwq9bhqul4  ; 0=M(c) | 1=sciT(sig(oh, 3)) | 2=M(sig(-lg(oh), 3)) | 3=M(p)
+$[\ce{OH-}] = \sqrt{\frac{10^{-14}}{1.8 \times 10^{-5}} \times ⟦0⟧} = ⟦1⟧$ M; pOH $= ⟦2⟧$; pH $= ⟦3⟧$.
+@24wlndgzpyk
+CH₃COOH and CH₃COONa
+@101qiiz45yg
+NH₃ and NH₄Cl
+@1alxe7d44pl
+H₂CO₃ and NaHCO₃
+@1187wq9qwnr
+HCl and NaCl
+@1ga1q7tx795
+NaOH and NaCl
+@lpmq8vksct
+HNO₃ and KNO₃
+@yateuv40gk  ; 0=m
+Is a mixture of ⟦0⟧ a buffer?
+@m4r89fxhpc
+A weak acid (or base) with its conjugate: <b>yes</b>.
+@1goza3h9qt0
+A strong acid or base has no useful conjugate partner: <b>no</b>.
+
+##### solubility-product
+@74stujw1x3  ; 0=Fig(saturatedSvg({ label: T`A saturated  | 1=Key(T`<p>The <b>solubility product</b> i | 2=Ex(T`<p>Solubility of $\ce{CaF2}$ ($K_{s | 3=Key(T`<p><b>Will a precipitate form?</b> | 4=Tip(T`<p>Compare solubilities with $K_{s
+
+<p>Even "insoluble" salts dissolve a tiny amount. In a saturated solution the undissolved solid is in dynamic equilibrium with its ions: $$\ce{AgCl(s) <=> Ag+(aq) + Cl-(aq)}$$</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@8bb9nsloti
+A saturated silver chloride solution: solid at the bottom in equilibrium with silver and chloride ions
+@yzkfwa7qaq
+In a saturated solution ions leave the solid and return to it at the same rate.
+@183rwl8xjgu
+<p>The <b>solubility product</b> is the equilibrium constant (the solid is left out): $$K_{sp} = [\ce{Ag+}][\ce{Cl-}] = 1.8 \times 10^{-10}\ (25\ °\mathrm{C})$$ For a salt $\ce{M_xA_y}$ with solubility $s$ mol/L: $K_{sp} = (xs)^x(ys)^y$. So for AB, $K_{sp} = s^2$; for $\ce{AB2}$ (or $\ce{A2B}$), $K_{sp} = 4s^3$.</p>
+@x79x9caj0r
+<p>Solubility of $\ce{CaF2}$ ($K_{sp} = 3.9 \times 10^{-11}$): $4s^3 = 3.9 \times 10^{-11}$, $s = \sqrt[3]{9.75 \times 10^{-12}} = 2.1 \times 10^{-4}$ M.</p>
+@20897q72jxb
+<p><b>Will a precipitate form?</b> Compare the ion product $Q = [\ce{M+}][\ce{A-}]$ of the mixture with $K_{sp}$: if $Q > K_{sp}$ a precipitate forms; if $Q \le K_{sp}$ it does not.<br><b>Common-ion effect:</b> a salt is less soluble in a solution that already contains one of its ions (AgCl in NaCl solution), because the equilibrium shifts to the left.</p>
+@22uor47lgpm
+<p>Compare solubilities with $K_{sp}$ only for salts of the same formula type ($\ce{AgCl}$ with $\ce{AgBr}$). For different types, work out $s$ first.</p>
+@we6l5s7ypp  ; 0=k[0] | 1=sciT(k[5], 2)
+$K_{sp}(\ce{⟦0⟧}) = ⟦1⟧$. What is its molar solubility?
+@18auk27kbpq  ; 0=k[3] | 1=k[3] | 2=k[4] | 3=k[4] | 4=sciT(k[5], 2) | 5=sciT(s, 2)
+$K_{sp} = (⟦0⟧s)^{⟦1⟧}(⟦2⟧s)^{⟦3⟧} = 4s^3$, so $s = \sqrt[3]{\frac{⟦4⟧}{4}} = ⟦5⟧$ M.
+@9t20wzzbnn  ; 0=f | 1=sciT(s, 2)
+The solubility of $\ce{⟦0⟧}$ is $⟦1⟧$ M. Calculate $K_{sp}$.
+@mv8jvznixa  ; 0=sciT(c1, 1) | 1=sciT(c2, 1)
+Equal volumes are mixed so that $[\ce{Ag+}] = ⟦0⟧$ M and $[\ce{Cl-}] = ⟦1⟧$ M. Does AgCl precipitate? ($K_{sp} = 1.8 \times 10^{-10}$)
+@1yshfm29wxu
+a precipitate forms
+@vmz8w3czxh
+no precipitate
+@1aqa33jt43v  ; 0=NUM(c)
+What is the solubility of AgCl in ⟦0⟧ M NaCl? ($K_{sp} = 1.8 \times 10^{-10}$)
+@ahc6ukqzgd  ; 0=M(c) | 1=M(c) | 2=sciT(s, 2)
+$[\ce{Cl-}] \approx ⟦0⟧$ M, so $s = [\ce{Ag+}] = \frac{1.8 \times 10^{-10}}{⟦1⟧} = ⟦2⟧$ M: far less than in pure water ($1.3 \times 10^{-5}$ M).

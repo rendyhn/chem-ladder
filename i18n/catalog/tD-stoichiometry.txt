@@ -1,0 +1,256 @@
+##### chemical-equations
+@1qvmw1sqnz1  ; 0=Fig(reactionBoxesSvg([[4, MOL.H2], [2, M | 1=Key(T`<p><b>Balancing an equation:</b> w | 2=Ex(T`<p>Balance $\ce{CH4 + O2 -> CO2 + H | 3=Tbl([T`Element`, T`Left`, T`Right`], [[' | 4=Tbl([T`Type`, T`Pattern`, T`Example`], [ | 5=Tip(T`<p>Signs that a reaction has happe
+
+<p>In a chemical reaction atoms are <b>rearranged</b>: bonds break and new bonds form, but no atom is created or destroyed. That is the <b>law of conservation of mass</b> (Lavoisier, 1789): the total mass of the products equals the total mass of the reactants.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+<p><b>State symbols</b> show the physical state: (s) solid, (l) liquid, (g) gas, (aq) dissolved in water: $\ce{Zn(s) + 2HCl(aq) -> ZnCl2(aq) + H2(g)}$.</p>
+<h3>Types of reaction</h3>
+⟦4⟧
+⟦5⟧
+@24xh175ppjg
+before: 4 H₂ + 2 O₂
+@11f730dtnx9
+after: 4 H₂O
+@1dgaejrtf5g
+Particle diagram: four hydrogen molecules and two oxygen molecules become four water molecules
+@ilfcvnfsby
+Four $\ce{H2}$ and two $\ce{O2}$ molecules become four $\ce{H2O}$ molecules: 8 H atoms and 4 O atoms on each side. In the smallest whole numbers: $\ce{2H2 + O2 -> 2H2O}$.
+@1gsqjx47b4i
+<p><b>Balancing an equation:</b> write the correct formulas first and never change them. Then put <b>coefficients</b> (big numbers in front) so every element has the same number of atoms on both sides. Tip: balance elements that appear in only one substance on each side first, and leave $\ce{H2}$, $\ce{O2}$ or a single element to the end.</p>
+@flhx1ge6yh
+<p>Balance $\ce{CH4 + O2 -> CO2 + H2O}$.</p><p>C: 1 = 1 ✓. H: 4 on the left, so $\ce{2H2O}$. O: now $2 + 2 = 4$ on the right, so $\ce{2O2}$: $$\ce{CH4 + 2O2 -> CO2 + 2H2O}$$</p>
+@1xj75jkwd2x
+Element
+@1kmxz3amydy
+Left
+@10qgoh7fpcr
+Right
+@k7wfdtk1dy
+Type
+@jij6y8rh1q
+Pattern
+@f0ru6vvmnd
+combination (synthesis)
+@1s5i35xfu9
+decomposition
+@1xd6e91cdfh
+single displacement
+@156m1lpd8fa
+double displacement (precipitation)
+@1o9g0y390yy
+combustion
+@pyz57838ou
+fuel + $\ce{O2}$ → $\ce{CO2}$ + $\ce{H2O}$
+@26g70s9g898
+neutralisation
+@2df8fm8gi4y
+acid + base → salt + water
+@3ttpi8nqai
+<p>Signs that a reaction has happened: a colour change, a gas (bubbles), a precipitate (a solid appearing in a solution), or a temperature change.</p>
+@2fcddkfmlhc
+Which equation is correctly balanced?
+@s1yuytu64v  ; 0=eqT(e)
+Count every element on both sides: $⟦0⟧$.
+@1pa7ps0nmzf  ; 0=blank.slice(0, nl).join(' + ') | 1=blank.slice(nl).join(' + ') | 2=f
+Balance the equation: $\ce{⟦0⟧ -> ⟦1⟧}$. What is the coefficient of $\ce{⟦2⟧}$?
+@1sngksknptn  ; 0=NUM(ma) | 1=a | 2=NUM(mb) | 3=b
+⟦0⟧ g of $\ce{⟦1⟧}$ reacts completely with ⟦2⟧ g of $\ce{⟦3⟧}$. What mass of product forms (in g)?
+@231hlb1dyf8  ; 0=M(ma) | 1=M(mb) | 2=M(tot)
+Mass is conserved: $⟦0⟧ + ⟦1⟧ = ⟦2⟧$ g.
+@kf8e8lj73u
+combination
+@25inbj4rpxq
+double displacement
+@14gsqih5r43  ; 0=e
+What type of reaction is $⟦0⟧$?
+@kt3ewllwao  ; 0=el | 1=eqT(e)
+How many ⟦0⟧ atoms are on each side of $⟦1⟧$?
+@1p11fgqahrz  ; 0=el | 1=n
+Multiply the coefficient by the subscript for each substance containing ⟦0⟧: <b>⟦1⟧</b>.
+
+##### mole-concept
+@h6xez63zpi  ; 0=Key(T`<p>The <b>relative formula mass</b | 1=Fig(barChartSvg([{ label: T`carbon`, val | 2=Fig(moleMapSvg({ names: [T`amount`, T`ma | 3=Ex(T`<p>How many molecules are in 9.0 g  | 4=Ex(T`<p>What volume does 0.25 mol of $\c | 5=Tip(T`<p>Always check which particles yo
+
+<p>Atoms are far too small to count one by one, so chemists count them in huge packets called <b>moles</b>. One mole contains exactly $N_A = 6.022\,140\,76 \times 10^{23}$ particles: the <b>Avogadro constant</b> (defined exactly since 2019). A dozen eggs is 12 eggs; a mole of atoms is $6.02 \times 10^{23}$ atoms.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+@22q0ls2nq9j
+<p>The <b>relative formula mass</b> $M_r$ is the sum of the relative atomic masses in the formula: $M_r(\ce{H2O}) = 2 \times 1 + 16 = 18$. The <b>molar mass</b> $M$ is the mass of one mole, numerically equal to $M_r$ in g/mol: $M(\ce{H2O}) = 18$ g/mol.</p><p>$$n = \frac{m}{M} \qquad N = n \times N_A$$</p>
+@63rh4hkfz8
+salt (NaCl)
+@zm48e82uk4
+sucrose
+@1wyay2cn79e
+mass of 1 mol (g)
+@1gjbrhg41sy
+Mass of one mole: carbon 12 g, water 18 g, sodium chloride 58.5 g, glucose 180 g, sucrose 342 g
+@259saae0npi
+One mole always has the same number of particles, but its mass depends on the substance: 12 g of carbon and 342 g of table sugar each contain $6.02 \times 10^{23}$ particles.
+@29f3gfletei
+amount
+@18hnwk5w424
+mass
+@1e38rup61q1
+particles
+@1bv4oxqpjpv
+gas volume
+@26mywmx5guu
+solution
+@4aeledcsy2
+The mole map: amount in moles in the centre, linked to mass by the molar mass, to particles by the Avogadro constant, to gas volume by the molar volume and to solutions by the volume
+@9sjr0y4xny
+The mole map: every calculation goes through moles. $M$ = molar mass, $N_A$ = Avogadro constant, $V_m$ = molar volume of a gas (22.4 L/mol at STP, 0 °C and 1 atm; 24.0 L/mol at 25 °C), $V$ = volume of solution in L.
+@p6vhfiftg0
+<p>How many molecules are in 9.0 g of water?</p><p>$n = \frac{9.0}{18} = 0.50$ mol, $N = 0.50 \times 6.02 \times 10^{23} = 3.01 \times 10^{23}$ molecules.</p>
+@1z7sapg6i96
+<p>What volume does 0.25 mol of $\ce{CO2}$ occupy at STP?</p><p>$V = n \times V_m = 0.25 \times 22.4 = 5.6$ L.</p>
+@1clgkg4fuaz
+<p>Always check which particles you are counting: 1 mol of $\ce{H2O}$ contains 1 mol of molecules but 3 mol of atoms (2 mol H + 1 mol O).</p>
+@4kmzzi42b8  ; 0=f
+Calculate the relative formula mass $M_r$ of $\ce{⟦0⟧}$. (Use H = 1, C = 12, N = 14, O = 16, Na = 23, Mg = 24, S = 32, Cl = 35.5, K = 39, Ca = 40, Fe = 56, Cu = 63.5)
+@26hcgtdvb8k  ; 0=NUM(n) | 1=f | 2=M(M0)
+What is the mass of ⟦0⟧ mol of $\ce{⟦1⟧}$ (in g)? ($M = ⟦2⟧$ g/mol)
+@1sae0qu4z9g  ; 0=NUM(m) | 1=f | 2=M(M0)
+How many moles are in ⟦0⟧ g of $\ce{⟦1⟧}$? ($M = ⟦2⟧$ g/mol)
+@1358ah0euuz  ; 0=M(m) | 1=M(M0) | 2=M(n)
+$n = \frac{m}{M} = \frac{⟦0⟧}{⟦1⟧} = ⟦2⟧$ mol.
+@1g7am29okm9  ; 0=NUM(n)
+How many particles are in ⟦0⟧ mol? ($N_A = 6.02 \times 10^{23}$)
+@xacwlxpvz5  ; 0=M(n) | 1=sciT(N)
+$N = n \times N_A = ⟦0⟧ \times 6.02 \times 10^{23} = ⟦1⟧$.
+@xb69d6xs0c  ; 0=NUM(n) | 1=f
+What volume does ⟦0⟧ mol of $\ce{⟦1⟧}$ occupy at STP (in L)? ($V_m = 22.4$ L/mol)
+@gwxllv7a30  ; 0=M(n) | 1=M(V)
+$V = n \times V_m = ⟦0⟧ \times 22.4 = ⟦1⟧$ L.
+@1ijvjuobz2c  ; 0=f | 1=NUM(V)
+How many moles of $\ce{⟦0⟧}$ occupy ⟦1⟧ L at STP? ($V_m = 22.4$ L/mol)
+@16khkbejsqa  ; 0=M(V) | 1=M(n)
+$n = \frac{V}{V_m} = \frac{⟦0⟧}{22.4} = ⟦1⟧$ mol.
+@214n61oyohz  ; 0=NUM(n) | 1=f
+How many moles of atoms are in ⟦0⟧ mol of $\ce{⟦1⟧}$?
+@28wiv3livm9  ; 0=f | 1=at | 2=M(n) | 3=at | 4=M(sig(n * at, 3))
+Each $\ce{⟦0⟧}$ has ⟦1⟧ atoms: $⟦2⟧ \times ⟦3⟧ = ⟦4⟧$ mol.
+@14cbrula52l  ; 0=NUM(m) | 1=f | 2=M(M0)
+How many molecules (formula units) are in ⟦0⟧ g of $\ce{⟦1⟧}$? ($M = ⟦2⟧$ g/mol, $N_A = 6.02 \times 10^{23}$)
+@owunvd6zbl  ; 0=M(m) | 1=M(M0) | 2=M(sig(m / M0, 3)) | 3=sciT(N)
+$n = \frac{⟦0⟧}{⟦1⟧} = ⟦2⟧$ mol; $N = n \times N_A = ⟦3⟧$.
+
+##### reacting-quantities
+@yqsxyrbhrx  ; 0=Key(T`<p><b>Three steps</b> for any reac | 1=Fig(flowSvg([T`mass of A (g)`, T`÷ M(A)  | 2=Ex(T`<p>What mass of calcium oxide forms | 3=Fig(reactionBoxesSvg([[5, MOL.H2], [2, M | 4=Key(T`<p>To find the limiting reagent, d | 5=Tip(T`<p>Yields are below 100% because r
+
+<p>A balanced equation gives the <b>mole ratio</b> of the substances. $\ce{2H2 + O2 -> 2H2O}$ means 2 mol of hydrogen react with 1 mol of oxygen to give 2 mol of water, whatever the amounts.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+<h3>Limiting reagent</h3>
+<p>Reactants are often not mixed in exactly the right ratio. The reactant that runs out first is the <b>limiting reagent</b>: it decides how much product forms. The other one is <b>in excess</b> and some is left over.</p>
+⟦3⟧
+⟦4⟧
+⟦5⟧
+@2s0wouq9j7
+<p><b>Three steps</b> for any reacting-quantities problem: (1) convert what you know into moles, (2) use the mole ratio from the equation, (3) convert the moles of the unknown into what you are asked for (mass, volume, particles).</p>
+@136oveb5b1q
+mass of A (g)
+@1lgzaokojb6
+÷ M(A) → moles of A
+@lna5rbzke2
+× mole ratio B : A → moles of B
+@1feg43m9a7t
+× M(B) → mass of B (g)
+@211zi0c247q
+Steps: mass of A, divide by its molar mass, multiply by the mole ratio, multiply by the molar mass of B
+@h29l4wt6ff
+From the mass of one substance to the mass of another.
+@fat6tswqd2
+<p>What mass of calcium oxide forms when 50 g of calcium carbonate is heated? $\ce{CaCO3 -> CaO + CO2}$</p><p>$n(\ce{CaCO3}) = \frac{50}{100} = 0.50$ mol; ratio 1 : 1, so $n(\ce{CaO}) = 0.50$ mol; $m = 0.50 \times 56 = 28$ g.</p>
+@22bkkhuzmdj
+before: 5 H₂ + 2 O₂
+@20ga2plaaxx
+after: 4 H₂O + 1 H₂ left
+@15pe6cv8t2p
+Five hydrogen and two oxygen molecules give four water molecules with one hydrogen molecule left over
+@254i6r55m51
+2 $\ce{O2}$ can only react with 4 $\ce{H2}$: oxygen is the limiting reagent and one $\ce{H2}$ is left over.
+@76uobuosei
+<p>To find the limiting reagent, divide the moles of each reactant by its coefficient: the smallest result is limiting. <b>Percentage yield</b> compares what you actually obtained with the theoretical maximum: $$\text{percentage yield} = \frac{\text{actual yield}}{\text{theoretical yield}} \times 100\%$$ <b>Atom economy</b> measures how much of the reactants ends up in the useful product: $$\text{atom economy} = \frac{M_r \text{ of desired product}}{\text{sum of } M_r \text{ of all products}} \times 100\%$$</p>
+@2can6mexwlb
+<p>Yields are below 100% because reactions may be reversible, some product is lost while separating and purifying it, and side reactions make other products. A high atom economy means less waste: a key idea of green chemistry.</p>
+@16hkpzhzlws  ; 0=e | 1=b | 2=NUM(ma) | 3=a | 4=a | 5=NUM(Ma) | 6=b | 7=NUM(Mb)
+$⟦0⟧$. What mass of $\ce{⟦1⟧}$ forms from ⟦2⟧ g of $\ce{⟦3⟧}$? ($M$: ⟦4⟧ ⟦5⟧, ⟦6⟧ ⟦7⟧ g/mol)
+@u3wtct8tiu  ; 0=a | 1=M(ma) | 2=M(Ma) | 3=M(sig(na, 3)) | 4=ra | 5=rb | 6=b | 7=M(sig(nb, 3)) | 8=M(sig(nb, 3)) | 9=M(Mb) | 10=M(mb)
+$n(\ce{⟦0⟧}) = \frac{⟦1⟧}{⟦2⟧} = ⟦3⟧$ mol; ratio ⟦4⟧ : ⟦5⟧, so $n(\ce{⟦6⟧}) = ⟦7⟧$ mol; $m = ⟦8⟧ \times ⟦9⟧ = ⟦10⟧$ g.
+@265f4coqf1m  ; 0=e | 1=na | 2=A | 3=nb + 1 | 4=B
+$⟦0⟧$. ⟦1⟧ mol of $\ce{⟦2⟧}$ is mixed with ⟦3⟧ mol of $\ce{⟦4⟧}$. Which is the limiting reagent?
+@1tkknk8qeyf
+neither
+@1n4syzw277b  ; 0=A | 1=na | 2=ca | 3=M(sig(na / ca, 3)) | 4=B | 5=nb + 1 | 6=cb | 7=M(sig((nb + 1) / cb, 3))
+Divide by the coefficients: ⟦0⟧ $⟦1⟧/⟦2⟧ = ⟦3⟧$, ⟦4⟧ $⟦5⟧/⟦6⟧ = ⟦7⟧$. The smaller one is limiting.
+@2dnkyvuiw6x  ; 0=A | 1=na | 2=ca | 3=M(sig(na / ca, 3)) | 4=B | 5=nb | 6=cb | 7=M(sig(nb / cb, 3)) | 8=lim
+Divide by the coefficients: ⟦0⟧ $⟦1⟧/⟦2⟧ = ⟦3⟧$, ⟦4⟧ $⟦5⟧/⟦6⟧ = ⟦7⟧$. The smaller one, $\ce{⟦8⟧}$, is limiting.
+@o0q89yh6c6  ; 0=NUM(th) | 1=NUM(act)
+The theoretical yield of a reaction is ⟦0⟧ g, but only ⟦1⟧ g of product is obtained. What is the percentage yield?
+@2ddfxprrj5b
+calcium oxide
+@db2hyd65rj
+ethanol
+@1x4ui7muq6h
+ammonia
+@1h5io1cwpft  ; 0=e | 1=name
+$⟦0⟧$. What is the atom economy for making ⟦1⟧? (Use H = 1, C = 12, N = 14, O = 16, Ca = 40, Fe = 56)
+@1tklixdt3s4  ; 0=e | 1=g | 2=NUM(m) | 3=a | 4=M(Ma)
+$⟦0⟧$. What volume of $\ce{⟦1⟧}$ (in L at STP) forms from ⟦2⟧ g of $\ce{⟦3⟧}$? ($M = ⟦4⟧$ g/mol, $V_m = 22.4$ L/mol)
+@2dbhfkew2dn  ; 0=a | 1=M(n) | 2=ra | 3=rg | 4=M(sig(n * rg / ra, 3)) | 5=M(sig(n * rg / ra, 3)) | 6=M(vg)
+$n(\ce{⟦0⟧}) = ⟦1⟧$ mol; ratio ⟦2⟧ : ⟦3⟧ gives $⟦4⟧$ mol of gas; $V = ⟦5⟧ \times 22.4 = ⟦6⟧$ L.
+
+##### empirical-formula
+@u6b25xxs38  ; 0=Fig(donutSvg([{ label: T`carbon`, value: | 1=Key(T`<p>The <b>empirical formula</b> is | 2=Ex(T`<p>A compound contains 85.7% carbon | 3=Tbl([T`Step`, 'C', 'H'], [[T`mass in 100 | 4=Tip(T`<p>If a ratio ends in about .5, .3
+
+<p>The <b>percentage by mass</b> of an element in a compound is $$\%\,\text{element} = \frac{\text{number of atoms} \times A_r}{M_r} \times 100\%$$</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@280owr42qd0
+Percentage composition by mass of glucose: carbon 40.0 percent, hydrogen 6.7 percent, oxygen 53.3 percent
+@jqbaq8d8ku
+Glucose $\ce{C6H12O6}$ ($M_r = 180$): carbon $\frac{72}{180} = 40.0\%$, hydrogen $\frac{12}{180} = 6.7\%$, oxygen $\frac{96}{180} = 53.3\%$.
+@3un1092tqh
+<p>The <b>empirical formula</b> is the simplest whole-number ratio of atoms; the <b>molecular formula</b> is the actual number of atoms in a molecule. Glucose: molecular $\ce{C6H12O6}$, empirical $\ce{CH2O}$. The molecular formula is a whole-number multiple of the empirical one: $$n = \frac{M_r(\text{molecular})}{M_r(\text{empirical})}$$</p>
+@nh2mdej5td
+<p>A compound contains 85.7% carbon and 14.3% hydrogen, and $M_r = 56$. Find its formulas.</p>
+@100vdkuw7cv
+Step
+@1dgzqa6avd2
+mass in 100 g
+@1zr1w3q8sm8
+÷ $A_r$ → moles
+@290wy5eg3ad
+÷ smallest → ratio
+@1b8nu2pzuh8
+empirical formula
+@1mj5wg9173h
+molecular formula $\ce{C4H8}$
+@z0v63549zu
+<p>If a ratio ends in about .5, .33 or .25, multiply all of them by 2, 3 or 4 to reach whole numbers: 1 : 1.5 becomes 2 : 3. Hydrated salts are handled the same way: find the mole ratio of anhydrous salt to water, e.g. $\ce{CuSO4.5H2O}$.</p>
+@qsni2jolet  ; 0=el | 1=f
+What is the percentage by mass of ⟦0⟧ in $\ce{⟦1⟧}$? (Use H = 1, C = 12, N = 14, O = 16, Na = 23, Mg = 24, S = 32, Cl = 35.5, Ca = 40, Fe = 56)
+@1p8snqi0fhk  ; 0=pcs.map(([e, v]) => `${NUM(v)}% ${e}`).j
+A compound contains ⟦0⟧ by mass. What is its empirical formula?
+@x1z4vcmrok  ; 0=pcs.map(([e, v]) => `${e} $\\frac{${M(v) | 1=emp
+Moles in 100 g: ⟦0⟧. Divide by the smallest (and scale to whole numbers): $\ce{⟦1⟧}$.
+@1k9va57lhry  ; 0=emp | 1=M(mr)
+A compound has empirical formula $\ce{⟦0⟧}$ and $M_r = ⟦1⟧$. What is its molecular formula? (H = 1, C = 12, N = 14, O = 16, P = 31)
+@c6qx70qgx7  ; 0=emp | 1=M(me) | 2=M(mr) | 3=M(me) | 4=n | 5=mol
+$M_r(\ce{⟦0⟧}) = ⟦1⟧$; $n = \frac{⟦2⟧}{⟦3⟧} = ⟦4⟧$, so $\ce{⟦5⟧}$.
+@2auaefcflrk  ; 0=NUM(sig(mA + mW, 3)) | 1=salt | 2=NUM(mA) | 3=salt | 4=M(ms)
+Heating ⟦0⟧ g of hydrated $\ce{⟦1⟧}\cdot x\,\ce{H2O}$ leaves ⟦2⟧ g of anhydrous $\ce{⟦3⟧}$ ($M = ⟦4⟧$ g/mol). Find $x$. ($M(\ce{H2O}) = 18$ g/mol)
+@a9xyw61991  ; 0=M(mW) | 1=M(sig(mW / 18, 3)) | 2=M(mA) | 3=M(ms) | 4=M(n) | 5=M(sig(mW / 18, 3)) | 6=M(n) | 7=x
+Water lost $= ⟦0⟧$ g $= ⟦1⟧$ mol; salt $= \frac{⟦2⟧}{⟦3⟧} = ⟦4⟧$ mol; $x = \frac{⟦5⟧}{⟦6⟧} = ⟦7⟧$.

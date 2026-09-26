@@ -1,0 +1,447 @@
+##### redox-basics
+@1qtm4av1ztj  ; 0=Key(T`<p><b>OIL RIG:</b> <b>O</b>xidatio | 1=FigRow([[beakerSvg({ n: 0, level: 0.75,  | 2=Tbl([T`Rule`, T`Example`], [[T`an uncomb | 3=Ex(T`<p>Mn in $\ce{KMnO4}$: $+1 + x + 4( | 4=Key(T`<p>The <b>oxidising agent</b> is t | 5=Tip(T`<p>Common oxidising agents: $\ce{O
+
+<p>The word <b>oxidation</b> first meant gaining oxygen (iron rusting, fuels burning) and <b>reduction</b> meant losing it (extracting a metal from its ore). The modern definition is about electrons:</p>
+⟦0⟧
+⟦1⟧
+<h3>Oxidation numbers</h3>
+<p>An <b>oxidation number</b> (oxidation state) is the charge an atom would have if all its bonds were ionic. An increase in oxidation number is oxidation, a decrease is reduction.</p>
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+@g94j5b29ei
+<p><b>OIL RIG:</b> <b>O</b>xidation <b>I</b>s <b>L</b>oss of electrons, <b>R</b>eduction <b>I</b>s <b>G</b>ain. They always happen together: a <b>redox</b> reaction.</p><p>$\ce{Zn + Cu^2+ -> Zn^2+ + Cu}$: zinc loses 2 electrons (oxidised) and $\ce{Cu^2+}$ gains them (reduced).</p>
+@tkv364q33e
+A zinc strip in blue copper sulfate solution at the start
+@12i8tvsqz3k
+start: zinc in blue $\ce{CuSO4}$
+@2evn8d6m4t0
+Later: copper coats the zinc and the solution becomes paler
+@2fv172gd4ta
+later: copper on the zinc, colour fades
+@1oi2hqewprl
+Zinc displaces copper: brown copper forms on the zinc and the blue colour of $\ce{Cu^2+}$ fades as it is reduced.
+@1u2j0a6t91o
+Rule
+@1ik5x6nyvb8
+an uncombined element is 0
+@lx507cfril
+a simple ion: its charge
+@ck3tktd9pz
+group 1 metals +1, group 2 metals +2, fluorine −1
+@tbxxcpsd54
+hydrogen +1 (−1 in metal hydrides)
+@267xfc503yu
+oxygen −2 (−1 in peroxides, +2 in $\ce{OF2}$)
+@1j5kltpxct6
+the sum is 0 in a compound, the charge in an ion
+@5vmmwuwkdz
+<p>Mn in $\ce{KMnO4}$: $+1 + x + 4(-2) = 0$, so $x = +7$. Transition metals in names: iron(III) oxide means Fe is +3.</p>
+@abspj7ffje
+<p>The <b>oxidising agent</b> is the species that is reduced (it takes electrons from something else); the <b>reducing agent</b> is the species that is oxidised. In $\ce{Zn + Cu^2+ -> Zn^2+ + Cu}$, $\ce{Cu^2+}$ is the oxidising agent and Zn the reducing agent. In <b>disproportionation</b> the same element is both oxidised and reduced: $\ce{Cl2 + 2NaOH -> NaCl + NaClO + H2O}$ (0 → −1 and +1).</p>
+@1i39wpahrxm
+<p>Common oxidising agents: $\ce{O2}$, $\ce{Cl2}$, $\ce{KMnO4}$ (purple → colourless), $\ce{K2Cr2O7}$ (orange → green), $\ce{H2O2}$. Common reducing agents: metals, $\ce{H2}$, $\ce{C}$, $\ce{CO}$, $\ce{SO2}$.</p>
+@11ria712xkz  ; 0=el | 1=f
+What is the oxidation number of ⟦0⟧ in $\ce{⟦1⟧}$?
+@10rczpthbo3  ; 0=el | 1=sgn(n)
+Use O = −2, H = +1, group 1 = +1 and a total of 0: ⟦0⟧ is <b>⟦1⟧</b>.
+@2f4xg6lp93  ; 0=el | 1=sgn(n)
+The oxidation numbers add up to the charge of the ion: ⟦0⟧ is <b>⟦1⟧</b>.
+@y3u2rdluje  ; 0=e
+In $⟦0⟧$, which species is the reducing agent?
+@1if42y2h1ku  ; 0=ox
+$\ce{⟦0⟧}$ is oxidised (loses electrons), so it is the reducing agent.
+@8uvgf5kwrs  ; 0=e
+In $⟦0⟧$, which species is the oxidising agent?
+@1qni6dc94a2  ; 0=red
+$\ce{⟦0⟧}$ is reduced (gains electrons), so it is the oxidising agent.
+@1bjhfieicaf
+oxidation
+@sciysq2sbi
+reduction
+@28yi7hon8vz  ; 0=h
+Is $⟦0⟧$ an oxidation or a reduction?
+@qktpj89loh
+Electrons are gained: <b>reduction</b>.
+@1e5jng0kmua
+Electrons are lost: <b>oxidation</b>.
+@u9fgpqim3r  ; 0=e
+Is $⟦0⟧$ a redox reaction?
+@21yxpk2dmp
+Oxidation numbers change: <b>yes</b>.
+@2812w4gjg28
+No oxidation number changes: <b>no</b>.
+
+##### balancing-redox
+@1wgcjucwnxm  ; 0=Fig(flowSvg([T`1. write the two half-equ | 1=Ex(T`<p>Balance $\ce{MnO4- + Fe^2+ -> Mn | 2=Key(T`<p><b>Oxidation-number method:</b> | 3=Tip(T`<p>This reaction is the basis of r
+
+<p>A redox equation can be split into two <b>half-equations</b>, one for oxidation and one for reduction. The electrons lost must equal the electrons gained.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+@21li4n3fbfp
+1. write the two half-equations
+@1fdflv6j37p
+2. balance atoms other than O and H
+@19xmp5a2upf
+3. balance O with H₂O
+@1rhzo44db2x
+4. balance H with H⁺
+@1h0lglzuzo6
+5. balance charge with e⁻
+@24nlm9d3kln
+6. multiply so the electrons cancel, then add
+@1239de5tsak
+Six steps of the ion–electron method for balancing a redox equation in acidic solution
+@23bsgoghf15
+The ion–electron (half-reaction) method in acidic solution. In basic solution, finish in acid and then add $\ce{OH-}$ to both sides to turn every $\ce{H+}$ into $\ce{H2O}$.
+@qrs71jdrm
+<p>Balance $\ce{MnO4- + Fe^2+ -> Mn^2+ + Fe^3+}$ in acid.</p><p>Reduction: $\ce{MnO4- + 8H+ + 5e- -> Mn^2+ + 4H2O}$<br>Oxidation: $\ce{Fe^2+ -> Fe^3+ + e-}$ (× 5)<br>Sum: $$\ce{MnO4- + 8H+ + 5Fe^2+ -> Mn^2+ + 5Fe^3+ + 4H2O}$$ Check: charge $-1 + 8 + 10 = +17$ on the left, $+2 + 15 = +17$ on the right ✓.</p>
+@1jfu1sse9vy
+<p><b>Oxidation-number method:</b> find the change in oxidation number of the atoms oxidised and reduced, and choose coefficients so the total increase equals the total decrease; then balance the other atoms. In $\ce{Cu + HNO3 -> Cu(NO3)2 + NO + H2O}$: Cu 0 → +2 (up 2), N +5 → +2 (down 3), so 3 Cu for every 2 NO: $$\ce{3Cu + 8HNO3 -> 3Cu(NO3)2 + 2NO + 4H2O}$$</p>
+@g933hkf6sc
+<p>This reaction is the basis of redox titrations: purple $\ce{MnO4-}$ turns colourless as long as $\ce{Fe^2+}$ remains, so the first permanent pink colour marks the end point with no extra indicator needed.</p>
+@23e09lyb4a1  ; 0=h
+How many electrons (?) balance the half-equation $⟦0⟧$?
+@18ebsbyfvem  ; 0=n
+Make the charges equal on both sides: <b>⟦0⟧</b> electrons.
+@ki3it863gu  ; 0=a | 1=ea | 2=b | 3=eb | 4=b | 5=a
+$⟦0⟧$ gains ⟦1⟧ electrons per ion or molecule and $⟦2⟧$ loses ⟦3⟧. What is the mole ratio $⟦4⟧$ : $⟦5⟧$ in the balanced equation?
+@t36qm1erkk  ; 0=l / eb | 1=eb | 2=l / ea | 3=ea | 4=l | 5=l / eb | 6=l / ea
+Electrons must cancel: ⟦0⟧ × ⟦1⟧ = ⟦2⟧ × ⟦3⟧ = ⟦4⟧ electrons, so ⟦5⟧ : ⟦6⟧.
+@11yuvlfg5pp  ; 0=e | 1=parts[k]
+Balance $⟦0⟧$. What is the coefficient of $\ce{⟦1⟧}$?
+@ct59eepwil  ; 0=co.join(', ')
+Coefficients: ⟦0⟧.
+@18gxugwjrnq  ; 0=Q(V, 'mL') | 1=NUM(c) | 2=Q(Vf, 'mL')
+⟦0⟧ of ⟦1⟧ M $\ce{KMnO4}$ reacts with ⟦2⟧ of $\ce{Fe^2+}$ solution ($\ce{MnO4- + 5Fe^2+ + 8H+ -> Mn^2+ + 5Fe^3+ + 4H2O}$). What is $[\ce{Fe^2+}]$ (in M)?
+@1er3j4f4puo  ; 0=M(c) | 1=M(V / 1000) | 2=sciT(sig(c * V / 1000, 3)) | 3=sciT(sig(n, 3)) | 4=sciT(sig(n, 3)) | 5=M(cf)
+$n(\ce{MnO4-}) = ⟦0⟧ \times ⟦1⟧ = ⟦2⟧$ mol; × 5 $= ⟦3⟧$ mol $\ce{Fe^2+}$; $c = \frac{⟦4⟧}{0.025} = ⟦5⟧$ M.
+
+##### galvanic-cells
+@1ou2xe6p7ob  ; 0=Fig(galvanicCellSvg({ names: [T`anode`,  | 1=Key(T`<p><b>Cell notation:</b> anode on  | 2=FigW(eLadderSvg({ names: [T`stronger oxi | 3=Ex(T`<p>Ag/Cu cell: cathode Ag ($+0.80$  | 4=Tip(T`<p>Practical cells: the zinc–carbo
+
+<p>If the two halves of a redox reaction are separated, the electrons must travel through a wire: the reaction produces an electric current. This is a <b>galvanic</b> (voltaic) <b>cell</b>.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@1b5lcw86oft
+anode
+@27kv3sx24l1
+cathode
+@13fyqbvtozd
+salt bridge (KNO₃)
+@1xj1w22jle2
+ZnSO₄(aq)
+@28r2d90l3gn
+CuSO₄(aq)
+@1n2o1bh061p
+Daniell cell: a zinc electrode in zinc sulfate and a copper electrode in copper sulfate, joined by a wire through a voltmeter and by a salt bridge
+@1f6qg45t3pb
+The Daniell cell. Zinc is oxidised at the <b>anode</b> ($\ce{Zn -> Zn^2+ + 2e-}$); electrons flow through the wire to the copper <b>cathode</b>, where $\ce{Cu^2+ + 2e- -> Cu}$. The salt bridge lets ions move to keep both solutions neutral. Standard voltage 1.10 V.
+@1lamxq0vex7
+<p><b>Cell notation:</b> anode on the left, cathode on the right, | for a phase boundary, ‖ for the salt bridge: $$\ce{Zn(s) | Zn^2+(aq) || Cu^2+(aq) | Cu(s)}$$ <b>Standard electrode potentials</b> $E^\circ$ are measured against the standard hydrogen electrode (0.00 V) at 25 °C, 1 M, 1 bar. $$E^\circ_{\text{cell}} = E^\circ_{\text{cathode}} - E^\circ_{\text{anode}}$$ The reaction is spontaneous if $E^\circ_{\text{cell}} > 0$.</p>
+@fvk4z0t6li
+stronger oxidising agents
+@zm4k8kzin1
+stronger reducing agents
+@116lwg93cua
+Standard reduction potentials from lithium at minus 3.04 volts to fluorine at plus 2.87 volts
+@8wdrnyiw9i
+Standard reduction potentials (CRC Handbook). Species at the top left are the strongest oxidising agents ($\ce{F2}$); those at the bottom right are the strongest reducing agents (Li). A metal lower down displaces the ions of a metal higher up: zinc displaces copper, but copper does not displace zinc.
+@2amjz0l6zb
+<p>Ag/Cu cell: cathode Ag ($+0.80$ V), anode Cu ($+0.34$ V): $E^\circ_{\text{cell}} = 0.80 - 0.34 = 0.46$ V, reaction $\ce{Cu + 2Ag+ -> Cu^2+ + 2Ag}$.</p>
+@om8ibxi4kf
+<p>Practical cells: the zinc–carbon and alkaline dry cells (1.5 V, not rechargeable), the lead–acid car battery (2 V per cell, rechargeable), lithium-ion batteries in phones and electric cars (about 3.7 V), and hydrogen fuel cells ($\ce{2H2 + O2 -> 2H2O}$, 1.23 V).</p>
+@f3h42jhdrg  ; 0=a | 1=a | 2=M(ea) | 3=b | 4=b | 5=M(eb)
+A cell is made from ⟦0⟧/⟦1⟧ⁿ⁺ ($E^\circ = ⟦2⟧$ V) and ⟦3⟧/⟦4⟧ⁿ⁺ ($E^\circ = ⟦5⟧$ V). What is $E^\circ_{\text{cell}}$ (in V)?
+@gp0n87jnwz  ; 0=b | 1=M(eb) | 2=M(ea) | 3=M(E)
+The higher $E^\circ$ (⟦0⟧) is the cathode: $E^\circ_{\text{cell}} = ⟦1⟧ - (⟦2⟧) = ⟦3⟧$ V.
+@1ijqeulpf2b  ; 0=a | 1=b
+In a cell made of ⟦0⟧ and ⟦1⟧ electrodes, which metal is the anode?
+@or6c0vasqg  ; 0=a | 1=b
+In a cell made of ⟦0⟧ and ⟦1⟧ electrodes, which metal is the positive electrode (cathode)?
+@28lo8al7gvq
+both
+@1t73ver978  ; 0=a | 1=NUM(ea) | 2=a | 3=b
+⟦0⟧ has the lower $E^\circ$ (⟦1⟧ V), so it is oxidised: ⟦2⟧ is the anode (−) and ⟦3⟧ the cathode (+).
+@1o7aj8s9et  ; 0=m | 1=ion | 2=m | 3=NUM(em) | 4=ion | 5=NUM(ei)
+Will ⟦0⟧ metal react with a solution of ⟦1⟧ ions? ($E^\circ$: ⟦2⟧ ⟦3⟧ V, ⟦4⟧ ⟦5⟧ V)
+@20lfgnglj6h  ; 0=m | 1=ion | 2=M(sig(ei - em, 3))
+⟦0⟧ has the lower $E^\circ$, so it can reduce ⟦1⟧ ions: $E^\circ_{\text{cell}} = ⟦2⟧$ V > 0.
+@262rgce1jt4  ; 0=M(sig(ei - em, 3))
+$E^\circ_{\text{cell}} = ⟦0⟧$ V < 0: no reaction.
+@1nr4fiaf9m8
+zinc–copper
+@27mgteazd2c
+magnesium–silver
+@6uc0884gwk
+iron–copper
+@1ag25qo9wmh  ; 0=n
+Which is the correct cell notation for the ⟦0⟧ cell?
+@1m4wu1hl04h  ; 0=a
+Anode (lower $E^\circ$) on the left: $⟦0⟧$.
+@1i1f35br9l9
+What is the purpose of the salt bridge?
+@22ejqhm8rta
+To let ions flow so both solutions stay electrically neutral
+@rzbllwxkzz
+To carry electrons between the beakers
+@24469eh3n6y
+To increase the voltage
+@2fdwntz66vj
+To stop the reaction
+@1e3ndsiadw1
+Electrons go through the wire; ions move through the salt bridge.
+@1l2brktgwzv
+In a galvanic cell, where does oxidation occur?
+@1eaf7jyfr3
+at the anode
+@17gw9jcp50x
+at the cathode
+@43hpzx0n7o
+in the salt bridge
+@us87djj3du
+in the voltmeter
+@cqv52m02fg
+An Ox, Red Cat: oxidation at the anode, reduction at the cathode.
+
+##### electrolysis
+@2g5bqan2sfd  ; 0=Fig(electrolysisSvg({ names: [T`cathode  | 1=Key(T`<p><b>Molten</b> compound: the met | 2=Tbl([T`Electrolyte (inert electrodes)`,  | 3=Fm(T`Q = I\,t \qquad n(e^-) = \frac{Q}{F | 4=Ex(T`<p>A current of 2.00 A for 30.0 min | 5=Tip(T`<p>Uses: aluminium extraction from
+
+<p>In <b>electrolysis</b> an electric current forces a non-spontaneous redox reaction to happen. The liquid that conducts (a molten ionic compound or a solution of ions) is the <b>electrolyte</b>. Positive ions (cations) move to the negative electrode, the <b>cathode</b>, and are reduced; negative ions (anions) move to the positive <b>anode</b> and are oxidised.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+<h3>Faraday's laws</h3>
+⟦3⟧
+<p>where $F = 96\,485$ C/mol is the Faraday constant (the charge of one mole of electrons) and $z$ the number of electrons per ion. The mass deposited is proportional to the charge passed.</p>
+⟦4⟧
+⟦5⟧
+@1pltvortqmv
+cathode (−)
+@103rmsydpk3
+anode (+)
+@b4hyxcvdxa
+Electrolysis of copper chloride solution: copper forms at the cathode, chlorine gas bubbles at the anode
+@f545cehvn2
+Electrolysis of $\ce{CuCl2(aq)}$ with inert graphite electrodes: $\ce{Cu^2+ + 2e- -> Cu}$ at the cathode, $\ce{2Cl- -> Cl2 + 2e-}$ at the anode.
+@2em4ptht7n3
+<p><b>Molten</b> compound: the metal forms at the cathode and the non-metal at the anode ($\ce{NaCl(l)}$ gives Na and $\ce{Cl2}$).<br><b>Aqueous</b> solution: water can react too.<br>Cathode: a metal below hydrogen in reactivity (Cu, Ag) is deposited; otherwise (Na, K, Mg, Al) hydrogen is produced.<br>Anode (inert electrodes): chlorine, bromine or iodine from concentrated halides; otherwise ($\ce{SO4^2-}$, $\ce{NO3-}$) oxygen is produced from water.</p>
+@xgglav55ma
+Electrolyte (inert electrodes)
+@p28w8k8s0u
+At the cathode
+@1svme47pdeu
+At the anode
+@267m8vm3fbe
+$\ce{NaCl(aq)}$, concentrated
+@hjnsw9h7ud
+$\ce{H2SO4(aq)}$, dilute
+@1ebw8b1cjbs
+<p>A current of 2.00 A for 30.0 min through $\ce{CuSO4}$: $Q = 2.00 \times 1800 = 3600$ C; $n(e^-) = \frac{3600}{96\,485} = 0.0373$ mol; $n(\ce{Cu}) = 0.0187$ mol; $m = 0.0187 \times 63.5 = 1.18$ g.</p>
+@1jbsme2pmi8
+<p>Uses: aluminium extraction from molten alumina in cryolite (Hall–Héroult), the chlor-alkali industry ($\ce{Cl2}$, $\ce{H2}$ and NaOH from brine), purifying copper (impure anode, pure cathode), and electroplating (the object to be plated is the cathode).</p>
+@18f1riqgurw
+molten sodium chloride
+@7111yyrcu9
+molten lead(II) bromide
+@1hdpc1jotzi
+concentrated aqueous sodium chloride
+@r5x4ei5ga9
+aqueous copper(II) sulfate
+@16ydpblw2hc
+dilute sulfuric acid
+@g1f71m8lti
+aqueous potassium iodide
+@sei7iftj1s
+aqueous silver nitrate
+@2au59svlq8y
+molten aluminium oxide
+@2jm360zdr1  ; 0=el
+What forms at the cathode in the electrolysis of ⟦0⟧ (inert electrodes)?
+@28xiagr4gf3  ; 0=el
+What forms at the anode in the electrolysis of ⟦0⟧ (inert electrodes)?
+@1mv901us7ic  ; 0=c | 1=a
+Cathode: <b>⟦0⟧</b>; anode: <b>⟦1⟧</b>.
+@1a3qkivgf1z  ; 0=Q(I, 'A') | 1=t | 2=m0 | 3=z === 1 ? m0 + '⁺' : m0 + (z === 2 ? '²⁺ | 4=M0
+A current of ⟦0⟧ flows for ⟦1⟧ min, depositing ⟦2⟧ (⟦3⟧, $M = ⟦4⟧$ g/mol). What mass is deposited (in g)? ($F = 96\,485$ C/mol)
+@e7jd5plofb  ; 0=Q(I, 'A') | 1=NUM(h)
+How many moles of electrons pass when ⟦0⟧ flows for ⟦1⟧ h? ($F = 96\,485$ C/mol)
+@3m1rkwxeo4  ; 0=M(I) | 1=M(h * 3600) | 2=M(Q0) | 3=M(Q0) | 4=M(n)
+$Q = ⟦0⟧ \times ⟦1⟧ = ⟦2⟧$ C; $n = \frac{⟦3⟧}{96\,485} = ⟦4⟧$ mol.
+@b0pxno642g
+In electroplating a spoon with silver, the spoon is…
+@2zh13p3x9n
+the cathode
+@1cowk41siwx
+the anode
+@5cthmts42r
+the electrolyte
+@onzb1x2zp0
+the salt bridge
+@29kj4izlgo9
+$\ce{Ag+}$ ions are reduced on the spoon, so it must be the cathode.
+@1s0mk994xs7
+Why must an ionic compound be molten or dissolved to be electrolysed?
+@tt8osjr6x9
+So its ions can move to the electrodes
+@27hrldaject
+So it contains electrons
+@2a7pny0q7xp
+So it becomes covalent
+@24l0jcbh5lz
+So it can burn
+@24drdxmbwvi
+In the solid the ions are fixed in the lattice.
+@1ofoshq4346
+Why is aluminium extracted by electrolysis and not by heating with carbon?
+@1zkgnpgdrgy
+Aluminium is more reactive than carbon
+@fkab42bbxf
+Aluminium ore contains no oxygen
+@8d7sz5bdi9
+Carbon is too expensive
+@1psvdacdtd5
+Electrolysis is faster
+@2dddf4urxkg
+Carbon cannot reduce aluminium oxide.
+
+##### corrosion
+@1aqr4o37odd  ; 0=Fig(rustTubesSvg({ names: [T`air + water | 1=Key(T`<p>Rusting is electrochemical. Par | 2=Tbl([T`Method`, T`How it works`, T`Examp | 3=Tip(T`<p>Corrosion costs about 3–4% of t
+
+<p><b>Corrosion</b> is the slow destruction of a metal by reaction with its environment. The corrosion of iron is called <b>rusting</b>; rust is hydrated iron(III) oxide, $\ce{Fe2O3.xH2O}$. Unlike the thin oxide layer on aluminium, rust is flaky and falls off, so fresh iron keeps being exposed.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+@4r240h3lsz
+air + water: rusts
+@1axk27wuz6u
+boiled water + oil: no rust
+@1od1apqj1up
+dry air (drying agent): no rust
+@v7majn9s4q
+Three test tubes with iron nails: in air and water the nail rusts; in boiled water under oil and in dry air it does not
+@1rywvhowu80
+The classic experiment: iron rusts only when <b>both oxygen and water</b> are present. Boiling removes dissolved air and the oil layer keeps it out; calcium chloride keeps the air dry. Salt water speeds rusting up.
+@1xw3oxm9rz1
+<p>Rusting is electrochemical. Part of the iron surface acts as an anode: $\ce{Fe -> Fe^2+ + 2e-}$. The electrons flow through the metal to where oxygen is reduced: $\ce{O2 + 2H2O + 4e- -> 4OH-}$. $\ce{Fe^2+}$ and $\ce{OH-}$ form $\ce{Fe(OH)2}$, which is oxidised further to rust.</p>
+@13vl8cid5at
+How it works
+@24jmv0g1mvx
+barrier: paint, oil, grease, plastic
+@1cjvempssyu
+keeps out air and water
+@28q2vh11dau
+cars, bicycle chains, fences
+@blfsd4l129
+galvanising (zinc coating)
+@13wpjijpclg
+barrier, and zinc corrodes first even if scratched
+@f5bikhgtfh
+buckets, roofs, lamp posts
+@20c8d74diar
+sacrificial protection
+@w0h9fnas4w
+a more reactive metal (Zn, Mg) is joined to the iron and is oxidised instead
+@tamri8bfuu
+ships’ hulls, underground pipes
+@z1dvn89uak
+tin plating
+@gfds008dw2
+barrier only; if scratched the iron rusts faster
+@o15wwr5pzd
+food cans
+@dgr3ywpp5m
+alloying
+@1q1r3e7jy3q
+stainless steel contains chromium and nickel, which form a protective oxide layer
+@2eelcn0gpwt
+cutlery, sinks
+@xscoi82y14
+cathodic protection
+@ky2skd7j9x
+a power supply makes the iron the cathode
+@256uoix6fk9
+pipelines, bridges
+@268wcd5cbbt
+<p>Corrosion costs about 3–4% of the world's GDP every year (NACE International, 2016). Aluminium, zinc and chromium look reactive on paper but resist corrosion because a thin, tight oxide layer protects them.</p>
+@1u8cnjyooqy
+an iron nail in boiled water covered with oil
+@101tbjm1z4e
+an iron nail in dry air with calcium chloride
+@24idjuksogk
+an iron nail in tap water open to the air
+@f7unjhbds9
+an iron nail in salt water
+@wv2ebt8mfk
+yes, faster
+@1qdb1gtlhzj
+an iron nail wrapped in zinc in salt water
+@1uw4vu56lxi
+an iron nail wrapped in copper in salt water
+@1coq4cbmlxp  ; 0=c
+Does ⟦0⟧ rust?
+@18ju3d29xpf
+Rusting needs both water and oxygen, or zinc protects the iron: <b>no</b>.
+@myrou6m95v  ; 0=a === T`yes, faster` ? T`; salt or a les | 1=a
+Water and oxygen are present⟦0⟧: <b>⟦1⟧</b>.
+@18qhrmt72wa
+; salt or a less reactive metal speeds it up
+@1try5qx5b1o  ; 0=m
+Could ⟦0⟧ be used as a sacrificial metal to protect iron?
+@27p59z9x5og
+It is more reactive than iron, so it is oxidised first: <b>yes</b>.
+@24le95mx8db
+It is less reactive than iron, so the iron would corrode instead: <b>no</b>.
+@21crtojyqnn
+What two substances are needed for iron to rust?
+@11pebqglb30
+oxygen and water
+@2fh57r33jga
+oxygen and carbon dioxide
+@kwp1hj7v2o
+water and salt
+@1w9mywnzemy
+nitrogen and water
+@1ktmnpbvhhb
+Both oxygen and water.
+@1eg708g5482
+Why does galvanised iron not rust even when scratched?
+@1cklusp77cj
+Zinc is more reactive and corrodes instead of the iron
+@2agtyko7mb6
+Zinc is a better barrier than paint
+@1vy1d7gielt
+Zinc reacts with rust
+@22psig8x5w0
+Scratches fill with zinc oxide paint
+@y9pfp7pca0
+Sacrificial protection by the zinc.
+@5cmtw7r9gd
+What is rust?
+@10b5ku0qlzn
+hydrated iron(III) oxide
+@1rla4gpk0vm
+iron(II) chloride
+@tqmpfd014t
+iron carbonate
+@729oecnnz
+pure iron oxide Fe₃O₄
+@16qsiim577y
+Why does aluminium not corrode like iron?
+@1014u5omn8z
+A thin, tight oxide layer protects it
+@z5hs3ulcra
+It is unreactive
+@kznjmtnuc9
+It does not contain electrons
+@287uj001s8e
+It is always painted
+@5gc05k2lk3
+$\ce{Al2O3}$ sticks to the surface and seals it.

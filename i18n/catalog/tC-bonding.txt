@@ -1,0 +1,538 @@
+##### core
+@2afxu6firu6
+chloride
+@29x5rr4novs
+bromide
+@2en8obqcqgb
+iodide
+@255a4h7580n
+fluoride
+@e52vbesvqt
+oxide
+@15vxajxzclx
+sulfide
+@1vugsqh48h4
+nitride
+@10vck9e2zwa
+hydroxide
+@14wlf1yjmon
+nitrate
+@2bw3l5yoppa
+sulfate
+@im4wj73cqc
+carbonate
+@21fsm2d0rv3
+phosphate
+@ib6f9pxshy
+linear
+@1jgedwux2ej
+trigonal planar
+@21uk682h1sk
+tetrahedral
+@nb7pj2zbih
+trigonal pyramidal
+@k92iol2tbc
+bent
+@2foss6dr6ma
+trigonal bipyramidal
+@2ffiee4r6c3
+octahedral
+
+##### ionic-bonding
+@1uzxf3pio88  ; 0=Fig(ionicTransferSvg('Na', 'Cl', { label | 1=Fig(ionicTransferSvg('Mg', 'Cl', { nmCou | 2=Fig(latticeSvg({ label: T`Part of the so | 3=Key(T`<p><b>Writing formulas:</b> the to | 4=Tbl([T`Property of ionic compounds`, T`R | 5=Tip(T`<p>Transition metals can form more
+
+<p>The noble gases hardly react because their outer shell is full (8 electrons, or 2 for helium). Other atoms can reach a full outer shell, the <b>octet</b>, by losing, gaining or sharing electrons: this is what makes atoms bond.</p>
+<p>A metal atom with 1–3 outer electrons loses them easily; a non-metal atom with 5–7 outer electrons gains electrons easily. When they meet, electrons are <b>transferred</b> from the metal to the non-metal, and the oppositely charged ions attract each other. This electrostatic attraction is the <b>ionic bond</b>.</p>
+⟦0⟧
+⟦1⟧
+<h3>Ionic lattices</h3>
+<p>Ionic compounds do not form separate molecules. Each ion is surrounded by ions of opposite charge, repeated in all directions to make a <b>giant ionic lattice</b>. The formula only gives the <i>ratio</i> of ions.</p>
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+@1dif3jhm5jc
+Dot-and-cross diagram: sodium gives its one outer electron to chlorine, forming Na plus and Cl minus ions
+@sz4vnbqp78
+Sodium (crosses) gives its single outer electron to chlorine (dots): $\ce{Na+}$ and $\ce{Cl-}$ both end up with a full outer shell. (Only the outer shells are drawn.)
+@nfyb9gkqt
+Magnesium gives one electron to each of two chlorine atoms, forming Mg two plus and two Cl minus ions
+@nkzxju7xyq
+Magnesium has two outer electrons, so it needs two chlorine atoms: $\ce{MgCl2}$.
+@26mj46o20f1
+Part of the sodium chloride lattice: small sodium ions and large chloride ions alternate in a cube
+@1kv2ijg03id
+Part of the sodium chloride lattice: every $\ce{Na+}$ is surrounded by 6 $\ce{Cl-}$ and every $\ce{Cl-}$ by 6 $\ce{Na+}$.
+@lzi8oq05x9
+<p><b>Writing formulas:</b> the total positive charge must equal the total negative charge. Swap the charge numbers (the "criss-cross" rule) and simplify: $\ce{Al^3+}$ and $\ce{O^2-}$ give $\ce{Al2O3}$; $\ce{Ca^2+}$ and $\ce{NO3-}$ give $\ce{Ca(NO3)2}$ (brackets around a polyatomic ion taken more than once).</p><p><b>Naming:</b> metal first, then the non-metal ending in <i>-ide</i>: sodium chloride, magnesium oxide. Ions with oxygen keep their own names: sulfate $\ce{SO4^2-}$, nitrate $\ce{NO3-}$, carbonate $\ce{CO3^2-}$, hydroxide $\ce{OH-}$, phosphate $\ce{PO4^3-}$, ammonium $\ce{NH4+}$.</p>
+@1tnnx5q7iwg
+Property of ionic compounds
+@27uz1w1s5y2
+Reason
+@1a1lxmjgcyg
+high melting and boiling points
+@bub994r6ys
+many strong attractions between ions must be overcome
+@1lupx84ga17
+conduct electricity when molten or dissolved, not when solid
+@1xs88kff34m
+the ions must be free to move
+@ueccyd3koq
+often soluble in water
+@28j0taepdtd
+water molecules attract and surround the ions
+@5ipaiiaqwp
+hard but brittle
+@286ie9rb4lx
+a shift in the lattice brings like charges together, which repel
+@111kt4uv5rm
+<p>Transition metals can form more than one ion; the charge is written in Roman numerals: iron(II) chloride $\ce{FeCl2}$, iron(III) chloride $\ce{FeCl3}$.</p>
+@d0sxfq8o77  ; 0=c | 1=qc > 1 ? '^' + qc + '+' : '+' | 2=an | 3=qa > 1 ? '^' + qa + '-' : '-'
+What is the formula of the compound of $\ce{⟦0⟧⟦1⟧}$ and $\ce{⟦2⟧⟦3⟧}$?
+@10znzbwllue  ; 0=qa / gcd(qc, qa) | 1=qc | 2=qc / gcd(qc, qa) | 3=qa | 4=f
+Balance the charges: $⟦0⟧ \times (+⟦1⟧) = ⟦2⟧ \times (−⟦3⟧)$, so $\ce{⟦4⟧}$.
+@22hjnfkyzhw  ; 0=f
+What is the name of $\ce{⟦0⟧}$?
+@k4t1yvkq22  ; 0=nmT
+Metal first, then the negative ion: <b>⟦0⟧</b>.
+@uecyuw71ap  ; 0=elName(SYMBOLS[Z - 1])
+What is the charge on the ion formed by ⟦0⟧?
+@ywhwdc62vr  ; 0=v | 1=v > 1 ? 's' : '' | 2=v > 1 ? 'them' : 'it' | 3=v
+It has ⟦0⟧ outer electron⟦1⟧ and loses ⟦2⟧: charge <b>+⟦3⟧</b>.
+@16py08xpka2  ; 0=v | 1=8 - v | 2=8 - v
+It has ⟦0⟧ outer electrons and gains ⟦1⟧: charge <b>−⟦2⟧</b>.
+@llqcv13eg3  ; 0=f
+How many ions are there in one formula unit of $\ce{⟦0⟧}$?
+@1v8cnq3xcdz  ; 0=f | 1=p[c] | 2=elName(c) | 3=p[c] > 1 ? 's' : '' | 4=p[an] | 5=an | 6=p[an] > 1 ? 's' : '' | 7=n
+$\ce{⟦0⟧}$: ⟦1⟧ ⟦2⟧ ion⟦3⟧ and ⟦4⟧ ⟦5⟧ ion⟦6⟧, ⟦7⟧ in total.
+@16q23flew5k
+Why does solid sodium chloride not conduct electricity, while molten sodium chloride does?
+@2fcturvta4v
+In the solid the ions cannot move; when molten they can
+@w7snsmmh3c
+The solid has no ions
+@1w3ec96q1qy
+Molten NaCl contains free electrons
+@12gxkg9tv9q
+The solid is a covalent molecule
+@1kkq386yuj0
+Current is carried by moving charged particles: here, ions.
+@3by1dvp5cn
+What holds the ions together in an ionic lattice?
+@8k6jmq9e07
+Electrostatic attraction between oppositely charged ions
+@16ojh7bzqrj
+Shared pairs of electrons
+@2kv46cwn57
+A sea of delocalised electrons
+@2f9rboaqe7o
+Weak forces between molecules
+@1lew5171yxq
+That is the ionic bond.
+@1v7xobhxfn1
+Why do ionic compounds have high melting points?
+@zysu13znvl
+Many strong attractions between ions must be broken
+@294l6cx4w85
+Their molecules are very heavy
+@xiw6breu8n
+They contain metals
+@1jila4ut1hq
+Their electrons are delocalised
+@1g8erltbi4u
+The giant lattice holds strong ionic bonds in every direction.
+
+##### covalent-bonding
+@1w9jjwixf5g  ; 0=FigRow([[dotCrossSvg([['Cl', 0, 0, 'dot' | 1=Key(T`<p>One shared pair is a <b>single  | 2=FigRow([[molSvg([['N', 0, 0], ['N', 1.2, | 3=Key(T`<p>In a <b>coordinate (dative) bon | 4=Fig(bondSpectrumSvg({ names: [T`non-pola | 5=Tip(T`<p>The boundaries are not sharp: b
+
+<p>Two non-metal atoms both want to gain electrons, so neither gives electrons away. Instead they <b>share</b> a pair of electrons, one from each atom. A shared pair is a <b>covalent bond</b>; it holds the two nuclei together because both attract the shared electrons.</p>
+⟦0⟧
+⟦1⟧
+<h3>Lewis structures</h3>
+<p>A <b>Lewis structure</b> draws each shared pair as a line and each lone pair as two dots. To draw one: (1) add up all the valence electrons, (2) join the atoms with single bonds (the least electronegative atom usually in the middle, hydrogen always at the edge), (3) complete the octets of the outer atoms with lone pairs, (4) put leftover electrons on the central atom, and (5) if the centre still lacks an octet, turn lone pairs into double or triple bonds.</p>
+⟦2⟧
+⟦3⟧
+<h3>Bond polarity</h3>
+<p><b>Electronegativity</b> is the power of an atom to attract the shared electrons. When two different atoms share electrons, the more electronegative one pulls them closer and gets a small negative charge $\delta-$, the other $\delta+$: the bond is <b>polar</b>.</p>
+⟦4⟧
+⟦5⟧
+@4w825o7t45
+Dot-and-cross diagram of chlorine
+@15xwll6327g
+$\ce{Cl2}$: one shared pair
+@1bhy8xsw836
+Dot-and-cross diagram of water
+@1lewocdg1op
+$\ce{H2O}$: two bonds, two lone pairs
+@1ibj5k08k5h
+Dot-and-cross diagram of carbon dioxide
+@2feaiskyy4s
+$\ce{CO2}$: two double bonds
+@o1s64l5a3z
+Dot-and-cross diagrams: the overlapping circles are outer shells, and the electrons in the overlap are shared. Count the electrons around each atom: 8 (or 2 for hydrogen).
+@1jv11xiilv6
+<p>One shared pair is a <b>single bond</b> (C–H), two pairs a <b>double bond</b> (O=C=O), three pairs a <b>triple bond</b> (N≡N). Pairs of outer electrons that are not shared are called <b>lone pairs</b>. More shared pairs make a bond shorter and stronger.</p>
+@1j166j6eoi7
+Lewis structure of nitrogen, N triple bond N with a lone pair on each atom
+@1m1y797b48u
+$\ce{N2}$: 10 valence electrons
+@19qkna58l26
+Lewis structure of ammonia with one lone pair on nitrogen
+@26p7xb87649
+$\ce{NH3}$: 8 valence electrons
+@2gol5s82cfm
+Lewis structure of hydrogen cyanide, H–C triple bond N
+@2ab8rxdtaun
+$\ce{HCN}$: 10 valence electrons
+@2dk07zpn9m4
+Lewis structures: lines are shared pairs, dot pairs are lone pairs.
+@xfpwu2g6rp
+<p>In a <b>coordinate (dative) bond</b> both shared electrons come from the same atom. Example: $\ce{NH3 + H+ -> NH4+}$: the lone pair on nitrogen bonds to $\ce{H+}$. Once formed, it is identical to the other N–H bonds.</p>
+@1ffy26szqle
+non-polar
+@24aalzouaav
+polar covalent
+@ti2yjefnsc
+ionic
+@77s1ow9gm
+electronegativity difference (Pauling scale)
+@g7mqnxdss1
+A scale of electronegativity difference from non-polar covalent through polar covalent to ionic
+@wbo3mneeo0
+The larger the electronegativity difference, the more polar the bond. Above about 1.8 the bond is mostly ionic. Values: H 2.20, Cl 3.16, O 3.44, Na 0.93.
+@16dspf7n8cx
+<p>The boundaries are not sharp: bonding goes gradually from pure covalent to ionic. Use the difference as a guide, not a law.</p>
+@2ab74yq6cgb  ; 0=f
+How many valence electrons are there in total in $\ce{⟦0⟧}$?
+@89edeu653b  ; 0=Object.entries(parseFormula(f)).map(([e, | 1=v
+Add the valence electrons of all atoms: ⟦0⟧ = <b>⟦1⟧</b>.
+@x597u4207u  ; 0=f
+How many shared (bonding) pairs are there in $\ce{⟦0⟧}$?
+@23k2jo08l9e  ; 0=f | 1=b | 2=l
+$\ce{⟦0⟧}$ has ⟦1⟧ bonding pairs and ⟦2⟧ lone pairs.
+@1d52lto7m68  ; 0=f
+How many lone pairs are there in total in $\ce{⟦0⟧}$?
+@hx84edxr1j
+single
+@2cs35u6u7qa
+double
+@1pd765us0vs
+triple
+@17qmga68t88  ; 0=f
+What is the strongest (highest order) bond in $\ce{⟦0⟧}$?
+@1idjm55k06v  ; 0=f | 1=nm[t]
+$\ce{⟦0⟧}$ contains a <b>⟦1⟧</b> bond.
+@27lrys3zeca
+non-polar covalent
+@1bebs2437b  ; 0=x | 1=NUM(EN[ZOF[x] - 1]) | 2=y | 3=NUM(EN[ZOF[y] - 1]) | 4=x | 5=y
+Electronegativities: ⟦0⟧ ⟦1⟧, ⟦2⟧ ⟦3⟧. What type of bond forms between ⟦4⟧ and ⟦5⟧?
+@1hvep33vid4
+metallic
+@1j4p89mhh5h  ; 0=M(d) | 1=t
+Difference $= ⟦0⟧$: ⟦1⟧ (below 0.4 non-polar, 0.4–1.8 polar, above 1.8 ionic).
+@14u3h0krr9f  ; 0=x | 1=y
+In the bond ⟦0⟧–⟦1⟧, which atom carries the partial negative charge $\delta-$?
+@wev5hmo0eg
+neither, the bond is non-polar
+@157xdki57s  ; 0=neg | 1=NUM(EN[ZOF[neg] - 1])
+⟦0⟧ is more electronegative (⟦1⟧), so it pulls the shared pair and becomes $\delta-$.
+@1qr17l79fu5
+In which species is there a coordinate (dative) bond?
+@25cyndeim9d
+In $\ce{NH4+}$ the lone pair of nitrogen is shared with $\ce{H+}$.
+@24nab4amtak
+What is a covalent bond?
+@y9pwtr929u
+A shared pair of electrons between two atoms
+@1u7mrt29qw8
+The attraction between oppositely charged ions
+@1090x017b0
+The transfer of electrons from a metal to a non-metal
+@dwiosfo2ae
+The attraction between molecules
+@2915b4dhji0
+Both nuclei attract the shared pair.
+
+##### molecular-shapes
+@sv0tduc6ta  ; 0=FigRow([['linear', 'C', 'O', T`linear, 1 | 1=FigRow([['tetrahedral', 'C', 'H', T`$\ce | 2=Tbl([T`Domains`, T`Bonding pairs`, T`Lon | 3=Key(T`<p>A molecule is <b>polar</b> if i | 4=FigRow([[molSvg([['O', 0, 0], ['C', 1.3, | 5=Tip(T`<p>A polar liquid is attracted to 
+
+<p>Electron pairs around a central atom repel each other and spread out as far apart as possible. This is the <b>VSEPR</b> theory (valence shell electron pair repulsion). Count the electron domains around the central atom: every bond (single, double or triple) counts as one domain, and every lone pair counts as one.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+<h3>Polar and non-polar molecules</h3>
+⟦3⟧
+⟦4⟧
+⟦5⟧
+@5dgqnye9ux
+linear, 180° ($\ce{CO2}$)
+@1w3fv4pqqoa
+trigonal planar, 120° ($\ce{BF3}$)
+@168muinarah
+tetrahedral, 109.5° ($\ce{CH4}$)
+@2g5yv3w4esv
+octahedral, 90° ($\ce{SF6}$)
+@1mouahengcv
+Shapes with no lone pairs on the central atom. A wedge points towards you, a dashed bond points away.
+@1e4rnkxxc7n
+$\ce{CH4}$: 4 bonds, 109.5°
+@1huagowhsn9
+$\ce{NH3}$: 3 bonds + 1 lone pair, 107°
+@2ed0f400hum
+$\ce{H2O}$: 2 bonds + 2 lone pairs, 104.5°
+@1b4ejc19lez
+Four electron domains each time, but lone pairs repel more strongly than bonding pairs, so each lone pair squeezes the bond angle by about 2.5°.
+@u30alyxizl
+Domains
+@2ezr41nvgrv
+Bonding pairs
+@24iy679bza4
+Lone pairs
+@2ei4n20mq9y
+Angle
+@1k6mekhcxt3
+90° and 120°
+@1zpsy3a2ljt
+<p>A molecule is <b>polar</b> if it has polar bonds <i>and</i> they do not cancel out. In $\ce{CO2}$ the two C=O dipoles point in opposite directions and cancel: $\ce{CO2}$ is non-polar. In $\ce{H2O}$ the bent shape means they add up: water is polar. Symmetrical shapes with identical outer atoms ($\ce{CH4}$, $\ce{BF3}$, $\ce{CCl4}$, $\ce{SF6}$) are non-polar.</p>
+@csuy5fotqn
+Carbon dioxide: the two dipoles cancel
+@hwwnlu36ff
+$\ce{CO2}$: dipoles cancel, non-polar
+@11r63oesm8r
+Water: the two dipoles add up
+@14kma3jnj6e
+$\ce{H2O}$: dipoles add, polar
+@sqok1otwgj
+Bond polarity plus shape decide whether the whole molecule is polar.
+@15ngjyw9udv
+<p>A polar liquid is attracted to a charged rod: a thin stream of water bends towards a rubbed plastic comb, while a stream of hexane does not.</p>
+@22wf4fxzi21  ; 0=f
+What is the shape of a $\ce{⟦0⟧}$ molecule?
+@28n3c8lqx2j  ; 0=v[1] | 1=v[1] > 1 ? 's' : '' | 2=v[2] | 3=v[2] === 1 ? '' : 's' | 4=a | 5=tr(v[4])
+The central atom has ⟦0⟧ bonding domain⟦1⟧ and ⟦2⟧ lone pair⟦3⟧: <b>⟦4⟧</b>, ⟦5⟧.
+@mxxpuqir6u  ; 0=f
+What is the bond angle in $\ce{⟦0⟧}$?
+@wwjd5yh55a  ; 0=b | 1=l | 2=shapeName(sh) | 3=ang
+⟦0⟧ bonding pairs and ⟦1⟧ lone pairs: ⟦2⟧, <b>⟦3⟧</b>.
+@11ouh7r6cmb  ; 0=f
+Is $\ce{⟦0⟧}$ a polar molecule?
+@2377erd9rpv
+yes
+@5lqm3x6p6i
+no
+@25c2ov24t7g  ; 0=shapeName(sh)
+It is ⟦0⟧: the bond dipoles do not cancel, so it is <b>polar</b>.
+@seqcfu7bwo  ; 0=shapeName(sh)
+It is ⟦0⟧ and symmetrical: the bond dipoles cancel, so it is <b>non-polar</b>.
+@mwuy893m9c  ; 0=f
+How many lone pairs are on the central atom of $\ce{⟦0⟧}$?
+@16mue43afe3  ; 0=f | 1=b | 2=l | 3=l === 1 ? '' : 's'
+$\ce{⟦0⟧}$: ⟦1⟧ bonding domains and <b>⟦2⟧</b> lone pair⟦3⟧ on the centre.
+@d7w3l49pv  ; 0=f
+How many electron domains surround the central atom of $\ce{⟦0⟧}$?
+@25wibhmtf7t  ; 0=b | 1=l | 2=b + l
+⟦0⟧ bonding + ⟦1⟧ lone = <b>⟦2⟧</b> domains.
+@zxq1f68wx7
+Why is the bond angle in water smaller than in methane?
+@q6h166z24r
+Lone pairs repel more strongly than bonding pairs
+@1v75zn235sb
+Oxygen is larger than carbon
+@g4v74rc081
+Water has double bonds
+@47iuw17va7
+Hydrogen atoms attract each other
+@1itto2pe6gm
+Two lone pairs push the O–H bonds together: 104.5° instead of 109.5°.
+@xcpkc6p9ph
+CO₂ has polar bonds. Why is the molecule non-polar?
+@205bsi4x1qz
+It is linear, so the two dipoles cancel
+@13dq8dztzk0
+Carbon and oxygen have the same electronegativity
+@1615n0554je
+It has no lone pairs
+@kppex06fux
+It is a gas
+@stsxfqecj1
+Equal dipoles in opposite directions cancel.
+
+##### forces-structures
+@g454j7iw1p  ; 0=Fig(metallicSvg({ label: T`Metallic bond | 1=FigRow([[diamondSvg({ label: T`Diamond:  | 2=Tbl([T`Force`, T`Between`, T`Strength`,  | 3=Fig(hbondSvg({ label: T`Water molecules  | 4=Fig(lineChartSvg([{ pts: [[2, -161.5], [ | 5=Tbl([T`Structure`, T`Particles`, T`Melti | 6=Tip(T`<p>Ice floats because hydrogen bon
+
+<p>Bonds <i>inside</i> a substance are only part of the story. How a substance behaves depends on its <b>structure</b>: what particles it is made of and what holds them together.</p>
+⟦0⟧
+⟦1⟧
+<h3>Forces between molecules</h3>
+<p>Simple molecular substances ($\ce{H2O}$, $\ce{CO2}$, $\ce{I2}$) have strong covalent bonds inside each molecule but much weaker <b>intermolecular forces</b> between molecules. Melting or boiling breaks only these weak forces, so the melting and boiling points are low.</p>
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+⟦6⟧
+@12wes8pcd4v
+Metallic bonding: positive metal ions in a sea of delocalised electrons
+@1atjtqol847
+<b>Metallic bonding:</b> metal atoms release their outer electrons into a "sea" of delocalised electrons that holds the positive ions together. The free electrons conduct electricity and heat; the layers of ions can slide, so metals bend instead of shattering.
+@bgx9plg5ym
+Diamond: every carbon atom bonded to four others
+@n6qnovqr0x
+diamond
+@opgrjhddht
+Graphite: layers of hexagons with weak forces between the layers
+@11oujjks9lh
+graphite
+@lodkpe2vlr
+<b>Giant covalent</b> structures: in diamond each carbon forms 4 strong bonds in three dimensions (very hard, no conduction). In graphite each carbon forms 3 bonds in flat layers; the spare electron is delocalised (conducts), and the layers slide over each other (soft, used in pencils).
+@1f5j6q3piiz
+Force
+@zjn1u0b40k
+Between
+@1wd55simjdl
+Strength
+@y3ktksqjsd
+London (dispersion) forces
+@1s4fjorh3pp
+all molecules: temporary dipoles from moving electrons
+@vm3zs0yb75
+weak; grow with the number of electrons
+@1vpjm7sl5p7
+$\ce{I2}$, $\ce{CH4}$, noble gases
+@sastkkb0o6
+dipole–dipole forces
+@1bgytot8k75
+polar molecules with permanent dipoles
+@kxe6zg5omw
+moderate
+@1oqaxcou599
+$\ce{HCl}$, propanone
+@1g3ups2e58v
+hydrogen bonds
+@zljw3zshfq
+H on N, O or F attracted to a lone pair on N, O or F of another molecule
+@8o03t5zhr0
+the strongest of the three
+@1dcfdmma4ym
+$\ce{H2O}$, $\ce{NH3}$, $\ce{HF}$, alcohols
+@ufb6c393bn
+Water molecules joined by hydrogen bonds, shown as dashed lines
+@uabn5jmxim
+Hydrogen bonds (dashed) between water molecules: each H of one molecule is attracted to a lone pair on the O of another.
+@1vfxi7eu8yc
+period
+@ia3voxd8yc
+boiling point (°C)
+@iy5xvq5ydl
+Boiling points of the hydrides of groups 14 to 17: water, hydrogen fluoride and ammonia are far higher than the trend
+@1fsag2ml26j
+Boiling points of the hydrides of groups 14–17 (CRC Handbook). Down each group the boiling point rises with more electrons (stronger London forces), but $\ce{H2O}$, $\ce{HF}$ and $\ce{NH3}$ are far above the trend because of hydrogen bonding. Without it, water would boil at about −80 °C.
+@ykrbhqa3s6
+Structure
+@1xurynzfy21
+Melting point
+@1ioae5lr0bq
+Conducts?
+@a34su6hhg1
+giant ionic
+@1c2wkgptp12
+ions
+@1k3302f0f4y
+high
+@1u9t2pxgp87
+when molten or dissolved
+@2dbc7h0tw8n
+giant covalent
+@1pirupdyior
+atoms
+@tjd4ylkr0t
+very high
+@104gd94ecbz
+no (graphite: yes)
+@1fge6dwgxvl
+diamond, graphite, $\ce{SiO2}$
+@2sbqwh4duv
+positive ions + delocalised electrons
+@1orqnux5zwg
+usually high
+@25vuda1ivl4
+yes, also when solid
+@21vclz3pysn
+simple molecular
+@1xp9pa1yn8p
+molecules
+@1hb82wxfj00
+low
+@u2sm8bp87d
+<p>Ice floats because hydrogen bonds hold the water molecules in an open lattice that is less dense than liquid water; that is why lakes freeze from the top down and fish survive the winter.</p>
+@25z5xr9gy9o  ; 0=sub
+What type of structure does ⟦0⟧ have?
+@16zp0n0lb83
+London forces only
+@kn3yp3iya2
+dipole–dipole forces (and London forces)
+@29bt9gq03fz
+hydrogen bonds (and London forces)
+@yns1v0f4y1  ; 0=f
+What is the strongest type of intermolecular force between $\ce{⟦0⟧}$ molecules?
+@1tcfujv2hgy
+ionic bonds
+@102c269tx8n
+H is bonded to N, O or F: <b>hydrogen bonds</b>.
+@8eybusi32g
+The molecule is polar but has no H on N, O or F: <b>dipole–dipole</b>.
+@o35bs2g98k
+The molecule is non-polar: only <b>London forces</b>.
+@1yo0jzrm4h2  ; 0=a | 1=b
+Which has the higher boiling point: $\ce{⟦0⟧}$ or $\ce{⟦1⟧}$?
+@19jt8dk9l6  ; 0=hi | 1=NUM(Math.max(ea, eb)) | 2=NUM(Math.min(ea, eb))
+$\ce{⟦0⟧}$ forms hydrogen bonds: ⟦1⟧ °C against ⟦2⟧ °C.
+@kq72s9wat4  ; 0=hi | 1=NUM(Math.max(ea, eb)) | 2=NUM(Math.min(ea, eb))
+$\ce{⟦0⟧}$ has more electrons, so stronger London forces: ⟦1⟧ °C against ⟦2⟧ °C.
+@y7swwgpl0v
+Why does graphite conduct electricity while diamond does not?
+@1s4l5jz7a2u
+Each carbon in graphite has one delocalised electron
+@19k56xu8s3k
+Graphite contains ions
+@kwx5dqdlm1
+Diamond has no electrons
+@1fgvwf994cl
+Graphite is a metal
+@12eq4p1ad8m
+In graphite each carbon uses 3 electrons for bonds; the fourth is free to move along the layers.
+@1789xqukt00
+Why can metals be bent and hammered into shape?
+@ff26qg7gf7
+Layers of ions can slide over each other while the electron sea holds them
+@23oit7r9qn8
+Metal atoms are very small
+@1xh58c9cw
+Metals have weak bonds
+@1ayljtj7wng
+Metals contain molecules
+@uq4mivt9cb
+The delocalised electrons keep bonding the ions after the layers move.
+@1zzxk0cbt03
+When water boils, what is broken?
+@t5hts0oodb
+Hydrogen bonds between the molecules
+@11yobh25vfh
+O–H covalent bonds
+@ut8tstpi32
+Ionic bonds
+@241njkzhop3
+The oxygen atoms
+@4o4it8l9l7
+Boiling separates molecules; the molecules themselves stay intact.
+@2gaish5a1u9
+Why is ice less dense than liquid water?
+@dyfzadv8ut
+Hydrogen bonds hold the molecules in an open lattice
+@1l7uo3u594y
+Ice contains air
+@1qd0budj6m2
+Molecules in ice are larger
+@2fwiwg74qig
+Ice has no hydrogen bonds
+@keft6uwvs8
+The open hexagonal lattice leaves more space between molecules.

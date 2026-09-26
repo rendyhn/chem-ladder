@@ -1,0 +1,599 @@
+##### core
+@1haurkm8qu1
+pale yellow gas
+@dbzw02o5kh
+yellow-green gas
+@1hprk4w7jti
+red-brown liquid
+@b2t6xjtovs
+grey-black solid
+
+##### group-chemistry
+@10jvbvyk95x  ; 0=Key(T`<p><b>Group 1, the alkali metals</ | 1=Fig(barChartSvg([['Li', 180.5], ['Na', 9 | 2=Key(T`<p><b>Group 2, the alkaline earth  | 3=Tbl([T`Halogen`, T`Appearance at room te | 4=Key(T`<p><b>Group 17, the halogens</b>,  | 5=Tip(T`<p>Test for halide ions: add dilut
+
+<p>Elements in a group have the same number of outer electrons, so they react in similar ways, with a steady trend down the group.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+@22ge2hmt0uy
+<p><b>Group 1, the alkali metals</b> (Li, Na, K, Rb, Cs): soft, low-density metals stored under oil. They react with water to give an alkaline hydroxide and hydrogen: $$\ce{2Na + 2H2O -> 2NaOH + H2}$$ Reactivity <b>increases</b> down the group: the outer electron is further from the nucleus and more shielded, so it is lost more easily. Lithium fizzes, sodium melts into a ball and whizzes around, potassium ignites with a lilac flame.</p>
+@1wgrt86fkgh
+melting point (°C)
+@ey79v4bxtj
+Melting points of the alkali metals fall from lithium 180 degrees to caesium 28 degrees
+@1mwh143krdl
+Melting points of the alkali metals fall down the group (CRC Handbook): the metallic bonding gets weaker as the atoms get larger. Caesium melts on a hot day.
+@1e9jcf0gjku
+<p><b>Group 2, the alkaline earth metals</b> (Be–Ba) are less reactive than group 1 but show the same trend: $\ce{Ca + 2H2O -> Ca(OH)2 + H2}$, while magnesium reacts only with steam. Their hydroxides get more soluble down the group; their sulfates less soluble ($\ce{BaSO4}$ is used as a "barium meal" for X-rays).</p>
+@20rt3x01t7c
+Halogen
+@1t6j45aspo8
+Appearance at room temperature
+@1uvijy09e30
+Boiling point (°C)
+@to70sp2ywh
+<p><b>Group 17, the halogens</b>, exist as diatomic molecules. Reactivity <b>decreases</b> down the group: the atoms are larger, so they attract an extra electron less strongly. A more reactive halogen <b>displaces</b> a less reactive one from its salts: $$\ce{Cl2 + 2KBr -> 2KCl + Br2}$$ (the colourless solution turns orange). <b>Group 18, the noble gases</b>, have full outer shells and are very unreactive: helium in balloons, neon in signs, argon in light bulbs and welding.</p>
+@2emklezbb07
+<p>Test for halide ions: add dilute nitric acid, then silver nitrate. Chloride gives a white precipitate (AgCl), bromide cream (AgBr), iodide yellow (AgI).</p>
+@20m519bul2z  ; 0=elName(a) | 1=elName(b)
+Which is more reactive: ⟦0⟧ or ⟦1⟧?
+@28jne3vlqji
+they are equally reactive
+@1f1fdddkuez  ; 0=elName(hi)
+Group 1 reactivity increases down the group: <b>⟦0⟧</b>.
+@1nmkwa0so5m  ; 0=elName(hi)
+Group 17 reactivity decreases down the group: <b>⟦0⟧</b>.
+@127znguxehe  ; 0=x | 1=s0
+Does $\ce{⟦0⟧}$ react with a solution of $\ce{⟦1⟧}$?
+@20jh60a277y  ; 0=x
+$\ce{⟦0⟧}$ is more reactive than the halogen in the salt, so it displaces it: <b>yes</b>.
+@byxypiwe76  ; 0=x
+$\ce{⟦0⟧}$ is less reactive, so no displacement: <b>no</b>.
+@gzdt5kizwe  ; 0=elName(m)
+What are the products when ⟦0⟧ reacts with water?
+@77aszs5arb  ; 0=p
+Metal + water → hydroxide + hydrogen: $\ce{⟦0⟧}$.
+@2e228a0razw
+white
+@2ahmq6m147u
+cream
+@gzdpcoz7av  ; 0=x
+What colour precipitate forms when silver nitrate is added to a solution of $\ce{⟦0⟧}$ ions (acidified)?
+@1byu325m723  ; 0=elName(e)
+What does ⟦0⟧ look like at room temperature?
+
+##### transition-metals
+@ae4fg953y0  ; 0=Tbl([T`Property`, T`Example`], [[T`varia | 1=Fig(swatchSvg([['#2f7fd8', 'Cu²⁺', T`blu | 2=Key(T`<p>In a <b>complex ion</b>, <b>lig | 3=FigRow([[shapeSvg('octahedral', { centre | 4=Tip(T`<p>Colour arises because ligands s
+
+<p>The <b>transition metals</b> fill a $d$ subshell. Compared with group 1 and 2 metals they are hard, dense and have high melting points, and they show four special properties:</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@3x5ajmidem
+variable oxidation states
+@16btirusy15
+Fe: +2 and +3; Mn: +2 to +7 ($\ce{MnO4-}$ is +7)
+@1sa9y738jqm
+coloured compounds
+@1b2d8zxqym4
+$\ce{CuSO4.5H2O}$ blue, $\ce{Fe^3+}$ yellow-brown, $\ce{MnO4-}$ purple
+@24m3t1fqxj7
+complex ions
+@16lf38gv5tu
+$\ce{[Cu(H2O)6]^2+}$, $\ce{[Cu(NH3)4(H2O)2]^2+}$ deep blue
+@29a669rguh3
+catalysts
+@21h270imnj7
+Fe (Haber), $\ce{V2O5}$ (Contact), Pt/Rh (catalytic converters), Ni (hydrogenation)
+@wiipalu8j1
+pale green
+@lwkvm01khi
+yellow-brown
+@ni4vcuiifl
+purple
+@42w3hbqlre
+orange
+@1cztwq15gbv
+Colours of aqueous transition-metal ions: copper blue, iron two plus pale green, iron three plus yellow-brown, and so on; zinc is colourless
+@1csqvi442ua
+Typical colours of transition-metal ions in water. $\ce{Zn^2+}$ (full $d^{10}$) and $\ce{Sc^3+}$ ($d^0$) are colourless.
+@118upeko3y6
+<p>In a <b>complex ion</b>, <b>ligands</b> (molecules or ions with a lone pair, such as $\ce{H2O}$, $\ce{NH3}$, $\ce{Cl-}$, $\ce{CN-}$) form coordinate bonds to a central metal ion. The number of coordinate bonds is the <b>coordination number</b>: 6 gives an octahedral complex, 4 a tetrahedral or square planar one, 2 a linear one ($\ce{[Ag(NH3)2]+}$).</p>
+@9nuqub488m
+Octahedral complex with six water ligands
+@c5nydjro3v
+$\ce{[Cu(H2O)6]^2+}$: octahedral, 6
+@bp05njmrse
+Tetrahedral complex with four chloride ligands
+@14t1t20bt4l
+$\ce{[CuCl4]^2-}$: tetrahedral, 4
+@1695jdh33to
+Linear complex with two ammonia ligands
+@s0fhoxdlco
+$\ce{[Ag(NH3)2]+}$: linear, 2
+@1zwpknh7hl
+Shapes of complex ions (metal ion in the centre).
+@6polip9zv6
+<p>Colour arises because ligands split the $d$ orbitals into two energy levels. The complex absorbs light of the energy gap and we see the complementary colour: $\ce{[Cu(H2O)6]^2+}$ absorbs orange-red light, so it looks blue. Changing the ligand changes the gap and the colour.</p>
+@o7x1gsqet2  ; 0=m | 1=c
+What is the oxidation state of ⟦0⟧ in $\ce{⟦1⟧}$?
+@dnh2422cpv  ; 0=q
+Sum the ligand charges (H₂O, NH₃: 0; Cl⁻, CN⁻: −1) and set it equal to the overall charge: <b>+⟦0⟧</b>.
+@1kxrto02xd8  ; 0=c
+What is the coordination number in $\ce{⟦0⟧}$?
+@uhn46txeje  ; 0=n | 1=n
+⟦0⟧ ligands each form one coordinate bond: <b>⟦1⟧</b>.
+@1qzz9nesqnh  ; 0=c
+What is the shape of $\ce{⟦0⟧}$?
+@1nizh3917hx  ; 0=n | 1=sh
+Coordination number ⟦0⟧: <b>⟦1⟧</b>.
+@2jumk45il5  ; 0=i
+What colour is an aqueous solution of $\ce{⟦0⟧}$?
+@1kuvy5juyfj
+the Haber process
+@156lztif8i5
+the Contact process
+@1cldk82qif5
+vanadium(V) oxide
+@lxn6z89gt
+hydrogenation of vegetable oils
+@2e8jws03vun
+catalytic converters
+@2567u8ov6ws
+platinum and rhodium
+@75k2us8gfv
+decomposition of hydrogen peroxide
+@bidkx2z4nw
+manganese(IV) oxide
+@261a6ry66ei  ; 0=p
+Which catalyst is used for ⟦0⟧?
+@uay8semd5e
+What is a ligand?
+@acxocetcao
+A molecule or ion with a lone pair that forms a coordinate bond to a metal ion
+@k0p1dyf3fb
+A positive metal ion
+@1c9vgiqjae9
+Any molecule in solution
+@2aaawt46m6d
+A type of catalyst
+@d3z2xiam61
+Why are Zn²⁺ compounds white or colourless?
+@15dumlbsbc3
+Zn²⁺ has a full d subshell, so no d–d electron jumps can occur
+@ya36bgonqa
+Zinc is not a metal
+@1pwuagp0hjz
+Zn²⁺ has no electrons
+@11o06om9z9r
+Zinc absorbs all light
+@19x7xdzd23p
+$3d^{10}$: no gap to jump across.
+
+##### metals-extraction
+@1p1knemleoh  ; 0=Fig(stepsSvg(REACT, { W: 470, down: true | 1=Tbl([T`Position`, T`Extraction method`,  | 2=Fig(blastFurnaceSvg({ names: [T`iron ore | 3=Key(T`<p><b>Alloys</b> are mixtures of a | 4=Tip(T`<p>Recycling aluminium uses only a
+
+<p>Metals can be placed in a <b>reactivity series</b> by how vigorously they react with water, acids and oxygen. Carbon and hydrogen are included as reference points.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@kjdaxvflo
+Reactivity series from potassium, the most reactive, down to gold, the least
+@1qc7u0mwo1t
+The reactivity series: most reactive (K) on the left, least reactive (Au) on the right. A metal displaces any metal to its right from its compounds: $\ce{Fe + CuSO4 -> FeSO4 + Cu}$.
+@2e6w9jlixlo
+Position
+@1izsp3gsltb
+Extraction method
+@2bgzjv6ybev
+above carbon
+@1f29naeytfy
+electrolysis of the molten compound (expensive: lots of electricity)
+@16wax6v3cih
+below carbon
+@27j0vvc5g8a
+reduction by heating with carbon (coke)
+@13hyu8bb19b
+very unreactive
+@20j2x5zmcf7
+found as the element (native)
+@28kxrhg3bpi
+iron ore, coke, limestone
+@1hcb5hjfs4
+hot air
+@16tk55ei8i9
+waste gases
+@2fj1gt2m1pi
+slag
+@cssvfshnr
+molten iron
+@emca7uoakr
+A blast furnace: raw materials enter at the top, hot air is blown in near the bottom, molten iron and slag are tapped off
+@17hx7041jkp
+The blast furnace. Coke burns to give heat and carbon monoxide, which reduces iron(III) oxide to iron. Limestone removes sandy impurities as slag: $\ce{CaCO3 -> CaO + CO2}$, $\ce{CaO + SiO2 -> CaSiO3}$.
+@rzywpn7tdc
+<p><b>Alloys</b> are mixtures of a metal with other elements. The different-sized atoms disrupt the layers, so they slide less easily: alloys are harder and stronger. Steel (iron + carbon, stainless steel adds Cr and Ni), brass (Cu + Zn), bronze (Cu + Sn), solder (Sn + Pb or Ag), duralumin (Al + Cu), 18-carat gold (75% Au).</p>
+@27ssn0az5p3
+<p>Recycling aluminium uses only about 5% of the energy needed to extract it from bauxite (International Aluminium Institute), and it saves ore and reduces waste.</p>
+@132dwa6w32z  ; 0=elName(hi)
+⟦0⟧ is higher in the reactivity series.
+@1i332bzt11u  ; 0=elName(m) | 1=elName(i)
+Will ⟦0⟧ displace ⟦1⟧ from a solution of its salt?
+@11r11xtbyzy  ; 0=elName(m)
+⟦0⟧ is more reactive: <b>yes</b>.
+@ih3u3v8ati  ; 0=elName(m)
+⟦0⟧ is less reactive: <b>no</b>.
+@bv6qr07n4m
+electrolysis
+@2e8wnk6bspd
+reduction with carbon
+@l33helr310
+found native (uncombined)
+@13x9fq65epk  ; 0=elName(m)
+How is ⟦0⟧ usually obtained?
+@23zmjtwm2kj
+brass
+@e1vgz8c4iy
+copper and zinc
+@15ht6dhjdfa
+bronze
+@11xmie5vwn3
+copper and tin
+@1wx1582nq2p
+steel
+@2fhkopp8vea
+iron and carbon
+@mlfhgj3g0e
+stainless steel
+@nqyx39602u
+iron, chromium and nickel
+@vrle3appv7
+solder
+@9gb1d86th7
+tin and lead (or silver)
+@122ivdrnmj4
+duralumin
+@2ca1g3rng8v
+aluminium and copper
+@279399g804d  ; 0=a
+What is ⟦0⟧ made of?
+@2eti6ywnhpe
+What reduces iron(III) oxide in the blast furnace?
+@1c286532acf
+carbon monoxide
+@1duouijf7vt
+limestone
+@wfqgixof0l
+Why is limestone added to the blast furnace?
+@47fyya2pso
+To remove acidic impurities such as sand as slag
+@1f4azhhnodl
+To reduce the iron ore
+@71eb4mcq3
+To provide heat
+@vm90xdl2xe
+To make steel
+@b9ar5ijqsw
+$\ce{CaO + SiO2 -> CaSiO3}$ (slag).
+@gs0akbfsne
+Why are alloys harder than pure metals?
+@217mu3kmj64
+Different-sized atoms stop the layers sliding easily
+@3157qyq9fi
+They contain no metal atoms
+@2bjex9dypy
+They have stronger covalent bonds
+@19r3o39g3ph
+They are always heated
+@6vnt82mh18
+The regular layers are disrupted.
+
+##### nuclear-chemistry
+@mavqx3xkwa  ; 0=Tbl([T`Radiation`, T`What it is`, T`Char | 1=Fig(penetrationSvg({ names: [T`alpha`, T | 2=Key(T`<p>In a <b>nuclear equation</b> th | 3=Fig(stabilitySvg({ names: [T`β⁻ decay (t | 4=Fig(planeSvg({ W: 420, H: 240, x: [0, 5. | 5=Key(T`<p><b>Fission:</b> a heavy nucleus | 6=Tip(T`<p>Uses: medical tracers (Tc-99m, 
+
+<p>Some nuclei are unstable and break down on their own, giving out <b>radiation</b>. This is <b>radioactive decay</b>, discovered by Henri Becquerel in 1896 and studied by Marie and Pierre Curie.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+⟦6⟧
+@2fv9ci45ruf
+Radiation
+@1b00t4z3zq2
+What it is
+@1hlp8fxwqv0
+Charge
+@15gpepd9u51
+Stopped by
+@1cmzmb9wwpz
+Change to nucleus
+@6vtuk0r3rb
+alpha α
+@1h3wuzchmej
+helium nucleus $^{4}_{2}\mathrm{He}$
+@ix56n3e0q0
+paper, a few cm of air
+@kzxo5hab0k
+beta β⁻
+@292sugrknnp
+fast electron $^{0}_{-1}e$
+@1trt70rptzw
+a few mm of aluminium
+@1182ko0xzk4
+$A$ same, $Z + 1$ (n → p + e⁻)
+@1afcf1r7b98
+gamma γ
+@1pzpqfmnfog
+electromagnetic wave
+@u07qko24nb
+thick lead, concrete
+@17fqencsh9r
+no change in $A$ or $Z$
+@11419wyk0bk
+alpha
+@gp4ukuc2g2
+beta
+@25rymer5znc
+gamma
+@3ux99rswho
+paper
+@1aqt31fehvd
+Penetrating power: alpha is stopped by paper, beta by aluminium, gamma only reduced by thick lead
+@vfeh2qfi1f
+Alpha is the most ionising but least penetrating; gamma is the most penetrating.
+@pabdgoic1n
+<p>In a <b>nuclear equation</b> the mass numbers and atomic numbers must balance on both sides: $$^{238}_{92}\mathrm{U} \to {}^{234}_{90}\mathrm{Th} + {}^{4}_{2}\mathrm{He} \qquad ^{14}_{6}\mathrm{C} \to {}^{14}_{7}\mathrm{N} + {}^{0}_{-1}e$$</p>
+@squpy3z0nq
+β⁻ decay (too many neutrons)
+@1lyxkt9wtgi
+β⁺ decay / electron capture
+@1pcc369sgx9
+α decay (heavy nuclei)
+@oupsednuyx
+The band of stability: stable nuclei lie close to N equals Z for light elements and above it for heavier ones
+@vo7t7xpaai
+The <b>band of stability</b>. Light stable nuclei have $N \approx Z$; heavier ones need more neutrons (lead-208: 126 neutrons, 82 protons). Nuclei above the band decay by β⁻, below it by β⁺, and very heavy ones ($Z > 83$) by α.
+@1upodcd2005
+half-lives
+@1h52p0h8511
+% remaining
+@v1lcs9c088
+Radioactive decay: the amount halves every half-life
+@1yx24fdrlg8
+The <b>half-life</b> $t_{1/2}$ is the time for half of the radioactive nuclei to decay. After $n$ half-lives the fraction left is $\left(\frac{1}{2}\right)^n$. Carbon-14 ($t_{1/2}$ = 5730 years) dates archaeological remains.
+@162ya41kv5c
+<p><b>Fission:</b> a heavy nucleus (U-235) splits after absorbing a neutron, releasing energy and more neutrons (a chain reaction) — nuclear power stations. <b>Fusion:</b> light nuclei join, as in the Sun: $^{2}_{1}\mathrm{H} + {}^{3}_{1}\mathrm{H} \to {}^{4}_{2}\mathrm{He} + {}^{1}_{0}n$. Both release energy because a little mass is converted: $E = mc^2$.</p>
+@20pwwbuujtg
+<p>Uses: medical tracers (Tc-99m, 6 h) and radiotherapy (Co-60), iodine-131 for thyroid treatment, smoke detectors (Am-241, α), sterilising food and instruments (γ), thickness gauges (β). Dangers: radiation damages DNA, so exposure is kept as low as possible with shielding, distance and short times.</p>
+@2bi2oa1vlbk  ; 0=A | 1=Z | 2=s0 | 3=mode
+$^{⟦0⟧}_{⟦1⟧}\mathrm{⟦2⟧}$ undergoes ⟦3⟧ decay. What nucleus is formed?
+@kw1jseunwd  ; 0=A2 | 1=Z2 | 2=sym
+Alpha: $A - 4$, $Z - 2$ → $^{⟦0⟧}_{⟦1⟧}\mathrm{⟦2⟧}$.
+@15vg82labk2  ; 0=A2 | 1=Z2 | 2=sym
+Beta: $A$ unchanged, $Z + 1$ → $^{⟦0⟧}_{⟦1⟧}\mathrm{⟦2⟧}$.
+@26zvgnb9iqb  ; 0=s0 | 1=A | 2=NUM(th) | 3=u === 'y' ? T`years` : u === 'd' ? T`day | 4=m0 | 5=NUM(sig(n * th, 4)) | 6=u === 'y' ? T`years` : u === 'd' ? T`day
+⟦0⟧-⟦1⟧ has a half-life of ⟦2⟧ ⟦3⟧. How much of an ⟦4⟧ mg sample remains after ⟦5⟧ ⟦6⟧ (in mg)?
+@1dg7mtcy0c9
+years
+@1qn5tzfsu4y
+days
+@2eruzlr62qp
+hours
+@2ax8fiw47fe  ; 0=n | 1=m0 | 2=n | 3=M(m)
+⟦0⟧ half-lives: $⟦1⟧ \times (\tfrac12)^{⟦2⟧} = ⟦3⟧$ mg.
+@234pcroat8j  ; 0=NUM(p) | 1=NUM(th)
+A sample has ⟦0⟧% of its original radioactive nuclei left. The half-life is ⟦1⟧ years. How old is it (in years)?
+@2tgeh0cc72  ; 0=NUM(p) | 1=n | 2=n | 3=M(n * th)
+⟦0⟧% = $(\tfrac12)^{⟦1⟧}$: ⟦2⟧ half-lives $= ⟦3⟧$ years.
+@36l4ifqa0i
+is stopped by a sheet of paper
+@25ve46ucy9
+is a fast-moving electron
+@1ojgz9n1pjn
+is an electromagnetic wave
+@1rgyuizgllg
+is a helium nucleus
+@27mn39hxwk8
+needs thick lead to be absorbed
+@13vj92eb5aa
+is stopped by a few mm of aluminium
+@cmv4cwbt3y
+is the most strongly ionising
+@27rypbttj9d  ; 0=x
+Which radiation ⟦0⟧?
+@186y9dgh3mz
+What is nuclear fusion?
+@1ow90h21zh5
+Light nuclei joining to form a heavier nucleus
+@12jr8n8bpcb
+A heavy nucleus splitting into two
+@264xtfbmq15
+An atom losing electrons
+@22g1k7j3mg1
+Radioactive decay by alpha emission
+@1rf3mesx99
+This powers the Sun.
+@2azixgt1hj6
+What does a chain reaction in fission depend on?
+@19p6jeivpvu
+Each fission releasing neutrons that cause further fissions
+@17sur38rsca
+Electrons jumping between atoms
+@jm79ai9bpb
+Gamma rays heating the fuel
+@22d4bjvu0xe
+Protons joining together
+@vxyiv5h8zx
+A U-235 fission releases 2–3 neutrons.
+
+##### environmental-chemistry
+@i96hzlewks  ; 0=Fig(greenhouseSvg({ names: [T`atmosphere | 1=Fig(lineChartSvg([{ pts: CO2, dots: true | 2=Tbl([T`Pollutant`, T`Source`, T`Effect`] | 3=Key(T`<p><b>Acid rain</b>: $\ce{SO2}$ an | 4=Fig(flowSvg([T`screening: remove large o | 5=Tip(T`<p><b>Green chemistry</b> (Anastas
+
+<p>Dry air is about 78% nitrogen, 21% oxygen, 0.9% argon and 0.04% carbon dioxide, with traces of other gases. Small changes in the trace gases have big effects.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+@25f9woiu9p4
+atmosphere with greenhouse gases
+@2d1eib0r7hs
+sunlight (short-wave) passes through
+@5z6rdjy5dh
+some infrared escapes
+@1dt32850jth
+infrared absorbed and re-emitted back
+@1io1ytc8yoo
+Earth’s surface warms
+@1zlg9rfvop9
+The greenhouse effect: sunlight warms the surface; the surface emits infrared, some of which greenhouse gases absorb and send back down
+@1s7515xt0ju
+The <b>greenhouse effect</b>. Greenhouse gases ($\ce{CO2}$, $\ce{CH4}$, $\ce{H2O}$, $\ce{N2O}$) absorb infrared radiation from the warm surface and re-emit part of it downwards. Without them Earth would average about −18 °C instead of +15 °C.
+@1dnrupqfei6
+year
+@826qufd27k
+CO₂ (ppm)
+@1xyfnbm06l2
+Carbon dioxide at Mauna Loa rose from 317 parts per million in 1960 to 421 in 2023
+@26pdhn8zo2o
+Annual mean $\ce{CO2}$ at Mauna Loa Observatory, Hawaii (NOAA Global Monitoring Laboratory): from 317 ppm in 1960 to 421 ppm in 2023, mainly from burning fossil fuels and deforestation. Before industrialisation it was about 280 ppm.
+@285bd6aa54g
+Pollutant
+@28fsiidlg9n
+Source
+@2dxo4w1vncb
+carbon monoxide CO
+@1uycdc1cup3
+incomplete combustion
+@1iyzjhjnhfq
+poisonous: binds to haemoglobin
+@2752eku9tlk
+sulfur dioxide $\ce{SO2}$
+@u1ojewk5wa
+burning coal and oil containing sulfur, volcanoes
+@2e8j713w8i5
+acid rain, breathing problems
+@1khrfiioov7
+nitrogen oxides $\ce{NO_x}$
+@23vd42o0zv3
+car engines (N₂ + O₂ at high temperature)
+@3heylyerrf
+acid rain, smog
+@1rsac4hsx2c
+particulates (PM2.5)
+@ecqtpczt8k
+diesel engines, fires
+@ful46920ql
+lung and heart disease
+@1a6kntx1pt7
+CFCs
+@lov7ohkgrn
+old fridges and aerosols
+@1649fxaxd3p
+destroy the ozone layer
+@1udpubyqz2k
+<p><b>Acid rain</b>: $\ce{SO2}$ and $\ce{NO2}$ dissolve in rain to form sulfuric and nitric acids (pH below 5.6). It damages forests, lakes and limestone buildings: $\ce{CaCO3 + H2SO4 -> CaSO4 + H2O + CO2}$. Solutions: flue-gas desulfurisation, low-sulfur fuel, catalytic converters ($\ce{2CO + 2NO -> 2CO2 + N2}$).<br><b>Ozone layer</b>: stratospheric $\ce{O3}$ absorbs harmful UV. Chlorine atoms from CFCs destroy it in a chain reaction; the 1987 Montreal Protocol banned CFCs and the layer is slowly recovering.</p>
+@hayc46z4pq
+screening: remove large objects
+@1xrrc8196v3
+coagulation with alum: small particles clump
+@jbdh0bpjvo
+sedimentation: clumps settle
+@uca68s12jb
+filtration through sand and gravel
+@234fopgeowx
+chlorination (or UV/ozone): kill microbes
+@2cdy9gezysj
+Steps of drinking water treatment: screening, coagulation, sedimentation, filtration and chlorination
+@1j1serufzff
+Treating water for drinking. Desalination (distillation or reverse osmosis) is used where fresh water is scarce.
+@j0a5lkhyb7
+<p><b>Green chemistry</b> (Anastas and Warner, 1998) aims to design processes that prevent waste, use high atom economy, safer solvents and renewable feedstocks, catalysts instead of excess reagents, and lower energy.</p>
+@1eabxlshqfy
+sulfur dioxide
+@1s4is4pm0pk
+acid rain
+@28tf24rnurw
+reduces the blood’s ability to carry oxygen
+@94ca3bwuje
+depletion of the ozone layer
+@2872qrrymqi
+enhanced greenhouse effect
+@1rk8tvoqthh
+nitrogen oxides
+@1zg4d7i2jax
+acid rain and smog
+@1dpi9es0nu3
+particulates
+@drjappqawt  ; 0=p
+What is the main environmental or health effect of ⟦0⟧?
+@2fuxhgeu7ia  ; 0=NUM(va) | 1=a | 2=NUM(vb) | 3=b
+$\ce{CO2}$ at Mauna Loa was ⟦0⟧ ppm in ⟦1⟧ and ⟦2⟧ ppm in ⟦3⟧. What was the average rise per year (in ppm)?
+@2e2m7t6f9k4  ; 0=M(vb) | 1=M(va) | 2=b - a | 3=M(r)
+$\frac{⟦0⟧ - ⟦1⟧}{⟦2⟧} = ⟦3⟧$ ppm per year.
+@1flo6hcr515
+coagulation with alum
+@230a0ek8sul
+makes small particles clump together
+@1kbk0gj7fqu
+removes suspended solids
+@13js25adqon
+chlorination
+@n1xsmwdv6m
+kills bacteria and other microbes
+@dmlz3u4y4j
+sedimentation
+@1gvjnjlkcv6
+lets clumps settle to the bottom
+@2ejtwgc2bhg  ; 0=s0
+In water treatment, what does ⟦0⟧ do?
+@1315baj9bm9
+removes dissolved salt
+@6mv03uwuq
+Which gas makes up about 78% of dry air?
+@x4qjvbmpkv
+Nitrogen, $\ce{N2}$.
+@l1ywrj59nu
+Why is rain naturally slightly acidic (pH about 5.6)?
+@21bbjbbyags
+Dissolved carbon dioxide forms carbonic acid
+@24quhmjcx00
+It contains sulfuric acid from volcanoes only
+@2btp7p9zin0
+Water is always acidic
+@pioc6ern3p
+It contains hydrochloric acid
+@up5jruyzr4
+What did the Montreal Protocol (1987) do?
+@r1ncwtlm2g
+Phased out CFCs to protect the ozone layer
+@1kfa506ictp
+Limited carbon dioxide emissions
+@1y9bijxsmkm
+Banned leaded petrol
+@27yxt3mzefz
+Set targets for recycling
+@13liebhg63h
+The ozone layer is now slowly recovering.
+@1j7bmw4pz2d
+How do catalytic converters reduce pollution?
+@1xjqnef942c
+They convert CO and NO into CO₂ and N₂
+@8dlx1hh1vw
+They remove CO₂ from exhaust
+@1y87wtbtrj6
+They burn more fuel
+@25rfzn262mw
+They add sulfur to the fuel
+@3yw3f76yfa
+$\ce{2CO + 2NO -> 2CO2 + N2}$ on Pt/Rh.

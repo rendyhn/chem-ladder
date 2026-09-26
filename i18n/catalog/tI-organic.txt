@@ -1,0 +1,939 @@
+##### core
+@mqi3qjlj4h
+alcohol
+@hckix0bm3n
+propan-1-ol
+@a3fxich850
+aldehyde
+@okpimf3tew
+ethanal
+@1itsek00xjx
+propanal
+@zr49ql5roz
+ketone
+@11z1jy2euja
+propanone
+@139lami3b23
+butanone
+@7yc2zs0xez
+carboxylic acid
+@4ms5anqblw
+methanoic acid
+@7s61t6w7cu
+ester
+@2a8qy2s7y7q
+methyl ethanoate
+@1v3s9in1h87
+ethyl ethanoate
+@29zisl2ygxt
+ether
+@32l3zjtsya
+methoxymethane
+@17ag8lxhwec
+amine
+@2du6wd4lfck
+ethylamine
+@c3na4hlgiv
+haloalkane
+@mwr9imwfo8
+chloroethane
+@juv4eg5t4l
+bromoethane
+@66u9s38g40
+alkene
+@om4nh14eyb
+ethene
+@74cma2x7uo
+propene
+
+##### hydrocarbons
+@s1wpib1c4h  ; 0=FigRow([[dispMol(['C'], { label: T`Metha | 1=Tbl([T`Series`, T`General formula`, T`Bo | 2=Key(T`<p>A <b>homologous series</b> is a | 3=Fig(lineChartSvg([{ pts: ALK_BP.map((b,  | 4=Key(T`<p><b>Crude oil</b> is a mixture o | 5=Tip(T`<p>Alkanes burn (complete combusti
+
+<p>Carbon forms four covalent bonds and can bond to itself in long chains, branches and rings: that is why there are millions of organic compounds. <b>Hydrocarbons</b> contain only carbon and hydrogen.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+@1050mw875i9
+Methane
+@1orwoefulok
+methane $\ce{CH4}$
+@15dqjyjztb
+Ethane
+@w05nukk1kb
+ethane $\ce{C2H6}$
+@1db8plupnjf
+Propane
+@1xe3kmtwi4c
+propane $\ce{C3H8}$
+@1kgycsnhzss
+Ethene
+@1ig9r19811l
+ethene $\ce{C2H4}$
+@19tuqfuwo2o
+Ethyne
+@22yaw1cmr69
+ethyne $\ce{C2H2}$
+@awceu02rx5
+Displayed formulas show every atom and bond. Alkanes have only single bonds; alkenes have a C=C double bond; alkynes a C≡C triple bond.
+@1j5oa91vhaf
+Series
+@1w0phx0f066
+General formula
+@jcy1v67fs1
+Bonds
+@1xq2imbux3l
+Name ending
+@h9w8j2viwk
+alkanes
+@13mxz6kfx1q
+all single (saturated)
+@6tuhb8uu3x
+alkenes
+@29ovk8kxog3
+one C=C (unsaturated)
+@bml1zsea1m
+propene $\ce{C3H6}$
+@23xdbq903g2
+alkynes
+@zo1c8yozkq
+one C≡C
+@1raj1zlf4ih
+propyne $\ce{C3H4}$
+@1ttsb1m52hh
+<p>A <b>homologous series</b> is a family with the same general formula and functional group; each member differs from the next by $\ce{CH2}$. Their chemical properties are similar and their physical properties change gradually. <b>Naming</b> (IUPAC): the stem gives the number of carbons in the longest chain: meth (1), eth (2), prop (3), but (4), pent (5), hex (6), hept (7), oct (8), non (9), dec (10). Number the chain so the double bond or branch gets the lowest number: but-1-ene, 2-methylpropane.</p>
+@z8j9zgc34l
+number of carbon atoms
+@1w3821qbjqx
+room temperature
+@1dr51hxkod4
+gases
+@1pcdk3ybmz5
+liquids
+@2158gcnwpa
+Boiling points of straight-chain alkanes rise from minus 162 degrees for methane to 174 degrees for decane
+@1mcmj1ykxsr
+Boiling points of the straight-chain alkanes (CRC Handbook). Longer molecules have more electrons and more contact, so stronger London forces: $\ce{C1}$–$\ce{C4}$ are gases at room temperature, $\ce{C5}$–$\ce{C17}$ liquids.
+@142ndodizb0
+<p><b>Crude oil</b> is a mixture of hydrocarbons separated by <b>fractional distillation</b> into fractions with different boiling ranges: refinery gas, petrol (gasoline), naphtha, kerosene (jet fuel), diesel, fuel oil and bitumen. Long molecules are <b>cracked</b> into shorter, more useful ones plus alkenes: $\ce{C10H22 -> C8H18 + C2H4}$.</p>
+@27o37ah4xz7
+<p>Alkanes burn (complete combustion gives $\ce{CO2}$ + $\ce{H2O}$; with too little oxygen, poisonous CO and soot form) and react with halogens in UV light. Alkenes are much more reactive because of the C=C bond.</p>
+@1ldadk5c8ob  ; 0=nm
+What is the molecular formula of ⟦0⟧?
+@26ghba0szow  ; 0=stem(n) | 1=n | 2=[T`alkane`, T`alkene`, T`alkyne`][k] | 3=['2n+2', '2n', '2n-2'][k] | 4=fml(n, h)
+⟦0⟧ = ⟦1⟧ carbons; ⟦2⟧: $\ce{C_nH_{⟦3⟧}}$ → $\ce{⟦4⟧}$.
+@wr3svs1owr
+alkane
+@a1tqa509us
+alkyne
+@1zmllsvxoo1  ; 0=fml(n, h) | 1=k ? T` (double bond at the end)` : ''
+Name the straight-chain hydrocarbon $\ce{⟦0⟧}$⟦1⟧.
+@117k6aedy1c
+ (double bond at the end)
+@z4d3t8j8ud  ; 0=n | 1=stem(n) | 2=k ? '2n' : '2n+2' | 3=k ? T`alkene` : T`alkane`
+⟦0⟧ carbons: ⟦1⟧-; $\ce{C_nH_{⟦2⟧}}$ → ⟦3⟧.
+@1cthl1utjbs  ; 0=fml(n, 2 * n + 2)
+How many structural isomers does the alkane $\ce{⟦0⟧}$ have?
+@25o4xwjc7eu  ; 0=oName(a, 'ane') | 1=oName(b, 'ane')
+Which has the higher boiling point: ⟦0⟧ or ⟦1⟧?
+@r2yrlni8g  ; 0=oName(hi, 'ane') | 1=NUM(ALK_BP[hi - 1])
+More carbons: stronger London forces. ⟦0⟧ boils at ⟦1⟧ °C.
+@1wcpjwh8zkh  ; 0=fml(n, h) | 1=f[0] > 1 ? f[0] : '' | 2=fml(n, h) | 3=f[2] | 4=f[3]
+Balance the complete combustion of $\ce{⟦0⟧}$: $\ce{⟦1⟧⟦2⟧ + ? O2 -> ⟦3⟧CO2 + ⟦4⟧H2O}$. What is the coefficient of $\ce{O2}$?
+@bqicdwjtjd  ; 0=f[2] | 1=f[3] | 2=2 * f[2] + f[3] | 3=f[1]
+O atoms on the right: $2 \times ⟦0⟧ + ⟦1⟧ = ⟦2⟧$, so ⟦3⟧ $\ce{O2}$.
+
+##### functional-groups
+@4b8n9rugjo  ; 0=FigRow([[dispMol(['C', 'C'], { subs: [[1 | 1=Tbl([T`Family`, T`Group`, T`Suffix / pre | 2=Key(T`<p>Groups that can form hydrogen b | 3=Tip(T`<p>Esters have fruity smells (pent
+
+<p>A <b>functional group</b> is the atom or group of atoms that gives a family of compounds its characteristic reactions. The rest of the molecule is mostly a hydrocarbon "skeleton".</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+@2dlubf8sriu
+Ethanol
+@rf0axppecr
+alcohol: ethanol
+@jxfdau94qu
+Ethanal
+@1vuuuoeqdc1
+aldehyde: ethanal
+@24zscfo4p8v
+Propanone
+@d3si676j1g
+ketone: propanone
+@20bwu4hsvko
+Ethanoic acid
+@2drtluk0vn4
+carboxylic acid: ethanoic acid
+@1ax72nqrot4
+Methyl ethanoate
+@h89tsmz047
+ester: methyl ethanoate
+@13ysmht4r95
+Ethylamine
+@1qtlttigmzr
+amine: ethylamine
+@m9mum5zouv
+Common functional groups, each shown on a small molecule.
+@1d2fjcit5ne
+Family
+@1xbks9010ry
+Suffix / prefix
+@2bp4rqthx3i
+ethanol $\ce{C2H5OH}$
+@gevqa0yesq
+fluoro-, chloro-, bromo-, iodo-
+@d5foh6tuf6
+chloromethane $\ce{CH3Cl}$
+@2bmn2j0tesk
+ethanal $\ce{CH3CHO}$
+@ltbhqxijb4
+propanone $\ce{CH3COCH3}$
+@7no4dbh51j
+-oic acid
+@goliaoackq
+ethanoic acid $\ce{CH3COOH}$
+@1x7wrfyndd6
+alkyl -oate
+@461if8g8r4
+ethyl ethanoate $\ce{CH3COOC2H5}$
+@2cp3rl9mx4q
+alkoxy-
+@1ejihh4wm3k
+methoxymethane $\ce{CH3OCH3}$
+@14npddkkrz1
+-amine
+@24hi7xpgfuh
+ethylamine $\ce{C2H5NH2}$
+@ysj2ey388s
+amide
+@re8c9bvbay
+ethanamide $\ce{CH3CONH2}$
+@705v4m2xtf
+<p>Groups that can form hydrogen bonds (–OH, –COOH, –NH₂) raise boiling points and water solubility: ethanol ($M_r$ 46) boils at 78 °C, propane ($M_r$ 44) at −42 °C. Solubility falls as the hydrocarbon chain gets longer. Carboxylic acids are weak acids; amines are weak bases.</p>
+@jskoanjseh
+<p>Esters have fruity smells (pentyl ethanoate smells of bananas, octyl ethanoate of oranges) and are used in flavourings and perfumes. Methanal (formaldehyde) preserves specimens; propanone (acetone) is nail-varnish remover.</p>
+@e75hte5l8  ; 0=f
+To which family does $\ce{⟦0⟧}$ belong?
+@15z6u6is6qv  ; 0=c
+Its functional group makes it an <b>⟦0⟧</b>.
+@12nbv6va4fi  ; 0=f
+What is the IUPAC name of $\ce{⟦0⟧}$?
+@3883lky5zr  ; 0=nm
+What is the formula of ⟦0⟧?
+@5vpgz3dx9h  ; 0=stem(n) | 1=n | 2=n > 1 ? 's' : '' | 3=f
+⟦0⟧- = ⟦1⟧ carbon⟦2⟧: $\ce{⟦3⟧}$.
+@18nl0ijnij6
+propane
+@8m0qzdgx3e
+butan-1-ol
+@981i1wu29o
+pentane
+@fgxdr5l3l2  ; 0=hi ? b : a
+⟦0⟧ can form hydrogen bonds between its molecules (–OH).
+@lmfth4km83
+methanol
+@jji6fqvgwv
+ethyl methanoate
+@8mjpb74glp
+propanoic acid
+@a7ykgdvizm
+methyl propanoate
+@1ejeiglglz0
+butanoic acid
+@27e1vyt9zab
+ethyl butanoate
+@1nfow1mpssl  ; 0=acid | 1=alc
+Which ester forms from ⟦0⟧ and ⟦1⟧?
+@1a9gd6cklll
+propyl methanoate
+@1y3wswmck98  ; 0=est
+The alcohol gives the first word (alkyl), the acid the second (-oate): <b>⟦0⟧</b>.
+
+##### isomerism
+@1ft1cccsu7z  ; 0=FigRow([[dispMol(['C', 'C', 'C', 'C'], { | 1=Tbl([T`Type`, T`What differs`, T`Example | 2=FigRow([[molSvg([['C', 0, 0], ['C', 1.3, | 3=Key(T`<p>A carbon atom bonded to four <b | 4=FigRow([[shapeSvg('tetrahedral', { centr | 5=Tip(T`<p>Thalidomide (1950s–60s) is the 
+
+<p><b>Isomers</b> have the same molecular formula but a different arrangement of atoms. They can have quite different properties.</p>
+⟦0⟧
+⟦1⟧
+<h3>Stereoisomers</h3>
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+@2e9me8lo837
+Butane
+@zv83fzwryb
+butane (b.p. −0.5 °C)
+@m7vu535e83
+Methylpropane
+@n2hg6surwn
+2-methylpropane (b.p. −11.7 °C)
+@1xae6olnffs
+Chain isomers of $\ce{C4H10}$. The branched isomer is more compact, has less surface contact and therefore a lower boiling point.
+@2g1sr9lkp2y
+What differs
+@vg0c2a9qu7
+chain
+@1s8wmd9wlxy
+the carbon skeleton (branching)
+@sc09fawgll
+butane / 2-methylpropane
+@iipi6ive
+position
+@gflu7cpuyt
+the position of the functional group
+@e4y1fg7xjm
+propan-1-ol / propan-2-ol
+@1lla7sasfuv
+functional group
+@7cbq02aack
+the functional group itself
+@cmxq7s2syp
+ethanol / methoxymethane ($\ce{C2H6O}$); propanal / propanone
+@7auzfivgus
+cis-but-2-ene: both methyl groups on the same side
+@2fn9s9jw6oz
+cis (Z): same side
+@11arjvr36d1
+trans-but-2-ene: the methyl groups on opposite sides
+@b6cbh13wfv
+trans (E): opposite sides
+@1f4oy5pxoyk
+The C=C bond cannot rotate, so but-2-ene exists as two <b>cis/trans</b> (geometric) isomers. This needs two different groups on each carbon of the double bond.
+@1s249xaah9
+<p>A carbon atom bonded to four <b>different</b> groups is <b>chiral</b>. Its two mirror-image forms cannot be superimposed, like left and right hands: they are <b>optical isomers</b> (enantiomers). They rotate plane-polarised light in opposite directions and can act very differently in the body: one form of carvone smells of spearmint, the other of caraway.</p>
+@20hfgh4q7ke
+A chiral carbon with four different groups
+@1hf09a6p70x
+one enantiomer
+@2g1fvzx8fqo
+Its mirror image
+@kwgrsmb8vv
+its mirror image
+@ndbtiaikvg
+Four different groups (four colours) around a carbon: the molecule and its mirror image are not the same, however you turn them.
+@okp6widsjj
+<p>Thalidomide (1950s–60s) is the famous warning: one enantiomer eased morning sickness, the other caused birth defects. Drug makers now test each enantiomer separately.</p>
+@22ycfbkwijf
+butane
+@28njn0p05t2
+2-methylpropane
+@1x0roaremzq
+2,2-dimethylpropane
+@7yao547icl
+propan-2-ol
+@2b66v24udpg
+but-1-ene
+@tx9ebpfi6
+but-2-ene
+@gpdgvg8zmb
+cis-but-2-ene
+@t3htah6lny
+trans-but-2-ene
+@1fwmzefnqps
+chain isomers
+@emxz11ceau
+position isomers
+@tr7kzad92h
+functional group isomers
+@2costgg6g7f
+cis/trans isomers
+@1gjgxrf6q5v  ; 0=a | 1=b
+What kind of isomers are ⟦0⟧ and ⟦1⟧?
+@j36ccgf61n
+but-2-ene (CH₃CH=CHCH₃)
+@119yy9k40sy
+propene (CH₂=CHCH₃)
+@29vs2c5fqiy
+but-1-ene (CH₂=CHCH₂CH₃)
+@23ss3iw85qb
+pent-2-ene
+@1ltmzq26oxw
+1,2-dichloroethene (CHCl=CHCl)
+@1hw9ex2s1ee
+1,1-dichloroethene (CCl₂=CH₂)
+@14hnfnx8d4a  ; 0=m
+Can ⟦0⟧ show cis/trans isomerism?
+@2d2l1m02xvw
+Each carbon of C=C has two different groups: <b>yes</b>.
+@105usd5vos9
+One carbon of C=C carries two identical groups: <b>no</b>.
+@2dw5ssky59h
+butan-2-ol CH₃CH(OH)CH₂CH₃
+@4kbtypcy6l
+propan-2-ol CH₃CH(OH)CH₃
+@29atateawu3
+2-chlorobutane CH₃CHClCH₂CH₃
+@2d84gr3dk0d
+lactic acid CH₃CH(OH)COOH
+@230ed2wifvm
+ethanol CH₃CH₂OH
+@67ebt7i9ni
+alanine CH₃CH(NH₂)COOH
+@13slzya0mm6
+glycine H₂NCH₂COOH
+@5nrnlslkni  ; 0=m
+Does ⟦0⟧ have a chiral carbon?
+@10rt9389bv
+One carbon carries four different groups: <b>yes</b>, it has optical isomers.
+@dj0bm5rlyg
+No carbon carries four different groups: <b>no</b>.
+@19fu9wd4sih  ; 0=f.split(' ')[0] | 1=f.includes(' ') ? T` (counting only open
+How many structural isomers have the formula $\ce{⟦0⟧}$⟦1⟧?
+@20ki6e3cayh
+ (counting only open-chain alkenes, not stereoisomers)
+
+##### organic-reactions
+@2bzygd5ont7  ; 0=Tbl([T`Reaction type`, T`What happens`,  | 1=Key(T`<p><b>Test for C=C:</b> shake with | 2=Fig((() => { let k = 0; const cols = [[' | 3=Tbl([T`Reagent`, T`Conditions`, T`Produc | 4=Fig(flowSvg([T`ethene CH₂=CH₂`, T`+ H₂O  | 5=Tip(T`<p>Ethanol for fuel and drinks is 
+
+⟦0⟧
+⟦1⟧
+⟦2⟧
+<h3>Addition reactions of alkenes</h3>
+⟦3⟧
+<h3>A reaction pathway</h3>
+⟦4⟧
+⟦5⟧
+@1gdpu4vrirc
+Reaction type
+@26x986njc7f
+What happens
+@rwcr3s0anp
+substitution
+@94e9xasawm
+one atom or group replaces another
+@171c1suv640
+addition
+@oz8srw6vmj
+two molecules join to make one; C=C opens up
+@7waruwzcof
+elimination
+@1cbew6cza15
+a small molecule is removed and a C=C forms
+@1tmjhh6k5cf
+gain of O or loss of H
+@1zn6rn1oli3
+two molecules join and lose a small molecule
+@1dpfs5qpauj
+<p><b>Test for C=C:</b> shake with orange-brown bromine water. An alkene decolourises it quickly (addition); an alkane does not (without UV light).</p>
+@1tjmu9g8ohh
+before: orange-brown
+@e2ttpuo6jp
+alkene added: colourless
+@hn6ae3de4a
+alkane added: stays orange
+@1pii3btbqdb
+Bromine water test: orange-brown before, colourless with an alkene, still orange with an alkane
+@jlwsmhedfa
+The bromine water test.
+@2bb1n0ghmwq
+Reagent
+@gurhyan2ao
+Conditions
+@10r0udfnkov
+Product (from ethene)
+@kxoewd30vd
+Ni catalyst, 150 °C (hydrogenation, used to harden vegetable oils)
+@d1nya5ycx0
+ethane
+@29izt5rwgzk
+1,2-dibromoethane
+@1v2pkdj2azr
+$\ce{H3PO4}$ catalyst, 300 °C, 60 atm (hydration)
+@1sdwy74e9u0
+ethene CH₂=CH₂
+@1pbzquapwf3
++ H₂O (steam, H₃PO₄) → ethanol C₂H₅OH
+@1x09a2jxg1f
+oxidise (K₂Cr₂O₇/H⁺, distil) → ethanal CH₃CHO
+@youwomq86s
+oxidise (reflux) → ethanoic acid CH₃COOH
+@802bcsagta
++ ethanol (conc. H₂SO₄) → ethyl ethanoate
+@2ehjoxsjf0o
+A reaction pathway from ethene to ethanol, ethanal, ethanoic acid and ethyl ethanoate
+@mdu6dtjbr5
+Linking the functional groups. Primary alcohols oxidise to aldehydes, then carboxylic acids; secondary alcohols to ketones; tertiary alcohols resist oxidation. Acidified dichromate turns from orange to green when it oxidises an alcohol.
+@287f45z1ego
+<p>Ethanol for fuel and drinks is also made by <b>fermentation</b> of sugars with yeast: $\ce{C6H12O6 -> 2C2H5OH + 2CO2}$ at about 35 °C without air.</p>
+@1f3s3vpoanu
+condensation (esterification)
+@asg7mai631
+ethene + hydrogen (Ni)
+@2ms1j8302f
+ethene + bromine
+@lcll5ygow9
+ethene + steam (H₃PO₄)
+@tl3zjjwg
+ethene + hydrogen bromide
+@n5kgkjg0tc
+propene + hydrogen (Ni)
+@2gmt0ay1p03  ; 0=r
+What is the product of ⟦0⟧?
+@2ebdtlld3jf  ; 0=p
+Addition across C=C: <b>⟦0⟧</b>.
+@174pduha2gd
+ethanal, then ethanoic acid
+@sxcij4fhv5
+propanal, then propanoic acid
+@14ji72yzhfi
+butan-2-ol
+@1iqvfcjhizp
+2-methylpropan-2-ol
+@21xyofmf0z6
+no reaction
+@jc1oinfiqc  ; 0=a
+What does ⟦0⟧ give when warmed with acidified potassium dichromate?
+@1hdn2a14k9l
+an alkene
+@28sab1gqoq
+A primary alcohol
+@12klsq6gb7y
+A secondary alcohol
+@wyfduuvbv4
+A tertiary alcohol
+@1qsk5dvkkup
+hexene
+@21ot0bxk4o1
+it decolourises quickly
+@1yl13tsd3te
+hexane
+@zb9kfjq9ul
+it stays orange-brown
+@gwtehytrin
+cyclohexene
+@13a5v4zx66e
+octane
+@275p189phr9  ; 0=x
+What happens when ⟦0⟧ is shaken with bromine water?
+@zgul4vy5vf
+it turns blue
+@1x4eaqw57tw
+It has a C=C bond, which adds bromine.
+@1rwo76imdio
+Saturated: no addition reaction.
+
+##### benzene
+@7kmjdiu1ej  ; 0=Fig(benzeneSvg({ names: [T`Kekulé struct | 1=Key(T`<p>Delocalisation makes benzene ab | 2=Tbl([T`Reaction`, T`Reagents`, T`Product | 3=FigRow([['phenol', 'OH'], ['methylbenzen | 4=Tip(T`<p>Benzene itself is carcinogenic,
+
+<p><b>Benzene</b> $\ce{C6H6}$ is a flat ring of six carbon atoms. In 1865 August Kekulé proposed alternating single and double bonds. But all six C–C bonds in benzene are the same length (0.140 nm, between C–C 0.154 nm and C=C 0.134 nm), and benzene does not decolourise bromine water.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@1teksziphh0
+Kekulé structures
+@bq5law3tbs
+delocalised model
+@1oxfnwhur5v
+Two Kekulé structures of benzene with alternating double bonds, and the modern ring with a circle showing delocalised electrons
+@o0evveec94
+Each carbon uses three electrons for σ bonds and gives its fourth to a ring of six <b>delocalised</b> electrons above and below the plane, drawn as a circle.
+@1q36nooyxco
+<p>Delocalisation makes benzene about 150 kJ/mol more stable than a "cyclohexatriene" would be. So benzene prefers <b>substitution</b>, which keeps the ring intact, to addition. An electrophile (electron-pair acceptor) attacks the electron-rich ring:</p>
+@27osi2rqxsw
+Reaction
+@a9zn26zcfw
+Reagents
+@1kr8zytc8j5
+Product
+@jx9mzpvyh9
+nitration
+@12keit1hai3
+conc. $\ce{HNO3}$ + conc. $\ce{H2SO4}$, 50 °C
+@1in6zvq0wk3
+nitrobenzene $\ce{C6H5NO2}$
+@1nlhf3l9eex
+halogenation
+@gd0zqb29bi
+$\ce{Br2}$ with $\ce{FeBr3}$ catalyst
+@2ii7tgoelq
+bromobenzene $\ce{C6H5Br}$
+@1dy76bqh0x4
+Friedel–Crafts alkylation
+@1uoza89pui4
+$\ce{CH3Cl}$ with $\ce{AlCl3}$
+@6cirtii3tb
+methylbenzene (toluene)
+@1v7e7np0vn6
+Friedel–Crafts acylation
+@hpotgmx0xa
+$\ce{CH3COCl}$ with $\ce{AlCl3}$
+@11o187gma6w
+phenylethanone
+@fhnyiwehtm
+Some important aromatic compounds: phenol (disinfectants, resins), methylbenzene (solvent), benzoic acid (food preservative E210), aniline (dyes).
+@1im3jdrqvek
+<p>Benzene itself is carcinogenic, so methylbenzene is used as a solvent instead. Aromatic rings occur widely in nature and medicines: aspirin, paracetamol, amino acids such as phenylalanine, and DNA bases.</p>
+@25w1fpijysf
+Why does benzene not decolourise bromine water like alkenes do?
+@1to9gsjk71c
+Its delocalised electrons make it stable; addition would destroy this
+@b28t86xms5
+It has no double bonds or electrons between carbons
+@kwfkf3i7f5
+It is a saturated alkane
+@29h6d0yaazz
+Bromine is not an electrophile
+@1jjdtae5czw
+Benzene prefers substitution, keeping the delocalised ring.
+@1vtk5rut6ec
+All C–C bonds in benzene are 0.140 nm long. What does this show?
+@g0p0k1l6r5
+The electrons are delocalised; there are no separate single and double bonds
+@264hc88i9xr
+Benzene has three double bonds
+@zrbw718qs6
+Benzene is not a ring
+@yqkbcoulv5
+Benzene has only single bonds
+@d9t9qcvz3l
+Between single (0.154 nm) and double (0.134 nm).
+@1lhtb2abw2w
+What type of reaction does benzene mainly undergo?
+@w9zv6tpw8s
+electrophilic substitution
+@ltfix4wve3
+electrophilic addition
+@2c8wzlxzrum
+nucleophilic addition
+@tysrny6ok
+An electrophile replaces an H atom on the ring.
+@1z9f3wshd3f
+How many delocalised electrons are in a benzene ring?
+@2g8f2buieg0
+One from each of the six carbon atoms.
+@17nb8984rsc
+concentrated nitric and sulfuric acid at 50 °C
+@3lkooxw0za
+nitrobenzene
+@1mxe4qe1kqo
+bromine with an FeBr₃ catalyst
+@1qwnksy1hru
+bromobenzene
+@vm2x1736k3
+chloromethane with an AlCl₃ catalyst
+@24hyix1jzgf
+methylbenzene
+@d2fdsk4ot
+ethanoyl chloride with an AlCl₃ catalyst
+@xtq5qn3sdr  ; 0=r
+Benzene reacts with ⟦0⟧. What is the organic product?
+@15ut2fctu1j
+cyclohexane
+@17aiky63xwm
+phenol
+@1z4wer15j3q
+benzoic acid
+@jdl1294l4c
+phenylamine (aniline)
+@1fhwj7ojd9z
+chlorobenzene
+@1g4kjqwouox  ; 0=g
+What is the name of C₆H₅–⟦0⟧?
+
+##### polymers
+@2652aatz59o  ; 0=Fig(polymerSvg({ names: [T`polymerisatio | 1=Tbl([T`Monomer`, T`Polymer`, T`Uses`], [ | 2=Key(T`<p><b>Condensation polymers</b> fo | 3=Fig(barChartSvg([{ label: T`packaging`,  | 4=Tip(T`<p>Most addition polymers are not 
+
+<p><b>Polymers</b> are very long molecules made by joining thousands of small molecules called <b>monomers</b>.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@bokv9oy5az
+polymerisation
+@1226qspebse
+ethene (monomer)
+@130tvfguzew
+poly(ethene): repeat unit
+@1jy5xmfgapp
+Many ethene molecules join into poly(ethene); the repeat unit is shown in brackets with n
+@2aww2b48qtx
+<b>Addition polymerisation:</b> the C=C bonds open and the monomers link into a chain; nothing else is formed. The repeat unit is written in brackets with $n$ (often several thousand).
+@20xiw23n207
+Monomer
+@ioetxlkkox
+Polymer
+@1ha6u65qfqw
+Uses
+@1mynony78uz
+ethene $\ce{CH2=CH2}$
+@15wvzilfot4
+poly(ethene), PE
+@nxcpac5gli
+bags, bottles, film
+@2a3uofktjup
+propene $\ce{CH2=CHCH3}$
+@v7qwx3mspw
+poly(propene), PP
+@7qmf45f7qg
+crates, ropes, food tubs
+@qa7vrwgdxe
+chloroethene $\ce{CH2=CHCl}$
+@21j6feltqyh
+poly(chloroethene), PVC
+@kql4jcsfwo
+pipes, window frames, cable insulation
+@lugi5utea7
+phenylethene $\ce{CH2=CHC6H5}$
+@2c64epc7f68
+poly(phenylethene), PS
+@2baia4f3cog
+packaging foam, cups
+@202blk4ibl0
+tetrafluoroethene $\ce{CF2=CF2}$
+@ifcjvcbqws
+PTFE (Teflon)
+@19cfjm2rf17
+non-stick pans
+@18pp2m6xoy0
+<p><b>Condensation polymers</b> form when monomers with two functional groups join and lose a small molecule (usually water) at each link. A diacid + a diol gives a <b>polyester</b> (PET for bottles and fibres); a diacid + a diamine gives a <b>polyamide</b> (nylon, Kevlar). Proteins (from amino acids), starch and cellulose (from glucose) and DNA are natural condensation polymers.</p>
+@23w07w56njf
+packaging
+@2mv2lydlt6
+building
+@2cpjhi124tu
+textiles
+@tuy62hhgfw
+consumer
+@ntbcul38rx
+transport
+@h6rc44143l
+electrical
+@os2c8385pu
+other
+@1atkq5jxi7h
+share of plastic use (%)
+@ef9wtglgjl
+World plastic use by sector: packaging 36 percent is the largest
+@xl06kkdlj5
+How the world uses plastic (UNEP, <i>Single-use plastics</i>, 2018). Packaging, much of it used only once, is the largest share.
+@1tmnqj3kspd
+<p>Most addition polymers are not biodegradable: they persist for centuries and break into microplastics. Solutions: reduce and reuse, mechanical recycling (the resin codes 1–7 on products tell them apart), chemical recycling, and biodegradable polymers such as PLA made from corn starch.</p>
+@1dve4t5vdn5
+poly(ethene)
+@17irocsnla9
+poly(propene)
+@2frjxsg7oxb
+chloroethene
+@1un6nkmbliv
+poly(chloroethene) (PVC)
+@24zcoaf1e53
+phenylethene
+@2hwblntr7s
+poly(phenylethene) (polystyrene)
+@1d77tybkbqq
+tetrafluoroethene
+@241j480x8sj
+PTFE
+@1gqxlstah4x  ; 0=m
+Which polymer is made from ⟦0⟧?
+@vgj82xe357
+nylon
+@277knygxsw  ; 0=m | 1=p
+Addition polymerisation of ⟦0⟧: <b>⟦1⟧</b>.
+@1vdk7rz4oiv
+PVC
+@1dp7psawv0h
+polystyrene
+@27va4c8oxb3
+PET (polyester)
+@qug8c7kp63
+protein
+@1q5adnurf5e
+starch
+@18fk2uvdg2d
+addition polymer
+@3ukpt3dzyy
+condensation polymer
+@92ypym8rkc  ; 0=p
+Is ⟦0⟧ an addition or a condensation polymer?
+@ho4ltqzcny
+Its links form with loss of a small molecule (water): <b>condensation</b>.
+@1094otquety
+Made from an alkene monomer with no by-product: <b>addition</b>.
+@1fs1ip0gfnn  ; 0=m | 1=NUM(n) | 2=NUM(Mm)
+A chain of poly(⟦0⟧) is made from ⟦1⟧ monomers ($M_r$ of monomer = ⟦2⟧). What is its relative molecular mass?
+@272gtd6z1z3  ; 0=M(n) | 1=M(Mm) | 2=M(Mr)
+Addition polymers keep every atom: $⟦0⟧ \times ⟦1⟧ = ⟦2⟧$.
+@24v4jzmbvtf
+What small molecule is usually released when a condensation polymer forms?
+@jssu1b7nc6
+Each new ester or amide link releases $\ce{H2O}$ (sometimes HCl).
+@8tue1siar7
+Why are most plastics a waste problem?
+@1elkjob32d8
+They are not biodegradable and persist for a very long time
+@o81vvl9d25
+They dissolve in water
+@8rqrgfl7jc
+They are too heavy
+@ywr0o9a341
+They are made from metals
+@1vyg50d1kuh
+Bacteria cannot break down their long C–C chains.
+
+##### biomolecules
+@1tdxaggzn6o  ; 0=FigRow([[glucoseSvg({ label: T`Ring stru | 1=Tbl([T`Carbohydrate`, T`Made of`, T`Role | 2=Key(T`<p><b>Proteins</b> are polymers of | 3=Fig(`<svg viewBox="0 0 530 130" style="m | 4=Key(T`<p><b>Lipids</b> (fats and oils) a | 5=Tbl([T`Test`, T`For`, T`Positive result` | 6=Tip(T`<p>Daily energy values on food lab
+
+<p>Living things are built from four families of organic molecules. Three of them are polymers made by condensation.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+⟦6⟧
+@ags7mhu3eg
+Ring structure of alpha glucose
+@27gds27cpm6
+α-glucose ($\ce{C6H12O6}$), ring form
+@1sn4m1v5u6o
+Glucose is the main fuel of cells: $\ce{C6H12O6 + 6O2 -> 6CO2 + 6H2O}$, $\Delta H = -2803$ kJ/mol (respiration). In water it exists mostly as this six-membered ring.
+@tjwcx2q3if
+Carbohydrate
+@15hk5qucy5s
+Made of
+@1a0bhhznfo4
+Role
+@209dou8xueu
+glucose, fructose
+@9yohlq8n62
+monosaccharides
+@281kwqpstpg
+sucrose (table sugar)
+@25qna75hyj6
+glucose + fructose
+@5taw49a736
+transport in plants, sweetener
+@22durei40h4
+lactose
+@xqyz1iusyx
+glucose + galactose
+@2fs6plmaqdt
+milk sugar
+@1o8kke85bek
+starch, glycogen
+@1viomgtpwia
+many α-glucose
+@5ile2x6z7i
+energy store in plants / animals
+@150p4rwz8w6
+cellulose
+@1957otdj16f
+many β-glucose
+@1nolz860lb4
+plant cell walls, fibre
+@1za6c655898
+<p><b>Proteins</b> are polymers of <b>amino acids</b>, $\ce{H2N-CHR-COOH}$, joined by <b>peptide (amide) bonds</b> –CO–NH–. The 20 amino acids differ in the side chain R. The sequence (primary structure) folds into helices and sheets (secondary), then into a 3-D shape (tertiary). <b>Enzymes</b> are proteins that catalyse reactions; heat or extreme pH <b>denatures</b> them by destroying the shape.</p>
+@10yvpifs35p
+Two amino acids join with loss of water to form a peptide bond
+@259tsjho3pa
+peptide bond
+@1bg92o2z11t
+Two amino acids make a dipeptide by condensation; the new –CO–NH– group is the peptide bond.
+@8jnbw4630j
+<p><b>Lipids</b> (fats and oils) are esters of glycerol (propane-1,2,3-triol) with three fatty acids: <b>triglycerides</b>. Saturated fats (mostly animal) are solid; unsaturated oils (C=C bonds, mostly plant) are liquid. <b>Nucleic acids</b> (DNA, RNA) are polymers of nucleotides (sugar + phosphate + base) and store genetic information.</p>
+@1fv7uha3bb4
+Test
+@2428h9uazj
+For
+@2cjw4kzfggv
+Positive result
+@thuwhnts9q
+iodine solution
+@239u7vmhdl9
+orange → blue-black
+@2a76ajkhog8
+Benedict's (or Fehling's) solution, heat
+@1yroafdomyi
+reducing sugars (glucose)
+@27736vmb68a
+blue → brick-red precipitate
+@s2hw81i4w6
+biuret reagent
+@16jzoxstmq9
+protein (peptide bonds)
+@jcem22yhat
+blue → purple
+@1laep9jnc2j
+ethanol emulsion
+@qo4tasdofm
+lipids
+@1gwvukzqi9d
+cloudy white emulsion
+@17584vza1i6
+<p>Daily energy values on food labels: carbohydrate and protein about 17 kJ/g, fat about 37 kJ/g, which is why fat is the body's compact energy store.</p>
+@2wp949pzgj
+iodine solution: blue-black
+@gpzh76u1y8
+Benedict's solution: brick-red precipitate
+@1pgk3qkwf4m
+egg white (protein)
+@z6wkoifc6x
+biuret reagent: purple
+@10kdp3o7e58
+vegetable oil
+@leqog07i8q
+ethanol emulsion: cloudy white
+@m1dm5qgzoe  ; 0=x
+Which test gives a positive result for ⟦0⟧?
+@1lvcl4jftqj
+amino acids
+@1xcjddk0mq4
+DNA
+@1ab427jf1jf
+nucleotides
+@12ixjuz033q
+glycogen
+@4fkuhnkvg7  ; 0=p
+What are the monomers of ⟦0⟧?
+@166d00rgv1q
+fatty acids
+@1z9vrl0d03a  ; 0=n
+How many water molecules are released when ⟦0⟧ amino acids join into one chain?
+@277wsqsob2y  ; 0=n | 1=n - 1
+One water per peptide bond; a chain of ⟦0⟧ has ⟦1⟧ bonds.
+@x4jn82dupt
+Which bond links amino acids in a protein?
+@1p6dqo4d5n
+the peptide (amide) bond
+@8og0q3mdpv
+the ester bond
+@1ptp5a1gswx
+the glycosidic bond
+@1gkvf14e2z2
+the hydrogen bond
+@1z4bcjg9g0p
+–CO–NH–.
+@1f8tabe6u4l
+Why are most plant oils liquid while animal fats are solid?
+@u8z85jbejl
+Oils contain C=C double bonds that kink the chains
+@27rahmwhcj3
+Oils have longer chains
+@24loebjw35
+Fats contain water
+@1d9s5yofmxk
+Oils are not esters
+@dyryzt02qa
+Kinked unsaturated chains cannot pack closely, so the forces between them are weaker.
+@1edrc94s7gx
+What happens to an enzyme when it is heated strongly?
+@p8stdroj97
+It is denatured: its shape changes and it stops working
+@1gaok3trdcm
+It works faster forever
+@1oattoij2i4
+It turns into glucose
+@2109u9fst05
+Nothing
+@1x3mgs20ymo
+The 3-D shape of the active site is lost.

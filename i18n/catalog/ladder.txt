@@ -1,0 +1,205 @@
+##### core
+@426pb0ttl9
+Heating and cooling change the energy of the particles, which is what drives a change of state.
+@1dibm4wr9t6
+Separating mixtures uses differences in melting and boiling points.
+@bfww86dv7y
+The Rf value is a ratio of two distances.
+@izhjj0dg7s
+Reading scales, uncertainty and significant figures come from careful measurement.
+@1blxavw8fpy
+Percentage error compares a result with the true value.
+@291d6b7z0i8
+Elements and compounds are built from atoms.
+@1itpipmjcoj
+The models describe where the protons, neutrons and electrons are.
+@1cb2x3esiw2
+Bohr's energy levels and line spectra are the physics behind the atomic models.
+@236ovwbqmjj
+Each spectral line is a photon of energy E = hf.
+@5bvrsfzsu0
+Shells and orbitals come from the Bohr and quantum models.
+@24duo6bmsg4
+The position in the table follows from the electron configuration.
+@16iwl5dhmb1
+Metals on the left lose electrons and non-metals on the right gain them.
+@1iu9wvyh5fq
+The ionic bond is the electrostatic attraction between opposite charges.
+@2e3azovufxz
+Covalent bonds share the valence electrons to complete an octet.
+@16yzeel03k1
+Electronegativity, a periodic trend, decides how polar a bond is.
+@236kv8btfc9
+VSEPR counts the bonding and lone pairs of the Lewis structure.
+@21562kt7wny
+Molecular shapes are described by their bond angles.
+@26v25s6fmm9
+Whether a molecule is polar decides which intermolecular forces act.
+@iu2v0pn90q
+Giant ionic lattices are one of the four types of structure.
+@1m9qwfsvk3o
+Melting and boiling points measure the forces between particles.
+@symhuwngkx
+Correct formulas are needed before an equation can be balanced.
+@10th7ew3q9c
+Balancing an equation means making the atom counts on both sides equal.
+@2g02qo29og8
+The mole counts the particles that equations are about.
+@ix4hd5dt47
+Molar masses come from relative atomic masses.
+@1vh650uetok
+The Avogadro constant is 6.02 × 10²³, written in scientific notation.
+@5nfqofv8ee
+Every reacting-mass calculation goes through moles.
+@gpqftdpxug
+Mole ratios from the equation are proportions.
+@1trsncts63k
+Dividing masses by molar masses gives the mole ratio of the elements.
+@1cewul5osb7
+Composition is given as a percentage by mass.
+@nt077eqnv7
+The gas laws follow from the kinetic theory of gases.
+@113fwb18q57
+PV = nRT uses the amount of gas in moles.
+@nc1recmbyb
+Concentration is moles of solute per litre.
+@2g83u7wgazg
+"Like dissolves like" depends on the forces between particles.
+@2ahagqpmza2
+Colligative effects depend on the concentration of dissolved particles.
+@1q5ikn84eh
+Freezing and boiling points are changes of state.
+@4yzgmg83pl
+Colloids sit between true solutions and suspensions.
+@11swr9sdyoo
+Colloids are compared with true solutions.
+@xveilox6ph
+Calorimetry uses q = mcΔT from heat and temperature.
+@104qftxbv22
+ΔH belongs to the amounts in a balanced equation.
+@1bebmk09im6
+Hess's law adds enthalpy changes.
+@b68pr2oma6
+Bond enthalpies measure the strength of covalent bonds.
+@knwx7mnmgm
+Activation energy appears on the energy profile.
+@nf44karkns
+Rate is a change of concentration per unit time.
+@2sfvu4he85
+Rate equations make the effect of concentration quantitative.
+@2aoqh64bopw
+First-order decay is exponential and its half-life uses ln 2.
+@14q160g79z7
+At equilibrium the forward and backward rates are equal.
+@21j5tabkxxs
+Kc is written with equilibrium concentrations.
+@kr0qxn86w8
+Acids and alkalis are defined by the ions H⁺ and OH⁻.
+@5fugp0vrqb
+Neutralisation and the reactions of acids are written as equations.
+@1z0p46wzktu
+The theories explain what makes a substance acidic or basic.
+@zx35d6kvdy
+Weak acids set up an equilibrium described by Ka.
+@4qwx9vqodo
+Strong and weak acids need different pH calculations.
+@3phpt5qjyy
+pH is a negative base-10 logarithm.
+@1mj09byzs48
+A titration curve plots pH against volume.
+@1dt86gxlj6u
+Titration calculations use n = cV and the mole ratio.
+@19uh4hizcev
+Buffer and salt pH come from Ka and Kb.
+@1i7ermzrscz
+The flat part of a weak-acid titration curve is a buffer region.
+@1pavj2trm27
+Ksp is the equilibrium constant of a solubility equilibrium.
+@itu294m3xn
+Solubility is expressed as a molar concentration.
+@ebyh17sd7k
+Ions form by losing or gaining electrons, which is oxidation and reduction.
+@pinpti99b6
+Half-equations use oxidation numbers and electrons.
+@19lh9fkd09
+Redox equations must balance atoms and charge.
+@1zoajf3gqko
+A galvanic cell separates oxidation from reduction.
+@1v8vx3j0vrx
+Cells drive a current through a circuit.
+@t493j4z66x
+Electrolysis runs a redox reaction backwards with a power supply.
+@cnhd1wy1t8
+Faraday's laws turn charge into moles of electrons.
+@186zm9wpgay
+Rusting is a small electrochemical cell on the iron surface.
+@13imwcn36u9
+Carbon forms four covalent bonds.
+@93x6xt9emd
+Boiling points of alkanes follow the London forces.
+@26pxz9cqkpc
+Functional groups are attached to a hydrocarbon skeleton.
+@1xm4p36nr5w
+Chain isomers differ in how the carbon skeleton branches.
+@18my9k3uace
+Stereoisomers differ in the 3-D arrangement around atoms.
+@1h5ckbpnshw
+Each functional group has its own reactions.
+@1xabds8w4e6
+Alcohols are oxidised to aldehydes, ketones and acids.
+@1nxc57ids7u
+Benzene is compared with the addition reactions of alkenes.
+@1g7gqglzmno
+Addition and condensation reactions make polymers.
+@29jwbifa3it
+Sugars, proteins and fats are built from organic functional groups.
+@1rhf88m859u
+Starch, proteins and DNA are natural condensation polymers.
+@2bqszozd7au
+Group properties follow the periodic trends.
+@1e6byqpxf16
+Halogen displacement is a redox reaction.
+@guvgyebzf
+Transition metals fill a d subshell.
+@1c41e90lgbx
+Ligands bond to the metal by coordinate bonds.
+@24yhra6tnfx
+The reactivity of a metal decides how it is extracted.
+@c04xtee639
+Reactive metals are extracted by electrolysis.
+@1b3nlwo6kv7
+Nuclear reactions change the numbers of protons and neutrons.
+@184tjo4rb4m
+Alpha, beta and gamma radiation and half-life come from nuclear physics.
+@9wc4sfnajp
+Radioactive decay is exponential.
+@xxz1b237d2
+Acid rain is explained by acid–base chemistry.
+@pif4uvpbjq
+The greenhouse effect is the physics behind climate change.
+@1wcpvx4fpxu
+Water treatment uses coagulation of colloids.
+@1l6psqp8y2t
+Hybridisation explains the VSEPR shapes.
+@27kozbefd90
+Molecular orbitals are filled like atomic orbitals.
+@hqpksugpoz
+ΔG combines the enthalpy change with entropy.
+@5hl8bna208
+ΔG° = −RT ln K links energy and equilibrium.
+@26l49nzyme2
+Entropy and the second law come from thermodynamics.
+@l3xopdpp41
+Integrated rate laws extend the rate equation.
+@d22o83zv8m
+The Arrhenius equation is linearised with logarithms.
+@319qnztedl
+Integrated rate laws are solutions of differential equations.
+@17wyowa4z6i
+IR spectra identify functional groups.
+@179a8vhliz5
+Each technique uses a different part of the electromagnetic spectrum.
+@dgy4aokosg
+Crystal-field theory explains the colours of complexes.
+@1rknyc0h9je
+d-orbital splitting builds on orbital theory.

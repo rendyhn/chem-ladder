@@ -1,0 +1,521 @@
+##### thermochemistry
+@d618dtsaav  ; 0=FigRow([[energyProfileSvg({ exo: true, W | 1=Tbl([T`Exothermic`, T`Endothermic`], [[T | 2=Key(T`<p>A <b>thermochemical equation</b | 3=Fig(calorimeterSvg({ names: [T`thermomet | 4=Fm(T`q = m\,c\,\Delta T \qquad \Delta H  | 5=Ex(T`<p>50 mL of 1.0 M HCl and 50 mL of  | 6=Tip(T`<p>A simple calorimeter loses some
+
+<p>Chemical reactions take in or give out energy, usually as heat. The reacting chemicals are the <b>system</b>; everything else (the water, the beaker, the air) is the <b>surroundings</b>. The heat exchanged at constant pressure is the <b>enthalpy change</b> $\Delta H$.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+<h3>Calorimetry</h3>
+⟦3⟧
+⟦4⟧
+<p>with $m$ the mass of the solution (take 1 mL = 1 g), $c = 4.18$ J g⁻¹ °C⁻¹ for water, and $n$ the moles that reacted. The minus sign: if the solution warms up, heat came out of the reaction, so $\Delta H$ is negative.</p>
+⟦5⟧
+⟦6⟧
+@10pbxdtswt6
+enthalpy
+@20a04cho4fu
+progress of reaction
+@17aiwhb47kk
+reactants
+@2erkuzrjb5u
+products
+@1gqd2iaqrvd
+Energy profile of an exothermic reaction: the products are lower than the reactants
+@ha8qhe372l
+exothermic: $\Delta H < 0$
+@1vudkcqhr7c
+Energy profile of an endothermic reaction: the products are higher than the reactants
+@xr9qdyz900
+endothermic: $\Delta H > 0$
+@awzukeblkm
+Energy profiles. $E_a$ is the activation energy: the energy barrier that colliding particles must overcome for the reaction to start.
+@q6f8qy62pd
+Exothermic
+@lszeeeq54r
+Endothermic
+@100d8brw1ik
+gives out heat: the surroundings get warmer
+@voz7ckqjcz
+takes in heat: the surroundings get colder
+@164givibjuu
+$\Delta H$ negative
+@1vnd4teuxho
+$\Delta H$ positive
+@231qp50l0gz
+combustion, respiration, neutralisation, rusting
+@1o55b06kuw5
+photosynthesis, thermal decomposition, dissolving $\ce{NH4NO3}$ (cold packs)
+@ih78ym9hre
+<p>A <b>thermochemical equation</b> gives $\Delta H$ for the amounts in the equation: $$\ce{CH4(g) + 2O2(g) -> CO2(g) + 2H2O(l)} \quad \Delta H = -890\ \mathrm{kJ}$$ Doubling the equation doubles $\Delta H$; reversing it changes the sign. <b>Standard</b> conditions ($\Delta H^\circ$): 298 K (25 °C), 1 bar, 1 mol/L solutions. Named standard enthalpies: formation $\Delta H_f^\circ$ (1 mol of compound from its elements), combustion $\Delta H_c^\circ$ (1 mol burned completely), neutralisation (1 mol of water formed, about −57 kJ/mol for strong acid + strong base).</p>
+@o8636c2b7u
+stirrer
+@296ewxyk1mt
+lid
+@bqsr7zl3hv
+A simple calorimeter: an insulated polystyrene cup with a lid, thermometer and stirrer
+@ceiqjwew11
+A simple calorimeter: a polystyrene cup with a lid keeps the heat in, so the temperature change of the solution measures the heat released or absorbed.
+@24fuw3pxfaf
+<p>50 mL of 1.0 M HCl and 50 mL of 1.0 M NaOH are mixed and the temperature rises by 6.8 °C. $q = 100 \times 4.18 \times 6.8 = 2842$ J; $n(\ce{H2O}) = 0.050$ mol; $\Delta H = -\frac{2.842}{0.050} = -57$ kJ/mol.</p>
+@1la4nlyauvd
+<p>A simple calorimeter loses some heat to the air and the cup, so measured values are usually less negative than the data-book values.</p>
+@22sjfti6koe  ; 0=Q(m, 'g') | 1=Q(dT, '°C')
+How much heat (in J) is needed to warm ⟦0⟧ of water by ⟦1⟧? ($c = 4.18$ J g⁻¹ °C⁻¹)
+@flk2oytbb5  ; 0=M(m) | 1=M(dT) | 2=M(q)
+$q = mc\Delta T = ⟦0⟧ \times 4.18 \times ⟦1⟧ = ⟦2⟧$ J.
+@sf9m4pbmhu  ; 0=Q(V, 'mL') | 1=NUM(c) | 2=Q(V, 'mL') | 3=NUM(c) | 4=Q(dT, '°C') | 5=NUM(2 * V)
+⟦0⟧ of ⟦1⟧ M HCl is mixed with ⟦2⟧ of ⟦3⟧ M NaOH. The temperature rises by ⟦4⟧. Find $\Delta H$ of neutralisation (in kJ/mol). (Total mass ⟦5⟧ g, $c = 4.18$ J g⁻¹ °C⁻¹)
+@1xgxefwfwsr  ; 0=M(2 * V) | 1=M(dT) | 2=M(sig(q, 4)) | 3=M(n) | 4=M(sig(q / 1000, 4)) | 5=M(n) | 6=M(dH)
+$q = ⟦0⟧ \times 4.18 \times ⟦1⟧ = ⟦2⟧$ J; $n = ⟦3⟧$ mol; $\Delta H = -\frac{⟦4⟧}{⟦5⟧} = ⟦6⟧$ kJ/mol.
+@1payzpe9mgg
+burning methane
+@28ua7u0ar99
+respiration
+@1xupaj0abuy
+photosynthesis
+@c3edbsdiiw
+thermal decomposition of limestone
+@nq8jdwag9j
+neutralising an acid with an alkali
+@1t52mbbceqe
+dissolving ammonium nitrate in water
+@14fuoeghg4t
+melting ice
+@1ufupy7bg8u
+condensing steam
+@bvoqz9uemu
+rusting of iron
+@km39aqce9p
+exothermic
+@lmstfdhnn5
+endothermic
+@2djl1lanniq  ; 0=pr
+Is ⟦0⟧ exothermic or endothermic?
+@18cexr15qc
+It takes in heat: <b>endothermic</b>, $\Delta H > 0$.
+@1meyx579nx7
+It gives out heat: <b>exothermic</b>, $\Delta H < 0$.
+@12nlwn4slkn  ; 0=e | 1=M(h) | 2=k > 0 ? T`${k} times this equation` : k 
+$⟦0⟧$ has $\Delta H = ⟦1⟧$ kJ. What is $\Delta H$ (in kJ) for ⟦2⟧?
+@17vkj5g5b6n  ; 0=k
+⟦0⟧ times this equation
+@10zfz1d2cwi
+the reverse reaction
+@1d0pm7tffpg
+twice the reverse reaction
+@ly38yswyrq  ; 0=Math.abs(k) | 1=k < 0 ? T` and change the sign` : '' | 2=M(a)
+Multiply by ⟦0⟧⟦1⟧: $⟦2⟧$ kJ.
+@9ixkzcq0rg
+ and change the sign
+@pw85aazfx3  ; 0=f | 1=M(h) | 2=Mm | 3=Q(m, 'g')
+$\Delta H_c(\ce{⟦0⟧}) = ⟦1⟧$ kJ/mol ($M = ⟦2⟧$ g/mol). How much heat (in kJ) is released when ⟦3⟧ burns?
+@5g5uo9e1ih  ; 0=m | 1=Mm | 2=M(sig(m / Mm, 3)) | 3=M(sig(m / Mm, 3)) | 4=M(-h) | 5=M(q)
+$n = \frac{⟦0⟧}{⟦1⟧} = ⟦2⟧$ mol; heat $= ⟦3⟧ \times ⟦4⟧ = ⟦5⟧$ kJ.
+
+##### hess-law
+@th046mg7ax  ; 0=Fig(hessCycleSvg({ a: 'C + O₂', b: 'CO₂' | 1=Key(T`<p><b>From enthalpies of formation | 2=Ex(T`<p>$\ce{CH4 + 2O2 -> CO2 + 2H2O(l)} | 3=Fig(energyProfileSvg({ exo: true, W: 400 | 4=Key(T`<p>$$\Delta H = \sum(\text{bonds b | 5=Tbl([T`Bond`, T`kJ/mol`, T`Bond`, T`kJ/m | 6=Tip(T`<p>Answers from bond enthalpies di
+
+<p><b>Hess's law</b> (1840): the total enthalpy change of a reaction is the same whatever route is taken, as long as the start and end are the same. Enthalpy is like height: the difference between two floors of a building does not depend on whether you take the stairs or the lift.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+<h3>Bond enthalpies</h3>
+<p>Breaking a bond takes energy (endothermic); making a bond gives it out (exothermic). The <b>bond enthalpy</b> is the energy needed to break 1 mol of a bond in the gas state, averaged over many compounds.</p>
+⟦3⟧
+⟦4⟧
+⟦5⟧
+⟦6⟧
+@wzgqi7hqhf
+Hess cycle: carbon burning directly to carbon dioxide, or first to carbon monoxide and then to carbon dioxide
+@2kd5gcgitd
+Carbon can burn straight to $\ce{CO2}$ or via $\ce{CO}$: $\Delta H_1 = \Delta H_2 + \Delta H_3 = -110.5 + (-283.0) = -393.5$ kJ/mol. This gives $\Delta H$ for reactions that are hard to measure directly.
+@11i67swr7po
+<p><b>From enthalpies of formation:</b> $$\Delta H^\circ_{\text{reaction}} = \sum n\,\Delta H_f^\circ(\text{products}) - \sum n\,\Delta H_f^\circ(\text{reactants})$$ $\Delta H_f^\circ$ of an element in its standard state is zero.</p>
+@16kjlsjvyn9
+<p>$\ce{CH4 + 2O2 -> CO2 + 2H2O(l)}$ with $\Delta H_f^\circ$: $\ce{CH4}$ −74.8, $\ce{CO2}$ −393.5, $\ce{H2O}$ −285.8 kJ/mol.</p><p>$\Delta H = [-393.5 + 2(-285.8)] - [-74.8 + 0] = -890.3$ kJ/mol.</p>
+@n3ds9p3wmn
+Hydrogen and chlorine form hydrogen chloride: more energy is released forming bonds than is used breaking them
+@1sz16dow4bs
+$\ce{H2 + Cl2 -> 2HCl}$: breaking H–H and Cl–Cl takes $436 + 243 = 679$ kJ; forming 2 H–Cl gives out $2 \times 432 = 864$ kJ. $\Delta H = 679 - 864 = -185$ kJ.
+@24kjskr134a
+<p>$$\Delta H = \sum(\text{bonds broken}) - \sum(\text{bonds formed})$$ A reaction is exothermic when the bonds formed are stronger than the bonds broken.</p>
+@4enpw3la02
+Bond
+@28k2y7mxrte
+kJ/mol
+@fuhisg7cwr
+<p>Answers from bond enthalpies differ slightly from those using $\Delta H_f^\circ$, because bond enthalpies are averages and assume every substance is a gas.</p>
+@2c5z4gxfvar  ; 0=[...new Set([...br, ...mk].map(x => x[0] | 1=e
+Use the bond enthalpies (kJ/mol) ⟦0⟧ to find $\Delta H$ (in kJ) for $⟦1⟧$.
+@1gh5wz9bxql  ; 0=beT(br) | 1=b | 2=beT(mk) | 3=m | 4=b | 5=m | 6=M(h)
+Broken: $⟦0⟧ = ⟦1⟧$. Formed: $⟦2⟧ = ⟦3⟧$. $\Delta H = ⟦4⟧ - ⟦5⟧ = ⟦6⟧$ kJ.
+@1x63ahzpjyi  ; 0=fs.map(f => `$\\ce{${f}}$ ${NUM(HF[f])}` | 1=e
+Standard enthalpies of formation (kJ/mol): ⟦0⟧. Find $\Delta H^\circ$ (in kJ) for $⟦1⟧$.
+@wqo2a3tl1l  ; 0=hfT(pr) | 1=hfT(re) | 2=M(h)
+$\Delta H = [⟦0⟧] - [⟦1⟧] = ⟦2⟧$ kJ.
+@3bvhun53g0  ; 0=M(h2) | 1=M(h3)
+In a Hess cycle, A → C has $\Delta H = ⟦0⟧$ kJ and C → B has $\Delta H = ⟦1⟧$ kJ. What is $\Delta H$ (in kJ) for A → B directly?
+@2gnpssan0mr  ; 0=M(h2) | 1=M(h3) | 2=M(h1)
+Same start and end: $⟦0⟧ + (⟦1⟧) = ⟦2⟧$ kJ.
+@1dovro8fa4n  ; 0=M(x) | 1=M(-y)
+Given $\ce{A -> B}$, $\Delta H = ⟦0⟧$ kJ and $\ce{C -> B}$, $\Delta H = ⟦1⟧$ kJ. Find $\Delta H$ (in kJ) for $\ce{A -> C}$.
+@hfkh5hwenr  ; 0=M(-y) < 0 ? '(' + M(y) + ')' : '' | 1=M(-y) < 0 ? '' : '(' + M(y) + ')' | 2=M(x) | 3=M(y) | 4=M(sig(x + y, 4))
+A → B, then B → C (the reverse of C → B, so $+⟦0⟧⟦1⟧$): $⟦2⟧ + (⟦3⟧) = ⟦4⟧$ kJ.
+@i4rqc8car3
+What is the standard enthalpy of formation of O₂(g)?
+@dippso5f43
+0 kJ/mol
+@1fbage276bc
+−498 kJ/mol
+@4dhl63rhm5
++498 kJ/mol
+@1xvxiljzvi5
+−286 kJ/mol
+@n20f7gok38
+Elements in their standard state have $\Delta H_f^\circ = 0$.
+@15rbia19hjy
+Why is a reaction exothermic?
+@s5m2v8fwln
+More energy is released making bonds than is taken in breaking bonds
+@159utts8rg
+Only bonds are made
+@f9xlu7k2pk
+Only bonds are broken
+@2gb2ko3z4ir
+The products have more energy than the reactants
+@1gntls8p1d9
+Bond making releases energy; if it outweighs bond breaking, $\Delta H < 0$.
+
+##### reaction-rates
+@1i8qss0fnxz  ; 0=Fig(planeSvg({ W: 420, H: 250, x: [0, 10 | 1=Key(T`<p><b>Collision theory:</b> partic | 2=Tbl([T`Factor`, T`Effect`, T`Why`], [[T` | 3=Fig(maxwellSvg({ names: { x: T`energy`,  | 4=Fig(energyProfileSvg({ exo: true, cat: t | 5=Tip(T`<p>The rate at any instant is the 
+
+<p>The <b>rate</b> of a reaction is how fast a reactant is used up or a product forms: $$\text{rate} = \frac{\Delta[\text{concentration}]}{\Delta t} \quad (\mathrm{mol\,L^{-1}\,s^{-1}})$$ It can be followed by measuring the volume of gas given off, the loss of mass, a colour change, or the time for a cross under the flask to disappear.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+@1akw8fyw9av
+time (min)
+@15ary5c9dzr
+volume of gas (mL)
+@2agmj48ma14
+powder / hot / concentrated
+@9vs45araos
+lumps / cooler
+@u6ua3p1ff4
+Volume of gas against time for a fast and a slow reaction: both level off at the same final volume
+@dokqwxfwyy
+Gas collected against time. The curve is steepest at the start (highest rate) and flattens as reactants are used up. With the same amounts of reactants, both runs end with the same volume; the faster one just gets there sooner.
+@vvg7ngjwvt
+<p><b>Collision theory:</b> particles react only when they <b>collide</b>, with enough energy (at least the <b>activation energy</b> $E_a$) and in the right orientation. Anything that increases the number of <i>successful</i> collisions per second increases the rate.</p>
+@11k1h4apbv2
+Factor
+@nqubyke0l3
+Effect
+@6z056hfmwf
+Why
+@4k50dn6dyq
+concentration (or gas pressure)
+@jgloqea6b2
+higher → faster
+@vtpd6d4vec
+more particles in the same volume collide more often
+@1rmaic6y64x
+surface area
+@v42obte6a9
+powder faster than lumps
+@vuqqco2cu0
+more particles exposed to collisions
+@1d1o0mwcsoo
+higher → much faster
+@c94lvsu6fr
+particles collide more often and far more of them have $E \ge E_a$
+@16a9itcqcd9
+catalyst
+@1zsfj65jxff
+faster, and not used up
+@289gndxigj8
+gives an alternative route with a lower $E_a$
+@yqjppktdav
+energy
+@226g8fghb5r
+fraction of particles
+@qlsimpemhw
+Maxwell–Boltzmann distributions at two temperatures: at the higher temperature the curve is flatter and more particles have energy above the activation energy
+@e84tiit0md
+Maxwell–Boltzmann distribution: the spread of particle energies in a gas. At the higher temperature $T_2$ the curve flattens and shifts right, so the shaded area beyond $E_a$ (particles able to react) grows a lot. A 10 °C rise often roughly doubles the rate.
+@1j1v4e1cil3
+with catalyst
+@29ymhyw9vu
+Energy profile with and without a catalyst: the catalysed path has a lower activation energy but the same enthalpy change
+@1xw6txfgpc5
+A <b>catalyst</b> lowers the activation energy ($E_a' < E_a$) without changing $\Delta H$. Enzymes are biological catalysts; catalytic converters in cars use platinum and rhodium.
+@29i9q2nyh1i
+<p>The rate at any instant is the gradient of the tangent to the concentration–time (or volume–time) curve at that time.</p>
+@21vkn26qmeg  ; 0=NUM(d) | 1=Q(t, 's')
+The concentration of a reactant falls by ⟦0⟧ mol/L in ⟦1⟧. What is the average rate (in mol L⁻¹ s⁻¹)?
+@a32bqxnggr  ; 0=M(d) | 1=t | 2=M(r)
+$\text{rate} = \frac{⟦0⟧}{⟦1⟧} = ⟦2⟧$ mol L⁻¹ s⁻¹.
+@12gx1qxklpp  ; 0=Q(V, 'mL') | 1=t
+⟦0⟧ of gas is collected in the first ⟦1⟧ minutes. What is the average rate (in mL/min)?
+@kn48gurde7  ; 0=V | 1=t | 2=M(r)
+$\frac{⟦0⟧}{⟦1⟧} = ⟦2⟧$ mL/min.
+@2epr8uaohz4
+the acid is made more concentrated
+@1ohnqx7afmn
+faster
+@y956xz4k2
+the marble lumps are ground to powder
+@fkpno9cg1r
+the temperature is lowered
+@az7ycl8cnf
+slower
+@11cwcn8wv7p
+a catalyst is added
+@1puiutqqelb
+the acid is diluted with water
+@idc7fnpct9
+the gas pressure is increased
+@mzsecvn3mo  ; 0=ch
+What happens to the rate of reaction when ⟦0⟧?
+@1vs6c7yui98
+no change
+@2e8264lwgsx  ; 0=a | 1=a === T`faster` ? T`increases` : T`decre
+<b>⟦0⟧</b>: the number of successful collisions per second ⟦1⟧.
+@fnhqrt9ine  ; 0=r0 | 1=20 + dT
+A reaction doubles its rate for every 10 °C rise. If its rate at 20 °C is ⟦0⟧ units, what is the rate at ⟦1⟧ °C?
+@1myczrhi9yu  ; 0=dT | 1=dT / 10 | 2=r0 | 3=dT / 10 | 4=r
+$⟦0⟧ / 10 = ⟦1⟧$ doublings: $⟦2⟧ \times 2^{⟦3⟧} = ⟦4⟧$.
+@23ogd2gsmxa
+How does a catalyst speed up a reaction?
+@1dmbosjrbi5
+It provides a route with a lower activation energy
+@7303yd1r5t
+It gives the particles more energy
+@zct3sd5qba
+It increases ΔH
+@1wvpqzroex3
+It increases the concentration
+@1op8kfwhjee
+More particles then have enough energy to react.
+@clwcuowewg
+Why does raising the temperature increase the rate so much?
+@xde8g50ym3
+Many more particles have energy above the activation energy
+@2bfi97oj5cq
+The activation energy decreases
+@27mh011s2f7
+The particles become larger
+@7fkicrs4kv
+The enthalpy change becomes more negative
+@1yipjgbzzou
+The Maxwell–Boltzmann curve shifts: the area beyond $E_a$ grows a lot.
+@3xr2qsxznz
+Why does powdered marble react faster with acid than a lump?
+@16xyyp5vaoy
+It has a larger surface area for collisions
+@1mf9rc467tz
+Powder has a lower activation energy
+@29isj0n3zay
+Powder is a catalyst
+@ibppasssce
+Powder is more concentrated
+@1s3naqgzono
+More exposed particles means more collisions per second.
+
+##### rate-laws
+@13gk672gptp  ; 0=FigRow([[planeSvg({ W: 220, H: 180, x: [ | 1=Key(T`<p><b>Initial-rates method:</b> ch | 2=Tbl([T`Experiment`, '[A] (M)', '[B] (M)' | 3=Ex(T`<p>From 1 → 2, [A] doubles and the  | 4=Fig(planeSvg({ W: 420, H: 240, x: [0, 10 | 5=Tip(T`<p>The units of $k$ depend on the 
+
+<p>Experiments show how the rate depends on each concentration. For $\ce{A + B -> products}$ the <b>rate equation</b> is $$\text{rate} = k[\mathrm{A}]^m[\mathrm{B}]^n$$ where $m$ and $n$ are the <b>orders</b> with respect to A and B (usually 0, 1 or 2) and $k$ is the <b>rate constant</b>. The overall order is $m + n$. Orders are found by experiment, <i>not</i> from the coefficients in the equation.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+@14mbcd3d6ev
+rate
+@28gntq5ys8r
+Zero order: the rate does not depend on the concentration
+@1kjmvyyu32a
+zero order
+@26mu17vy4f4
+First order: the rate is proportional to the concentration
+@2ghye1pmwbd
+first order
+@24oqcvwejte
+Second order: the rate is proportional to the concentration squared
+@1x99o40p7zv
+second order
+@11qv01hw9p0
+Rate against concentration: flat for zero order, a straight line through the origin for first order, a curve (parabola) for second order.
+@1bx8m5na17l
+<p><b>Initial-rates method:</b> change one concentration at a time. If doubling [A] doubles the rate, the order in A is 1; if it quadruples the rate, 2; if the rate does not change, 0. In general, when $[\mathrm{A}]$ is multiplied by $x$ and the rate by $y$, then $x^m = y$.</p>
+@y1atij4c87
+Experiment
+@2byl8wjki58
+initial rate (M/s)
+@1wyzozgyv2h
+<p>From 1 → 2, [A] doubles and the rate doubles: first order in A. From 1 → 3, [B] doubles and the rate ×4: second order in B. So rate $= k[\mathrm{A}][\mathrm{B}]^2$ (third order overall) and $k = \frac{2.0 \times 10^{-3}}{0.10 \times 0.10^2} = 2.0$ M⁻² s⁻¹.</p>
+@sv41q6zicn
+First-order decay: the concentration halves every 2 minutes
+@2afptihkqg0
+A first-order reaction has a constant <b>half-life</b>: here [A] halves every 2 minutes, whatever the starting concentration. $t_{1/2} = \frac{\ln 2}{k} = \frac{0.693}{k}$. Radioactive decay is first order too.
+@1gl6f70wr60
+<p>The units of $k$ depend on the overall order: s⁻¹ for first order, M⁻¹ s⁻¹ for second order, M⁻² s⁻¹ for third order.</p>
+@slnnae6og4  ; 0=x | 1=y
+When [A] is multiplied by ⟦0⟧ (other concentrations constant), the rate is multiplied by ⟦1⟧. What is the order with respect to A?
+@13mzel7gcvu  ; 0=x | 1=y | 2=m
+$⟦0⟧^m = ⟦1⟧$ gives $m = ⟦2⟧$.
+@1t5k2tnj1l  ; 0=m | 1=n | 2=fa | 3=fb
+rate $= k[\mathrm{A}]^{⟦0⟧}[\mathrm{B}]^{⟦1⟧}$. By what factor does the rate change if [A] is multiplied by ⟦2⟧ and [B] by ⟦3⟧?
+@21kmsnirrni  ; 0=m | 1=n | 2=M(k) | 3=NUM(A) | 4=NUM(B)
+rate $= k[\mathrm{A}]^{⟦0⟧}[\mathrm{B}]^{⟦1⟧}$ with $k = ⟦2⟧$. Find the rate when [A] = ⟦3⟧ M and [B] = ⟦4⟧ M.
+@jcanyycxsy  ; 0=th | 1=NUM(c0) | 2=n * th
+A first-order reaction has a half-life of ⟦0⟧ min. Starting from ⟦1⟧ M, what is the concentration (in M) after ⟦2⟧ min?
+@4bsscuy9i1  ; 0=n * th | 1=th | 2=n | 3=M(c0) | 4=n | 5=M(c)
+$⟦0⟧ / ⟦1⟧ = ⟦2⟧$ half-lives: $⟦3⟧ / 2^{⟦4⟧} = ⟦5⟧$ M.
+@qhwyf7vtz6  ; 0=M(k)
+A first-order reaction has $k = ⟦0⟧$ s⁻¹. What is its half-life (in s)?
+@3xj3btujq1  ; 0=M(k) | 1=M(t)
+$t_{1/2} = \frac{0.693}{k} = \frac{0.693}{⟦0⟧} = ⟦1⟧$ s.
+
+##### equilibrium
+@tu0vg6s527  ; 0=FigRow([[planeSvg({ W: 280, H: 210, x: [ | 1=Key(T`<p><b>Le Chatelier's principle:</b | 2=Tbl([T`Change`, T`Equilibrium shifts`, T | 3=Key(T`<p>For $a\mathrm{A} + b\mathrm{B}  | 4=Tip(T`<p>The <b>Haber process</b> uses 4
+
+<p>Many reactions are <b>reversible</b> ($\rightleftharpoons$): the products can react to give back the reactants. In a closed system the forward reaction slows down as reactants are used up, the backward reaction speeds up as products build up, until both rates are equal. This is <b>dynamic equilibrium</b>: both reactions keep going, but the concentrations no longer change.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@1w9k6zlt9b0
+time
+@1pjn54z0fni
+concentration
+@1u6sblj3v47
+equilibrium
+@23im3sgo03i
+Concentrations level off when equilibrium is reached
+@20blar018u2
+concentrations become constant
+@1b0l37kf6bd
+forward
+@a4h9gychos
+backward
+@2wmg1iecs
+The forward rate falls and the backward rate rises until they are equal
+@3lmh51aqhw
+forward rate = backward rate
+@13q7ewqhy3v
+Approaching equilibrium from pure reactants.
+@8ovrsmeh5j
+<p><b>Le Chatelier's principle:</b> if a system at equilibrium is disturbed, the position of equilibrium shifts to oppose the change.</p>
+@1da366023pp
+Change
+@2190zau7m83
+Equilibrium shifts
+@evgmygrz2u
+Example: $\ce{N2 + 3H2 <=> 2NH3}$, $\Delta H = -92$ kJ
+@10t5n7v4jps
+add a reactant
+@12rulxxxfml
+to the right (uses it up)
+@23ybuzck3az
+more $\ce{NH3}$
+@204nb06uhgg
+increase pressure
+@1xlc35onq8a
+to the side with fewer gas molecules
+@1rem0gru0xb
+right (4 → 2 molecules): more $\ce{NH3}$
+@25xzvrlwlwr
+increase temperature
+@1f8f2hombuo
+in the endothermic direction
+@1i7br72fzu3
+left: less $\ce{NH3}$
+@1xnuma5khg0
+add a catalyst
+@1m275w6yrcg
+no shift: equilibrium is only reached faster
+@5uchox9reo
+iron catalyst
+@29o1gcuyfrs
+<p>For $a\mathrm{A} + b\mathrm{B} \rightleftharpoons c\mathrm{C} + d\mathrm{D}$ the <b>equilibrium constant</b> is $$K_c = \frac{[\mathrm{C}]^c[\mathrm{D}]^d}{[\mathrm{A}]^a[\mathrm{B}]^b}$$ using equilibrium concentrations (pure solids and liquids are left out). For gases, $K_p$ uses partial pressures, and $K_p = K_c(RT)^{\Delta n}$. $K \gg 1$: mostly products; $K \ll 1$: mostly reactants. $K$ changes only with temperature.</p>
+@1maidjcksa8
+<p>The <b>Haber process</b> uses 450 °C, 200 atm and an iron catalyst: a lower temperature would give a higher yield but far too slowly, so a compromise is chosen. Unreacted gases are recycled. The <b>Contact process</b> makes $\ce{SO3}$ (for sulfuric acid) at 450 °C, 1–2 atm with $\ce{V2O5}$.</p>
+@jd6iry5yu4
+the pressure is increased
+@1qmrogo47zh
+to the right
+@4za53lmp1v
+the temperature is increased
+@143bv4l2nlm
+to the left
+@5j4yghi354
+more oxygen is added
+@16pkeaa7fvx
+no shift
+@q3cs1uhach
+CO₂ is removed
+@1m684drdiof  ; 0=e | 1=ch
+For $⟦0⟧$, which way does the equilibrium shift when ⟦1⟧?
+@21xjhtatavb  ; 0=a
+By Le Chatelier's principle: <b>⟦0⟧</b>.
+@1sbya033eh6  ; 0=e
+What is the expression for $K_c$ for $⟦0⟧$?
+@uurum8aun7  ; 0=num | 1=den
+Products over reactants, each raised to its coefficient: $K_c = \dfrac{⟦0⟧}{⟦1⟧}$.
+@22npt8lxjjl  ; 0=M(H2) | 1=M(I2) | 2=M(HI)
+At equilibrium, $\ce{H2 + I2 <=> 2HI}$ has $[\ce{H2}] = ⟦0⟧$ M, $[\ce{I2}] = ⟦1⟧$ M and $[\ce{HI}] = ⟦2⟧$ M. Calculate $K_c$.
+@1ozhbso5zu1  ; 0=M(K) | 1=M(sig(Q0, 3))
+For a reaction $K_c = ⟦0⟧$. In a mixture the reaction quotient is $Q_c = ⟦1⟧$. Which way will the reaction go?
+@19co6z760ru
+forward (to the right)
+@qcc38ohkuy
+backward (to the left)
+@2dxpedr2ah8
+it is already at equilibrium
+@lhcv2x0aha
+$Q < K$: too few products, so the forward reaction wins.
+@1cu8di8jc0y
+$Q > K$: too many products, so the backward reaction wins.
+@ps6ecd3l91
+What is true at dynamic equilibrium?
+@7gc5iw56l8
+The forward and backward rates are equal
+@x7em47ov5x
+Both reactions have stopped
+@u55tdmdaqr
+The concentrations of reactants and products are equal
+@1bms33s8kav
+Only the forward reaction occurs
+@1lmjocv7a6z
+Both reactions continue at the same rate, so the concentrations stay constant (but not necessarily equal).
+@2f6oc4qek3k
+What does a catalyst do to a reaction at equilibrium?
+@1jv1kqd6hzo
+Nothing to the position; equilibrium is reached faster
+@ttx76fa05n
+Shifts it to the right
+@u6p56z3h4u
+Shifts it to the left
+@1vaw40bcdf1
+Increases K
+@1vgoz49fl1h
+It speeds up forward and backward reactions equally.
+@d0stbe33nr
+Why is the Haber process run at 450 °C rather than a lower temperature?
+@4gkgiy7oj8
+A lower temperature would give a better yield but a rate that is too slow
+@1mio60rfeve
+A higher temperature increases the yield
+@1yp0csn5g2u
+Iron melts below 450 °C
+@1lua86fyx43
+Ammonia decomposes below 450 °C
+@21hb775jmf1
+It is a compromise between yield and rate.

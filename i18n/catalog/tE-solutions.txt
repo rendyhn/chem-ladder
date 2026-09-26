@@ -1,0 +1,400 @@
+##### gas-laws
+@o9y0xzhb35  ; 0=FigRow([[pistonSvg({ n: 10, h: 0.95, see | 1=Key(T`<p>Always use <b>absolute temperat | 2=FigRow([[planeSvg({ W: 280, H: 220, x: [ | 3=Fm(T`PV = nRT \qquad R = 8.314\ \mathrm{ | 4=Ex(T`<p>What volume does 2.0 mol of gas  | 5=Key(T`<p><b>Dalton's law of partial pres | 6=Tip(T`<p>Real gases deviate from ideal b
+
+<p>In a gas the particles move fast and randomly, far apart from one another. Every collision with the walls pushes on them: the total push per unit area is the <b>pressure</b>. The <b>kinetic theory</b> explains the gas laws with this picture.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+<h3>The ideal gas equation</h3>
+⟦3⟧
+<p>with $P$ in Pa, $V$ in m³ ($1\ \mathrm{L} = 10^{-3}\ \mathrm{m^3}$), $n$ in mol and $T$ in K. (With $P$ in atm and $V$ in L, use $R = 0.082\ \mathrm{L\,atm\,mol^{-1}\,K^{-1}}$.) <b>Avogadro's law</b> follows: equal volumes of gases at the same $T$ and $P$ contain equal numbers of molecules, so 1 mol of any gas takes 22.4 L at STP.</p>
+⟦4⟧
+⟦5⟧
+⟦6⟧
+@11mqwr0jjwm
+Gas in a large volume: few collisions with the walls
+@a2hlyhjxpv
+large $V$, low $P$
+@1vdr5rqffs8
+The same gas squeezed into half the volume: twice as many collisions
+@26pmtjmdv9h
+half $V$, double $P$
+@2d8g1lhy0i8
+The gas heated at the same volume: faster particles hit the walls harder and more often
+@hf12okykzi
+higher $T$, higher $P$
+@xpfifnlg4x
+Squeezing a gas makes the particles hit the walls more often (higher pressure); heating makes them move faster and hit harder.
+@1zpkduo7757
+<p>Always use <b>absolute temperature</b> in kelvin: $T(\mathrm{K}) = t(°\mathrm{C}) + 273$.</p><p><b>Boyle's law</b> (constant $T$): $PV = \text{constant}$, so $P_1V_1 = P_2V_2$.<br><b>Charles's law</b> (constant $P$): $\frac{V}{T} = \text{constant}$.<br><b>Gay-Lussac's law</b> (constant $V$): $\frac{P}{T} = \text{constant}$.<br>Combined: $$\frac{P_1V_1}{T_1} = \frac{P_2V_2}{T_2}$$</p>
+@1vajlqgrpsw
+Boyle's law: pressure against volume is a hyperbola
+@6rjgb6gmuf
+Boyle: $P \propto \frac{1}{V}$
+@1ya8wx1j8kd
+Charles's law: volume against temperature is a straight line that reaches zero volume at minus 273 degrees Celsius
+@235sicy8ie3
+Charles: extrapolated to $V = 0$ at −273 °C
+@1cll1qf1n3s
+The graph of $V$ against $t$ always extrapolates to −273 °C, whatever the gas: this is <b>absolute zero</b>, 0 K.
+@s0thdeqjoq
+PV = nRT \qquad R = 8.314\ \mathrm{J\,mol^{-1}\,K^{-1}}
+@13v26l6lo2z
+<p>What volume does 2.0 mol of gas occupy at 27 °C and 100 kPa?</p><p>$V = \frac{nRT}{P} = \frac{2.0 \times 8.314 \times 300}{100\,000} = 0.0499\ \mathrm{m^3} = 49.9$ L.</p>
+@1vvnqktsvf6
+<p><b>Dalton's law of partial pressures:</b> in a mixture each gas exerts a pressure as if it were alone, and $P_{\text{total}} = p_A + p_B + \ldots$, with $p_A = x_A P_{\text{total}}$ ($x_A$ = mole fraction). Air at 1 atm: $p(\ce{N2}) \approx 0.78$ atm, $p(\ce{O2}) \approx 0.21$ atm.</p>
+@37w2zaug4
+<p>Real gases deviate from ideal behaviour at high pressure and low temperature, when the particles are close together and attract each other.</p>
+@4pi32nud69  ; 0=Q(V1, 'L') | 1=Q(P1, 'kPa') | 2=Q(V2, 'L')
+A gas occupies ⟦0⟧ at ⟦1⟧. At constant temperature its volume changes to ⟦2⟧. What is the new pressure (in kPa)?
+@6am2yg0svw  ; 0=M(P1) | 1=M(V1) | 2=M(V2) | 3=M(P2)
+Boyle: $P_2 = \frac{P_1V_1}{V_2} = \frac{⟦0⟧ \times ⟦1⟧}{⟦2⟧} = ⟦3⟧$ kPa.
+@1mdr5vxpbrg  ; 0=Q(V1, 'L') | 1=Q(t1, '°C') | 2=Q(t2, '°C')
+A gas has a volume of ⟦0⟧ at ⟦1⟧. What is its volume at ⟦2⟧ at the same pressure (in L)?
+@cmn7ijuh7  ; 0=M(V1) | 1=T2 | 2=T1 | 3=M(V2)
+Charles, in kelvin: $V_2 = V_1 \frac{T_2}{T_1} = ⟦0⟧ \times \frac{⟦1⟧}{⟦2⟧} = ⟦3⟧$ L.
+@vft6p6xoxh  ; 0=NUM(n) | 1=Q(t, '°C') | 2=Q(P, 'kPa')
+What volume (in L) does ⟦0⟧ mol of an ideal gas occupy at ⟦1⟧ and ⟦2⟧? ($R = 8.314$ J mol⁻¹ K⁻¹)
+@jbd38ekmsm  ; 0=M(n) | 1=T0 | 2=M(P * 1000) | 3=M(sig(V / 1000, 3)) | 4=M(V)
+$V = \frac{nRT}{P} = \frac{⟦0⟧ \times 8.314 \times ⟦1⟧}{⟦2⟧} = ⟦3⟧\ \mathrm{m^3} = ⟦4⟧$ L.
+@14m8lzjdgr5  ; 0=NUM(m) | 1=f | 2=Mm | 3=Q(V, 'L') | 4=Q(t, '°C')
+⟦0⟧ g of $\ce{⟦1⟧}$ ($M = ⟦2⟧$ g/mol) is put in a ⟦3⟧ container at ⟦4⟧. What is the pressure (in kPa)? ($R = 8.314$)
+@1dyggcbyay0  ; 0=M(m) | 1=Mm | 2=M(sig(n, 3)) | 3=M(sig(n, 3)) | 4=M(sig(P * 1000, 3)) | 5=M(P)
+$n = \frac{⟦0⟧}{⟦1⟧} = ⟦2⟧$ mol; $P = \frac{nRT}{V} = \frac{⟦3⟧ \times 8.314 \times 300}{0.010} = ⟦4⟧$ Pa $= ⟦5⟧$ kPa.
+@1laokoajwf9  ; 0=Q(Pt, 'kPa') | 1=NUM(x * 100)
+A gas mixture at ⟦0⟧ contains ⟦1⟧% oxygen by moles. What is the partial pressure of oxygen (in kPa)?
+@yodc39uw0u  ; 0=M(x) | 1=M(Pt) | 2=M(p)
+$p = x \times P = ⟦0⟧ \times ⟦1⟧ = ⟦2⟧$ kPa.
+
+##### concentration
+@2xncwkpcnc  ; 0=Key(T`<p><b>Molar concentration</b> (mol | 1=FigRow([[beakerSvg({ n: 6, level: 0.6, s | 2=Fig(apparatusSvg([['beaker', T`1. dissol | 3=Key(T`<p>When a solution is <b>diluted</ | 4=Ex(T`<p>How do you make 250 mL of 0.20 m | 5=Fig(lineChartSvg([['KNO3', 'KNO₃'], ['NH | 6=Tip(T`<p>Read a solubility curve like th
+
+<p>A <b>solution</b> is a uniform mixture of a <b>solute</b> dissolved in a <b>solvent</b>. Water is the most common solvent: solutions in water are called <b>aqueous</b>. "Like dissolves like": polar and ionic substances dissolve in polar solvents (water), non-polar substances in non-polar solvents (hexane, oil).</p>
+⟦0⟧
+⟦1⟧
+<h3>Making and diluting a solution</h3>
+⟦2⟧
+⟦3⟧
+⟦4⟧
+<h3>Solubility</h3>
+<p>The <b>solubility</b> is the maximum mass of solute that dissolves in 100 g of water at a given temperature, giving a <b>saturated</b> solution. For most solids it increases with temperature; for gases it decreases (warm fizzy drinks go flat faster).</p>
+⟦5⟧
+⟦6⟧
+@6vzw9akxrv
+<p><b>Molar concentration</b> (molarity) is the amount of solute per litre of solution: $$c = \frac{n}{V} \quad (\mathrm{mol/L}, \text{ also written M})$$ Mass concentration is in g/L; also used are % by mass, % by volume and parts per million: $1\ \mathrm{ppm} = 1\ \mathrm{mg}$ of solute per kg (≈ per L of water).</p>
+@1vp17q2v09x
+A dilute solution: few solute particles
+@lkwq6nssxh
+dilute
+@1i55hm0t86n
+A concentrated solution: many solute particles in the same volume
+@mni1zsbsvn
+concentrated
+@wxr2hkd3e
+The same six particles in half the volume: double the concentration
+@1spb3bo660z
+same $n$, half $V$
+@ymf036urlz
+Concentration counts solute particles per volume: more particles, or less solvent, means a more concentrated solution.
+@1y6n19qjooq
+1. dissolve the weighed solid
+@296g1dii992
+2. transfer and rinse
+@110zsd4uivp
+3. fill to the mark
+@2c4nu2pgmk0
+4. stopper and invert
+@1fya12shaxk
+Preparing a standard solution: dissolve, transfer, make up to the mark, mix
+@2a9ghhf5ixq
+A <b>standard solution</b> has an accurately known concentration: weigh the solid, dissolve it, transfer everything into a volumetric flask and fill with water until the bottom of the meniscus is on the mark.
+@tb7i5x989y
+<p>When a solution is <b>diluted</b>, water is added but the amount of solute stays the same: $$c_1V_1 = c_2V_2$$</p>
+@2v8q9kek44
+<p>How do you make 250 mL of 0.20 mol/L HCl from a 2.0 mol/L stock? $V_1 = \frac{0.20 \times 250}{2.0} = 25$ mL of stock, made up to 250 mL with water.</p>
+@v35v4ffyg6
+temperature (°C)
+@145gimmtfwb
+solubility (g per 100 g water)
+@14vvz3ii4y0
+Solubility curves: potassium nitrate rises steeply, ammonium chloride and potassium chloride moderately, sodium chloride hardly changes
+@2bl9ij1sjdn
+Solubility curves (CRC Handbook data). Potassium nitrate is far more soluble when hot, so it crystallises out on cooling; sodium chloride hardly changes, so salt is obtained by evaporation instead.
+@2d7bkm6e2el
+<p>Read a solubility curve like this: at 60 °C, 110 g of $\ce{KNO3}$ dissolves in 100 g of water. Cool it to 20 °C, where only 31.6 g dissolves, and $110 - 31.6 = 78.4$ g of crystals form.</p>
+@10feahuwrkv  ; 0=NUM(n) | 1=Q(V, 'mL')
+⟦0⟧ mol of solute is dissolved to make ⟦1⟧ of solution. What is the concentration (in mol/L)?
+@2dmkuulvmyj  ; 0=M(n) | 1=M(V / 1000) | 2=M(c)
+$c = \frac{n}{V} = \frac{⟦0⟧}{⟦1⟧} = ⟦2⟧$ mol/L.
+@1gkrz9kkgug  ; 0=f | 1=M(Mm) | 2=Q(V, 'mL') | 3=NUM(c)
+What mass of $\ce{⟦0⟧}$ ($M = ⟦1⟧$ g/mol) is needed to make ⟦2⟧ of a ⟦3⟧ mol/L solution (in g)?
+@bvp8c4jnxv  ; 0=M(c) | 1=M(V / 1000) | 2=M(sig(c * V / 1000, 3)) | 3=M(m)
+$n = cV = ⟦0⟧ \times ⟦1⟧ = ⟦2⟧$ mol; $m = n \times M = ⟦3⟧$ g.
+@267iuq32n4d  ; 0=NUM(c1) | 1=Q(V2, 'mL') | 2=NUM(c2)
+What volume (in mL) of ⟦0⟧ mol/L stock solution is needed to make ⟦1⟧ of ⟦2⟧ mol/L solution?
+@y9bssa4fmp  ; 0=M(c2) | 1=M(V2) | 2=M(c1) | 3=M(V1)
+$V_1 = \frac{c_2V_2}{c_1} = \frac{⟦0⟧ \times ⟦1⟧}{⟦2⟧} = ⟦3⟧$ mL.
+@19xyttv1omx  ; 0=Q(V1, 'mL') | 1=NUM(c1) | 2=Q(V2, 'mL')
+⟦0⟧ of ⟦1⟧ mol/L solution is diluted to ⟦2⟧. What is the new concentration (in mol/L)?
+@28cr2isgthb  ; 0=M(c1) | 1=M(V1) | 2=M(V2) | 3=M(c2)
+$c_2 = \frac{c_1V_1}{V_2} = \frac{⟦0⟧ \times ⟦1⟧}{⟦2⟧} = ⟦3⟧$ mol/L.
+@166tiebeggs  ; 0=nm | 1=NUM(s1) | 2=t1 | 3=NUM(s2) | 4=t2 | 5=t1 | 6=t2
+Solubility of ⟦0⟧ (g per 100 g water): ⟦1⟧ at ⟦2⟧ °C and ⟦3⟧ at ⟦4⟧ °C. A saturated solution in 100 g of water is cooled from ⟦5⟧ °C to ⟦6⟧ °C. What mass of crystals forms (in g)?
+@15t1099b2pr  ; 0=M(s1) | 1=M(s2) | 2=M(d)
+$⟦0⟧ - ⟦1⟧ = ⟦2⟧$ g comes out of solution.
+@2fj4jq4veok  ; 0=NUM(kg) | 1=NUM(mg)
+A water sample of ⟦0⟧ kg contains ⟦1⟧ mg of lead ions. What is the concentration in ppm?
+@1laoh194nne  ; 0=M(mg) | 1=M(kg) | 2=M(p)
+ppm = mg per kg: $\frac{⟦0⟧}{⟦1⟧} = ⟦2⟧$ ppm.
+
+##### colligative
+@1bq7g6r2jag  ; 0=Fig(phaseDiagramSvg({ solution: true, na | 1=Key(T`<p>These effects use the <b>molali | 2=Ex(T`<p>Freezing point of 0.50 mol $\ce{ | 3=Fig(osmosisSvg({ names: [T`pure water`,  | 4=Fm(T`\pi = M R T \, i`) | 5=Tip(T`<p>Compare solutions by the <b>tot
+
+<p>Dissolving a solute changes some properties of the solvent in a way that depends only on the <b>number</b> of dissolved particles, not on what they are. These are the <b>colligative properties</b>. Solute particles take up part of the surface, so fewer solvent molecules escape: the vapour pressure is lower, the solution boils at a higher temperature and freezes at a lower one.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+<h3>Osmosis</h3>
+⟦3⟧
+⟦4⟧
+<p>with $M$ in mol/L, $R = 0.082$ L atm mol⁻¹ K⁻¹ and $T$ in K. Osmosis explains why red blood cells swell in pure water, why salted vegetables shrink, and how reverse osmosis turns seawater into drinking water.</p>
+⟦5⟧
+@ha0vxz0dwr
+temperature
+@nnyigx5cm4
+pressure
+@kmkkmlw3s7
+triple point
+@k4cqpi9tes
+critical point
+@1i1yoe47bi6
+freezing point
+@2822tdm5ogh
+boiling point
+@ph67eln64i
+Phase diagram of water with the dashed curves of a solution: the freezing point moves lower and the boiling point higher
+@13p7y5473ok
+Phase diagram of water (not to scale). The dashed curves belong to a solution: at 1 atm it freezes below 0 °C and boils above 100 °C.
+@28769pkunuw
+<p>These effects use the <b>molality</b> $m$ = moles of solute per kg of <i>solvent</i> (it does not change with temperature):</p><p>$$\Delta T_b = K_b \cdot m \cdot i \qquad \Delta T_f = K_f \cdot m \cdot i$$</p><p>For water $K_b = 0.52$ °C kg/mol and $K_f = 1.86$ °C kg/mol. The <b>van 't Hoff factor</b> $i$ is the number of particles per formula unit: 1 for sugar or urea, 2 for $\ce{NaCl}$ ($\ce{Na+}$ + $\ce{Cl-}$), 3 for $\ce{CaCl2}$ (for complete dissociation).</p>
+@1kky76loysj
+<p>Freezing point of 0.50 mol $\ce{NaCl}$ in 1 kg of water: $\Delta T_f = 1.86 \times 0.50 \times 2 = 1.86$ °C, so it freezes at −1.86 °C. This is why salt is spread on icy roads.</p>
+@214phkpd39j
+semipermeable membrane
+@u21rlh52m4
+water flows in
+@1f49gqha73u
+Osmosis in a U-tube: water passes through the membrane into the solution, whose level rises
+@lzt6ng64c3
+Water molecules pass through a semipermeable membrane into the more concentrated solution until the extra height $h$ balances the flow. The pressure needed to stop osmosis is the <b>osmotic pressure</b>.
+@29p1287lgx5
+<p>Compare solutions by the <b>total</b> particle concentration $m \cdot i$: 0.1 mol/kg $\ce{CaCl2}$ (0.3 mol of particles) lowers the freezing point more than 0.2 mol/kg glucose (0.2 mol of particles).</p>
+@25o1w23wb9f
+urea
+@qbsxlhupru  ; 0=NUM(m) | 1=s
+What is the freezing point (in °C) of a ⟦0⟧ mol/kg aqueous solution of ⟦1⟧? ($K_f = 1.86$ °C kg/mol, complete dissociation)
+@20lkgdvw8yn  ; 0=i | 1=M(m) | 2=i | 3=M(d) | 4=M(-d)
+$i = ⟦0⟧$; $\Delta T_f = 1.86 \times ⟦1⟧ \times ⟦2⟧ = ⟦3⟧$ °C, so it freezes at $⟦4⟧$ °C.
+@2fut6fnazn2  ; 0=NUM(m) | 1=s
+What is the boiling point (in °C) of a ⟦0⟧ mol/kg aqueous solution of ⟦1⟧ at 1 atm? ($K_b = 0.52$ °C kg/mol)
+@1vosb4byqc  ; 0=M(m) | 1=i | 2=M(d) | 3=M(sig(100 + d, 5))
+$\Delta T_b = 0.52 \times ⟦0⟧ \times ⟦1⟧ = ⟦2⟧$ °C: boils at $⟦3⟧$ °C.
+@y2s1q8gmp9  ; 0=NUM(mass) | 1=NUM(kg * 1000)
+⟦0⟧ g of glucose ($M = 180$ g/mol) is dissolved in ⟦1⟧ g of water. What is the molality (in mol/kg)?
+@1hmpvatvx33  ; 0=M(mass) | 1=M(kg) | 2=M(m)
+$m = \frac{⟦0⟧ / 180}{⟦1⟧} = ⟦2⟧$ mol/kg.
+@mjilbfwcme  ; 0=NUM(c) | 1=i === 2 ? T`of NaCl` : T`of glucose` | 2=Q(t, '°C')
+Find the osmotic pressure (in atm) of a ⟦0⟧ mol/L solution ⟦1⟧ at ⟦2⟧. ($R = 0.082$ L atm mol⁻¹ K⁻¹)
+@qqt058upyd
+of NaCl
+@2584vym8g9o
+of glucose
+@76rtt4964n  ; 0=M(c) | 1=t + 273 | 2=i | 3=M(p)
+$\pi = MRTi = ⟦0⟧ \times 0.082 \times ⟦1⟧ \times ⟦2⟧ = ⟦3⟧$ atm.
+@1yy9x9cob9x
+0.1 mol/kg glucose
+@pke6195zoo
+0.1 mol/kg NaCl
+@13p8qhmlbhu
+0.1 mol/kg CaCl₂
+@1ymjtf9jb1b
+0.15 mol/kg KCl
+@1783zwundpr
+0.25 mol/kg urea
+@qutkydecyc
+Which aqueous solution has the lowest freezing point?
+@1j4rq0wcdvn  ; 0=pk.map(x => `${x[0]}: ${NUM(sig(x[1], 2)
+Compare $m \times i$ (total particles): ⟦0⟧. The most particles lower the freezing point most.
+@4tm5b2407s
+Why is salt spread on icy roads?
+@28ssivx6lev
+It lowers the freezing point of water
+@2r1kl0qfgd
+It raises the freezing point of water
+@1bp9izqs0oo
+It reacts with ice to release heat
+@1s1wdpny5kk
+It makes the road rougher
+@1g4hk6ni7vk
+Freezing-point depression: salty water stays liquid below 0 °C.
+@z1m75pqn2v
+A red blood cell is put in pure water. What happens?
+@1l29o4am0la
+Water enters the cell by osmosis and it swells
+@20i8q2iyl9u
+Water leaves the cell and it shrinks
+@1a2l9vqj6bq
+Nothing happens
+@24ui2won5xq
+Salt enters the cell
+@1ie7znclr8i
+The inside of the cell is more concentrated, so water flows in.
+
+##### colloids
+@1o9gbu4djym  ; 0=Fig(sizeScaleSvg({ names: [T`solution`,  | 1=Tbl([T`Property`, T`Solution`, T`Colloid | 2=Fig(tyndallSvg({ names: [T`solution`, T` | 3=Tbl([T`Dispersed phase`, T`in medium`, T | 4=Key(T`<p>Other properties: <b>Brownian m | 5=Tip(T`<p>Colloids are made by <b>dispers
+
+<p>Mixtures can be sorted by the size of the dispersed particles. In a <b>true solution</b> they are single molecules or ions (below 1 nm); in a <b>suspension</b> they are large enough to settle and be filtered off. In between is a <b>colloid</b>: particles of 1–1000 nm that stay spread out and look uniform, but are much bigger than molecules.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+@1ic5267wbwq
+colloid
+@1vmmk4pz1dd
+suspension
+@241nisg70ok
+particle size (logarithmic scale)
+@1mec2s0wou0
+Particle size scale: solutions below 1 nanometre, colloids from 1 nanometre to 1 micrometre, suspensions above
+@ob7gj6x24p
+Particle size decides the type of mixture.
+@da70xsia5i
+Solution
+@oaynhdt5i7
+Suspension
+@27yx5wayv6o
+appearance
+@p1uok8w1rr
+clear
+@14cyr57crjk
+cloudy or clear
+@1vgj28lh44y
+cloudy
+@1l6pni75imw
+settles on standing?
+@2ff3cbt79eb
+separated by filter paper?
+@19q9quedom2
+Tyndall effect?
+@uojoimek7d
+yes (but opaque)
+@1c2jnz7ka7h
+example
+@1ojfwucgojd
+sugar water
+@ksign2i7fm
+milk, fog
+@1l16le2kqha
+muddy water
+@200xe2pgcm3
+The Tyndall effect: a light beam is invisible in a solution but visible in a colloid
+@1xtyoopcj9p
+The <b>Tyndall effect</b>: colloid particles scatter light, so a beam is visible through a colloid but not through a true solution. Car headlights in fog and sunbeams in a dusty room are examples.
+@1hzocmlsqwg
+Dispersed phase
+@7b7wvhgls1
+in medium
+@199yxveilmj
+sol
+@a3l8zpxk92
+paint, ink, blood
+@2c76b0ol3d2
+emulsion
+@3db0xdb9fn
+milk, mayonnaise
+@4h6lpz3fyo
+foam
+@21oxich7gnn
+whipped cream, soap foam
+@3zoogndh1g
+liquid aerosol
+@8417n8lwd8
+fog, clouds, hairspray
+@uxrdvyjach
+solid aerosol
+@t1lbo2gwlj
+smoke, dust
+@28u52s0ai9p
+gel
+@woy4akzj8g
+jelly, cheese, butter
+@1ba3oddo1ds
+solid foam
+@1bj4gpv95vw
+pumice, marshmallow
+@gly9vyl8bw
+solid sol
+@1zcpi8p0wv5
+coloured glass, some alloys
+@28m0odivwqf
+<p>Other properties: <b>Brownian motion</b> (colloid particles jiggle randomly because solvent molecules hit them unevenly), <b>adsorption</b> (particles hold ions on their surface; used in water treatment with alum), <b>coagulation</b> (adding an electrolyte or heat makes particles clump, as in making tofu or latex), and <b>dialysis</b> (ions pass through a membrane, colloid particles do not; used in kidney machines). An <b>emulsifier</b> such as soap or egg yolk (lecithin) keeps an emulsion from separating.</p>
+@14f9tzdqa84
+<p>Colloids are made by <b>dispersion</b> (breaking big particles down, e.g. grinding, or shaking oil with soap) or <b>condensation</b> (joining small particles up, e.g. hydrolysis of $\ce{FeCl3}$ in hot water to form an $\ce{Fe(OH)3}$ sol).</p>
+@6nweb88w30
+mayonnaise
+@56ds8fcv3x
+fog
+@1v5nx3vcd0p
+smoke
+@j3mxf65e1a
+whipped cream
+@1i2ilmr2yi
+jelly
+@22b9clzzb9d
+ink
+@jb94yznnws
+pumice
+@151xjixfed8
+butter
+@w7lp06ilam
+paint
+@26l9aq0xvzm  ; 0=x
+What type of colloid is ⟦0⟧?
+@odu73toqtp
+vinegar
+@jlnzlj0z3w
+gelatine
+@14hu26whgtk
+sand in water
+@wnd79bzwwk
+chalk in water
+@2banp3j42rw  ; 0=x
+Is ⟦0⟧ a solution, a colloid or a suspension?
+@gc00isg1ml
+a beam of headlights is visible in fog
+@zksr1o7e8a
+the Tyndall effect
+@1fk4fvqregp
+alum is used to clear muddy water
+@1tw04mqeqbp
+coagulation and adsorption
+@v71rtlny9k
+a kidney machine removes urea from blood
+@20et8dvnbml
+dialysis
+@1g9wbt7mpbj
+colloid particles seen under a microscope jiggle randomly
+@1skngtux7so
+Brownian motion
+@lbzc89usn1
+soap removes grease from clothes
+@9qnyn8fhm9
+emulsification
+@58bk2h3456  ; 0=x
+Which colloid property explains this: ⟦0⟧?
+@1oz96rwivju  ; 0=sz
+Dispersed particles are about ⟦0⟧ across. What kind of mixture is it?
+@vc30flz6bh  ; 0=N[t]
+Below 1 nm solution, 1–1000 nm colloid, above that suspension: <b>⟦0⟧</b>.

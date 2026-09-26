@@ -1,0 +1,528 @@
+##### core
+@29zoubt38xj
+alkali metals
+@uurkk4fvdc
+alkaline earth metals
+@3kj0wr5w52
+halogens
+@1er3hszw0w1
+noble gases
+
+##### atomic-structure
+@v3g66bs148  ; 0=Tbl([T`Particle`, T`Where`, T`Relative m | 1=Fig(bohrSvg(6, { A: 12, W: 250, label: T | 2=Key(T`<p><b>Atomic number</b> $Z$ = numb | 3=FigRow([[1, T`hydrogen-1 (protium)`], [2 | 4=Fig(barsSvg([['35', 75.8, 'mf-s1'], ['37 | 5=Key(T`<p>The <b>relative atomic mass</b> | 6=Tip(T`<p>The mass number is always a who
+
+<p>An <b>atom</b> is the smallest particle of an element. It has a tiny, dense <b>nucleus</b> of protons and neutrons, surrounded by electrons. The atom is mostly empty space: if the nucleus were a marble in the middle of a football stadium, the electrons would be moving around the outer stands.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+<h3>Ions</h3>
+<p>An <b>ion</b> is an atom that has lost or gained electrons; the nucleus does not change. Losing electrons gives a <b>positive</b> ion (cation), gaining them a <b>negative</b> ion (anion): $\ce{Na+}$ has 10 electrons, $\ce{Cl-}$ has 18.</p>
+<h3>Isotopes</h3>
+<p><b>Isotopes</b> are atoms of the same element with different numbers of neutrons: same $Z$, different $A$. They have the same chemistry but different masses.</p>
+⟦3⟧
+⟦4⟧
+⟦5⟧
+⟦6⟧
+@1tadpqk97h7
+Particle
+@1ecnf40wtc4
+Where
+@b1cbjgirx3
+Relative mass
+@1d1por9p39k
+Relative charge
+@1j1u49zj8f
+proton
+@1345sxnlh3n
+nucleus
+@t7p3it3fhj
+neutron
+@1an9rdsc7kb
+electron
+@1ibkwf3z3jr
+shells around the nucleus
+@eg1tzy2xwf
+$\tfrac{1}{1836}$ (almost 0)
+@vt1p1nzcb9
+A carbon-12 atom: 6 protons and 6 neutrons in the nucleus, 6 electrons in two shells (2, 4)
+@1lxzzq80igg
+A carbon-12 atom: 6 protons, 6 neutrons and 6 electrons (2 in the first shell, 4 in the second).
+@b4fhy1sxon
+<p><b>Atomic number</b> $Z$ = number of protons (it defines the element). <b>Mass number</b> $A$ = protons + neutrons. So</p><p>$$\text{neutrons} = A - Z.$$</p><p>A neutral atom has as many electrons as protons. The nuclide notation writes both numbers: $$ {}^{A}_{Z}\mathrm{X} \qquad \text{e.g. } {}^{23}_{11}\mathrm{Na}: 11 \text{ protons},\ 12 \text{ neutrons},\ 11 \text{ electrons}.$$</p>
+@2g3pv9n6lbm
+hydrogen-1 (protium)
+@19ebjii22u9
+hydrogen-2 (deuterium)
+@7dsw1r6jqh
+hydrogen-3 (tritium)
+@8v3lkoeaaa
+The three isotopes of hydrogen: each has 1 proton and 1 electron, but 0, 1 or 2 neutrons.
+@qmdd159xyx
+abundance (%)
+@ek11knou55
+Mass spectrum of chlorine: mass 35 at 75.8 percent and mass 37 at 24.2 percent
+@1hlb0e2q2xt  ; 0=NUM(75.8) | 1=NUM(24.2)
+A mass spectrometer measures the isotopes of chlorine: ⟦0⟧% chlorine-35 and ⟦1⟧% chlorine-37 (IUPAC abundances).
+@15iki7gpyr7  ; 0=M(35.48)
+<p>The <b>relative atomic mass</b> $A_r$ is the weighted mean mass of the isotopes, compared with $\frac{1}{12}$ of a carbon-12 atom:</p><p>$$A_r = \frac{\sum (\text{mass} \times \text{abundance})}{100} \qquad A_r(\mathrm{Cl}) = \frac{35 \times 75.8 + 37 \times 24.2}{100} = ⟦0⟧$$</p>
+@sfh80mjetv
+<p>The mass number is always a whole number (it counts particles); the relative atomic mass usually is not, because it is an average over the isotopes.</p>
+@2b4l8tgnmwl  ; 0=what === 'p' ? T`protons` : what === 'n' | 1=nucT(sym, A)
+How many ⟦0⟧ are there in a neutral atom of $⟦1⟧$?
+@1vnjc79gtpw
+protons
+@1tpp7o8i9dz
+neutrons
+@n535jxmjjw
+electrons
+@1d4rcf6os8t  ; 0=Z | 1=A | 2=Z | 3=A - Z | 4=Z
+$Z = ⟦0⟧$ protons, $A - Z = ⟦1⟧ - ⟦2⟧ = ⟦3⟧$ neutrons, and ⟦4⟧ electrons in a neutral atom.
+@1zz9sarshhg  ; 0=sym | 1=chg(q) | 2=elName(sym) | 3=Z
+How many electrons does the ion $\ce{⟦0⟧^{⟦1⟧}}$ have? (atomic number of ⟦2⟧: ⟦3⟧)
+@2ez1zfe26ny  ; 0=q | 1=q > 1 ? 's' : '' | 2=Z | 3=q | 4=e
+It has lost ⟦0⟧ electron⟦1⟧: $⟦2⟧ - ⟦3⟧ = ⟦4⟧$.
+@17da2kqh9rj  ; 0=-q | 1=q < -1 ? 's' : '' | 2=Z | 3=-q | 4=e
+It has gained ⟦0⟧ electron⟦1⟧: $⟦2⟧ + ⟦3⟧ = ⟦4⟧$.
+@184dtlb3frq
+element X
+@hlleqg7bky  ; 0=nm | 1=NUM(p1) | 2=a1 | 3=NUM(p2) | 4=a2
+Naturally occurring ⟦0⟧ is ⟦1⟧% mass ⟦2⟧ and ⟦3⟧% mass ⟦4⟧. Calculate its relative atomic mass.
+@2fw8ek5cg95
+Which pair are isotopes of each other?
+@cyd4ohec9r  ; 0=pairs[0][0]
+Isotopes have the same atomic number (same element) but different mass numbers: $⟦0⟧$.
+@1nlilx2gkp  ; 0=elName(sym) | 1=Z | 2=n
+An atom of ⟦0⟧ has ⟦1⟧ protons and ⟦2⟧ neutrons. What is its mass number?
+@i6757lqndy
+Which particle has almost no mass compared with the others?
+@2bs2u2roh3q
+the electron
+@1hjyya17oyo
+the proton
+@9e2f822bf2
+the neutron
+@zg048wri30
+the nucleus
+@ax246ds474
+An electron is about 1/1836 of the mass of a proton.
+@z3vtkkad0f
+What do isotopes of an element have in common?
+@7cxzorj1yd
+the same number of protons
+@2fkgk4dtx9y
+the same number of neutrons
+@28tlf9fd2m1
+the same mass number
+@1jvvf1mwrv3
+the same mass
+@1xw34fxlz2r
+Same $Z$ (protons), different numbers of neutrons.
+@45sk5uo27u
+What decides which element an atom belongs to?
+@1kfl3np4cwb
+its number of protons
+@47hv9f7wkk
+its number of neutrons
+@28x7jylzz81
+its number of electrons
+@5vqxsjmkxp
+its mass number
+@1znwkp41t5q
+The atomic number (number of protons) defines the element.
+
+##### atomic-models
+@15j8p8xe6tw  ; 0=FigW(atomModelsSvg([T`Dalton (1803)`, T` | 1=Tbl([T`Model`, T`Idea`, T`Evidence or we | 2=Fm(T`\Delta E = E_{\text{high}} - E_{\te | 3=Fig(levelsSvg([[3, 2, 'mf-c4'], [4, 2, ' | 4=Key(T`<p>Each element has its own set of | 5=Tip(T`<p>Electrons in the Bohr model are
+
+<p>Nobody can see inside an atom, so chemists build <b>models</b> that explain experiments, and improve them when a new experiment does not fit.</p>
+⟦0⟧
+⟦1⟧
+<h3>Energy levels and line spectra</h3>
+<p>In Bohr's model the energy of an electron in hydrogen can only take the values $E_n = -\frac{13.6\ \mathrm{eV}}{n^2}$. When an electron drops from a higher level to a lower one, the atom emits a photon with exactly the energy difference:</p>
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+@1xmmav005sv
+Dalton (1803)
+@e3m8pc7x3h
+Thomson (1897)
+@rm2l11201n
+Rutherford (1911)
+@7snkcfe6zh
+Bohr (1913)
+@1t3diw6dy43
+quantum model (1926)
+@26jz8y7i4wy
+Five models of the atom: a solid sphere, a plum pudding, a nucleus with orbiting electrons, fixed circular shells, and an electron cloud
+@1a5s2bjk1lx
+How the model of the atom changed.
+@ki5bhylf5o
+Model
+@vuyoxidyks
+Idea
+@1hrwttf1eoa
+Evidence or weakness
+@2gg9xvkj14d
+Dalton
+@2094hod49sw
+atoms are tiny indivisible spheres; each element has its own atoms
+@1zshrt70yw3
+explains fixed mass ratios in compounds; cannot explain electricity or ions
+@1lcsgry1ysa
+Thomson
+@1ifn8krdzl6
+a positive sphere with electrons stuck in it ("plum pudding")
+@2f5he7ph9uq
+discovered the electron (cathode rays)
+@2kymnkwurs
+Rutherford
+@19dc4r7rmm5
+a tiny, dense, positive nucleus with electrons around it
+@1i6n5ctogf5
+gold foil: most alpha particles passed straight through, a few bounced back; could not explain why electrons do not spiral into the nucleus
+@f0ttufck3d
+Bohr
+@jdhd5epn2f
+electrons move only in fixed energy levels (shells)
+@1etrtojt49s
+explains the line spectrum of hydrogen; fails for atoms with more electrons
+@1kh3ibnkzkh
+Quantum mechanical (Schrödinger)
+@qzn3u9wqtd
+electrons are found in orbitals: regions where they are likely to be
+@2elfa3fuftp
+the model used today
+@1u9agguvo92
+\Delta E = E_{\text{high}} - E_{\text{low}} = h f = \frac{hc}{\lambda} \qquad \lambda\ (\mathrm{nm}) \approx \frac{1240}{\Delta E\ (\mathrm{eV})}
+@292o67civj5
+Hydrogen energy levels with electrons falling from levels 3, 4 and 5 to level 2 and from 2 to 1
+@2198n5cef72
+Falls to $n = 2$ give visible light (red 656 nm, blue-green 486 nm, violet 434 nm); falls to $n = 1$ give ultraviolet.
+@1ltiecer718
+<p>Each element has its own set of energy levels, so its <b>line spectrum</b> is like a fingerprint. Heating a compound in a flame shows the colour of its metal ion: sodium yellow, potassium lilac, lithium red, calcium orange-red, strontium crimson, barium green, copper blue-green. Fireworks use these colours.</p>
+@h73mjls24v
+<p>Electrons in the Bohr model are not little planets: in the modern model we only know where an electron is <i>likely</i> to be, which is why we speak of orbitals instead of orbits.</p>
+@1513g6s0f21
+discovered the electron and proposed the "plum pudding" model
+@29men3qmfzk
+fired alpha particles at gold foil and proposed a small, dense nucleus
+@1z7fx76yxww
+proposed that electrons move only in fixed energy levels
+@1eugkhkg5fo
+described atoms as tiny indivisible spheres
+@y8guytomvd
+described electrons with wave equations and orbitals
+@24hikhm7f9h
+Schrödinger
+@1e7zyawdh5b  ; 0=d
+Which scientist ⟦0⟧?
+@1pvybszow9v  ; 0=hi | 1=lo
+Using $E_n = -\frac{13.6}{n^2}$ eV, find the energy (in eV) of the photon emitted when a hydrogen electron falls from $n = ⟦0⟧$ to $n = ⟦1⟧$.
+@201gmo3vzs8  ; 0=lo | 1=hi | 2=M(dE)
+$\Delta E = 13.6\left(\frac{1}{⟦0⟧^2} - \frac{1}{⟦1⟧^2}\right) = ⟦2⟧$ eV.
+@s0rrcwliv8  ; 0=Q(dE, 'eV')
+A photon has an energy of ⟦0⟧. Using $\lambda \approx \frac{1240}{\Delta E}$ nm, what is its wavelength (in nm)?
+@1agbxs9p8se
+yellow
+@274oew9c0m1
+lilac
+@2jkb08f2dg
+red
+@20ja8u8njxc
+blue-green
+@1719de5b71t
+green
+@1df7szo3pxh
+orange-red
+@1eucid7beqn  ; 0=ion
+What flame colour do ⟦0⟧ compounds give?
+@2davduhbl2j
+In the gold-foil experiment most alpha particles went straight through the foil. What does this show?
+@2d8nikhfnz6
+An atom is mostly empty space
+@128p59l71al
+Atoms are solid spheres
+@8m6n0nhhu5
+Electrons are heavy
+@1qjtd7d1zjl
+The nucleus is negative
+@1dp3hb7dv55
+Only a few particles came close to the tiny nucleus.
+@246kq4prwbl
+Why does each element have its own line spectrum?
+@1oosw9ehpnf
+Each element has its own set of electron energy levels
+@1rkxurw051c
+Each element has its own number of neutrons
+@merext7p7t
+All atoms give the same colours
+@fqx10yyi14
+The flame changes the element
+@1x5e6zqpqyf
+Photons are emitted only with the energy gaps between that element's levels.
+@zatcgsaxi0
+What is an orbital?
+@2b0x2dubik0
+A region around the nucleus where an electron is likely to be found
+@mxkwvijbho
+A fixed circular path of an electron
+@1szmlqfplq3
+A part of the nucleus
+@15hcvef0mxy
+A type of ion
+@en8z9mt9le
+The quantum model gives probabilities, not exact paths.
+
+##### electron-config
+@yugce347vt  ; 0=Tbl([T`Subshell`, T`Orbitals`, T`Maximum | 1=FigW(orbitalShapesSvg(['s', 'p_x', 'p_z' | 2=Key(T`<p><b>Aufbau principle:</b> electr | 3=Fig(aufbauSvg({ label: T`The diagonal ru | 4=Ex(T`<p>Iron, $Z = 26$: $1s^2\,2s^2\,2p^ | 5=Fig(orbitalSvg(26, { from: 5, label: T`O | 6=Key(T`<p>Two common exceptions: chromium | 7=Tbl([T`Quantum number`, T`Symbol`, T`Val | 8=Tip(T`<p>When an atom forms a positive i
+
+<p>Electrons fill <b>shells</b> ($n = 1, 2, 3, \ldots$), each made of <b>subshells</b> $s$, $p$, $d$, $f$. A subshell is made of <b>orbitals</b>, and each orbital holds at most two electrons of opposite spin.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+⟦6⟧
+<h3>The four quantum numbers</h3>
+⟦7⟧
+⟦8⟧
+@d7m8wq7b40
+Subshell
+@mqs8ghntmx
+Orbitals
+@b4j6riz739
+Maximum electrons
+@1jzzz25la8a
+Shapes of an s orbital (a sphere) and the three p orbitals (dumbbells along x, z and y)
+@d5fnbscbbr
+An $s$ orbital is a sphere; the three $p$ orbitals are dumbbells along the $x$, $y$ and $z$ axes.
+@1ehu0von4np
+<p><b>Aufbau principle:</b> electrons fill the lowest energy subshell first: $1s\ 2s\ 2p\ 3s\ 3p\ 4s\ 3d\ 4p\ 5s \ldots$ <b>Pauli exclusion principle:</b> an orbital holds at most two electrons, with opposite spins. <b>Hund's rule:</b> in a subshell, electrons occupy empty orbitals singly (same spin) before they pair up.</p>
+@1bfxc1fntjm
+The diagonal rule for the filling order of subshells
+@180uzclniy6
+Follow the arrows for the filling order: 1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, 5s, 4d, …
+@vr3g3e8xs5
+<p>Iron, $Z = 26$: $1s^2\,2s^2\,2p^6\,3s^2\,3p^6\,4s^2\,3d^6$, or in short $[\mathrm{Ar}]\,4s^2\,3d^6$.</p>
+@dhb5u18vci
+Orbital diagram of the 4s and 3d subshells of iron
+@i4m9ehxayw
+The $4s$ and $3d$ electrons of iron: by Hund's rule the six $3d$ electrons give four unpaired electrons.
+@y40hzxrgep
+<p>Two common exceptions: chromium $[\mathrm{Ar}]\,4s^1\,3d^5$ and copper $[\mathrm{Ar}]\,4s^1\,3d^{10}$, because half-full and full $d$ subshells are extra stable.</p><p>The <b>valence electrons</b> are those in the outermost shell (for main-group elements). They decide the chemistry: the group number of an $s$- or $p$-block element follows from them, and the period number is the highest shell $n$.</p>
+@1u3n3t86la2
+Quantum number
+@1enmf10cxcv
+Symbol
+@bs3blgxk9v
+Values
+@2eruta6dgvc
+Describes
+@12tpos7a5t3
+principal
+@46eh9mn8f6
+the shell (size and energy)
+@20lfwemu1h
+azimuthal
+@221m15f0auj
+$0$ to $n - 1$ ($s = 0$, $p = 1$, $d = 2$, $f = 3$)
+@21bq8pizblo
+the subshell (shape)
+@1oggkwwzbu3
+magnetic
+@qknd2nk63z
+$-l$ to $+l$
+@1f7scah2ou7
+the orbital (orientation)
+@l9ak490huy
+spin
+@291dc6bozmi
+the spin of the electron
+@2g2gy3uw6kk
+<p>When an atom forms a positive ion, the $4s$ electrons are lost before the $3d$ electrons: $\mathrm{Fe}^{2+}$ is $[\mathrm{Ar}]\,3d^6$, not $[\mathrm{Ar}]\,4s^2\,3d^4$.</p>
+@1kf6qsbrvl8  ; 0=elName(SYMBOLS[Z - 1]) | 1=Z
+What is the electron configuration of ⟦0⟧ ($Z = ⟦1⟧$)?
+@1waxloqdtkc  ; 0=a
+Fill in the order 1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p: ⟦0⟧.
+@8eaay528j4  ; 0=elName(SYMBOLS[Z - 1]) | 1=Z
+How many unpaired electrons does an atom of ⟦0⟧ ($Z = ⟦1⟧$) have?
+@c5ioas0nvl  ; 0=configT(Z, Z > 18) | 1=u
+Configuration $⟦0⟧$. Fill the last subshell by Hund's rule: <b>⟦1⟧</b> unpaired.
+@1b3ljwi7dfh  ; 0=elName(SYMBOLS[Z - 1]) | 1=Z
+How many valence electrons does ⟦0⟧ ($Z = ⟦1⟧$) have?
+@1uyg06jv691  ; 0=configT(Z, Z > 18) | 1=v
+$⟦0⟧$: the outer shell holds <b>⟦1⟧</b> electrons.
+@xe9ik4a35w  ; 0=configT(Z, true)
+An element has the configuration $⟦0⟧$. In which period is it?
+@s5gzqonhm3  ; 0=p | 1=p
+The highest shell is $n = ⟦0⟧$: period <b>⟦1⟧</b>.
+@a3tezz1ia8  ; 0=configT(Z, true)
+An element has the configuration $⟦0⟧$. In which group is it?
+@2aqxc4op1e  ; 0=g | 1=g
+It ends in $s^{⟦0⟧}$: group <b>⟦1⟧</b>.
+@1vz1083jaqw  ; 0=g - 12 | 1=g - 12 | 2=g - 10 | 3=g
+It ends in $s^2p^{⟦0⟧}$: $2 + ⟦1⟧ = ⟦2⟧$ valence electrons, group <b>⟦3⟧</b>.
+@3o7r9lycup  ; 0=g
+For a $d$-block element add the $s$ and $d$ electrons: group <b>⟦0⟧</b>.
+@bc7iee3wbe  ; 0=elName(SYMBOLS[Z - 1]) | 1=Z
+What are the quantum numbers of the last electron of ⟦0⟧ ($Z = ⟦1⟧$)?
+@8nm0qeywhz  ; 0=configT(Z) | 1=configOf(Z).slice(-1)[0][0] | 2=a
+$⟦0⟧$. The last electron is in ⟦1⟧; filling the orbitals from $m = -l$ upwards with spin up first gives ⟦2⟧.
+@1d9ka01nb3j
+What is the maximum number of electrons in a d subshell?
+@uwg01cimiq
+5 orbitals × 2 electrons = 10.
+@1rt8eddgm0g
+What is the maximum number of electrons in the shell n = 3?
+@24h3s81mq2c
+$2n^2 = 2 \times 3^2 = 18$ (3s, 3p and 3d).
+@thosijmxqe
+Which subshell fills just before 3d?
+@xjv1yhala2
+The order is … 3p, 4s, 3d, 4p …
+@1re8404jfkz
+What does Hund's rule say?
+@1gmd9aeb89z
+Electrons fill empty orbitals of a subshell singly before pairing
+@2f5mlrl5dn8
+An orbital holds at most two electrons
+@2fc2tibpisi
+Electrons fill the lowest energy first
+@1ke4u16dean
+Electrons never pair
+@2dflwvgsmrk
+That is Hund's rule; the others are Pauli's principle and the aufbau principle.
+
+##### periodic-table
+@258sc4xaxq  ; 0=FigW(periodicSvg({ label: T`The periodic | 1=Tbl([T`Group`, T`Name`, T`Valence electr | 2=FigW(periodicSvg({ f: false, maxZ: 86, t | 3=Tbl([T`Property`, T`Across a period →`,  | 4=Fig(planeSvg({ W: 400, H: 240, x: [0, 21 | 5=Key(T`<p>The <b>first ionisation energy< | 6=Tip(T`<p>Noble gases are left out when c
+
+<p>The <b>periodic table</b> lists the elements in order of atomic number. Elements in the same vertical <b>group</b> have the same number of valence electrons and similar chemistry; the horizontal <b>periods</b> correspond to the shells being filled. The table was first organised by Dmitri Mendeleev in 1869, who even left gaps for elements not yet discovered.</p>
+⟦0⟧
+⟦1⟧
+<h3>Trends</h3>
+⟦2⟧
+⟦3⟧
+⟦4⟧
+⟦5⟧
+⟦6⟧
+@oi3b0nj1lc
+The periodic table coloured by block: s block red, p block green, d block blue, f block yellow
+@1bh7osw2b5w
+The blocks show which subshell is being filled: $s$ (groups 1–2), $p$ (13–18), $d$ (3–12, transition metals) and $f$ (lanthanides and actinides).
+@103oaswksww
+Group
+@7gqysfvinh
+Name
+@1ngyoknv3ab
+Valence electrons
+@rnurunvsx8
+Typical behaviour
+@pl4okx6ftj
+soft, very reactive metals; form $\ce{M+}$ ions
+@pc45xmxgqm
+reactive metals; form $\ce{M^2+}$ ions
+@1nvokdlb2t2
+reactive non-metals; form $\ce{X-}$ ions
+@1g58o9cckwa
+8 (He: 2)
+@2al70lii6lg
+very unreactive gases
+@12haasrzr
+ionisation energy and electronegativity increase →
+@1wfyiws14ha
+Periodic trends: ionisation energy and electronegativity increase across a period, atomic radius increases down a group
+@1w4zi50r93k
+Across a period (left to right) the nuclear charge rises while the shell stays the same, so atoms get <b>smaller</b> and hold their electrons more tightly. Down a group a new shell is added each time, so atoms get <b>larger</b> (blue arrow).
+@1my90jhn066
+Across a period →
+@a1eplrjkq1
+Down a group ↓
+@2drz3y1bc4k
+atomic radius
+@17u055l8j90
+decreases
+@1v4unu2xris
+increases
+@1fecrtskr2t
+first ionisation energy
+@2g6t47qwrih
+increases (generally)
+@1agudrwuau6
+electronegativity
+@1zkq2rc0gkn
+metallic character
+@wh8t29grnr
+MJ/mol
+@6lkx1xe31x
+First ionisation energies of elements 1 to 20: peaks at the noble gases helium, neon and argon, and minima at the alkali metals
+@24wok5zos19
+First ionisation energy of elements 1–20 in MJ/mol, i.e. thousands of kJ/mol (NIST data): peaks at the noble gases, dips at the alkali metals, and a small dip at boron and oxygen.
+@1xkdjnyepfu
+<p>The <b>first ionisation energy</b> is the energy needed to remove one electron from each atom in a mole of gaseous atoms: $\ce{X(g) -> X+(g) + e-}$. <b>Electronegativity</b> is how strongly an atom attracts the shared electrons in a bond; fluorine is the most electronegative element (3.98 on the Pauling scale).</p>
+@143clhwnwmo
+<p>Noble gases are left out when comparing electronegativity: they rarely form bonds, so most tables give them no value.</p>
+@1ucw67zezn1  ; 0=elName(SYMBOLS[Z - 1]) | 1=Z
+In which group is ⟦0⟧ ($Z = ⟦1⟧$)?
+@6bchn8ofdm  ; 0=configT(Z, Z > 18) | 1=g
+$⟦0⟧$: group <b>⟦1⟧</b>.
+@pqomh8gddf  ; 0=elName(SYMBOLS[Z - 1]) | 1=Z
+In which period is ⟦0⟧ ($Z = ⟦1⟧$)?
+@d59a3npcf2  ; 0=p | 1=p
+Its outer electrons are in shell $n = ⟦0⟧$: period <b>⟦1⟧</b>.
+@1hevy5sryu4  ; 0=elName(SYMBOLS[Z - 1]) === SYMBOLS[Z - 1 | 1=Z
+In which block of the periodic table is ⟦0⟧ ($Z = ⟦1⟧$)?
+@13xj39pindo  ; 0=b
+⟦0⟧ block
+@1e7egjqpqyv  ; 0=b | 1=b
+Its last electron goes into a ⟦0⟧ subshell: <b>⟦1⟧ block</b>.
+@fn6283bmlp  ; 0=elName(SYMBOLS[a - 1]) | 1=elName(SYMBOLS[b - 1])
+Which has the higher first ionisation energy: ⟦0⟧ or ⟦1⟧?
+@1rzphcxukos  ; 0=elName(SYMBOLS[a - 1]) | 1=elName(SYMBOLS[b - 1])
+Which is more electronegative: ⟦0⟧ or ⟦1⟧?
+@10002jb7clv
+they are equal
+@2fnwa6x3xqc  ; 0=elName(SYMBOLS[hi - 1]) | 1=NUM(arr[hi - 1]) | 2=NUM(arr[lo - 1])
+⟦0⟧: ⟦1⟧ kJ/mol against ⟦2⟧ kJ/mol.
+@1p02diggagz  ; 0=elName(SYMBOLS[hi - 1]) | 1=NUM(arr[hi - 1]) | 2=NUM(arr[lo - 1])
+⟦0⟧: ⟦1⟧ against ⟦2⟧ on the Pauling scale.
+@1hgyb3h8rmj  ; 0=elName(SYMBOLS[a - 1]) | 1=elName(SYMBOLS[b - 1])
+Which atom is larger: ⟦0⟧ or ⟦1⟧?
+@bt06iyo2fh
+they are the same size
+@2aha5rc4ie5  ; 0=elName(SYMBOLS[big - 1])
+Same group: the one lower down has more shells, so ⟦0⟧ is larger.
+@1m30eqcf26j  ; 0=elName(SYMBOLS[big - 1])
+Same period: the one further left has a smaller nuclear charge pulling the same shell, so ⟦0⟧ is larger.
+@2895p2ildao  ; 0=g
+What is the name of group ⟦0⟧?
+@2533nczib5h  ; 0=g | 1=a
+Group ⟦0⟧: <b>⟦1⟧</b>.
+@2cyprh3620r
+Why do elements in the same group have similar chemical properties?
+@1ax7xyre8pd
+They have the same number of valence electrons
+@1vgvd3szst6
+They have the same number of shells
+@1mktrrzitk2
+They have the same mass
+@1hj4d5asq7l
+They have the same number of neutrons
+@1r7ru5chr7k
+Chemistry depends mainly on the valence electrons.
+@d2cea3l6eq
+Why does atomic radius decrease across a period?
+@bh98ybvsmm
+The nuclear charge increases while electrons are added to the same shell
+@g0zp5f84c
+Electrons are removed across a period
+@28mv1iih104
+New shells are added
+@jm9x3va7ls
+Neutrons repel the electrons
+@bmhjgacx1r
+A larger positive charge pulls the same shell closer.
+@1233t4wc03l
+Which element is the most electronegative?
+@w84iz6ii13
+Fluorine: 3.98 on the Pauling scale.

@@ -1,0 +1,371 @@
+##### molecular-orbitals
+@2cfbrzoynpf  ; 0=Tbl([T`Hybrid`, T`Mixed from`, T`Number` | 1=Key(T`<p>Head-on overlap of orbitals giv | 2=Fig(moDiagramSvg(12, { names: [T`atom`], | 3=Key(T`<p>$$\text{bond order} = \frac{(\t | 4=Tip(T`<p>For $\ce{B2}$, $\ce{C2}$ and $\
+
+<p>Carbon has only two unpaired electrons ($2s^2\,2p^2$), yet methane has four identical C–H bonds at 109.5°. <b>Hybridisation</b> explains this: the $2s$ and $2p$ orbitals mix into new, equivalent <b>hybrid orbitals</b>.</p>
+⟦0⟧
+⟦1⟧
+<h3>Molecular orbitals</h3>
+<p>In <b>MO theory</b> atomic orbitals combine into molecular orbitals spread over the whole molecule: an in-phase <b>bonding</b> MO (lower energy) and an out-of-phase <b>antibonding</b> MO (*, higher energy). Electrons fill the MOs by the aufbau principle, Pauli and Hund.</p>
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@1ca5jee82gd
+Hybrid
+@cyajzihhoa
+Mixed from
+@14swhkscddn
+Number
+@79gcobv65u
+Geometry
+@tm8tb4smzb
+tetrahedral, 109.5°
+@1sxhcp9ycwt
+$\ce{CH4}$, diamond
+@gbf2ec9uhs
+trigonal planar, 120°
+@1xgcalqoty2
+$\ce{C2H4}$, graphite, benzene
+@176ov16bect
+linear, 180°
+@1ag6empivwr
+<p>Head-on overlap of orbitals gives a <b>σ bond</b> (electron density along the axis); side-on overlap of parallel p orbitals gives a <b>π bond</b> (density above and below the axis). A single bond is σ; a double bond is σ + π; a triple bond is σ + 2π. π bonds prevent rotation (cis/trans isomers).</p>
+@19ofv9tnsq1
+atom
+@6ox44efms9
+Molecular orbital diagram of oxygen: two unpaired electrons in the pi-star orbitals
+@1xhauys20i6
+MO diagram of $\ce{O2}$ (12 valence electrons). The last two electrons go singly into the two π*2p orbitals, so $\ce{O2}$ has two unpaired electrons: it is <b>paramagnetic</b> (liquid oxygen sticks to a magnet), which the Lewis structure O=O cannot explain.
+@15nmra6qeaf
+<p>$$\text{bond order} = \frac{(\text{bonding electrons}) - (\text{antibonding electrons})}{2}$$ $\ce{O2}$: $\frac{8 - 4}{2} = 2$; $\ce{N2}$: 3; $\ce{He2}$: 0, so it does not exist. A higher bond order means a shorter, stronger bond.</p>
+@1sx3n6o7w7d
+<p>For $\ce{B2}$, $\ce{C2}$ and $\ce{N2}$ the σ2p orbital lies above the π2p pair (s–p mixing); from $\ce{O2}$ on, σ2p lies below. This is why $\ce{B2}$ is paramagnetic.</p>
+@5a0jqjm96s  ; 0=f.split(' ')[0] | 1=f.includes('(') ? ' ' + f.split(' ')[1] 
+What is the hybridisation of the central atom in $\ce{⟦0⟧}$⟦1⟧?
+@28wqis27hyn  ; 0=h
+Count electron domains: 4 → sp³, 3 → sp², 2 → sp. Here: <b>⟦0⟧</b>.
+@1fo57jevmf2  ; 0=f.split(' ')[0]
+How many σ bonds are in $\ce{⟦0⟧}$?
+@1mk2knriwcp  ; 0=sg | 1=pi
+Each bond has one σ; double and triple bonds add π bonds: ⟦0⟧ σ and ⟦1⟧ π.
+@msu5ld0om4  ; 0=f.split(' ')[0]
+How many π bonds are in $\ce{⟦0⟧}$?
+@841mf6s43l  ; 0=sg | 1=pi
+⟦0⟧ σ and ⟦1⟧ π.
+@2w8mcthav2  ; 0=f | 1=n
+Use MO theory: what is the bond order of $\ce{⟦0⟧}$ (⟦1⟧ valence electrons)?
+@zzicmzvncx  ; 0=n | 1=bo
+Fill the MOs with ⟦0⟧ electrons; (bonding − antibonding)/2 = <b>⟦1⟧</b>.
+@1xplc2affcy  ; 0=f
+Is $\ce{⟦0⟧}$ paramagnetic (unpaired electrons) or diamagnetic?
+@ik0sixdrl0
+paramagnetic
+@ur2gpw6zn
+diamagnetic
+@f4r02djfw8
+Its highest occupied level is a degenerate π pair with one electron in each: <b>paramagnetic</b>.
+@jxtn1ux1is
+All electrons are paired: <b>diamagnetic</b>.
+@6qh8gmpis6  ; 0=a[0] | 1=b[0]
+Which has the stronger O–O bond: $\ce{⟦0⟧}$ or $\ce{⟦1⟧}$?
+@fwos4jfwx0  ; 0=a[0] | 1=NUM(a[1]) | 2=b[0] | 3=NUM(b[1])
+Bond orders: $\ce{⟦0⟧}$ ⟦1⟧, $\ce{⟦2⟧}$ ⟦3⟧. Higher bond order, stronger bond. (Removing an electron from π* raises the bond order.)
+
+##### chemical-thermodynamics
+@1df6oa2fga  ; 0=Key(T`<p>Entropy increases: solid → liqu | 1=Fig(planeSvg({ W: 420, H: 260, x: [0, 12 | 2=Tbl(['ΔH', 'ΔS', 'ΔG', T`Spontaneous?`], | 3=Key(T`<p>Links to equilibrium and electr | 4=Tip(T`<p>"Spontaneous" says nothing abou
+
+<p>Why do some reactions happen by themselves and others not? Energy (enthalpy) is only half the answer; the other half is <b>entropy</b> $S$, a measure of how many ways the particles and their energy can be arranged ("disorder"). The <b>second law</b>: in a spontaneous process the total entropy of the universe increases.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@2000yyzedb3
+<p>Entropy increases: solid → liquid → gas; dissolving; more gas molecules produced; higher temperature. $$\Delta S^\circ = \sum S^\circ(\text{products}) - \sum S^\circ(\text{reactants}) \quad (\mathrm{J\,K^{-1}\,mol^{-1}})$$ The <b>Gibbs free energy</b> combines both: $$\Delta G = \Delta H - T\Delta S$$ A reaction is spontaneous (feasible) when $\Delta G < 0$.</p>
+@l19v55ado2
+feasible above 1106 K
+@2918neqhczd
+feasible below 462 K
+@1bqrzxxjhnm
+Gibbs energy against temperature for decomposing limestone, which becomes feasible above about 1100 kelvin, and for making ammonia, feasible below about 460 kelvin
+@17zav8jq39d
+$\Delta G = \Delta H - T\Delta S$ is a straight line in $T$ with slope $-\Delta S$. Limestone ($\Delta H = +178$ kJ, $\Delta S = +161$ J/K) decomposes only above $T = \frac{\Delta H}{\Delta S} \approx 1106$ K; ammonia synthesis ($\Delta H = -92$ kJ, $\Delta S = -199$ J/K) is feasible only below about 462 K (values from standard data tables).
+@saastm53ja
+Spontaneous?
+@5oadgqgn3n
+always −
+@1ebb4p9jkqs
+at all temperatures
+@1f3rkh10vnz
+always +
+@iare7lttic
+never
+@2bfuwvw8hlu
+− at low T
+@euol23471e
+at low temperature
+@8w6mv50wlr
+− at high T
+@5is9qqbe2g
+at high temperature
+@13klqsdbpdz
+<p>Links to equilibrium and electrochemistry: $$\Delta G^\circ = -RT\ln K \qquad \Delta G^\circ = -nFE^\circ_{\text{cell}}$$ and the <b>Nernst equation</b> for non-standard concentrations: $$E = E^\circ - \frac{RT}{nF}\ln Q \;=\; E^\circ - \frac{0.0592}{n}\log Q \ (25\ °\mathrm{C})$$</p>
+@27a1rii9lzm
+<p>"Spontaneous" says nothing about speed: diamond turning into graphite has $\Delta G < 0$ but is immeasurably slow. Thermodynamics says <i>whether</i>, kinetics says <i>how fast</i>.</p>
+@myn0qbjkl3  ; 0=M(H) | 1=M(S) | 2=T0
+$\Delta H = ⟦0⟧$ kJ and $\Delta S = ⟦1⟧$ J/K. Find $\Delta G$ (in kJ) at ⟦2⟧ K.
+@10d0ehk2wgb  ; 0=M(H) | 1=T0 | 2=M(S / 1000) | 3=M(G)
+$\Delta G = ⟦0⟧ - ⟦1⟧ \times (⟦2⟧) = ⟦3⟧$ kJ (convert $\Delta S$ to kJ/K!).
+@khxvmbk2a  ; 0=H | 1=S
+An endothermic reaction has $\Delta H = +⟦0⟧$ kJ and $\Delta S = +⟦1⟧$ J/K. Above what temperature (in K) is it feasible?
+@16mmze4r06l  ; 0=H | 1=S | 2=M(T0)
+$\Delta G = 0$ at $T = \frac{\Delta H}{\Delta S} = \frac{⟦0⟧\,000}{⟦1⟧} = ⟦2⟧$ K.
+@2bwkycp0x7n
+water freezing
+@1nhk0f9yjap
+ice melting
+@dk578sdpim
+salt dissolving in water
+@17p1umlwoh9
+steam condensing
+@1mz0guf5p7f  ; 0=p
+Is $\Delta S$ positive or negative for ⟦0⟧?
+@pch2ir8ey8
+positive
+@2ffct8v299o
+negative
+@hvzodv5ig1
+More disorder (more gas, or solid → liquid): <b>positive</b>.
+@6smhg2z4oa
+Less disorder: <b>negative</b>.
+@pwyk0jd4f3  ; 0=K >= 1e4 || K < 0.01 ? sciT(K, 1) : M(K)
+At 298 K, $K = ⟦0⟧$. What is $\Delta G^\circ$ (in kJ/mol)? ($R = 8.314$)
+@rrk1v85oay  ; 0=M(K) | 1=M(G)
+$\Delta G^\circ = -RT\ln K = -8.314 \times 298 \times \ln(⟦0⟧) = ⟦1⟧$ kJ/mol.
+@76is3ifnwb  ; 0=n | 1=M(E)
+A cell reaction transfers ⟦0⟧ mol of electrons and has $E^\circ = ⟦1⟧$ V. What is $\Delta G^\circ$ (in kJ)? ($F = 96\,485$ C/mol)
+@29wbxk1hb5l  ; 0=n | 1=M(E) | 2=M(G)
+$\Delta G^\circ = -nFE^\circ = -⟦0⟧ \times 96\,485 \times ⟦1⟧ = ⟦2⟧$ kJ.
+@kl560cx7ko  ; 0=n | 1=M(Q0)
+A cell has $E^\circ = 1.10$ V and $n = ⟦0⟧$. What is $E$ (in V) when $Q = ⟦1⟧$ at 25 °C?
+@1pjes8zj8mj  ; 0=n | 1=M(Q0) | 2=M(E)
+$E = 1.10 - \frac{0.0592}{⟦0⟧}\log ⟦1⟧ = ⟦2⟧$ V.
+
+##### advanced-kinetics
+@8yqcs5631s  ; 0=Fm(T`k = A\,e^{-E_a/RT} \qquad \ln k = \ | 1=Fig(planeSvg({ W: 420, H: 250, x: [1.5,  | 2=Tbl([T`Order`, T`Integrated rate law`, T | 3=Key(T`<p>Most reactions happen in a seri | 4=Tip(T`<p>A catalyst provides a different
+
+<p>The rate constant depends strongly on temperature. Svante Arrhenius (1889) found:</p>
+⟦0⟧
+<p>$A$ is the pre-exponential (frequency) factor; $e^{-E_a/RT}$ is the fraction of collisions with enough energy. A plot of $\ln k$ against $1/T$ is a straight line with gradient $-E_a/R$.</p>
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@hk2liavumd
+k = A\,e^{-E_a/RT} \qquad \ln k = \ln A - \frac{E_a}{R}\cdot\frac{1}{T}
+@1o0vmzz615b
+gradient = −Eₐ/R
+@96s1tr4ejx
+Arrhenius plot: the natural log of k against one over T is a straight line with negative slope
+@1us98var9bz
+An Arrhenius plot. Here the gradient is $-6.5 \times 10^{3}$ K, so $E_a = 6.5 \times 10^3 \times 8.314 = 54$ kJ/mol. The two-temperature form is $\ln\frac{k_2}{k_1} = \frac{E_a}{R}\left(\frac{1}{T_1} - \frac{1}{T_2}\right)$.
+@1f31f1ut2sr
+Order
+@2c0hixmib8m
+Integrated rate law
+@k3daltx6l2
+Straight-line plot
+@1xbpo4y8mw3
+Half-life
+@pdsaijdiqb
+<p>Most reactions happen in a series of <b>elementary steps</b>: the <b>mechanism</b>. The slowest step is the <b>rate-determining step</b>; the rate equation contains only the species in (or before) that step. Example: $\ce{NO2 + CO -> NO + CO2}$ has rate $= k[\ce{NO2}]^2$ because the slow step is $\ce{2NO2 -> NO3 + NO}$, followed by the fast $\ce{NO3 + CO -> NO2 + CO2}$. $\ce{NO3}$ is an <b>intermediate</b>: made in one step, used in the next.</p>
+@pgxszwqq84
+<p>A catalyst provides a different mechanism with a lower-energy rate-determining step. Enzymes follow Michaelis–Menten kinetics: the rate levels off when every active site is busy.</p>
+@4jtxj54ydq  ; 0=Ea / 1000 | 1=T2
+$E_a = ⟦0⟧$ kJ/mol. By what factor does $k$ increase from 300 K to ⟦1⟧ K? ($R = 8.314$)
+@wzuc9npqvx  ; 0=Ea | 1=T2 | 2=M(sig(Math.log(r), 3)) | 3=M(r)
+$\ln\frac{k_2}{k_1} = \frac{⟦0⟧}{8.314}\left(\frac{1}{300} - \frac{1}{⟦1⟧}\right) = ⟦2⟧$, so $\frac{k_2}{k_1} = ⟦3⟧$.
+@2acrhsbyjdr  ; 0=M(g)
+An Arrhenius plot of $\ln k$ against $1/T$ has a gradient of $⟦0⟧$ K. What is $E_a$ (in kJ/mol)?
+@xgwrujoar4  ; 0=M(-g) | 1=M(sig(-g * R, 4)) | 2=M(Ea)
+$E_a = -\text{gradient} \times R = ⟦0⟧ \times 8.314 = ⟦1⟧$ J/mol $= ⟦2⟧$ kJ/mol.
+@1zvlvtsld1e  ; 0=M(k) | 1=M(A0) | 2=t
+A first-order reaction has $k = ⟦0⟧$ min⁻¹ and $[A]_0 = ⟦1⟧$ M. What is $[A]$ (in M) after ⟦2⟧ min?
+@1i1jhvtegcu
+[A] against t
+@1oiwikzvr46
+ln[A] against t
+@1c6a16iessp
+1/[A] against t
+@i6izcrck5z  ; 0=o
+Which plot gives a straight line for a reaction of order ⟦0⟧ in A?
+@1kgok4ura6s
+Step 1: 2NO₂ → NO₃ + NO (slow). Step 2: NO₃ + CO → NO₂ + CO₂ (fast). What is the rate equation?
+@1rsijdhh3qd
+rate = k[NO₂]²
+@s1ahu305py
+rate = k[NO₂][CO]
+@2al34lkcm15
+rate = k[NO₃][CO]
+@srlir9idud
+rate = k[CO]
+@7begek3bxx
+Only the species in the slow (rate-determining) step appear.
+@5jdvj0mqk9
+In a mechanism, what is an intermediate?
+@zeeip6an19
+A species made in one step and used up in a later step
+@29qmzc0qeoo
+The catalyst
+@1pq8rsx4ohi
+The slowest step
+@1gt3bs9ees5
+The final product
+@14h5hh1a6x3
+It does not appear in the overall equation.
+
+##### spectroscopy
+@1uc3m4o794w  ; 0=Fig(spectrumSvg([[15, 12, ''], [29, 25,  | 1=Fig(spectrumSvg([[3350, 70, 'O–H', 180], | 2=Fig(spectrumSvg([[1.22, 60, 'CH₃ (3H, t) | 3=Key(T`<p><b>UV–visible spectroscopy</b>  | 4=Tip(T`<p>Summary of what each gives: MS 
+
+<p>Modern chemists identify compounds from how they interact with energy. Each technique gives a different clue.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+⟦4⟧
+@1m2sg2y2o78
+mass/charge (m/z)
+@12xg9igc187
+Mass spectrum of ethanol: molecular ion at 46 and a base peak at 31
+@1m6uwkh2dzf
+<b>Mass spectrum</b> of ethanol (NIST data, simplified). The molecular ion $\ce{M+}$ at $m/z$ 46 gives the $M_r$; fragments show pieces: 31 is $\ce{CH2OH+}$ (the tallest, base peak), 45 is $\ce{M - H}$, 29 is $\ce{C2H5+}$.
+@swvc1j1rlm
+wavenumber (cm⁻¹)
+@1io0y67s5r5
+Infrared spectrum of ethanol with a broad O–H dip near 3350, C–H near 2970 and C–O near 1050 wavenumbers
+@1cm23fmb5q5
+<b>Infrared spectrum</b> of ethanol (schematic). Bonds absorb IR at characteristic wavenumbers: broad O–H (alcohol) 3200–3550, C–H 2850–3000, C=O 1680–1750 (sharp, strong), C–O 1000–1300 cm⁻¹. Below 1500 cm⁻¹ is the unique "fingerprint region".
+@1t733hi3xq1
+chemical shift δ (ppm)
+@1jeaygzykj4
+Proton NMR spectrum of ethanol: a triplet near 1.2, a singlet near 2.6 and a quartet near 3.7 ppm
+@11qjqhgu6if
+<b>¹H NMR spectrum</b> of ethanol (schematic). Three environments give three signals; their areas are in the ratio 3 : 1 : 2. By the <b>n + 1 rule</b>, the $\ce{CH3}$ next to a $\ce{CH2}$ is split into a triplet, the $\ce{CH2}$ next to $\ce{CH3}$ into a quartet. The OH proton usually appears as a singlet.
+@pfyhrl2zpo
+<p><b>UV–visible spectroscopy</b> measures how much light a coloured solution absorbs. The <b>Beer–Lambert law</b>: $$A = \varepsilon\,c\,l$$ absorbance = molar absorptivity × concentration × path length (usually 1 cm). A calibration line of $A$ against $c$ for standard solutions gives the concentration of an unknown.</p>
+@2c08hx3fdtj
+<p>Summary of what each gives: MS → molar mass and fragments; IR → functional groups; NMR → the carbon–hydrogen skeleton; UV–vis → concentration and conjugation. X-ray crystallography gives the full 3-D structure.</p>
+@133veg1s5yw  ; 0=b
+In which region (cm⁻¹) does the ⟦0⟧ bond absorb in an IR spectrum?
+@2bv4l6jj6lt  ; 0=r
+<b>⟦0⟧</b> cm⁻¹.
+@23kjl11yhal  ; 0=n
+A proton has ⟦0⟧ equivalent H atoms on neighbouring carbons. Into how many peaks is its NMR signal split?
+@e0qqi2sx7k  ; 0=n | 1=n + 1 | 2=names[n]
+$n + 1$ rule: ⟦0⟧ + 1 = <b>⟦1⟧</b> (⟦2⟧).
+@2cyaogr5nlv  ; 0=f
+How many different ¹H environments (NMR signals) does $\ce{⟦0⟧}$ have?
+@2almjtk895x  ; 0=e
+Count hydrogens in different surroundings: <b>⟦0⟧</b>.
+@2amgljnqxyt  ; 0=M(eps) | 1=sciT(c, 1)
+$\varepsilon = ⟦0⟧$ L mol⁻¹ cm⁻¹, $l = 1$ cm, $c = ⟦1⟧$ M. What is the absorbance?
+@1g494ap7z7y  ; 0=M(eps) | 1=NUM(A)
+A solution with $\varepsilon = ⟦0⟧$ L mol⁻¹ cm⁻¹ in a 1 cm cell has absorbance ⟦1⟧. What is its concentration?
+@1avkqsayq24  ; 0=f
+At what $m/z$ is the molecular ion peak of $\ce{⟦0⟧}$? (H = 1, C = 12, O = 16)
+@1rbkwfdghat  ; 0=m | 1=m
+$M_r = ⟦0⟧$, so $\ce{M+}$ at <b>⟦1⟧</b>.
+
+##### crystal-field
+@1ps9gznjnhx  ; 0=FigRow([[crystalFieldSvg(6, { names: [T` | 1=Key(T`<p><b>Spectrochemical series</b> ( | 2=Tbl([T`Rule`, T`Example`], [[T`name the  | 3=Tip(T`<p>Square planar complexes such as
+
+<p>In a free metal ion the five $d$ orbitals have the same energy. In an octahedral complex the ligands approach along the $x$, $y$ and $z$ axes and repel the two orbitals pointing at them ($d_{x^2-y^2}$, $d_{z^2}$: the $e_g$ set) more than the three pointing between them ($d_{xy}$, $d_{xz}$, $d_{yz}$: $t_{2g}$). The gap is the <b>crystal-field splitting</b> $\Delta_o$.</p>
+⟦0⟧
+⟦1⟧
+⟦2⟧
+⟦3⟧
+@15fq89ryeh8
+free ion
+@pk8b8zv9ex
+high spin (weak field)
+@249ftxak6u8
+High-spin d6: four unpaired electrons
+@273ggu00607
+$d^6$ high spin: 4 unpaired
+@1vtyviny9f1
+low spin (strong field)
+@pxvbmzkfc9
+Low-spin d6: all six electrons paired in the lower level
+@4dni6lvkvh
+$d^6$ low spin: 0 unpaired
+@xgzuwgql2c
+Iron(II), $d^6$. With weak-field ligands ($\ce{H2O}$) the gap is small and electrons spread out before pairing (high spin, paramagnetic). With strong-field ligands ($\ce{CN-}$) pairing costs less than jumping the gap (low spin, diamagnetic): $\ce{[Fe(CN)6]^4-}$.
+@f1sbhdj1wd
+<p><b>Spectrochemical series</b> (weak → strong field): $$\ce{I- < Br- < Cl- < F- < OH- < H2O < NH3 < en < CN- < CO}$$ A larger $\Delta_o$ means the complex absorbs higher-energy (shorter-wavelength) light: $\ce{[Cu(H2O)6]^2+}$ is pale blue, $\ce{[Cu(NH3)4(H2O)2]^2+}$ deep violet-blue. In tetrahedral complexes the splitting is reversed and smaller ($\Delta_t \approx \frac{4}{9}\Delta_o$), so they are almost always high spin.</p>
+@7k3wlwg2aj
+name the ligands first, in alphabetical order, with di-, tri-, tetra-, hexa-
+@lw2aujaart
+tetraammine…
+@vr9f9aaj6g
+anionic ligands end in -o: chlorido, cyanido, hydroxido; water = aqua, NH₃ = ammine
+@1rzn4algc7p
+hexaaqua…
+@1f8qmyv4x2x
+then the metal with its oxidation state in Roman numerals
+@14t1jggxh3u
+hexaaquacopper(II)
+@1853efpvjbr
+in an anionic complex the metal ends in -ate
+@1yduaplxixz
+$\ce{[Fe(CN)6]^4-}$: hexacyanidoferrate(II)
+@cwoer3rgqw
+<p>Square planar complexes such as <i>cis</i>-$\ce{[PtCl2(NH3)2]}$ (cisplatin, an anti-cancer drug) show cis/trans isomerism; octahedral complexes with bidentate ligands like ethane-1,2-diamine (en) can be optically active.</p>
+@1dmp7ok6ll6  ; 0=c
+How many d electrons does the metal ion in $\ce{⟦0⟧}$ have?
+@1vegj5qyifr  ; 0=d
+Find the oxidation state, then count: group number − charge = <b>⟦0⟧</b> d electrons.
+@g3c2jjofzf  ; 0=low ? T`low-spin` : T`high-spin` | 1=d
+How many unpaired electrons does an octahedral ⟦0⟧ $d^{⟦1⟧}$ complex have?
+@1i035a6yzdp
+low-spin
+@paqkzl89tm
+high-spin
+@apng8b3fjt  ; 0=u
+Fill $t_{2g}$ completely (up to 6) before $e_g$: <b>⟦0⟧</b> unpaired.
+@edhldwamvu  ; 0=u
+One electron in each of the five orbitals before pairing: <b>⟦0⟧</b> unpaired.
+@iwv2qs00xi  ; 0=a | 1=b
+Which is the stronger-field ligand: ⟦0⟧ or ⟦1⟧?
+@2fbgcqyi4cy  ; 0=s
+Further right in the spectrochemical series: <b>⟦0⟧</b>.
+@vhzywdnc8
+hexaaquacopper(II) ion
+@vlllx7lz8d
+hexaamminecobalt(III) ion
+@54jqw27kzs
+hexacyanidoferrate(III) ion
+@27womtyfz25
+tetrachloridocuprate(II) ion
+@sb60qx54sj
+diamminesilver(I) ion
+@2fa04zct77y
+Why are tetrahedral complexes almost always high spin?
+@2a5d1isxcd7
+The splitting is small, so pairing costs more than the gap
+@18nox5052zh
+They have no d electrons
+@kbxe19rzv5
+Their ligands are always strong-field
+@o1hphxomlz
+They have six ligands
+@2g7fkuwm54c
+Changing H₂O ligands for NH₃ increases Δₒ. How does the absorbed light change?
+@16a8gmglpwb
+Shorter wavelength (higher energy) is absorbed
+@1mfo1ky97iu
+Longer wavelength is absorbed
+@29co2s3n6hd
+No light is absorbed
+@1narefqxwk6
+It stays the same
+@2fkrilhqdmt
+Larger gap, higher-energy photon.

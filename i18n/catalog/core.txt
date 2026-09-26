@@ -1,0 +1,19 @@
+##### core
+@1hnygwzeeez
+True
+@12u8s6vu2gj
+False
+@1mc3pmcca9i  ; 0=M(b)
+Subtract ⟦0⟧ from every part
+@1flhu7k9ohj  ; 0=M(-b)
+Add ⟦0⟧ to every part
+@1g9usaftmli  ; 0=M(b)
+Subtract ⟦0⟧ from both sides
+@rcyxvbe5bx  ; 0=M(-b)
+Add ⟦0⟧ to both sides
+@fc0sowzn7c
+Key idea
+@1oy7dzvank8
+Worked example
+@1q1jscvjv55
+Watch out

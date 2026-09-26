@@ -1,0 +1,573 @@
+##### core
+@1zak44oarje
+solid
+@h0k1367221
+liquid
+@1zef3shunni
+gas
+@gb8crbpgfx
+melting
+@c0bafqdfm3
+freezing
+@xzl4xqb871
+evaporation
+@178ynrgaqfs
+condensation
+@9g0rcz04t2
+sublimation
+@rdv2tvs75e
+deposition
+
+##### states
+@25vq7j4f0oj  ; 0=FigRow([['solid', T`solid`, 1], ['liquid | 1=Tbl([T`Property`, T`Solid`, T`Liquid`, T | 2=FigW(statesSvg({ names: stateNames(), la | 3=Fig(planeSvg({ W: 380, H: 230, x: [0, 10 | 4=Key(T`<p><b>Physical change</b>: no new  | 5=Tip(T`<p><b>Evaporation</b> happens at t
+
+<p>Everything around us is <b>matter</b>: anything that has mass and takes up space. All matter is made of tiny <b>particles</b> (atoms, molecules or ions) that are always moving. How close they are and how freely they move decides whether a substance is a solid, a liquid or a gas.</p>
+⟦0⟧
+⟦1⟧
+<h3>Changes of state</h3>
+⟦2⟧
+<p>A pure substance melts at its <b>melting point</b> and boils at its <b>boiling point</b>. For water at normal air pressure these are $0\,^\circ\mathrm{C}$ and $100\,^\circ\mathrm{C}$. While a substance is melting or boiling, its temperature stays constant: the energy goes into separating the particles, not into making them move faster.</p>
+⟦3⟧
+⟦4⟧
+⟦5⟧
+@2gb014nr8r7  ; 0=t
+Particles in a ⟦0⟧
+@185jdtmi4tf
+The particle model: in a solid the particles vibrate in fixed places; in a liquid they touch but slide past each other; in a gas they are far apart and fly about in all directions.
+@16wdp99an7o
+Property
+@1uywbz6o84t
+Solid
+@24s77suhebd
+Liquid
+@dblmz23h6c
+Gas
+@1vbb9fjurso
+Shape
+@15212o72c0q
+fixed
+@1dll63ljfs7
+takes the shape of its container
+@v303dbs0k3
+fills its whole container
+@alc1a0j1b0
+Volume
+@19y62c2opd5
+not fixed; easy to compress
+@1sqgr8m1wq5
+Particles
+@rzb2nbzswg
+closely packed in a regular pattern
+@1iw1adujh9l
+close together, irregular
+@1650e7wv6j4
+far apart, random
+@18tpmhpm68g
+Movement
+@2fiygk2lp2d
+vibrate about fixed positions
+@akxby278rb
+move around each other
+@ybf7gr2lnw
+move fast in all directions
+@7gqf1jmabp
+Forces between particles
+@1ws6im3fae5
+strong
+@16o7qzz1h73
+weaker
+@jr6hkkrewq
+very weak
+@48tza08mlu
+The six changes of state between solid, liquid and gas
+@27z9an5xm2n
+Heating (red arrows) gives particles more energy; cooling (blue arrows) takes energy away.
+@1sgm94avzun
+time of heating
+@bacelxbizn
+ice
+@fvac4t57w5
+water
+@22x8wr2faka
+boiling
+@268vrxnc179
+steam
+@160rdwzlbse
+Heating curve of water with flat parts at 0 and 100 degrees Celsius
+@4zledh4fbk
+Heating curve of water: the flat parts are melting ($0\,^\circ\mathrm{C}$) and boiling ($100\,^\circ\mathrm{C}$).
+@20qb40pg1wc
+<p><b>Physical change</b>: no new substance forms, and it is usually easy to reverse (melting ice, dissolving sugar, cutting paper). <b>Chemical change</b>: new substances form (burning, rusting, cooking an egg). Signs of a chemical change: a new colour, a gas given off, a precipitate, a change in temperature, light or a new smell.</p>
+@vdhurnwoxo
+<p><b>Evaporation</b> happens at the surface at any temperature; <b>boiling</b> happens throughout the liquid, at the boiling point only. That is why wet clothes dry in the sun without boiling.</p>
+@atwgg0ncb7  ; 0=a | 1=b
+What is the change from <b>⟦0⟧</b> directly to <b>⟦1⟧</b> called?
+@1d8bu61whmw
+Mothballs (naphthalene) slowly get smaller in a wardrobe
+@2esaefad6kv
+Dew forms on grass on a cool morning
+@1o0wb6sut8t
+Candle wax runs down the side of a burning candle
+@neam2zhn6k
+Water in an ice-cube tray turns to ice in the freezer
+@bwqpm2cx4f
+A puddle disappears on a sunny day
+@1xq14l78sf3
+Frost forms directly from water vapour on a cold window
+@zmftqt5oka  ; 0=d
+Which change of state is this? <i>⟦0⟧</i>
+@1opygeap0yw  ; 0=a
+That is <b>⟦0⟧</b>.
+@16f7iau0tz6
+Burning wood
+@1yyorr0t2vu
+chemical
+@1tkptkt84tz
+Iron rusting
+@1qnrlm7a443
+Frying an egg
+@1uubfoz8qtu
+Milk turning sour
+@eteiajovfk
+Dissolving salt in water
+@ev8hddz7pt
+physical
+@9irsyadyig
+Melting butter
+@1gdxtmibb0k
+Breaking a glass
+@gbe9a9ctlx
+Boiling water
+@fw068cfu8j  ; 0=d
+Is this a physical or a chemical change? <i>⟦0⟧</i>
+@huyib0112o
+A new substance is formed, so it is a <b>chemical</b> change.
+@1a197xh36zo
+No new substance is formed, so it is a <b>physical</b> change.
+@162mmf8rb9a  ; 0=Q(mp, '°C') | 1=Q(bp, '°C') | 2=Q(T0, '°C')
+A substance melts at ⟦0⟧ and boils at ⟦1⟧. What is its state at ⟦2⟧?
+@2pd9kbf1m4  ; 0=Q(T0, '°C') | 1=a
+Below the melting point it is solid, between the melting and boiling points liquid, above the boiling point gas. At ⟦0⟧ it is <b>⟦1⟧</b>.
+@2fahhg3g8wg  ; 0=Q(c, '°C')
+Convert ⟦0⟧ to kelvin.
+@1x8gkn4yb5h  ; 0=Q(k, 'K')
+Convert ⟦0⟧ to degrees Celsius.
+@1jt2glm6cn9
+Why does the temperature of ice stay at 0 °C while it melts, even though it is being heated?
+@sfc6tm1cx
+The energy is used to break the forces holding the particles in place
+@1ylbv78wzrp
+The thermometer stops working
+@ixddq3i33j
+Heat cannot enter ice
+@2cz2zw4m13l
+The particles stop moving
+@16ummmxw4bv
+During a change of state the energy loosens the particles from each other instead of raising their speed (temperature).
+@1hiwk3ix6zu
+Which state of matter can be compressed easily?
+@q6zfvw6ksp
+none of them
+@20jmnn5xvzk
+Gas particles are far apart, so they can be pushed closer together.
+@1ar3b78e8if
+In which state do the particles only vibrate about fixed positions?
+@1zpnptoblbq
+all three
+@rsbgoq24dy
+Particles in a solid are held in a regular arrangement and can only vibrate.
+@tyncwxogpe
+What is the difference between evaporation and boiling?
+@juf6orbu5f
+Evaporation happens at the surface at any temperature; boiling happens throughout the liquid at the boiling point
+@27lge5tf1ik
+There is no difference
+@1oo4vi6vytp
+Boiling happens only at the surface
+@ax2r5dsgo7
+Evaporation needs a flame
+@u5zey3sfoq
+Evaporation is a surface process; boiling forms bubbles of vapour throughout the liquid.
+
+##### mixtures
+@aqg7z8yrqc  ; 0=FigRow([[moleculeBox([[6, MOL.O2]], { se | 1=Tbl([T`Mixture`, T`What it looks like`,  | 2=Tbl([T`Method`, T`Uses a difference in…` | 3=Fig(filtrationSvg({ names: { res: T`resi | 4=FigW(distillationSvg({ names: { thermo:  | 5=Fig(chromatogramSvg([[55, 36, 'mf-s4'],  | 6=Key(T`<p>The <b>retention factor</b> of  | 7=Tip(T`<p>Draw the start line in <b>penci
+
+<p>A <b>pure substance</b> has a fixed composition and fixed properties, such as a sharp melting point. It is either an <b>element</b>, made of one kind of atom, or a <b>compound</b>, two or more elements chemically joined in a fixed ratio. A <b>mixture</b> contains two or more substances that are not chemically joined, in any proportion.</p>
+⟦0⟧
+⟦1⟧
+<h3>Separating mixtures</h3>
+<p>Because the parts of a mixture keep their own properties, we can separate them by a <b>physical</b> method that uses a difference between them:</p>
+⟦2⟧
+⟦3⟧
+⟦4⟧
+<h3>Paper chromatography</h3>
+⟦5⟧
+⟦6⟧
+⟦7⟧
+@12k12t2s2v8
+Molecules of an element
+@1mxb4xtmz6s
+element
+@1b06rvh45tx
+Molecules of a compound
+@1bwvcodigsx
+compound
+@te36vn1srd
+A mixture of two elements
+@kj62stf8k5
+mixture of elements
+@220h0h0xv8e
+A mixture of two compounds
+@1474ddt9x5j
+mixture of compounds
+@1hwfpf11bp4
+Each ball is an atom: oxygen red, nitrogen blue, hydrogen white, carbon dark grey. An element has one kind of atom; a compound has different atoms joined; a mixture has different particles side by side.
+@1uylerre37z
+Mixture
+@n4qwbwgogq
+What it looks like
+@1j1ms4p35q
+Examples
+@mnxvtcz6bq
+Homogeneous (solution)
+@1vi65vz0rwc
+the same throughout; particles smaller than 1 nm; clear
+@n3080cq2ya
+salt water, air, vinegar, brass
+@128wt7ksj0m
+Colloid
+@2clcroidhny
+looks uniform but scatters light (Tyndall effect); particles 1–1 000 nm
+@28thbttvtm4
+milk, fog, mayonnaise, jelly
+@1y6te5jjvbu
+Heterogeneous (suspension)
+@269q5tn098o
+the parts can be seen; settles on standing
+@1e3xeq8ngj5
+muddy water, sand in water, oil and water
+@qdrbemz59b
+Method
+@2enjnzx31ur
+Uses a difference in…
+@1i56r47suu5
+Example
+@1ba67nnyfdt
+Filtration
+@1w7hzp07pz6
+particle size (insoluble solid from liquid)
+@2av0wb1v8tb
+sand from water
+@2gbnv69f08v
+Evaporation / crystallisation
+@1gz3zdbom6s
+boiling point (dissolved solid from solvent)
+@1dcppff7dwy
+salt from sea water in salt pans
+@q9adqat58k
+Distillation
+@x9f4vi47st
+boiling point (liquid from solution, or two liquids)
+@vl2labp2yu
+pure water from salt water; fractional distillation of crude oil
+@qo5vokeni8
+Chromatography
+@1vnhxmtzp99
+how strongly each substance is attracted to the paper and the solvent
+@dkrqq07ep3
+dyes in ink, pigments in leaves
+@axt2ga0u9q
+Decanting / separating funnel
+@1ps9ogsd4hg
+density; liquids that do not mix
+@25vy4vt0ajt
+oil from water
+@1cpaltrcmez
+Magnet
+@2f3446p6x8s
+magnetism
+@692ogyy06a
+iron filings from sulfur
+@1933hcwzpvh
+Sublimation
+@dqbzbjy0qn
+one part sublimes
+@2fj2vc2pz7a
+iodine or ammonium chloride from salt
+@m3a4wtncfx
+residue
+@2etvz228yf6
+filtrate
+@1fgf8v5jcjj
+filter paper
+@1nr2gg0rbj4
+Filtration apparatus: funnel with filter paper above a beaker
+@3tmeikjrl8
+Filtration: the liquid (filtrate) passes through the paper; the insoluble solid (residue) stays behind.
+@txeb7up2ul
+thermometer
+@1c8mrvqim45
+condenser
+@1svusc7svbx
+water in
+@28xdyb05lxc
+water out
+@2amg54hp9o6
+distillate
+@1n1xkde45y3
+mixture
+@fwtbzpycna
+Distillation apparatus: heated flask, thermometer, water-cooled condenser and collecting beaker
+@1ygjvrogie5
+Distillation: the liquid with the lower boiling point evaporates, is cooled in the condenser and collects as the distillate.
+@1jca16s8slo
+solvent front
+@2cgcwo9sr5g
+start line
+@1mh5qbphhpj
+solvent
+@tmtx0q1zqp
+A paper chromatogram of an ink and two dyes
+@16nx2p921ed
+An ink (left) contains two dyes. The spot at the same height as a known dye is that dye. The distances are measured from the start line.
+@x2y2x6kwmv
+<p>The <b>retention factor</b> of a spot is</p><p>$$R_f = \frac{\text{distance moved by the substance}}{\text{distance moved by the solvent}}$$</p><p>It is always between 0 and 1, and for a given paper and solvent each substance has its own $R_f$.</p>
+@2b5klpndg4
+<p>Draw the start line in <b>pencil</b> (ink would itself separate) and keep it <b>above</b> the solvent level, or the spots will dissolve into the solvent instead of moving up the paper.</p>
+@1d60i3c4uod
+oxygen gas
+@gzl64gtfvv
+copper wire
+@aml98t038j
+carbon dioxide
+@17q0b0o5b2v
+table salt (sodium chloride)
+@242gqtld3d4
+air
+@2c4t00nu7s6
+sea water
+@9ykgddhvuz
+milk
+@10qgxe9ntvd
+glucose
+@vhn6rr6dt5  ; 0=d
+Is <b>⟦0⟧</b> an element, a compound or a mixture?
+@yo2q1uufnk
+It contains only one kind of atom: an <b>element</b>.
+@2btanf09309
+It is made of different elements chemically joined in a fixed ratio: a <b>compound</b>.
+@17mth1gnflk
+It contains several substances that are not chemically joined: a <b>mixture</b>.
+@1ahdr3t0fto
+filtration
+@p0cobf4jzz
+salt from salt water
+@1j2lbob11w0
+pure water from sea water
+@7v78fho6b
+distillation
+@sb3unfmsnz
+the dyes in a black ink
+@1qf6ni13p3t
+chromatography
+@2dgbyp5477f
+iron filings from sulfur powder
+@1gqn5l14g42
+using a magnet
+@3u115unh1w
+cooking oil from water
+@2bp5ri6r05t
+separating funnel
+@1klosqub1co
+petrol, kerosene and diesel from crude oil
+@4v8m3k6t5i
+fractional distillation
+@8fagwh8a00  ; 0=d
+Which method is best for separating <b>⟦0⟧</b>?
+@26ejhr2gpxe  ; 0=Q(sol, 'cm') | 1=Q(d, 'cm')
+In a paper chromatogram the solvent front moved ⟦0⟧ from the start line and a dye spot moved ⟦1⟧. What is the $R_f$ value of the dye?
+@1o1edur7g2q  ; 0=M(rf) | 1=Q(sol, 'cm')
+A substance has $R_f = ⟦0⟧$. If the solvent front moves ⟦1⟧, how far does the substance move?
+@5cgn876r9x  ; 0=M(rf) | 1=M(sol) | 2=QT(d, 'cm')
+distance $= R_f \times$ solvent distance $= ⟦0⟧ \times ⟦1⟧ = ⟦2⟧$.
+@jhaxcjm49r  ; 0=Q(salt, '%') | 1=Q(sea, 'g')
+Sea water contains about ⟦0⟧ salt by mass. How much salt (in g) is left when ⟦1⟧ of sea water is evaporated to dryness?
+@1igknpvsev1
+Which mixture shows the Tyndall effect (a beam of light is visible through it)?
+@ej2jh7zfip
+milk diluted with water
+@1b6mbwkmzln
+salt water
+@1wn8p44ytr0
+sugar solution
+@3nv09id2mh
+pure water
+@1ed1wnhjtj5
+Milk is a colloid: its particles are big enough to scatter light, unlike those of a true solution.
+@sd8kxdkwi4
+Why is the start line of a chromatogram drawn in pencil?
+@j1ir0rxtzi
+Pencil graphite does not dissolve and move with the solvent
+@1idai0a67xm
+Pencil is easier to erase
+@1y40fwxk8i3
+Ink is too expensive
+@zlu7e0br36
+Pencil makes the solvent move faster
+@5pq5cpuiv3
+Ink contains dyes that would separate and confuse the result.
+@1r4j0038gp0
+What is the liquid collected at the end of the condenser in distillation called?
+@xgmfsp0pgq
+the distillate
+@11y7f4egwz6
+the residue
+@u2kql1hedt
+the filtrate
+@1o5r315iy03
+the solute
+@2flyk8bgqgc
+The vapour condenses into the <b>distillate</b>.
+@20xaztqo7mi
+In filtration, what is the solid left on the filter paper called?
+@yqo40xc5xo
+the solvent
+@iad7hyk2h8
+The liquid that passes through is the filtrate; the solid left behind is the <b>residue</b>.
+
+##### lab-skills
+@2a7q52zl2ku  ; 0=FigW(apparatusSvg([['beaker', T`beaker`] | 1=FigW(ghsSvg([['flame', T`flammable`], [' | 2=Key(T`<p><b>Safe working.</b> Wear safet | 3=Fig(meniscusSvg(24.6, { label: T`Close-u | 4=Tbl([T`Rule for significant figures`, T` | 5=Key(T`<p><b>Accuracy</b> is how close a  | 6=Tip(T`<p>A calculated answer should not 
+
+<p>Chemistry is learned by doing experiments, and good experiments need the right apparatus, safe habits and careful measurements.</p>
+⟦0⟧
+<h3>Hazard symbols</h3>
+⟦1⟧
+⟦2⟧
+<h3>Reading a scale</h3>
+⟦3⟧
+<p>Every measurement has an uncertainty. A reading is usually quoted to half the smallest division or to the nearest division: $24.6\,\mathrm{mL}$ on a cylinder marked every $0.2\,\mathrm{mL}$.</p>
+⟦4⟧
+⟦5⟧
+⟦6⟧
+@11c58w5wbko
+beaker
+@b25u72knl8
+conical flask
+@1x7j78ltgue
+measuring cylinder
+@10s50ybemen
+burette
+@1p2u798j0mh
+pipette
+@1giyrvx65hd
+test tube
+@1nhvmidtc1c
+Bunsen burner
+@16skxen8iv8
+Common laboratory apparatus: beaker, conical flask, measuring cylinder, burette, pipette, test tube and Bunsen burner
+@6u21huqg2c
+Beakers and conical flasks hold and mix liquids but measure only roughly. A measuring cylinder measures volume; a pipette delivers one exact volume; a burette delivers any volume accurately (used in titrations).
+@23yps3czh1f
+flammable
+@19rrr0a7lhp
+corrosive
+@29z1zdj6lxu
+toxic
+@22d8rd4jib1
+harmful / irritant
+@26y31i8afae
+serious health hazard
+@4ymcj9ipw1
+hazardous to the environment
+@11bg92na2h
+Six hazard pictograms: flammable, corrosive, toxic, harmful, health hazard and environmental hazard
+@10jwa7snuda
+Hazard pictograms of the Globally Harmonized System (GHS), used on chemical labels worldwide, including in Indonesia.
+@10njbbucnr0
+<p><b>Safe working.</b> Wear safety goggles and a lab coat; tie back long hair. Never eat or drink in the lab. Point a test tube away from people when heating it. Always add <b>acid to water</b>, slowly, never water to acid. Use a fume cupboard for toxic gases. Report every spill and breakage, and wash off chemicals on the skin with plenty of water.</p>
+@a3ctmxln3g
+Close-up of a measuring cylinder with the bottom of the meniscus at 24.6 mL
+@239v67336kz
+Read the bottom of the curved surface (the meniscus) with your eye level with it. Here the reading is $24.6\,\mathrm{mL}$.
+@ay6nik8f4w
+Rule for significant figures
+@10uxq0oxu35
+Non-zero digits count
+@1s68d0qa335
+Zeros between digits count
+@m6gi3mb82f
+Leading zeros do not count
+@1gwtxen9oi8
+Trailing zeros after a decimal point count
+@1hrjzb6k36
+<p><b>Accuracy</b> is how close a result is to the true value; <b>precision</b> is how close repeated results are to each other.</p><p>$$\text{percentage error} = \frac{|\text{measured} - \text{true}|}{\text{true}} \times 100\%$$</p>
+@14010ctd66j
+<p>A calculated answer should not have more significant figures than the least precise measurement used.</p>
+@s1xdadqe1k
+delivering exactly 25.0 mL of a solution
+@9r5bsqmdlb
+adding a solution drop by drop during a titration
+@1m5p4wgnuc4
+measuring about 50 mL of water
+@1echbocuagm
+heating a small amount of solid
+@16m3xfv993m
+swirling a solution during a titration without spilling it
+@1d9bwzhljax
+heating a liquid with a flame
+@1di2pefbhxg  ; 0=d
+Which piece of apparatus is best for <b>⟦0⟧</b>?
+@1r9c8zt4vym  ; 0=Fig(ghsSvg([[k, '']], { label: T`A hazar
+What does this hazard pictogram mean?⟦0⟧
+@zbk0rxlddp
+A hazard pictogram
+@c71g6doeg0  ; 0=a
+It means <b>⟦0⟧</b>.
+@1djy5eh0ds  ; 0=Fig(meniscusSvg(v, { label: T`A measurin
+What is the reading on this measuring cylinder (in mL)?⟦0⟧
+@vnu7x6zs0t
+A measuring cylinder close-up
+@rjv5jicj1m  ; 0=Q(v, 'mL')
+Read the bottom of the meniscus: ⟦0⟧.
+@orkv11hu75  ; 0=x.replace('.', I18N.conf.dec === ',' ? '
+How many significant figures are in $⟦0⟧$?
+@204hn3ltw62  ; 0=n
+Leading zeros do not count; zeros between or after the digits (after a decimal point) do. It has <b>⟦0⟧</b> significant figures.
+@j889huxlbm  ; 0=Q(meas, 'mL') | 1=Q(tru, 'mL')
+A student measures ⟦0⟧ when the true volume is ⟦1⟧. What is the percentage error?
+@2dldf0xro72
+How should you dilute a concentrated acid?
+@17gjrsh0ysg
+Add the acid slowly to water
+@b9ohzfgrek
+Add water quickly to the acid
+@1lzybqfq50r
+Pour both into the sink together
+@17ngystp14u
+Heat the acid first
+@1mf5pqehq34
+Adding acid to water spreads the heat released; adding water to acid can boil and spatter it.
+@28h7dyianow
+Where should you do an experiment that gives off a toxic gas?
+@qe86zkw4ky
+in a fume cupboard
+@rtml4a4jie
+next to an open window only
+@gb9tky6sbm
+on your desk
+@11etgiiff82
+outside the lab door
+@999o4rchjf
+A fume cupboard draws the gas away from you.
+@1utzwgzp6kw
+Repeated readings are all close to each other but far from the true value. They are…
+@1cak1dm2zwr
+precise but not accurate
+@j2q6x7ouyw
+accurate but not precise
+@zzfygv4n6c
+accurate and precise
+@yqrwp78uuv
+neither accurate nor precise
+@pn0b2xes9v
+Close together = precise; far from the true value = not accurate.
