@@ -585,3 +585,275 @@ function calorimeterSvg({ label, names } = {}) {
   s += sT(128, 24, names[0], 'mf-small', 'end') + sT(158, 34, names[1], 'mf-small', 'start') + sT(196, 150, names[2], 'mf-small', 'start') + sT(204, 64, names[3], 'mf-small', 'start');
   return s + '</svg>';
 }
+
+/* ---------- acids & bases ---------- */
+const UI_COL = ['#d7263d', '#e8412c', '#f06a28', '#f59a23', '#f8c630', '#e8d62f', '#b9d53a', '#5fb843', '#2e9e5b', '#1f8a8a', '#2466b3', '#3346a8', '#4b3aa0', '#5f2f96', '#6a2687'];
+/* the pH scale in universal-indicator colours with labelled examples: items [[pH, text], …] (alternating above and below) */
+function phScaleSvg(items, { label, names = [] } = {}) {
+  const W = 480, L = 20, R = 20, cw = (W - L - R) / 15, y0 = 110, H = 220, X = p => L + (p + 0.5) * cw;
+  let s = svgBox(W, H, label);
+  UI_COL.forEach((c, i) => { s += sR(L + i * cw, y0, cw, 26, '', 0, ` style="fill:${c}"`) + sT(L + i * cw + cw / 2, y0 + 18, String(i), 'mf-small', 'middle', ' style="fill:#fff;stroke:none;font-weight:700"'); });
+  items.forEach(([p, t], k) => { const up = k % 2 === 0, x = X(p), lvl = (k >> 1) % 3, y = up ? y0 - 12 - lvl * 26 : y0 + 38 + lvl * 26; s += sL(x, up ? y0 : y0 + 26, x, up ? y + 4 : y - 12, 'mf-grid') + sC(x, up ? y0 - 2 : y0 + 28, 2.5, 'mf-dot') + sT(x, y, t, 'mf-small'); });
+  if (names.length) s += sT(L, H - 4, names[0], 'mf-lab-b', 'start') + sT(W / 2, H - 4, names[1], 'mf-lab-b') + sT(W - R, H - 4, names[2], 'mf-lab-b', 'end');
+  return s + '</svg>';
+}
+/* strong vs weak acid in water: particles drawn as labelled discs */
+function dissociationSvg({ label, names } = {}) {
+  const W = 440, H = 200, rnd = mulberry32(12);
+  let s = svgBox(W, H, label);
+  const disc = (x, y, t, cls) => sC(x, y, 14, cls, ' fill-opacity="0.55"') + sT(x, y + 4, t, 'mf-small', 'middle', ' style="font-weight:700;fill:var(--ink)"');
+  [[20, 'strong'], [240, 'weak']].forEach(([x0, kind], k) => {
+    s += sR(x0 + 2, 36, 176, 128, 'ch-liq', 4) + sP(`M${x0} 20V160a6 6 0 0 0 6 6H${x0 + 174}a6 6 0 0 0 6-6V20`, 'ch-glass', ' fill="none"');
+    const items = kind === 'strong' ? [['H⁺', 'ch-bO'], ['A⁻', 'ch-bN']].flatMap(p => [p, p, p, p]) : [['HA', 'ch-bS'], ['HA', 'ch-bS'], ['HA', 'ch-bS'], ['HA', 'ch-bS'], ['HA', 'ch-bS'], ['HA', 'ch-bS'], ['H⁺', 'ch-bO'], ['A⁻', 'ch-bN']];
+    const pts = []; items.forEach(([t, c]) => { let x, y, g = 0; do { x = x0 + 22 + rnd() * 136; y = 54 + rnd() * 94; g++; } while (g < 400 && pts.some(([a, b]) => Math.hypot(a - x, b - y) < 32)); pts.push([x, y]); s += disc(x, y, t, c); });
+    s += sT(x0 + 90, H - 12 + 8, names[k], 'mf-lab-b');
+  });
+  return s.replace(`viewBox="0 0 ${W} ${H}"`, `viewBox="0 0 ${W} ${H + 8}"`) + '</svg>';
+}
+/* pH of a mixture by charge balance: weak acid HA (total ca, Ka), sodium cna, chloride ccl (all mol/L) */
+function phMix(ca, Ka, cna, ccl, Kw = 1e-14) {
+  let lo = -1, hi = 15;
+  for (let i = 0; i < 80; i++) { const p = (lo + hi) / 2, h = 10 ** -p, f = h + cna - Kw / h - ca * Ka / (Ka + h) - ccl; if (f > 0) lo = p; else hi = p; }
+  return (lo + hi) / 2;
+}
+/* titration curve of 25 mL acid (0.1 M) with 0.1 M NaOH; Ka = null for a strong acid */
+function titrationCurve(Ka, { Va = 25, ca = 0.1, cb = 0.1 } = {}) {
+  const pts = [];
+  for (let v = 0; v <= 50.001; v += 0.25) { const Vt = Va + v, A = ca * Va / Vt, Na = cb * v / Vt; pts.push([v, Ka ? phMix(A, Ka, Na, 0) : phMix(0, 1, Na, A)]); }
+  return pts;
+}
+function titrationSvg({ label, Ka = null, bands = [], names = {}, W = 420, H = 280, mark = true } = {}) {
+  const pts = titrationCurve(Ka);
+  return planeSvg({ W, H, x: [0, 52], y: [0, 14.5], step: [5, 1], tickX: 10, tickY: 2, xl: names.x || 'V (mL)', yl: 'pH',
+    rects: bands.map(([a, b, cls]) => [0, a, 50, b - a, cls]),
+    texts: bands.map(([a, b, , t]) => [49, (a + b) / 2 - 0.25, t, 'end', 'mf-small']).concat(mark ? [[24, 6, names.eq || 'equivalence', 'end', 'mf-small']] : []),
+    segs: mark ? [[25, 0, 25, 14, 'mf-line', true]] : [],
+    extra: (X, Y) => sPline(pts.map(([x, y]) => [X(x), Y(y)]), 'mf-c1', ' fill="none" stroke-width="2.5"'), label });
+}
+/* burette over a conical flask on a white tile */
+function titrationSetupSvg({ label, names } = {}) {
+  const W = 340, H = 290;
+  let s = svgBox(W, H, label);
+  s += sR(40, 270, 120, 8, 'mf-s3l', 2, ' stroke="var(--ink-2)"') + sR(52, 20, 6, 252, 'mf-s3l', 1, ' stroke="var(--ink-2)"') + sR(58, 60, 50, 6, 'mf-s3l', 1, ' stroke="var(--ink-2)"');
+  s += sR(104, 14, 14, 180, 'ch-glass', 3) + sR(106, 40, 10, 152, 'ch-liq') + [...Array(9)].map((_, i) => sL(104, 30 + i * 18, 111, 30 + i * 18, 'mf-thin')).join('') + sR(100, 194, 22, 8, 'mf-s4l', 2, ' stroke="var(--ink-2)"') + sP('M108 202v14h6v-14', 'ch-glass');
+  s += sR(70, 260, 90, 8, '', 1, ' style="fill:var(--paper);stroke:var(--ink-3)"') + sP('M101 208v16l-26 34a4 4 0 0 0 3 4h68a4 4 0 0 0 3-4l-26-34v-16z', 'ch-glass') + sP('M84 244h54l12 16a3 3 0 0 1-2 4h-74a3 3 0 0 1-2-4z', '', ' style="fill:#f4a6c9;opacity:.85"');
+  s += sL(122, 60, 170, 60, 'mf-grid') + sT(176, 64, names[0], 'mf-small', 'start') + sL(124, 198, 170, 198, 'mf-grid') + sT(176, 202, names[1], 'mf-small', 'start') + sL(150, 250, 170, 240, 'mf-grid') + sT(176, 242, names[2], 'mf-small', 'start') + sL(160, 264, 170, 270, 'mf-grid') + sT(176, 276, names[3], 'mf-small', 'start');
+  return s + '</svg>';
+}
+/* a saturated solution: undissolved solid at the bottom, ions in solution */
+function saturatedSvg({ label, ions = ['Ag⁺', 'Cl⁻'] } = {}) {
+  const W = 220, H = 190, rnd = mulberry32(21);
+  let s = svgBox(W, H, label) + sR(22, 40, 176, 128, 'ch-liq', 4);
+  for (let i = 0; i < 26; i++) s += sR(30 + (i % 13) * 12.5, 150 - Math.floor(i / 13) * 10 - (i % 3) * 2, 11, 9, 'mf-s3l', 1, ' stroke="var(--ink-2)"');
+  const pts = []; for (let k = 0; k < 8; k++) { let x, y, g = 0; do { x = 38 + rnd() * 144; y = 58 + rnd() * 66; g++; } while (g < 300 && pts.some(([a, b]) => Math.hypot(a - x, b - y) < 30)); pts.push([x, y]); s += sC(x, y, 13, k % 2 ? 'ch-bN' : 'ch-bO', ' fill-opacity="0.55"') + sT(x, y + 4, ions[k % 2], 'mf-small', 'middle', ' style="font-weight:700;fill:var(--ink)"'); }
+  s += sP('M20 24V164a6 6 0 0 0 6 6H194a6 6 0 0 0 6-6V24', 'ch-glass', ' fill="none"') + sArrow(150, 146, 162, 126, 'mf-c4', 6) + sArrow(172, 126, 178, 144, 'mf-c1', 6);
+  return s + '</svg>';
+}
+
+/* ---------- redox & electrochemistry ---------- */
+const E0 = [['Li^+', 'Li', -3.04, 1], ['K^+', 'K', -2.93, 1], ['Ca^2+', 'Ca', -2.87, 2], ['Na^+', 'Na', -2.71, 1], ['Mg^2+', 'Mg', -2.37, 2], ['Al^3+', 'Al', -1.66, 3], ['Zn^2+', 'Zn', -0.76, 2], ['Fe^2+', 'Fe', -0.44, 2], ['Ni^2+', 'Ni', -0.25, 2], ['Pb^2+', 'Pb', -0.13, 2], ['2H^+', 'H2', 0, 2], ['Cu^2+', 'Cu', 0.34, 2], ['I2', '2I^-', 0.54, 2], ['Fe^3+', 'Fe^2+', 0.77, 1], ['Ag^+', 'Ag', 0.80, 1], ['Br2', '2Br^-', 1.07, 2], ['Cl2', '2Cl^-', 1.36, 2], ['F2', '2F^-', 2.87, 2]];
+const uniS = t => t.replace(/\^(\d?)([+-])/g, (m, d, s) => (d ? '⁰¹²³⁴⁵⁶⁷⁸⁹'[d] : '') + (s === '+' ? '⁺' : '⁻')).replace(/(\D)(\d)/g, (m, a, d) => a + '₀₁₂₃₄₅₆₇₈₉'[d]).replace(/^(\d)/, '$1');
+/* a vertical ladder of standard reduction potentials */
+function eLadderSvg({ label, items = E0, names } = {}) {
+  const n = items.length, W = 440, H = 60 + n * 22, X = 250, Y = k => 36 + (n - 1 - k) * 22;
+  let s = svgBox(W, H, label) + sL(X, 24, X, H - 18, 'mf-axis') + sT(X, 16, 'E° (V)', 'mf-small');
+  items.forEach(([ox, red, e, z], k) => { const y = Y(k); s += sL(X - 5, y, X + 5, y, 'mf-line') + sT(X - 12, y + 4, `${uniS(ox)} + ${z > 1 ? z : ''}e⁻ → ${uniS(red)}`, 'mf-small', 'end') + sT(X + 12, y + 4, (e > 0 ? '+' : e < 0 ? '−' : '') + Math.abs(e).toFixed(2), 'mf-small', 'start'); });
+  s += sArrow(W - 40, H - 30, W - 40, 40, 'mf-c4', 8) + sT(W - 28, H / 2, names[0], 'mf-small', 'middle', ` transform="rotate(90 ${W - 28} ${H / 2})"`) + sArrow(40, 40, 40, H - 30, 'mf-c1', 8) + sT(28, H / 2, names[1], 'mf-small', 'middle', ` transform="rotate(-90 28 ${H / 2})"`);
+  return s + '</svg>';
+}
+/* Daniell-type galvanic cell */
+function galvanicCellSvg({ label, a = 'Zn', b = 'Cu', ia = 'Zn²⁺', ib = 'Cu²⁺', names, E = '1.10 V' } = {}) {
+  const W = 460, H = 270;
+  let s = svgBox(W, H, label);
+  const beaker = x => sR(x + 2, 130, 136, 108, 'ch-liq', 4) + sP(`M${x} 110V236a6 6 0 0 0 6 6H${x + 134}a6 6 0 0 0 6-6V110`, 'ch-glass', ' fill="none"');
+  s += beaker(30) + beaker(290);
+  s += sP('M130 170V70H330V170', '', ' fill="none" stroke="var(--ink-3)" stroke-width="18" stroke-linejoin="round" opacity="0.35"') + sP('M130 170V70H330V170', '', ' fill="none" stroke="var(--ink-3)" stroke-width="1.2" stroke-dasharray="4 3"');
+  s += sR(60, 90, 16, 130, 'mf-s3l', 2, ' stroke="var(--ink-2)"') + sR(384, 90, 16, 130, '', 2, ' style="fill:#c8743a;stroke:var(--ink-2)"');
+  s += sP('M68 90V30H392V90', '', ' fill="none" stroke="var(--ink-2)" stroke-width="2"') + sC(230, 30, 20, '', ' style="fill:var(--paper);stroke:var(--ink-2);stroke-width:2"') + sT(230, 35, 'V', 'mf-lab-b');
+  s += sArrow(110, 22, 160, 22, 'mf-c4', 7) + sT(135, 14, 'e⁻', 'mf-small') + sArrow(300, 22, 350, 22, 'mf-c4', 7) + sT(325, 14, 'e⁻', 'mf-small') + sT(230, 64, E, 'mf-small');
+  s += sT(68, 258, `${names[0]} (${a}, −)`, 'mf-small') + sT(392, 258, `${names[1]} (${b}, +)`, 'mf-small') + sT(100, 200, ia, 'mf-lab-b') + sT(350, 200, ib, 'mf-lab-b') + sT(230, 104, names[2], 'mf-small');
+  s += sT(100, 150, names[3], 'mf-small') + sT(360, 150, names[4], 'mf-small');
+  return s + '</svg>';
+}
+/* electrolysis cell with two inert electrodes */
+function electrolysisSvg({ label, names, left = 'Cu', right = 'Cl₂', ions = ['Cu²⁺', 'Cl⁻'], gasLeft = false, gasRight = true } = {}) {
+  const W = 380, H = 260;
+  let s = svgBox(W, H, label) + sR(72, 110, 236, 126, 'ch-liq', 4) + sP('M70 90V234a6 6 0 0 0 6 6H304a6 6 0 0 0 6-6V90', 'ch-glass', ' fill="none"');
+  s += sR(120, 70, 14, 140, 'mf-s3l', 2, ' stroke="var(--ink-2)"') + sR(246, 70, 14, 140, 'mf-s3l', 2, ' stroke="var(--ink-2)"');
+  s += sP('M127 70V30H253V70', '', ' fill="none" stroke="var(--ink-2)" stroke-width="2"') + sR(172, 18, 36, 24, '', 3, ' style="fill:var(--paper);stroke:var(--ink-2);stroke-width:2"') + sL(182, 24, 182, 36, 'mf-line', ' stroke-width="3"') + sL(194, 20, 194, 40, 'mf-line', ' stroke-width="1.5"') + sT(166, 30, '−', 'mf-lab-b', 'end') + sT(214, 30, '+', 'mf-lab-b', 'start');
+  // note: the left electrode is joined to the − terminal (cathode), the right to + (anode)
+  s += sT(127, 64, names[0], 'mf-small') + sT(253, 64, names[1], 'mf-small');
+  const bub = (x, n) => [...Array(n)].map((_, i) => sC(x + (i % 2 ? 11 : -11), 190 - i * 14, 3, '', ' style="fill:var(--paper);stroke:var(--ink-3)"')).join('');
+  if (gasLeft) s += bub(127, 5); if (gasRight) s += bub(253, 5);
+  s += sArrow(215, 170, 150, 170, 'mf-c1', 7) + sT(182, 162, ions[0], 'mf-small') + sArrow(165, 196, 230, 196, 'mf-c4', 7) + sT(197, 214, ions[1], 'mf-small');
+  s += sT(127, 256, left, 'mf-lab-b') + sT(253, 256, right, 'mf-lab-b');
+  return s + '</svg>';
+}
+/* three test tubes for the rusting experiment */
+function rustTubesSvg({ label, names } = {}) {
+  const W = 460, H = 250;
+  let s = svgBox(W, H, label);
+  [[80, 'air+water'], [230, 'boiled'], [380, 'dry']].forEach(([x, k], i) => {
+    s += sP(`M${x - 22} 40V180a22 22 0 0 0 44 0V40`, 'ch-glass') + sR(x - 25, 32, 50, 10, 'mf-s4l', 3, ' stroke="var(--ink-2)"');
+    if (k !== 'dry') s += sP(`M${x - 21} ${k === 'boiled' ? 110 : 130}V180a21 21 0 0 0 42 0V${k === 'boiled' ? 110 : 130}z`, 'ch-liq');
+    if (k === 'boiled') s += sR(x - 21, 100, 42, 10, '', 0, ' style="fill:#e8c35a;opacity:.85"');
+    if (k === 'dry') s += [...Array(10)].map((_, j) => sC(x - 14 + (j % 4) * 9, 188 - Math.floor(j / 4) * 8, 4, '', ' style="fill:#f2f2f2;stroke:var(--ink-3)"')).join('') + sR(x - 21, 170, 42, 3, 'mf-grid');
+    s += sL(x, 44, x, 164, '', ' style="stroke:var(--ink-2);stroke-width:3"') + (k === 'air+water' ? [...Array(6)].map((_, j) => sC(x + (j % 2 ? 3 : -3), 120 + j * 8, 2.5, '', ' style="fill:#b5541e"')).join('') : '');
+    s += wrap2(x, 218, names[i], 'mf-small', 18);
+  });
+  return s + '</svg>';
+}
+
+/* ---------- organic ---------- */
+/* displayed formula of a straight chain. backbone: ['C','C','O','C',…]; o.bonds: {i: order of bond i–(i+1)};
+   o.subs: [[i, 'up'|'down'|'left'|'right', label, order]]; hydrogens fill the remaining valences */
+const VAL = { C: 4, N: 3, O: 2, S: 2 };
+function dispMol(backbone, { bonds = {}, subs = [], label, u = 38, lp = false, name } = {}) {
+  const atoms = [], bl = [], n = backbone.length, dx = 1.15;
+  backbone.forEach((a, i) => atoms.push([a, i * dx, 0]));
+  for (let i = 0; i < n - 1; i++) bl.push([i, i + 1, bonds[i] || 1]);
+  const used = backbone.map((_, i) => (i > 0 ? bonds[i - 1] || 1 : 0) + (i < n - 1 ? bonds[i] || 1 : 0));
+  const taken = backbone.map(() => new Set());
+  const P = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
+  subs.forEach(([i, pos, lab, o = 1]) => { const [px, py] = P[pos], k = atoms.length; atoms.push([lab, i * dx + px * (lab.length > 2 ? 1.25 : 1), py]); bl.push([i, k, o]); used[i] += o; taken[i].add(pos); });
+  backbone.forEach((a, i) => {
+    let free = (VAL[a] || 4) - used[i];
+    const end = i === 0 ? 'left' : i === n - 1 ? 'right' : null, multi = (i > 0 && (bonds[i - 1] || 1) === 2) || (i < n - 1 && (bonds[i] || 1) === 2);
+    const order = end ? (multi ? ['up', 'down', end] : [end, 'up', 'down']) : ['up', 'down'];
+    if (n === 1) order.splice(0, order.length, 'up', 'down', 'left', 'right');
+    order.filter(p => !taken[i].has(p)).forEach(p => { if (free <= 0) return; const [px, py] = P[p], k = atoms.length; atoms.push(['H', i * dx + px, py]); bl.push([i, k, 1]); free--; });
+  });
+  let s = molSvg(atoms, bl, { u, label, pad: 18 });
+  if (name) { const m = s.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/), W = +m[1], H = +m[2]; s = s.replace(m[0], `viewBox="0 0 ${W} ${H + 20}"`).replace('</svg>', sT(W / 2, H + 12, name, 'mf-lab-b') + '</svg>'); }
+  return s;
+}
+/* benzene: Kekulé structures and the delocalised ring */
+function benzeneSvg({ label, names } = {}) {
+  const W = 460, H = 170, r = 44, hex = (cx, cy) => [...Array(6)].map((_, k) => [cx + r * Math.cos(Math.PI / 6 + k * Math.PI / 3), cy + r * Math.sin(Math.PI / 6 + k * Math.PI / 3)]);
+  let s = svgBox(W, H, label);
+  const ring = (cx, cy, dbl) => { const p = hex(cx, cy); let t = sPoly(p, '', ' style="fill:none;stroke:var(--ink);stroke-width:2"'); if (dbl === 'circle') t += sC(cx, cy, r * 0.58, '', ' style="fill:none;stroke:var(--ink);stroke-width:2"'); else dbl.forEach(k => { const a = p[k], b = p[(k + 1) % 6], ix = cx + (a[0] - cx) * 0.8, iy = cy + (a[1] - cy) * 0.8, jx = cx + (b[0] - cx) * 0.8, jy = cy + (b[1] - cy) * 0.8; t += sL(ix, iy, jx, jy, 'ch-bond'); }); return t; };
+  s += ring(70, 72, [0, 2, 4]) + sT(145, 78, '⟷', 'mf-lab-b') + ring(220, 72, [1, 3, 5]) + ring(380, 72, 'circle');
+  s += sT(145, 150, names[0], 'mf-small') + sT(380, 150, names[1], 'mf-small');
+  return s + '</svg>';
+}
+/* addition polymerisation: n monomers → repeat unit in brackets. sub: the group on the second carbon (H, Cl, CH₃, C₆H₅) */
+function polymerSvg({ label, sub = 'H', names } = {}) {
+  const W = 470, H = 150, u = 36;
+  let s = svgBox(W, H, label);
+  const C = (x, y) => sT(x, y + 5, 'C', 'ch-at ch-C'), Hh = (x, y, t = 'H') => sT(x, y + 5, t, `ch-at ${atomCls(t)}`);
+  // monomer
+  const mx = 60, my = 75; s += sT(mx - 42, my + 6, 'n', 'mf-var') + C(mx, my) + C(mx + u * 1.2, my) + sL(mx + 10, my - 3, mx + u * 1.2 - 10, my - 3, 'ch-bond') + sL(mx + 10, my + 3, mx + u * 1.2 - 10, my + 3, 'ch-bond');
+  [[mx, -1, 'H'], [mx, 1, 'H'], [mx + u * 1.2, -1, 'H'], [mx + u * 1.2, 1, sub]].forEach(([x, d, t]) => { s += sL(x, my + d * 10, x, my + d * (u - 12), 'ch-bond') + Hh(x, my + d * u, t); });
+  s += sArrow(150, my, 215, my, 'mf-line', 8) + sT(182, my - 10, names[0], 'mf-small');
+  // repeat unit
+  const px = 290; s += C(px, my) + C(px + u * 1.2, my) + sL(px + 10, my, px + u * 1.2 - 10, my, 'ch-bond') + sL(px - 46, my, px - 10, my, 'ch-bond') + sL(px + u * 1.2 + 10, my, px + u * 1.2 + 46, my, 'ch-bond');
+  [[px, -1, 'H'], [px, 1, 'H'], [px + u * 1.2, -1, 'H'], [px + u * 1.2, 1, sub]].forEach(([x, d, t]) => { s += sL(x, my + d * 10, x, my + d * (u - 12), 'ch-bond') + Hh(x, my + d * u, t); });
+  s += sP(`M${px - 26} ${my - 44}h-8v88h8`, '', ' style="fill:none;stroke:var(--ink);stroke-width:1.8"') + sP(`M${px + u * 1.2 + 26} ${my - 44}h8v88h-8`, '', ' style="fill:none;stroke:var(--ink);stroke-width:1.8"') + sT(px + u * 1.2 + 42, my + 50, 'n', 'mf-var');
+  s += sT(80, 140, names[1], 'mf-small') + sT(px + u * 0.6, 140, names[2], 'mf-small');
+  return s + '</svg>';
+}
+/* α-glucose (Haworth projection) */
+function glucoseSvg({ label } = {}) {
+  const W = 300, H = 210;
+  let s = svgBox(W, H, label);
+  const C5 = [95, 72], O = [165, 72], C1 = [215, 108], C2 = [180, 146], C3 = [110, 146], C4 = [70, 108];
+  s += sPoly([C5, O, C1, C2, C3, C4], '', ' style="fill:color-mix(in srgb, var(--lv6) 10%, transparent);stroke:var(--ink);stroke-width:1.8"') + sL(...C2, ...C3, '', ' style="stroke:var(--ink);stroke-width:5"') + sL(...C1, ...C2, '', ' style="stroke:var(--ink);stroke-width:3.5"') + sL(...C3, ...C4, '', ' style="stroke:var(--ink);stroke-width:3.5"');
+  s += sT(O[0], O[1] + 4, 'O', 'ch-at ch-O');
+  const grp = ([x, y], dy, t) => sL(x, y, x, y + dy, 'ch-bond') + sT(x, y + dy + (dy > 0 ? 13 : -4), t, `ch-at ${atomCls(t)}`, 'middle', ' style="font-size:12px"');
+  s += grp(C5, -30, 'CH₂OH') + grp(C5, 16, 'H') + grp(C1, -24, 'H') + grp(C1, 26, 'OH') + grp(C2, -22, 'H') + grp(C2, 26, 'OH') + grp(C3, -22, 'OH') + grp(C3, 26, 'H') + grp(C4, -24, 'H') + grp(C4, 26, 'OH');
+  return s + '</svg>';
+}
+
+/* ---------- elements, nuclear, environment ---------- */
+/* colour swatches of solutions: items [[css colour, label, sub]] */
+function swatchSvg(items, { label, perRow = 5 } = {}) {
+  const cw = 84, rh = 150, rows = Math.ceil(items.length / perRow), W = Math.min(items.length, perRow) * cw + 10, H = rows * rh;
+  let s = svgBox(W, H, label);
+  items.forEach(([c, t, sub], i) => { const r = Math.floor(i / perRow), x = 10 + (i % perRow) * cw + cw / 2 - 5, y0 = r * rh; s += sP(`M${x - 22} ${y0 + 20}V${y0 + 92}a8 8 0 0 0 8 8H${x + 14}a8 8 0 0 0 8-8V${y0 + 20}`, 'ch-glass', ' fill="none"') + sR(x - 21, y0 + 44, 42, 55, '', 6, ` style="fill:${c};opacity:${c === 'none' ? 0 : 0.85}"`) + sT(x, y0 + 120, t, 'mf-small', 'middle', ' style="font-weight:700"') + (sub ? sT(x, y0 + 136, sub, 'mf-small') : ''); });
+  return s + '</svg>';
+}
+/* penetration of alpha, beta and gamma radiation */
+function penetrationSvg({ label, names } = {}) {
+  const W = 460, H = 200, ys = [55, 100, 145];
+  let s = svgBox(W, H, label) + sR(20, 30, 40, 140, 'mf-s3l', 6, ' stroke="var(--ink-2)"') + sT(40, 104, '☢', 'mf-lab-b', 'middle', ' style="font-size:22px"');
+  const walls = [[140, 6, '#f2e8d0', names[3]], [250, 14, '#c0c8d4', names[4]], [370, 34, '#8a93a0', names[5]]];
+  walls.forEach(([x, w, c, t]) => { s += sR(x, 24, w, 152, '', 2, ` style="fill:${c};stroke:var(--ink-3)"`) + sT(x + w / 2, 192, t, 'mf-small'); });
+  const ends = [140, 250, 370];
+  [['α', 'mf-c4'], ['β', 'mf-c1'], ['γ', 'mf-c3']].forEach(([g, c], i) => { const y = ys[i], x2 = ends[i] - 2; s += (i === 2 ? sP(`M60 ${y}` + [...Array(28)].map((_, k) => `Q${64 + k * 11 + 3} ${y + (k % 2 ? 6 : -6)} ${64 + k * 11 + 5.5} ${y}`).join(''), c, ' fill="none" stroke-width="2"') : sArrow(60, y, x2, y, c, 8)) + sT(78, y - 8, `${g} ${names[i]}`, 'mf-small', 'start'); });
+  s += sArrow(368, ys[2], 404, ys[2], 'mf-c3', 7) + sT(410, ys[2] + 4, '…', 'mf-small', 'start');
+  return s + '</svg>';
+}
+/* the band of stability: N against Z */
+function stabilitySvg({ label, names } = {}) {
+  const Nst = z => z + 0.0058 * z * z;
+  return planeSvg({ W: 400, H: 340, x: [0, 90], y: [0, 135], step: [10, 10], tickX: 20, tickY: 20, xl: 'Z', yl: 'N',
+    polys: [{ pts: [...Array(19)].map((_, k) => [k * 4.6, Nst(k * 4.6) + 3 + k * 0.35]).concat([...Array(19)].map((_, k) => [(18 - k) * 4.6, Math.max(0, Nst((18 - k) * 4.6) - 3 - (18 - k) * 0.35)])), cls: 'mf-f2' }],
+    fns: [{ f: z => z, from: 0, to: 88, cls: 'mf-c3', dash: true, label: 'N = Z', at: 70, dx: 6, dy: 14 }],
+    texts: [[30, 90, names[0], 'middle', 'mf-small'], [62, 40, names[1], 'middle', 'mf-small'], [72, 118, names[2], 'middle', 'mf-small']], label });
+}
+/* greenhouse effect */
+function greenhouseSvg({ label, names } = {}) {
+  const W = 460, H = 250;
+  let s = svgBox(W, H, label) + sR(0, 200, W, 50, '', 0, ' style="fill:color-mix(in srgb, var(--lv8) 30%, var(--paper))"') + sP('M0 90Q230 50 460 90', '', ' style="fill:none;stroke:var(--lv9);stroke-width:14;opacity:.25"') + sT(W - 10, 58, names[0], 'mf-small', 'end');
+  s += sC(40, 30, 18, '', ' style="fill:#f5b82e"') + sArrow(60, 42, 150, 196, 'mf-c2', 8) + wrap2(70, 16, names[1], 'mf-small', 18, 'start');
+  s += sArrow(200, 198, 240, 26, 'mf-c4', 8) + sT(248, 32, names[2], 'mf-small', 'start');
+  s += sArrow(290, 198, 318, 84, 'mf-c4', 8) + sArrow(320, 84, 350, 196, 'mf-c4', 8) + wrap2(398, 140, names[3], 'mf-small', 14);
+  s += sT(W / 2, 232, names[4], 'mf-lab-b');
+  return s + '</svg>';
+}
+/* blast furnace (schematic) */
+function blastFurnaceSvg({ label, names } = {}) {
+  const W = 420, H = 300;
+  let s = svgBox(W, H, label).replace(`viewBox="0 0 ${W} ${H}"`, `viewBox="-50 0 ${W + 50} ${H}"`) + sP('M150 30H230L270 170L250 260H130L110 170Z', '', ' style="fill:color-mix(in srgb, var(--lv1) 14%, var(--paper));stroke:var(--ink-2);stroke-width:2"') + sR(132, 238, 116, 22, '', 0, ' style="fill:#e0632e;opacity:.8"') + sR(126, 222, 128, 16, '', 0, ' style="fill:#b89a6a;opacity:.8"');
+  s += sArrow(190, 6, 190, 40, 'mf-line', 8) + sT(200, 16, names[0], 'mf-small', 'start');
+  s += sArrow(60, 200, 116, 200, 'mf-c4', 8) + sArrow(360, 200, 264, 200, 'mf-c4', 8) + sT(56, 196, names[1], 'mf-small', 'end');
+  s += sArrow(236, 44, 300, 44, 'mf-c3', 8) + sT(306, 48, names[2], 'mf-small', 'start');
+  s += sArrow(250, 230, 320, 240, 'mf-line', 7) + sT(326, 244, names[3], 'mf-small', 'start') + sArrow(132, 250, 60, 266, 'mf-line', 7) + sT(56, 270, names[4], 'mf-small', 'end');
+  s += sT(190, 100, 'C + O₂ → CO₂', 'mf-small') + sT(190, 130, 'CO₂ + C → 2CO', 'mf-small') + sT(190, 160, 'Fe₂O₃ + 3CO →', 'mf-small') + sT(190, 174, '2Fe + 3CO₂', 'mf-small');
+  return s + '</svg>';
+}
+
+/* ---------- university ---------- */
+/* MO diagram for a second-period homonuclear diatomic (valence electrons n, O2-type ordering if oxy) */
+function moDiagramSvg(n, { label, sym = 'O', names } = {}) {
+  const W = 400, H = 330, lx = 60, rx = 340, cx = 200, oxy = n >= 12;
+  let s = svgBox(W, H, label);
+  const lvl = (x, y, w = 36) => sL(x - w / 2, y, x + w / 2, y, 'mf-line', ' stroke-width="2"');
+  const el = (x, y, k) => (k >= 1 ? sArrow(x - 5, y + 8, x - 5, y - 10, 'mf-c1', 5) : '') + (k >= 2 ? sArrow(x + 5, y - 8, x + 5, y + 10, 'mf-c4', 5) : '');
+  // atomic levels: 2s at y 250, 2p at y 150 (three boxes)
+  const atomE = n / 2; // valence electrons per atom
+  [lx, rx].forEach(x => { s += lvl(x, 260) + el(x, 260, 2); const p = atomE - 2; [-40, 0, 40].forEach((d, k) => { const cnt = p > 3 ? (k < p - 3 ? 2 : 1) : (k < p ? 1 : 0); s += lvl(x + d, 150, 30) + el(x + d, 150, cnt); }); });
+  // MO levels
+  const L = oxy ? [['σ2s', 290, 1], ['σ*2s', 230, 1], ['σ2p', 190, 1], ['π2p', 170, 2], ['π*2p', 120, 2], ['σ*2p', 80, 1]] : [['σ2s', 290, 1], ['σ*2s', 230, 1], ['π2p', 190, 2], ['σ2p', 170, 1], ['π*2p', 120, 2], ['σ*2p', 80, 1]];
+  let left = n;
+  L.forEach(([t, y, deg]) => { const cap = 2 * deg, k = Math.min(cap, left); left -= k; if (deg === 1) s += lvl(cx, y) + el(cx, y, k); else { const a = k >= deg ? (k - deg >= 1 ? 2 : 1) : k, b = k >= deg ? (k - deg >= 2 ? 2 : 1) : 0; s += lvl(cx - 22, y) + lvl(cx + 22, y) + el(cx - 22, y, a) + el(cx + 22, y, b); } s += sT(cx + (deg === 2 ? 50 : 28), y + 4, t, 'mf-small', 'start'); });
+  [[lx, 260, 290], [lx, 260, 230], [rx, 260, 290], [rx, 260, 230], [lx, 150, 190], [lx, 150, 120], [rx, 150, 190], [rx, 150, 120], [lx, 150, 80], [rx, 150, 80]].forEach(([x, y1, y2]) => { s += sL(x + (x < cx ? 20 : -20) * (y1 === 150 ? 3 : 1), y1, cx + (x < cx ? -24 : 24) * (y2 === 170 || y2 === 190 || y2 === 120 ? 1.8 : 1), y2, 'mf-grid', ' stroke-dasharray="3 3"'); });
+  s += sT(lx, 290, '2s', 'mf-small') + sT(rx, 290, '2s', 'mf-small') + sT(lx, 185, '2p', 'mf-small') + sT(rx, 185, '2p', 'mf-small') + sT(lx, 318, `${names[0]} ${sym}`, 'mf-lab-b') + sT(rx, 318, `${names[0]} ${sym}`, 'mf-lab-b') + sT(cx, 318, `${sym}₂`, 'mf-lab-b') + sArrow(18, 300, 18, 40, 'mf-axis', 7) + sT(26, 40, 'E', 'mf-var', 'start');
+  return s + '</svg>';
+}
+/* crystal-field splitting of d orbitals in an octahedral field, filled with d electrons (high or low spin) */
+function crystalFieldSvg(d, { label, low = false, names } = {}) {
+  const W = 290, H = 240;
+  let s = svgBox(W, H, label);
+  const lvl = (x, y, w = 28) => sL(x - w / 2, y, x + w / 2, y, 'mf-line', ' stroke-width="2"');
+  const el = (x, y, k) => (k >= 1 ? sArrow(x - 5, y + 8, x - 5, y - 10, 'mf-c1', 5) : '') + (k >= 2 ? sArrow(x + 5, y - 8, x + 5, y + 10, 'mf-c4', 5) : '');
+  [16, 34, 52, 70, 88].forEach(x => { s += lvl(x, 130, 14); });
+  const t = [150, 186, 222], e = [168, 204];
+  const t2 = [0, 0, 0], eg = [0, 0];
+  for (let k = 0; k < d; k++) { if (low) { if (k < 6) t2[k % 3]++; else eg[(k - 6) % 2]++; } else { const o = [['t', 0], ['t', 1], ['t', 2], ['e', 0], ['e', 1], ['t', 0], ['t', 1], ['t', 2], ['e', 0], ['e', 1]][k]; if (o[0] === 't') t2[o[1]]++; else eg[o[1]]++; } }
+  t.forEach((x, k) => { s += lvl(x, 180) + el(x, 180, t2[k]); }); e.forEach((x, k) => { s += lvl(x, 80) + el(x, 80, eg[k]); });
+  s += sL(100, 130, 132, 84, 'mf-grid', ' stroke-dasharray="3 3"') + sL(100, 130, 132, 176, 'mf-grid', ' stroke-dasharray="3 3"') + sT(224, 84, sub('e', 'g'), 'mf-small', 'start') + sT(240, 184, sub('t', '2g'), 'mf-small', 'start') + sArrow(272, 176, 272, 88, 'mf-c2', 6) + sT(262, 134, 'Δₒ', 'mf-lab-b', 'end');
+  s += sT(52, 154, names[0], 'mf-small') + sT(186, 222, names[1], 'mf-small');
+  return s + '</svg>';
+}
+/* a schematic spectrum: peaks [[x, height, label]] on axis x0..x1 (reversed for IR / NMR) */
+function spectrumSvg(peaks, { label, x0, x1, xl, reverse = false, dips = false, W = 460, H = 220, ticks = [], lines = false } = {}) {
+  const L = 30, R = 20, T0 = 20, B = 40, X = x => L + (reverse ? (x1 - x) : (x - x0)) / (x1 - x0) * (W - L - R), base = dips ? T0 + 10 : H - B;
+  let s = svgBox(W, H, label) + sL(L, H - B, W - R, H - B, 'mf-axis') + ticks.map(t => sL(X(t), H - B, X(t), H - B + 4, 'mf-axis') + sT(X(t), H - B + 16, String(t), 'mf-small')).join('') + sT((L + W - R) / 2, H - 6, xl, 'mf-small');
+  if (lines) { peaks.forEach(([x, h, t]) => { s += sL(X(x), H - B, X(x), H - B - h, 'mf-c1', ' stroke-width="2.4"') + (t ? sT(X(x), H - B - h - 6, t, 'mf-small') : ''); }); return s + '</svg>'; }
+  let d = ''; const N = 400;
+  for (let i = 0; i <= N; i++) { const x = x0 + (x1 - x0) * i / N; let y = 0; peaks.forEach(([px, h, , w = (x1 - x0) / 80]) => { y += h * Math.exp(-((x - px) ** 2) / (2 * w * w)); }); d += `${i ? 'L' : 'M'}${f1(X(x))} ${f1(dips ? base + y : base - y)}`; }
+  s += sP(d, 'mf-c1', ' fill="none" stroke-width="1.8"');
+  peaks.forEach(([px, h, t]) => { if (t) s += sT(X(px), dips ? base + h + 14 : base - h - 6, t, 'mf-small'); });
+  return s + '</svg>';
+}
