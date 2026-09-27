@@ -204,6 +204,7 @@ const APP = {
   burette: (x, y) => sR(x - 5, y - 96, 10, 82, 'ch-glass', 2) + sR(x - 4, y - 70, 8, 55, 'ch-liq') + sR(x - 9, y - 16, 18, 5, 'mf-s3l', 1) + sP(`M${x - 2} ${y - 11}l0 9h4l0-9`, 'ch-glass') + [0, 1, 2, 3, 4, 5, 6].map(i => sL(x - 5, y - 90 + i * 11, x, y - 90 + i * 11, 'mf-thin')).join(''),
   pipette: (x, y) => sL(x, y - 96, x, y - 60, 'ch-glass-l') + `<ellipse cx="${x}" cy="${y - 48}" rx="7" ry="14" class="ch-glass"/>` + sL(x, y - 34, x, y - 2, 'ch-glass-l') + sL(x - 4, y - 80, x + 4, y - 80, 'mf-c4'),
   tube: (x, y) => sP(`M${x - 8} ${y - 60}v52a8 8 0 0 0 16 0v-52`, 'ch-glass') + sP(`M${x - 7} ${y - 28}v20a7 7 0 0 0 14 0v-20z`, 'ch-liq'),
+  tubeL: (x, y) => sP(`M${x - 13} ${y - 94}v80a13 13 0 0 0 26 0v-80`, 'ch-glass') + sP(`M${x - 12} ${y - 50}v36a12 12 0 0 0 24 0v-36z`, 'ch-liq'),
   burner: (x, y) => sR(x - 5, y - 44, 10, 38, 'mf-s3l', 1, ' stroke="var(--ink-2)"') + sR(x - 16, y - 6, 32, 6, 'mf-s3l', 2, ' stroke="var(--ink-2)"') + sP(`M${x} ${y - 72}c-8 10-8 20 0 26c8-6 8-16 0-26z`, 'ch-flame') + sP(`M${x} ${y - 62}c-4 6-4 12 0 15c4-3 4-9 0-15z`, 'ch-flame2'),
   funnel: (x, y) => sP(`M${x - 24} ${y - 50}h48l-20 26v18h-8v-18z`, 'ch-glass'),
 };
@@ -229,16 +230,16 @@ function filtrationSvg({ label, names } = {}) {
   let s = svgBox(200, 220, label);
   s += sP('M60 40h80l-34 44v40h-12v-40z', 'ch-glass') + sP('M66 44h68l-30 38h-8z', 'mf-s4l', ' stroke="var(--ink-3)"') + sP('M72 50h56l-24 30h-8z', 'mf-s3l', ' opacity="0.7"');
   s += sP('M50 208h100v-60h-100z', 'ch-glass') + sR(51, 170, 98, 37, 'ch-liq') + [0, 1, 2].map(i => sC(100, 130 + i * 12, 2.2, 'ch-e')).join('');
-  return s + sT(150, 64, names.res, 'mf-small', 'start') + sT(152, 190, names.fil, 'mf-small', 'start') + sT(24, 60, names.paper, 'mf-small', 'start') + '</svg>';
+  return s + sT(150, 64, names.res, 'mf-small', 'start') + sT(152, 190, names.fil, 'mf-small', 'start') + sL(74, 29, 86, 47, 'mf-line', ' stroke-width="0.8"') + sT(8, 26, names.paper, 'mf-small', 'start') + '</svg>';
 }
 function distillationSvg({ label, names } = {}) {
   let s = svgBox(470, 240, label);
   s += sC(80, 112, 40, 'ch-glass') + sP('M44 124a40 40 0 0 0 72 0z', 'ch-liq') + sR(72, 36, 16, 42, 'ch-glass') + APP.burner(80, 226);
   s += sL(80, 36, 80, 18, 'ch-glass-l') + sR(75, 12, 10, 9, 'mf-s4l', 2) + sT(94, 20, names.thermo, 'mf-small', 'start');
   s += sL(88, 58, 346, 150, 'ch-glass-l') + sPoly([[128, 62], [344, 139], [336, 162], [120, 85]], 'ch-glass', ' fill-opacity="0.35"') + sT(236, 96, names.cond, 'mf-small');
-  s += sArrow(330, 186, 330, 162, 'mf-c1', 6) + sArrow(126, 60, 126, 40, 'mf-c1', 6) + sT(338, 194, names.win, 'mf-small', 'start') + sT(132, 40, names.wout, 'mf-small', 'start');
+  s += sArrow(330, 186, 330, 162, 'mf-c1', 6) + sArrow(126, 60, 126, 40, 'mf-c1', 6) + sT(322, 194, names.win, 'mf-small', 'end') + sT(132, 40, names.wout, 'mf-small', 'start');
   s += sP('M362 150h60v58a4 4 0 0 1-4 4h-52a4 4 0 0 1-4-4z', 'ch-glass') + sR(363, 182, 58, 29, 'ch-liq', 3);
-  return s + sT(392, 230, names.dist, 'mf-small') + sT(80, 176, names.mix, 'mf-small') + '</svg>';
+  return s + sT(392, 230, names.dist, 'mf-small') + sT(124, 138, names.mix, 'mf-small', 'start') + '</svg>';
 }
 function chromatogramSvg(spots, { label, front = 150, names } = {}) {   // spots: [[x, distance, cls]]
   const base = 190, W = 60 + spots.length * 44;
@@ -299,12 +300,13 @@ function levelsSvg(trans = [], { label, nMax = 6, names } = {}) {
 }
 /* the aufbau (diagonal) rule */
 function aufbauSvg({ label } = {}) {
-  const rows = [['1s'], ['2s', '2p'], ['3s', '3p', '3d'], ['4s', '4p', '4d', '4f'], ['5s', '5p', '5d', '5f'], ['6s', '6p', '6d'], ['7s', '7p']], cw = 46, rh = 30, x0 = 40, y0 = 26;
-  let s = svgBox(260, 250, label);
+  const rows = [['1s'], ['2s', '2p'], ['3s', '3p', '3d'], ['4s', '4p', '4d', '4f'], ['5s', '5p', '5d', '5f'], ['6s', '6p', '6d'], ['7s', '7p']], cw = 58, rh = 36, x0 = 44, y0 = 34;
+  let s = svgBox(290, 290, label);
   const diag = [['1s'], ['2s'], ['2p', '3s'], ['3p', '4s'], ['3d', '4p', '5s'], ['4d', '5p', '6s'], ['4f', '5d', '6p', '7s'], ['5f', '6d', '7p']];
   const pos = t => { const n = +t[0], l = 'spdf'.indexOf(t[1]); return [x0 + l * cw, y0 + (n - 1) * rh]; };
-  diag.forEach((g, k) => { const [a, b] = [pos(g[0]), pos(g[g.length - 1])]; s += sArrow(a[0] + 20, a[1] - 12, b[0] - 18, b[1] + 11, ['mf-c1', 'mf-c2', 'mf-c3', 'mf-c4'][k % 4], 7); });
-  rows.forEach((r, i) => r.forEach((t, j) => { s += sT(x0 + j * cw, y0 + i * rh + 5, t, 'mf-lab-b'); }));
+  const ux = cw / Math.hypot(cw, rh), uy = rh / Math.hypot(cw, rh);   // unit vector along a diagonal (down-left)
+  diag.forEach((g, k) => { const [a, b] = [pos(g[0]), pos(g[g.length - 1])]; s += sArrow(a[0] + 22 * ux, a[1] - 22 * uy - 4, b[0] - 20 * ux, b[1] + 20 * uy - 4, ['mf-c1', 'mf-c2', 'mf-c3', 'mf-c4'][k % 4], 7); });
+  rows.forEach((r, i) => r.forEach((t, j) => { s += sT(x0 + j * cw, y0 + i * rh + 1, t, 'mf-lab-b', 'middle', ' paint-order="stroke" stroke="var(--paper)" stroke-width="6" stroke-linejoin="round"'); }));
   return s + '</svg>';
 }
 /* shapes of s and p orbitals */
@@ -506,15 +508,16 @@ function phaseDiagramSvg({ label, names, solution = false } = {}) {
 }
 /* osmosis: U-tube with a semipermeable membrane; the solution side rises */
 function osmosisSvg({ label, names } = {}) {
-  const W = 300, H = 250, l = 60, r = 190, w = 50, bot = 190;
+  const W = 300, H = 250, l = 60, r = 190, w = 50, bot = 190, m = (l + r + w) / 2, R = 20;
   let s = svgBox(W, H, label);
-  s += sR(l + 1, 110, w - 2, bot - 110, 'ch-liq') + sR(r + 1, 70, w - 2, bot - 70, 'ch-liq', 0, ' style="fill:color-mix(in srgb, var(--lv6) 30%, var(--paper))"') + sR(l + 1, bot - 30, r + w - l - 2, 29, 'ch-liq');
-  s += sR(l + w, bot - 30, r - l - w, 30, 'ch-liq') ;
-  s += sP(`M${l} 30V${bot}a0 0 0 0 0 0 0H${r + w}V30M${l + w} 30V${bot - 30}H${r}V30`, 'ch-glass', ' fill="none"');
-  s += sL((l + r + w) / 2, bot - 30, (l + r + w) / 2, bot, 'mf-c4', ' stroke-width="3" stroke-dasharray="3 2"');
-  const rnd = mulberry32(3); for (let i = 0; i < 7; i++) s += sC(r + 10 + rnd() * 30, 80 + rnd() * 90, 5, 'ch-p2');
-  s += sArrow((l + r + w) / 2 - 22, bot - 12, (l + r + w) / 2 + 22, bot - 12, 'mf-c1', 7) + sL(r + w + 6, 70, r + w + 6, 110, 'mf-line') + sL(r + w + 2, 70, r + w + 10, 70, 'mf-line') + sL(r + w + 2, 110, r + w + 10, 110, 'mf-line') + sT(r + w + 14, 94, 'h', 'mf-var', 'start') + sL(r - 6, 110, r + w + 10, 110, 'mf-grid', ' stroke-dasharray="3 3"');
-  s += sT(l + w / 2, 22, names[0], 'mf-small') + sT(r + w / 2, 22, names[1], 'mf-small') + sT((l + r + w) / 2, bot + 18, names[2], 'mf-small') + sT((l + r + w) / 2, bot + 36, names[3], 'mf-small');
+  const sol = ' style="fill:color-mix(in srgb, var(--lv6) 30%, var(--paper))"';
+  s += sP(`M${l + 1} 110V${bot - R}a${R - 1} ${R - 1} 0 0 0 ${R - 1} ${R - 1}H${m}V${bot - 30}H${l + w - 1}V110z`, 'ch-liq');
+  s += sP(`M${r + w - 1} 70V${bot - R}a${R - 1} ${R - 1} 0 0 1 ${-(R - 1)} ${R - 1}H${m}V${bot - 30}H${r + 1}V70z`, 'ch-liq', sol);
+  s += sP(`M${l} 30V${bot - R}a${R} ${R} 0 0 0 ${R} ${R}H${r + w - R}a${R} ${R} 0 0 0 ${R} ${-R}V30M${l + w} 30V${bot - 30}H${r}V30`, 'ch-glass', ' fill="none"');
+  s += sL(m, bot - 30, m, bot, 'mf-c4', ' stroke-width="3" stroke-dasharray="3 2"');
+  const rnd = mulberry32(3); for (let i = 0; i < 7; i++) s += sC(r + 12 + rnd() * 26, 82 + rnd() * 80, 5, 'ch-p2');
+  s += sArrow(m - 22, bot - 15, m + 22, bot - 15, 'mf-c1', 7) + sL(r + w + 6, 70, r + w + 6, 110, 'mf-line') + sL(r + w + 2, 70, r + w + 10, 70, 'mf-line') + sL(r + w + 2, 110, r + w + 10, 110, 'mf-line') + sT(r + w + 14, 94, 'h', 'mf-var', 'start') + sL(r - 6, 110, r + w + 10, 110, 'mf-grid', ' stroke-dasharray="3 3"');
+  s += sT(l + w / 2, 22, names[0], 'mf-small') + sT(r + w / 2, 22, names[1], 'mf-small') + sT(m, bot + 18, names[2], 'mf-small') + sT(m, bot + 36, names[3], 'mf-small');
   return s + '</svg>';
 }
 /* Tyndall effect: a light beam through a true solution and a colloid */
@@ -824,10 +827,10 @@ function moDiagramSvg(n, { label, sym = 'O', names } = {}) {
   const atomE = n / 2; // valence electrons per atom
   [lx, rx].forEach(x => { s += lvl(x, 260) + el(x, 260, 2); const p = atomE - 2; [-40, 0, 40].forEach((d, k) => { const cnt = p > 3 ? (k < p - 3 ? 2 : 1) : (k < p ? 1 : 0); s += lvl(x + d, 150, 30) + el(x + d, 150, cnt); }); });
   // MO levels
-  const L = oxy ? [['σ2s', 290, 1], ['σ*2s', 230, 1], ['σ2p', 190, 1], ['π2p', 170, 2], ['π*2p', 120, 2], ['σ*2p', 80, 1]] : [['σ2s', 290, 1], ['σ*2s', 230, 1], ['π2p', 190, 2], ['σ2p', 170, 1], ['π*2p', 120, 2], ['σ*2p', 80, 1]];
+  const L = oxy ? [['σ2s', 290, 1], ['σ*2s', 230, 1], ['σ2p', 200, 1], ['π2p', 168, 2], ['π*2p', 120, 2], ['σ*2p', 80, 1]] : [['σ2s', 290, 1], ['σ*2s', 230, 1], ['π2p', 200, 2], ['σ2p', 168, 1], ['π*2p', 120, 2], ['σ*2p', 80, 1]];
   let left = n;
   L.forEach(([t, y, deg]) => { const cap = 2 * deg, k = Math.min(cap, left); left -= k; if (deg === 1) s += lvl(cx, y) + el(cx, y, k); else { const a = k >= deg ? (k - deg >= 1 ? 2 : 1) : k, b = k >= deg ? (k - deg >= 2 ? 2 : 1) : 0; s += lvl(cx - 22, y) + lvl(cx + 22, y) + el(cx - 22, y, a) + el(cx + 22, y, b); } s += sT(cx + (deg === 2 ? 50 : 28), y + 4, t, 'mf-small', 'start'); });
-  [[lx, 260, 290], [lx, 260, 230], [rx, 260, 290], [rx, 260, 230], [lx, 150, 190], [lx, 150, 120], [rx, 150, 190], [rx, 150, 120], [lx, 150, 80], [rx, 150, 80]].forEach(([x, y1, y2]) => { s += sL(x + (x < cx ? 20 : -20) * (y1 === 150 ? 3 : 1), y1, cx + (x < cx ? -24 : 24) * (y2 === 170 || y2 === 190 || y2 === 120 ? 1.8 : 1), y2, 'mf-grid', ' stroke-dasharray="3 3"'); });
+  [[lx, 260, 290], [lx, 260, 230], [rx, 260, 290], [rx, 260, 230], [lx, 150, 200], [lx, 150, 120], [rx, 150, 200], [rx, 150, 120], [lx, 150, 80], [rx, 150, 80]].forEach(([x, y1, y2]) => { s += sL(x + (x < cx ? 20 : -20) * (y1 === 150 ? 3 : 1), y1, cx + (x < cx ? -24 : 24) * (y2 === 168 || y2 === 200 || y2 === 120 ? 1.8 : 1), y2, 'mf-grid', ' stroke-dasharray="3 3"'); });
   s += sT(lx, 290, '2s', 'mf-small') + sT(rx, 290, '2s', 'mf-small') + sT(lx, 185, '2p', 'mf-small') + sT(rx, 185, '2p', 'mf-small') + sT(lx, 318, `${names[0]} ${sym}`, 'mf-lab-b') + sT(rx, 318, `${names[0]} ${sym}`, 'mf-lab-b') + sT(cx, 318, `${sym}₂`, 'mf-lab-b') + sArrow(18, 300, 18, 40, 'mf-axis', 7) + sT(26, 40, 'E', 'mf-var', 'start');
   return s + '</svg>';
 }

@@ -188,7 +188,10 @@ mjx-container.mjx-wide { display: block; overflow-x: auto; overflow-y: hidden; m
 .fig-small { fill: var(--ink-2); font: 12px var(--f-body); }
 .fig.fig-wide > svg { max-width: 680px; }
 .fig-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; max-width: 680px; }
-.fig-row > div > svg { width: 100%; height: auto; display: block; }
+.fig-row > div { display: grid; grid-template-rows: subgrid; grid-row: span 2; justify-items: center; row-gap: 0; min-width: 0; }
+.fig-row > div > svg { height: auto; display: block; align-self: center; max-width: 100%; }
+.fig-row > div > .cap { align-self: start; margin-top: 4px; }
+@media (max-width: 560px) { .fig-row.c4, .fig-row.c5 { grid-template-columns: repeat(2, 1fr) !important; } }
 .fig-row .cap { font-size: 0.8rem; color: var(--ink-3); text-align: center; margin-top: 4px; }
 /* figure library (src/fig.js) */
 .mf-grid { stroke: var(--rule-soft); stroke-width: 1; }

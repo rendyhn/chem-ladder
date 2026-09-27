@@ -316,7 +316,16 @@ function pascalSvg(rows, { label, hl = [] } = {}) {
 }
 
 /* ---------- more builders for the elementary topics ---------- */
-const FigRow = (items, cap) => `<figure class="fig"><div class="fig-row">${items.map(([svg, c]) => `<div>${svg}${c ? `<div class="cap">${c}</div>` : ''}</div>`).join('')}</div>${cap ? `<figcaption>${cap}</figcaption>` : ''}</figure>`;
+/* a row of small figures drawn at ONE common scale (each keeps its size relative to the widest), in balanced rows: 6 → 3 + 3, 5 → 3 + 2 */
+function FigRow(items, cap, { cols } = {}) {
+  const vw = svg => { const m = /viewBox="[-\d.]+ [-\d.]+ ([\d.]+) [\d.]+"/.exec(svg); return m ? +m[1] : 200; };
+  const ws = items.map(([svg]) => vw(svg)), maxW = Math.max(...ws), n = items.length;
+  cols = cols || (n <= 4 ? n : Math.ceil(n / 2));
+  const sized = (svg, pc) => { svg = svg.replace(/max-width:\d+px;?/, ''); return /^<svg[^>]*style="/.test(svg) ? svg.replace(/^(<svg[^>]*style=")/, `$1width:${pc}%;`) : svg.replace('<svg ', `<svg style="width:${pc}%" `); };
+  const rowMax = Math.min(680, Math.round(cols * maxW * 1.3 + (cols - 1) * 12));
+  const cells = items.map(([svg, c], i) => `<div>${sized(svg, +(ws[i] / maxW * 100).toFixed(1))}${c ? `<div class="cap">${c}</div>` : ''}</div>`).join('');
+  return `<figure class="fig"><div class="fig-row c${cols}" style="grid-template-columns:repeat(${cols},1fr);max-width:${rowMax}px">${cells}</div>${cap ? `<figcaption>${cap}</figcaption>` : ''}</figure>`;
+}
 function placeChartSvg(heads, digits, { label, values, hl = -1 } = {}) {   // a row of place-value columns: header, digit, value
   const n = heads.length, cw = 78, W = n * cw + 8, H = values ? 124 : 96;
   let s = svgBox(W, H, label);
