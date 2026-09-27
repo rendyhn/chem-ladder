@@ -187,7 +187,7 @@ The products have more energy than the reactants
 Bond making releases energy; if it outweighs bond breaking, $\Delta H < 0$.
 
 ##### reaction-rates
-@1i8qss0fnxz  ; 0=Fig(planeSvg({ W: 420, H: 250, x: [0, 10 | 1=Key(T`<p><b>Collision theory:</b> partic | 2=Tbl([T`Factor`, T`Effect`, T`Why`], [[T` | 3=Fig(maxwellSvg({ names: { x: T`energy`,  | 4=Fig(energyProfileSvg({ exo: true, cat: t | 5=Tip(T`<p>The rate at any instant is the 
+@src3u8mih0  ; 0=Fig(planeSvg({ W: 420, H: 250, x: [0, 10 | 1=Key(T`<p><b>Collision theory:</b> partic | 2=Tbl([T`Factor`, T`Effect`, T`Why`], [[T` | 3=Fig(maxwellSvg({ names: { x: T`energy`,  | 4=Fig(energyProfileSvg({ exo: true, cat: t | 5=Tip(T`<p>The rate at any instant is the  | 6=T`Try it yourself` | 7=Ix('maxwell', T`Raise the temperature or
 
 <p>The <b>rate</b> of a reaction is how fast a reactant is used up or a product forms: $$\text{rate} = \frac{\Delta[\text{concentration}]}{\Delta t} \quad (\mathrm{mol\,L^{-1}\,s^{-1}})$$ It can be followed by measuring the volume of gas given off, the loss of mass, a colour change, or the time for a cross under the flask to disappear.</p>
 ⟦0⟧
@@ -196,6 +196,8 @@ Bond making releases energy; if it outweighs bond breaking, $\Delta H < 0$.
 ⟦3⟧
 ⟦4⟧
 ⟦5⟧
+<h3>⟦6⟧</h3>⟦7⟧
+
 @1akw8fyw9av
 time (min)
 @15ary5c9dzr
@@ -254,6 +256,10 @@ Energy profile with and without a catalyst: the catalysed path has a lower activ
 A <b>catalyst</b> lowers the activation energy ($E_a' < E_a$) without changing $\Delta H$. Enzymes are biological catalysts; catalytic converters in cars use platinum and rhodium.
 @29i9q2nyh1i
 <p>The rate at any instant is the gradient of the tangent to the concentration–time (or volume–time) curve at that time.</p>
+@qgl9kj4nky
+Try it yourself
+@9xe00q5rd1
+Raise the temperature or lower the activation energy and watch the shaded fraction of molecules that have enough energy to react.
 @21vkn26qmeg  ; 0=NUM(d) | 1=Q(t, 's')
 The concentration of a reactant falls by ⟦0⟧ mol/L in ⟦1⟧. What is the average rate (in mol L⁻¹ s⁻¹)?
 @a32bqxnggr  ; 0=M(d) | 1=t | 2=M(r)

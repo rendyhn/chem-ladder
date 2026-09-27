@@ -1,0 +1,35 @@
+##### core
+@u95v462iox
+acid strength pKa (0 = strong acid)
+
+##### ca
+@1jantp0gmpz
+acid concentration (M)
+@afr6jr0jes  ; 0=ixF(pH(Veq))
+equivalence pH ⟦0⟧
+@1lzu78izaw1  ; 0=ixF(pH(Veq / 2))
+half-way pH ⟦0⟧
+@ryxbo01099
+V NaOH (mL)
+@1yq5avzg591
+Titration curve for the chosen acid, calculated
+@b3yqtrwu04  ; 0=ixF(pH(0)) | 1=ixF(Veq) | 2=ixF(pH(Veq)) | 3=Ka ? T` · at half-equivalence pH = pKa = | 4=pH(Veq) > 7.5 ? T`Weak acid: the equival
+Start pH ⟦0⟧ · equivalence at ⟦1⟧ mL, pH ⟦2⟧⟦3⟧. ⟦4⟧
+@1axl2pezje7  ; 0=ixF(pKa)
+ · at half-equivalence pH = pKa = ⟦0⟧
+@sn8jjkj3m4
+Weak acid: the equivalence point is above 7, so use phenolphthalein.
+@bm3768ps3c
+Strong acid: the equivalence point is at 7.
+@2vjmibddub
+temperature (K)
+@1z1p7sjijhd
+activation energy Ea (kJ/mol)
+@1v0k9dt9gch
+E (kJ/mol)
+@238xfr5z0km
+fraction
+@1c7uiolinp7
+Distribution of molecular energies at the chosen temperature, with the fraction above the activation energy shaded
+@2490tuocovm  ; 0=frac < 0.001 ? '< 0.1' : ixF(frac * 100,
+Fraction of molecules with E ≥ Ea: ⟦0⟧%. Dashed: 300 K. Higher temperature flattens the curve and moves it right, so more molecules can react.

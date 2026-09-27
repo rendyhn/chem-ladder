@@ -100,13 +100,15 @@ addT('id', {
   'f9xlu7k2pk': R`Hanya terjadi pemutusan ikatan`,
   '2gb2ko3z4ir': R`Hasil reaksi berenergi lebih besar daripada pereaksi`,
   '1gntls8p1d9': R`Pembentukan ikatan melepaskan energi; jika lebih besar daripada pemutusan ikatan, $\Delta H < 0$.`,
-  '1i8qss0fnxz': R`<p><b>Laju</b> reaksi adalah seberapa cepat pereaksi habis atau hasil reaksi terbentuk: $$\text{laju} = \frac{\Delta[\text{konsentrasi}]}{\Delta t} \quad (\mathrm{mol\,L^{-1}\,s^{-1}})$$ Laju dapat diikuti dengan mengukur volume gas yang dilepaskan, pengurangan massa, perubahan warna, atau waktu sampai tanda silang di bawah labu tidak terlihat.</p>
+  'src3u8mih0': R`<p><b>Laju</b> reaksi adalah seberapa cepat pereaksi habis atau hasil reaksi terbentuk: $$\text{laju} = \frac{\Delta[\text{konsentrasi}]}{\Delta t} \quad (\mathrm{mol\,L^{-1}\,s^{-1}})$$ Laju dapat diikuti dengan mengukur volume gas yang dilepaskan, pengurangan massa, perubahan warna, atau waktu sampai tanda silang di bawah labu tidak terlihat.</p>
 ⟦0⟧
 ⟦1⟧
 ⟦2⟧
 ⟦3⟧
 ⟦4⟧
-⟦5⟧`,
+⟦5⟧
+<h3>⟦6⟧</h3>⟦7⟧
+`,
   '1akw8fyw9av': R`waktu (menit)`,
   '15ary5c9dzr': R`volume gas (mL)`,
   '2agmj48ma14': R`serbuk / panas / pekat`,

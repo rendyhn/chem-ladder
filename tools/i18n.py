@@ -17,7 +17,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / 'src'
 OUT = ROOT / 'i18n'
-CONTENT_FILES = [f for f in ['core.js', 'chem.js', 'fig.js', 'cfig.js', 'tA-matter.js', 'tB-atoms.js', 'tC-bonding.js', 'tD-stoichiometry.js', 'tE-solutions.js', 'tF-energetics.js', 'tG-acids.js', 'tH-redox.js', 'tI-organic.js', 'tJ-elements.js', 'tK-university.js', 'ladder.js'] if (SRC / f).exists()]
+CONTENT_FILES = [f for f in ['core.js', 'chem.js', 'fig.js', 'cfig.js', 'interactive.js', 'tA-matter.js', 'tB-atoms.js', 'tC-bonding.js', 'tD-stoichiometry.js', 'tE-solutions.js', 'tF-energetics.js', 'tG-acids.js', 'tH-redox.js', 'tI-organic.js', 'tJ-elements.js', 'tK-university.js', 'ladder.js'] if (SRC / f).exists()]
 LANGS = ['id']
 M32 = 0xFFFFFFFF
 

@@ -314,7 +314,7 @@ A solution has pH ⟦0⟧. What is its pOH?
 pOH $= 14 - ⟦0⟧ = ⟦1⟧$.
 
 ##### titration
-@1nhf5icbcsd  ; 0=Fig(titrationSetupSvg({ names: [T`burett | 1=Key(T`<p>At the <b>equivalence point</b> | 2=FigRow([[titrationSvg({ W: 300, H: 250,  | 3=Ex(T`<p>25.0 mL of NaOH needs 20.0 mL of | 4=Tip(T`<p>Rinse the burette with the titr
+@lxaukq4wn6  ; 0=Fig(titrationSetupSvg({ names: [T`burett | 1=Key(T`<p>At the <b>equivalence point</b> | 2=FigRow([[titrationSvg({ W: 300, H: 250,  | 3=Ex(T`<p>25.0 mL of NaOH needs 20.0 mL of | 4=Tip(T`<p>Rinse the burette with the titr | 5=T`Try it yourself` | 6=Ix('titration', T`Change the strength an
 
 <p>A <b>titration</b> finds the unknown concentration of a solution by reacting it exactly with a standard solution. A pipette measures a fixed volume of one solution into a conical flask with a few drops of indicator; the other solution is added from a burette until the indicator just changes colour.</p>
 ⟦0⟧
@@ -322,6 +322,8 @@ pOH $= 14 - ⟦0⟧ = ⟦1⟧$.
 ⟦2⟧
 ⟦3⟧
 ⟦4⟧
+<h3>⟦5⟧</h3>⟦6⟧
+
 @1eo76u2rutw
 burette (titrant)
 @10ifjyg496t
@@ -336,8 +338,6 @@ Titration set-up: a burette clamped above a conical flask standing on a white ti
 Titration set-up. Read the burette at the bottom of the meniscus, swirl the flask, and add the titrant drop by drop near the end point. Repeat until two titres agree within 0.10 mL.
 @jct1syj7tm
 <p>At the <b>equivalence point</b> the acid and base have reacted in exactly the ratio of the equation. The <b>end point</b> is where the indicator changes colour; a good indicator changes colour at (close to) the equivalence point. $$n = c \times V \qquad \frac{c_aV_a}{a} = \frac{c_bV_b}{b}$$ for $a$ acid + $b$ base in the equation.</p>
-@ryxbo01099
-V NaOH (mL)
 @28a9k0vs7ct
 equivalence
 @1p34uef24sd
@@ -354,6 +354,8 @@ Curves calculated for 25.0 mL of 0.100 M acid titrated with 0.100 M NaOH. For th
 <p>25.0 mL of NaOH needs 20.0 mL of 0.100 M $\ce{H2SO4}$. $n(\ce{H2SO4}) = 0.100 \times 0.0200 = 2.00 \times 10^{-3}$ mol; $\ce{H2SO4 + 2NaOH -> Na2SO4 + 2H2O}$, so $n(\ce{NaOH}) = 4.00 \times 10^{-3}$ mol and $c = \frac{4.00 \times 10^{-3}}{0.0250} = 0.160$ M.</p>
 @iug62mizrk
 <p>Rinse the burette with the titrant and the pipette with the solution it will measure, but rinse the conical flask with distilled water only: water in the flask does not change the number of moles in it.</p>
+@261fwwm2f7q
+Change the strength and concentration of the acid titrated with 0.1 M NaOH (25 mL of acid, calculated curve).
 @2c4iao0lxh4  ; 0=Q(Va, 'mL') | 1=NUM(ca) | 2=Q(Vb, 'mL')
 ⟦0⟧ of ⟦1⟧ M HCl is neutralised by ⟦2⟧ of NaOH. What is the concentration of the NaOH (in M)?
 @27jurcpgh2j  ; 0=M(ca) | 1=M(Va) | 2=M(Vb) | 3=M(cb)

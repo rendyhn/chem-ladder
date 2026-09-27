@@ -581,6 +581,43 @@ mjx-container { direction: ltr; unicode-bidi: isolate; }
   .lang-pick { height: 34px; padding-inline: 8px; gap: 4px; }
 }
 
+/* ---------- interactive figures ---------- */
+.ix { border: 1px solid var(--rule); border-radius: 10px; padding: 14px 16px 10px; background: var(--paper); }
+.ix-out svg { width: 100%; max-width: 560px !important; height: auto; display: block; margin: 0 auto; }
+.ix-read { margin: 8px 0 0; font-size: 0.93rem; color: var(--ink-2); text-align: center; }
+.ix-ctrls { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px 20px; margin: 12px 0 4px; padding-top: 12px; border-top: 1px dashed var(--rule); }
+.ix-ctrl { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px 10px; font-size: 0.86rem; color: var(--ink-2); }
+.ix-ctrl input { grid-column: 1 / -1; width: 100%; accent-color: var(--accent); }
+.ix-ctrl output { font: 600 0.85rem var(--f-mono); color: var(--ink); }
+
+/* ---------- exam mode ---------- */
+.exam-bar { position: sticky; top: calc(var(--top) + env(safe-area-inset-top, 0px) + 8px); z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 0 0 16px; padding: 12px 16px; border: 1px solid var(--warn); border-radius: 10px; background: var(--warn-soft); box-shadow: var(--shadow); }
+.exam-tag { display: inline-flex; align-items: center; gap: 6px; font: 700 0.78rem var(--f-mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--warn); }
+.exam-tag svg, .ctrl-actions .btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.exam-left { margin-inline-start: auto; color: var(--ink-2); }
+.exam-left b { font: 700 1.25rem var(--f-mono); color: var(--ink); }
+.exam-left.exam-low b { color: var(--bad); }
+.exam-note { flex-basis: 100%; margin: 0; font-size: 0.84rem; color: var(--ink-2); }
+.exam-on .ws-controls, .exam-on .key-sec, .exam-on .q-hint-wrap, .exam-on .check-bar { display: none !important; }
+@media (max-width: 560px) { .exam-note { display: none; } }
+
+/* ---------- glossary ---------- */
+.nav-gl { display: flex; align-items: center; gap: 8px; margin: 0 0 14px; padding: 7px 10px; border: 1px solid var(--rule); border-radius: 8px; background: var(--paper); color: var(--ink); text-decoration: none; font-weight: 600; font-size: 0.92rem; }
+.nav-gl:hover { border-color: var(--ink-3); }
+.nav-gl[aria-current="page"] { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+.nav-gl svg, .hero-cta .btn svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.glossary { max-width: 860px; }
+.gl-search { width: 100%; max-width: 420px; margin-top: 16px; padding: 10px 14px; border: 1px solid var(--rule); border-radius: 8px; background: var(--paper); color: var(--ink); font: inherit; }
+.gl-letter { margin: 28px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--rule); font: 700 1.1rem var(--f-mono); color: var(--accent); }
+.gl-letter[hidden], .gl-item[hidden] { display: none; }
+.gl-item { padding: 10px 0; border-bottom: 1px solid var(--rule-soft); }
+.gl-term { margin: 0 0 4px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.gl-term b { font-size: 1.05rem; }
+.gl-other { color: var(--ink-3); font-style: italic; }
+.gl-def { margin: 0; color: var(--ink-2); }
+.gl-def a { white-space: nowrap; font-size: 0.88rem; }
+.gl-none { color: var(--ink-3); margin-top: 20px; }
+
 </style>
 <script>
 window.MathJax = {
@@ -612,6 +649,7 @@ window.MathJax = {
 <div class="shell">
   <aside class="sidebar" id="sidebar" aria-label="Topics">
     <div class="search"><label class="sr-only" for="topic-search">Search topics</label><input id="topic-search" type="search" placeholder="Search topics" autocomplete="off"></div>
+    <a class="nav-gl" id="nav-gl" href="#glossary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg><span id="nav-gl-t">Glossary</span></a>
     <div id="nav-levels"></div>
   </aside>
   <div class="scrim" id="scrim"></div>
@@ -2256,6 +2294,64 @@ function spectrumSvg(peaks, { label, x0, x1, xl, reverse = false, dips = false, 
 }
 
 /* ==========================================================================
+   Interactive figures: sliders that redraw a figure while you move them.
+   A lesson places ${Ix('name', caption)}; app.js calls mountIx() after the
+   lesson renders. Each IX entry has ctrls (id, label(), min, max, step,
+   value, fmt) and draw(vals) returning { svg, read } (plain text, no TeX,
+   so redrawing never waits for MathJax).
+   ========================================================================== */
+const IX = {};
+const Ix = (name, cap) => `<figure class="fig ix" data-ix="${name}"><div class="ix-out"></div><div class="ix-ctrls no-print"></div>${cap ? `<figcaption>${cap}</figcaption>` : ''}</figure>`;
+const ixF = (x, d = 1) => F(+(+x).toFixed(d));   // a rounded plain-text number
+function mountIx(root) {
+  root.querySelectorAll('.ix[data-ix]').forEach(fig => {
+    const def = IX[fig.dataset.ix]; if (!def || fig.dataset.mounted) return;
+    fig.dataset.mounted = '1';
+    const out = fig.querySelector('.ix-out'), box = fig.querySelector('.ix-ctrls'), vals = {};
+    const show = c => (c.fmt ? c.fmt(vals[c.id]) : ixF(vals[c.id], 2));
+    box.innerHTML = def.ctrls.map(c => { vals[c.id] = c.value; return `<label class="ix-ctrl"><span class="ix-lab">${c.label()}</span><input type="range" min="${c.min}" max="${c.max}" step="${c.step}" value="${c.value}" data-k="${c.id}"><output>${show(c)}</output></label>`; }).join('');
+    const draw = () => { const r = def.draw(vals); out.innerHTML = r.svg + (r.read ? `<p class="ix-read">${r.read}</p>` : ''); };
+    box.addEventListener('input', e => { const k = e.target.dataset.k; if (!k) return; vals[k] = +e.target.value; e.target.nextElementSibling.textContent = show(def.ctrls.find(c => c.id === k)); draw(); });
+    draw();
+  });
+}
+
+/* ---------- titration of 25 mL acid with 0.1 M NaOH ---------- */
+IX.titration = {
+  ctrls: [
+    { id: 'pKa', label: () => T`acid strength pKa (0 = strong acid)`, min: 0, max: 10, step: 0.5, value: 4.5 },
+    { id: 'ca', label: () => T`acid concentration (M)`, min: 0.02, max: 0.2, step: 0.02, value: 0.1, fmt: v => ixF(v, 2) },
+  ],
+  draw({ pKa, ca }) {
+    const Ka = pKa === 0 ? null : 10 ** -pKa, cb = 0.1, Va = 25, Veq = ca * Va / cb;
+    const pH = v => { const Vt = Va + v, A = ca * Va / Vt, Na = cb * v / Vt; return Ka ? phMix(A, Ka, Na, 0) : phMix(0, 1, Na, A); };
+    const marks = [[Veq, pH(Veq), T`equivalence pH ${ixF(pH(Veq))}`, 'start']];
+    if (Ka) marks.push([Veq / 2, pH(Veq / 2), T`half-way pH ${ixF(pH(Veq / 2))}`, 'start']);
+    return {
+      svg: planeSvg({ W: 460, H: 300, x: [0, 50], y: [0, 14], step: [5, 1], tickX: 10, tickY: 2, xl: T`V NaOH (mL)`, yl: 'pH', fns: [{ f: x => pH(x), cls: 'mf-c1', from: 0, to: 50, n: 300 }], segs: [[Veq, 0, Veq, 14, 'mf-thin', true]], pts: marks.map(m => [...m, false, 7, 14]), label: T`Titration curve for the chosen acid, calculated` }),
+      read: T`Start pH ${ixF(pH(0))} · equivalence at ${ixF(Veq)} mL, pH ${ixF(pH(Veq))}${Ka ? T` · at half-equivalence pH = pKa = ${ixF(pKa)}` : ''}. ${pH(Veq) > 7.5 ? T`Weak acid: the equivalence point is above 7, so use phenolphthalein.` : T`Strong acid: the equivalence point is at 7.`}`,
+    };
+  },
+};
+
+/* ---------- Maxwell–Boltzmann distribution of molecular energies ---------- */
+IX.maxwell = {
+  ctrls: [
+    { id: 'T', label: () => T`temperature (K)`, min: 200, max: 1000, step: 10, value: 300 },
+    { id: 'Ea', label: () => T`activation energy Ea (kJ/mol)`, min: 5, max: 40, step: 1, value: 15 },
+  ],
+  draw({ T: Tk, Ea }) {
+    const R = 0.008314, RT = R * Tk, f = E => 2 / Math.sqrt(Math.PI) * Math.sqrt(E) / RT ** 1.5 * Math.exp(-E / RT) * 100;
+    const x = Ea / RT, erfc = z => { const t = 1 / (1 + 0.5 * z), y = t * Math.exp(-z * z - 1.26551223 + t * (1.00002368 + t * (0.37409196 + t * (0.09678418 + t * (-0.18628806 + t * (0.27886807 + t * (-1.13520398 + t * (1.48851587 + t * (-0.82215223 + t * 0.17087277))))))))); return y; };
+    const frac = erfc(Math.sqrt(x)) + 2 * Math.sqrt(x / Math.PI) * Math.exp(-x), ref = E => 2 / Math.sqrt(Math.PI) * Math.sqrt(E) / (R * 300) ** 1.5 * Math.exp(-E / (R * 300)) * 100;
+    return {
+      svg: planeSvg({ W: 460, H: 300, x: [0, 45], y: [0, 40], step: [5, 10], tickX: 10, tickY: 10, xl: T`E (kJ/mol)`, yl: T`fraction`, fmtY: () => '', shade: [{ f, from: Ea, to: 45, cls: 'mf-f2' }], fns: [{ f: ref, cls: 'mf-c3', dash: true, n: 200 }, { f, cls: 'mf-c1', n: 200 }], segs: [[Ea, 0, Ea, 40, 'mf-c2']], texts: [[Ea + 0.6, 37, 'Eₐ', 'start', 'mf-lab']], label: T`Distribution of molecular energies at the chosen temperature, with the fraction above the activation energy shaded` }),
+      read: T`Fraction of molecules with E ≥ Ea: ${frac < 0.001 ? '< 0.1' : ixF(frac * 100, frac < 0.1 ? 2 : 1)}%. Dashed: 300 K. Higher temperature flattens the curve and moves it right, so more molecules can react.`,
+    };
+  },
+};
+
+/* ==========================================================================
    TRACK A — Matter & the Laboratory
    ========================================================================== */
 (() => {
@@ -3097,7 +3193,9 @@ ${Key(T`<p><b>Collision theory:</b> particles react only when they <b>collide</b
 ${Tbl([T`Factor`, T`Effect`, T`Why`], [[T`concentration (or gas pressure)`, T`higher → faster`, T`more particles in the same volume collide more often`], [T`surface area`, T`powder faster than lumps`, T`more particles exposed to collisions`], [T`temperature`, T`higher → much faster`, T`particles collide more often and far more of them have $E \ge E_a$`], [T`catalyst`, T`faster, and not used up`, T`gives an alternative route with a lower $E_a$`]])}
 ${Fig(maxwellSvg({ names: { x: T`energy`, y: T`fraction of particles`, T1: 'T₁', T2: T`T₂ > T₁` }, label: T`Maxwell–Boltzmann distributions at two temperatures: at the higher temperature the curve is flatter and more particles have energy above the activation energy` }), T`Maxwell–Boltzmann distribution: the spread of particle energies in a gas. At the higher temperature $T_2$ the curve flattens and shifts right, so the shaded area beyond $E_a$ (particles able to react) grows a lot. A 10 °C rise often roughly doubles the rate.`)}
 ${Fig(energyProfileSvg({ exo: true, cat: true, W: 420, H: 260, names: { E: T`enthalpy`, x: T`progress of reaction`, r: T`reactants`, p: T`products`, cat: T`with catalyst` }, label: T`Energy profile with and without a catalyst: the catalysed path has a lower activation energy but the same enthalpy change` }), T`A <b>catalyst</b> lowers the activation energy ($E_a' < E_a$) without changing $\Delta H$. Enzymes are biological catalysts; catalytic converters in cars use platinum and rhodium.`)}
-${Tip(T`<p>The rate at any instant is the gradient of the tangent to the concentration–time (or volume–time) curve at that time.</p>`)}`,
+${Tip(T`<p>The rate at any instant is the gradient of the tangent to the concentration–time (or volume–time) curve at that time.</p>`)}
+<h3>${T`Try it yourself`}</h3>${Ix('maxwell', T`Raise the temperature or lower the activation energy and watch the shaded fraction of molecules that have enough energy to react.`)}
+`,
   gens: [
     () => { const d = pick([0.2, 0.5, 0.8, 0.12, 0.3]), t = pick([10, 20, 25, 40, 50]), r = sig(d / t, 3); return { q: T`The concentration of a reactant falls by ${NUM(d)} mol/L in ${Q(t, 's')}. What is the average rate (in mol L⁻¹ s⁻¹)?`, a: r, rtol: 0.01, w: [sig(t / d, 3), sig(d * t, 3), sig(r * 10, 3)], s: T`$\text{rate} = \frac{${M(d)}}{${t}} = ${M(r)}$ mol L⁻¹ s⁻¹.` }; },
     () => { const V = pick([30, 40, 60, 80, 90]), t = pick([2, 3, 4, 5]), r = sig(V / t, 3); return { q: T`${Q(V, 'mL')} of gas is collected in the first ${t} minutes. What is the average rate (in mL/min)?`, a: r, u: 'mL/min', rtol: 0.01, w: [sig(t / V, 3), V * t, V], s: T`$\frac{${V}}{${t}} = ${M(r)}$ mL/min.` }; },
@@ -3244,7 +3342,9 @@ ${Fig(titrationSetupSvg({ names: [T`burette (titrant)`, T`tap`, T`conical flask 
 ${Key(T`<p>At the <b>equivalence point</b> the acid and base have reacted in exactly the ratio of the equation. The <b>end point</b> is where the indicator changes colour; a good indicator changes colour at (close to) the equivalence point. $$n = c \times V \qquad \frac{c_aV_a}{a} = \frac{c_bV_b}{b}$$ for $a$ acid + $b$ base in the equation.</p>`)}
 ${FigRow([[titrationSvg({ W: 300, H: 250, bands: [[8.2, 10, 'mf-f2', T`phenolphthalein`], [3.1, 4.4, 'mf-f1', T`methyl orange`]], names: { x: T`V NaOH (mL)`, eq: T`equivalence` }, label: T`Titration curve of hydrochloric acid with sodium hydroxide: a steep rise from pH 3 to 11 at 25 millilitres` }), T`strong acid + strong base: equivalence at pH 7`], [titrationSvg({ W: 300, H: 250, Ka: 1.8e-5, bands: [[8.2, 10, 'mf-f2', T`phenolphthalein`], [3.1, 4.4, 'mf-f1', T`methyl orange`]], names: { x: T`V NaOH (mL)`, eq: T`equivalence` }, label: T`Titration curve of ethanoic acid with sodium hydroxide: starts at pH 2.9, equivalence near pH 8.7` }), T`weak acid + strong base: equivalence at pH 8.7`]], T`Curves calculated for 25.0 mL of 0.100 M acid titrated with 0.100 M NaOH. For the strong acid both indicators change within the vertical part. For ethanoic acid the jump is shorter and above 7, so only phenolphthalein works. At half-equivalence (12.5 mL) pH = $pK_a$ = 4.74.`)}
 ${Ex(T`<p>25.0 mL of NaOH needs 20.0 mL of 0.100 M $\ce{H2SO4}$. $n(\ce{H2SO4}) = 0.100 \times 0.0200 = 2.00 \times 10^{-3}$ mol; $\ce{H2SO4 + 2NaOH -> Na2SO4 + 2H2O}$, so $n(\ce{NaOH}) = 4.00 \times 10^{-3}$ mol and $c = \frac{4.00 \times 10^{-3}}{0.0250} = 0.160$ M.</p>`)}
-${Tip(T`<p>Rinse the burette with the titrant and the pipette with the solution it will measure, but rinse the conical flask with distilled water only: water in the flask does not change the number of moles in it.</p>`)}`,
+${Tip(T`<p>Rinse the burette with the titrant and the pipette with the solution it will measure, but rinse the conical flask with distilled water only: water in the flask does not change the number of moles in it.</p>`)}
+<h3>${T`Try it yourself`}</h3>${Ix('titration', T`Change the strength and concentration of the acid titrated with 0.1 M NaOH (25 mL of acid, calculated curve).`)}
+`,
   gens: [
     () => { const ca = pick([0.1, 0.2, 0.05, 0.15]), Va = pick([20, 25, 10]), Vb = pick([12.5, 15, 20, 22.4, 18.6, 25]), cb = sig(ca * Va / Vb, 3); return { q: T`${Q(Va, 'mL')} of ${NUM(ca)} M HCl is neutralised by ${Q(Vb, 'mL')} of NaOH. What is the concentration of the NaOH (in M)?`, a: cb, u: 'M', rtol: 0.01, w: [sig(ca * Vb / Va, 3), sig(ca * Va * Vb / 1000, 3), sig(cb * 2, 3)], s: T`1 : 1, so $c_b = \frac{${M(ca)} \times ${M(Va)}}{${M(Vb)}} = ${M(cb)}$ M.` }; },
     () => { const ca = pick([0.1, 0.05, 0.2]), Va = pick([10, 20, 25]), Vb = pick([15, 20, 25, 30, 40]), cb = sig(2 * ca * Va / Vb, 3); return { q: T`${Q(Va, 'mL')} of ${NUM(ca)} M $\ce{H2SO4}$ is neutralised by ${Q(Vb, 'mL')} of NaOH ($\ce{H2SO4 + 2NaOH -> Na2SO4 + 2H2O}$). What is the concentration of the NaOH (in M)?`, a: cb, u: 'M', rtol: 0.01, w: [sig(ca * Va / Vb, 3), sig(ca * Va / Vb / 2, 3), sig(cb * 2, 3)], s: T`$n(\ce{H2SO4}) = ${M(sig(ca * Va / 1000, 3))}$ mol; ×2 for NaOH $= ${M(sig(2 * ca * Va / 1000, 3))}$ mol; $c = ${M(cb)}$ M.` }; },
@@ -4033,6 +4133,103 @@ const SUBJECTS = [
 ];
 const SUBJECT = 'chem';
 
+/* Bilingual glossary: [topic id, English term, Indonesian term, English definition, Indonesian definition] */
+const GLOSSARY = [
+  ["states", "particle model", "model partikel", "The idea that all matter is made of tiny moving particles.", "Gagasan bahwa semua materi tersusun dari partikel-partikel kecil yang bergerak."],
+  ["states", "melting point", "titik leleh", "The temperature at which a solid turns into a liquid.", "Suhu ketika zat padat berubah menjadi cair."],
+  ["states", "boiling point", "titik didih", "The temperature at which a liquid boils; it depends on the pressure.", "Suhu ketika zat cair mendidih; bergantung pada tekanan."],
+  ["states", "sublimation", "menyublim", "The change from solid directly to gas.", "Perubahan wujud dari padat langsung menjadi gas."],
+  ["mixtures", "element", "unsur", "A substance made of only one kind of atom.", "Zat yang tersusun dari satu jenis atom saja."],
+  ["mixtures", "compound", "senyawa", "A substance made of two or more elements chemically joined in a fixed ratio.", "Zat yang tersusun dari dua unsur atau lebih yang terikat secara kimia dengan perbandingan tetap."],
+  ["mixtures", "mixture", "campuran", "Two or more substances mixed but not chemically joined.", "Dua zat atau lebih yang tercampur tanpa terikat secara kimia."],
+  ["mixtures", "filtration", "penyaringan (filtrasi)", "Separating an insoluble solid from a liquid with filter paper.", "Memisahkan padatan yang tidak larut dari cairan dengan kertas saring."],
+  ["mixtures", "distillation", "penyulingan (distilasi)", "Separating liquids by boiling and condensing them.", "Memisahkan cairan dengan cara mendidihkan lalu mengembunkannya."],
+  ["mixtures", "chromatography", "kromatografi", "Separating substances by how far they travel through a medium such as paper.", "Memisahkan zat berdasarkan seberapa jauh zat itu bergerak melalui medium seperti kertas."],
+  ["atomic-structure", "atomic number", "nomor atom", "The number of protons in the nucleus of an atom.", "Jumlah proton dalam inti atom."],
+  ["atomic-structure", "mass number", "nomor massa", "The number of protons plus neutrons in a nucleus.", "Jumlah proton ditambah neutron dalam inti."],
+  ["atomic-structure", "isotope", "isotop", "Atoms of the same element with different numbers of neutrons.", "Atom-atom unsur yang sama dengan jumlah neutron berbeda."],
+  ["atomic-structure", "ion", "ion", "An atom or group of atoms that has gained or lost electrons.", "Atom atau gugus atom yang telah menerima atau melepas elektron."],
+  ["electron-config", "electron configuration", "konfigurasi elektron", "The arrangement of electrons in shells and subshells.", "Susunan elektron dalam kulit dan subkulit."],
+  ["electron-config", "orbital", "orbital", "A region around the nucleus where an electron is likely to be found.", "Daerah di sekitar inti tempat elektron paling mungkin ditemukan."],
+  ["electron-config", "valence electrons", "elektron valensi", "The electrons in the outer shell, which take part in bonding.", "Elektron di kulit terluar yang berperan dalam ikatan."],
+  ["periodic-table", "group", "golongan", "A column of the periodic table; elements in it have similar properties.", "Kolom pada tabel periodik; unsur di dalamnya punya sifat yang mirip."],
+  ["periodic-table", "period", "periode", "A row of the periodic table.", "Baris pada tabel periodik."],
+  ["periodic-table", "electronegativity", "keelektronegatifan", "How strongly an atom attracts the shared electrons in a bond.", "Seberapa kuat atom menarik pasangan elektron bersama dalam ikatan."],
+  ["periodic-table", "ionisation energy", "energi ionisasi", "The energy needed to remove an electron from a gaseous atom.", "Energi yang diperlukan untuk melepas satu elektron dari atom dalam wujud gas."],
+  ["ionic-bonding", "ionic bond", "ikatan ion", "The attraction between oppositely charged ions.", "Gaya tarik antara ion-ion yang muatannya berlawanan."],
+  ["covalent-bonding", "covalent bond", "ikatan kovalen", "A shared pair of electrons between two atoms.", "Pasangan elektron yang dipakai bersama oleh dua atom."],
+  ["covalent-bonding", "lone pair", "pasangan elektron bebas", "A pair of outer electrons not used in bonding.", "Sepasang elektron terluar yang tidak digunakan dalam ikatan."],
+  ["molecular-shapes", "VSEPR theory", "teori VSEPR", "Electron pairs around a central atom repel and spread as far apart as possible.", "Pasangan elektron di sekitar atom pusat saling tolak dan menjauh sejauh mungkin."],
+  ["molecular-shapes", "polar molecule", "molekul polar", "A molecule with an uneven charge distribution, with a positive and a negative end.", "Molekul dengan sebaran muatan tidak merata, memiliki ujung positif dan negatif."],
+  ["forces-structures", "hydrogen bond", "ikatan hidrogen", "A strong attraction between H bonded to N, O or F and a lone pair on another such atom.", "Gaya tarik kuat antara H yang terikat pada N, O, atau F dan pasangan elektron bebas atom sejenis lain."],
+  ["forces-structures", "intermolecular forces", "gaya antarmolekul", "Attractions between molecules, weaker than bonds within molecules.", "Gaya tarik antarmolekul, lebih lemah daripada ikatan di dalam molekul."],
+  ["chemical-equations", "reactant", "pereaksi (reaktan)", "A substance that reacts at the start of a reaction.", "Zat yang bereaksi di awal reaksi."],
+  ["chemical-equations", "product", "hasil reaksi (produk)", "A substance formed in a reaction.", "Zat yang terbentuk dalam reaksi."],
+  ["mole-concept", "mole", "mol", "The amount of substance that contains 6.022 × 10²³ particles.", "Jumlah zat yang mengandung 6,022 × 10²³ partikel."],
+  ["mole-concept", "molar mass", "massa molar", "The mass of one mole of a substance, in g/mol.", "Massa satu mol zat, dalam g/mol."],
+  ["reacting-quantities", "limiting reagent", "pereaksi pembatas", "The reactant that is used up first and so limits the amount of product.", "Pereaksi yang habis lebih dulu sehingga membatasi banyaknya hasil reaksi."],
+  ["reacting-quantities", "percentage yield", "persentase hasil", "Actual yield divided by theoretical yield, times 100%.", "Hasil nyata dibagi hasil teoretis, dikali 100%."],
+  ["empirical-formula", "empirical formula", "rumus empiris", "The simplest whole-number ratio of atoms in a compound.", "Perbandingan bilangan bulat paling sederhana dari atom-atom dalam senyawa."],
+  ["empirical-formula", "molecular formula", "rumus molekul", "The actual number of each kind of atom in a molecule.", "Jumlah sebenarnya setiap jenis atom dalam satu molekul."],
+  ["concentration", "concentration", "konsentrasi", "The amount of solute in a given volume of solution, such as mol/L.", "Banyaknya zat terlarut dalam volume larutan tertentu, misalnya mol/L."],
+  ["concentration", "solute", "zat terlarut", "The substance that dissolves.", "Zat yang dilarutkan."],
+  ["concentration", "solvent", "pelarut", "The liquid that the solute dissolves in.", "Cairan tempat zat terlarut dilarutkan."],
+  ["colligative", "colligative property", "sifat koligatif", "A property that depends only on the number of solute particles, not their type.", "Sifat yang hanya bergantung pada jumlah partikel zat terlarut, bukan jenisnya."],
+  ["colligative", "osmosis", "osmosis", "Movement of water through a semipermeable membrane into a more concentrated solution.", "Perpindahan air melalui selaput semipermeabel ke larutan yang lebih pekat."],
+  ["colloids", "colloid", "koloid", "A mixture with particles between about 1 and 1000 nm that do not settle.", "Campuran dengan partikel berukuran sekitar 1–1000 nm yang tidak mengendap."],
+  ["colloids", "Tyndall effect", "efek Tyndall", "The scattering of a light beam by colloid particles.", "Penghamburan berkas cahaya oleh partikel koloid."],
+  ["thermochemistry", "enthalpy change (ΔH)", "perubahan entalpi (ΔH)", "The heat taken in or given out by a reaction at constant pressure.", "Kalor yang diserap atau dilepas suatu reaksi pada tekanan tetap."],
+  ["thermochemistry", "exothermic", "eksoterm", "A reaction that releases heat to the surroundings (ΔH < 0).", "Reaksi yang melepas kalor ke lingkungan (ΔH < 0)."],
+  ["thermochemistry", "endothermic", "endoterm", "A reaction that absorbs heat from the surroundings (ΔH > 0).", "Reaksi yang menyerap kalor dari lingkungan (ΔH > 0)."],
+  ["hess-law", "Hess's law", "hukum Hess", "The enthalpy change of a reaction is the same whatever route is taken.", "Perubahan entalpi reaksi selalu sama, apa pun jalur reaksinya."],
+  ["reaction-rates", "activation energy", "energi aktivasi", "The minimum energy colliding particles need to react.", "Energi minimum yang diperlukan partikel yang bertumbukan untuk bereaksi."],
+  ["reaction-rates", "catalyst", "katalis", "A substance that speeds up a reaction without being used up.", "Zat yang mempercepat reaksi tanpa ikut habis bereaksi."],
+  ["rate-laws", "rate constant", "tetapan laju", "The constant k in a rate equation such as rate = k[A]².", "Tetapan k dalam persamaan laju, misalnya laju = k[A]²."],
+  ["rate-laws", "order of reaction", "orde reaksi", "The power to which a concentration is raised in the rate equation.", "Pangkat konsentrasi dalam persamaan laju."],
+  ["equilibrium", "dynamic equilibrium", "kesetimbangan dinamis", "A state where forward and reverse reactions go at the same rate.", "Keadaan ketika reaksi maju dan reaksi balik berlangsung dengan laju yang sama."],
+  ["equilibrium", "Le Chatelier's principle", "asas Le Chatelier", "A system at equilibrium shifts to oppose a change imposed on it.", "Sistem setimbang bergeser untuk melawan perubahan yang diberikan padanya."],
+  ["acids-bases-intro", "acid", "asam", "A substance that releases H⁺ ions in water (pH below 7).", "Zat yang melepas ion H⁺ dalam air (pH di bawah 7)."],
+  ["acids-bases-intro", "base", "basa", "A substance that accepts H⁺ or releases OH⁻ in water (pH above 7).", "Zat yang menerima H⁺ atau melepas OH⁻ dalam air (pH di atas 7)."],
+  ["acids-bases-intro", "indicator", "indikator", "A substance whose colour depends on pH.", "Zat yang warnanya bergantung pada pH."],
+  ["acids-bases-intro", "neutralisation", "penetralan (netralisasi)", "The reaction of an acid with a base to give a salt and water.", "Reaksi asam dengan basa yang menghasilkan garam dan air."],
+  ["acid-base-theories", "conjugate base", "basa konjugasi", "What is left when an acid has given away H⁺.", "Spesi yang tersisa setelah asam melepas H⁺."],
+  ["acid-base-theories", "weak acid", "asam lemah", "An acid that ionises only partly in water.", "Asam yang hanya terionisasi sebagian dalam air."],
+  ["ph-calculations", "pH", "pH", "Minus the logarithm of the hydrogen-ion concentration: pH = −log[H⁺].", "Negatif logaritma konsentrasi ion hidrogen: pH = −log[H⁺]."],
+  ["titration", "titration", "titrasi", "Adding a solution of known concentration to find the concentration of another.", "Menambahkan larutan yang konsentrasinya diketahui untuk menentukan konsentrasi larutan lain."],
+  ["titration", "equivalence point", "titik ekuivalen", "The point where the acid and base have reacted exactly.", "Titik ketika asam dan basa tepat habis bereaksi."],
+  ["buffers-salts", "buffer solution", "larutan penyangga", "A solution that resists changes in pH when small amounts of acid or base are added.", "Larutan yang mempertahankan pH ketika ditambah sedikit asam atau basa."],
+  ["buffers-salts", "hydrolysis", "hidrolisis", "The reaction of an ion with water that changes the pH.", "Reaksi ion dengan air yang mengubah pH."],
+  ["solubility-product", "solubility product (Ksp)", "hasil kali kelarutan (Ksp)", "The product of ion concentrations in a saturated solution of a sparingly soluble salt.", "Hasil kali konsentrasi ion dalam larutan jenuh garam yang sukar larut."],
+  ["redox-basics", "oxidation", "oksidasi", "Loss of electrons, or an increase in oxidation number.", "Pelepasan elektron, atau kenaikan bilangan oksidasi."],
+  ["redox-basics", "reduction", "reduksi", "Gain of electrons, or a decrease in oxidation number.", "Penerimaan elektron, atau penurunan bilangan oksidasi."],
+  ["redox-basics", "oxidation number", "bilangan oksidasi", "The charge an atom would have if all its bonds were ionic.", "Muatan yang dimiliki atom seandainya semua ikatannya ion."],
+  ["galvanic-cells", "anode", "anode", "The electrode where oxidation happens.", "Elektrode tempat terjadi oksidasi."],
+  ["galvanic-cells", "cathode", "katode", "The electrode where reduction happens.", "Elektrode tempat terjadi reduksi."],
+  ["galvanic-cells", "standard electrode potential", "potensial elektrode standar", "The voltage of a half-cell measured against the hydrogen electrode.", "Tegangan setengah sel yang diukur terhadap elektrode hidrogen."],
+  ["electrolysis", "electrolysis", "elektrolisis", "Breaking down a compound using electricity.", "Penguraian senyawa dengan menggunakan listrik."],
+  ["corrosion", "corrosion", "korosi", "The slow destruction of a metal by reaction with its surroundings, such as rusting.", "Perusakan logam secara perlahan akibat bereaksi dengan lingkungannya, misalnya perkaratan."],
+  ["hydrocarbons", "hydrocarbon", "hidrokarbon", "A compound of hydrogen and carbon only.", "Senyawa yang hanya tersusun dari hidrogen dan karbon."],
+  ["hydrocarbons", "alkane", "alkana", "A saturated hydrocarbon with only single C–C bonds.", "Hidrokarbon jenuh yang hanya memiliki ikatan tunggal C–C."],
+  ["hydrocarbons", "alkene", "alkena", "A hydrocarbon with a C=C double bond.", "Hidrokarbon yang memiliki ikatan rangkap dua C=C."],
+  ["functional-groups", "functional group", "gugus fungsi", "The group of atoms that gives an organic compound its typical reactions.", "Gugus atom yang menentukan reaksi khas suatu senyawa organik."],
+  ["isomerism", "isomers", "isomer", "Compounds with the same molecular formula but different structures.", "Senyawa-senyawa dengan rumus molekul sama tetapi strukturnya berbeda."],
+  ["organic-reactions", "esterification", "esterifikasi", "The reaction of an alcohol with a carboxylic acid to form an ester and water.", "Reaksi alkohol dengan asam karboksilat yang menghasilkan ester dan air."],
+  ["benzene", "aromatic compound", "senyawa aromatik", "A compound containing a benzene ring.", "Senyawa yang mengandung cincin benzena."],
+  ["polymers", "polymer", "polimer", "A very long molecule made of many repeating units (monomers).", "Molekul sangat panjang yang tersusun dari banyak satuan berulang (monomer)."],
+  ["biomolecules", "protein", "protein", "A polymer of amino acids joined by peptide bonds.", "Polimer asam amino yang dihubungkan oleh ikatan peptida."],
+  ["biomolecules", "carbohydrate", "karbohidrat", "A compound of C, H and O such as sugars and starch.", "Senyawa C, H, dan O seperti gula dan pati."],
+  ["group-chemistry", "alkali metals", "logam alkali", "The very reactive metals of Group 1, such as sodium and potassium.", "Logam yang sangat reaktif di golongan 1, misalnya natrium dan kalium."],
+  ["group-chemistry", "halogens", "halogen", "The reactive non-metals of Group 17, such as chlorine.", "Nonlogam reaktif di golongan 17, misalnya klorin."],
+  ["group-chemistry", "noble gases", "gas mulia", "The very unreactive elements of Group 18.", "Unsur-unsur yang sangat tidak reaktif di golongan 18."],
+  ["transition-metals", "transition metal", "logam transisi", "A d-block metal that forms coloured ions and variable oxidation states.", "Logam blok d yang membentuk ion berwarna dan bilangan oksidasi beragam."],
+  ["transition-metals", "complex ion", "ion kompleks", "A metal ion surrounded by ligands bonded to it.", "Ion logam yang dikelilingi ligan yang terikat padanya."],
+  ["metals-extraction", "ore", "bijih", "A rock from which a metal can be extracted profitably.", "Batuan yang dapat diolah untuk diambil logamnya secara menguntungkan."],
+  ["nuclear-chemistry", "radioactive decay", "peluruhan radioaktif", "The spontaneous change of an unstable nucleus, giving off radiation.", "Perubahan spontan inti yang tidak stabil dengan memancarkan radiasi."],
+  ["environmental-chemistry", "greenhouse effect", "efek rumah kaca", "The warming of the Earth because gases such as CO₂ absorb infrared radiation.", "Pemanasan Bumi karena gas seperti CO₂ menyerap radiasi inframerah."],
+  ["chemical-thermodynamics", "Gibbs free energy", "energi bebas Gibbs", "G = H − TS; a reaction is spontaneous when ΔG is negative.", "G = H − TS; reaksi berlangsung spontan jika ΔG negatif."],
+  ["spectroscopy", "spectroscopy", "spektroskopi", "Studying substances by how they absorb or emit radiation.", "Mempelajari zat berdasarkan cara zat itu menyerap atau memancarkan radiasi."]
+];
+
 /* ==========================================================================
    App: routing, lessons, worksheet generation, checking, answer key, print,
    language switching
@@ -4043,6 +4240,8 @@ const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const LETTERS = 'ABCD';
 const ICON = {
+  book: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg>',
+  clock: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg>',
   grid: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg>',
   print: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2M6 14h12v7H6z"/></svg>',
   bulb: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg>',
@@ -4083,6 +4282,18 @@ const UI_EN = {
   funFact: 'Fun fact',
   anotherFact: 'Another fact',
   hint: 'Hint',
+  glossary: 'Glossary',
+  glossaryLede: '⟦0⟧ key terms in English and Indonesian, each with a short definition and a link to its lesson.',
+  glossarySearch: 'Search terms',
+  glossaryNone: 'No matching terms.',
+  examStart: 'Exam mode (⟦0⟧ min)',
+  examOn: 'Exam mode',
+  examLeft: 'Time left',
+  examFinish: 'Finish and mark',
+  examNote: 'Hints, checking and the answer key are hidden until you finish. The sheet is marked automatically when the time is up.',
+  examUp: 'Time is up: your sheet has been marked.',
+  examDone: 'Your sheet has been marked.',
+  examConfirm: 'Finish the exam and see your score?',
   hintHead: 'Key idea from the lesson',
   openLesson: 'Open the lesson',
   pgLevel: '⟦0⟧ of ⟦1⟧ mastered',
@@ -4449,12 +4660,14 @@ function parseHash() {
   const h = decodeURIComponent(location.hash.slice(1));
   const [id, tab] = h.split('.');
   if (TOPICS.has(id)) return { view: 'topic', id, tab: tab === 'practice' || TOPICS.get(id).review ? 'practice' : 'lesson' };
+  if (id === 'glossary') return { view: 'glossary' };
   return { view: 'home' };
 }
 function route(keepScroll = false) {
   const r = parseHash(), sameTopic = current.view === 'topic' && r.view === 'topic' && current.id === r.id;
   current = r;
-  if (r.view === 'home') renderHome(); else renderTopic(TOPICS.get(r.id), r.tab);
+  if (r.view === 'home') renderHome(); else if (r.view === 'glossary') renderGlossary(); else renderTopic(TOPICS.get(r.id), r.tab);
+  const gl = $('#nav-gl'); if (gl) { if (r.view === 'glossary') gl.setAttribute('aria-current', 'page'); else gl.removeAttribute('aria-current'); }
   markNav(r.id);
   paintProgress();
   if (keepScroll === true) return;
@@ -4474,7 +4687,7 @@ function renderHome() {
       <p class="eyebrow">${esc(ui('heroEyebrow'))}</p>
       <h1>${esc(ui('heroTitle'))}</h1>
       <p class="lede">${esc(ui('heroLede', ALL.length))}</p>
-      <div class="hero-cta"><a class="btn btn-primary" href="#${first.id}">${esc(ui('startWith', tTitle(first)))}</a><a class="btn" href="#${LEVELS.filter(l => l.review).sort((x, y) => y.topics.length - x.topics.length)[0].review.id}">${esc(ui('tryReview'))}</a></div>
+      <div class="hero-cta"><a class="btn btn-primary" href="#${first.id}">${esc(ui('startWith', tTitle(first)))}</a><a class="btn" href="#${LEVELS.filter(l => l.review).sort((x, y) => y.topics.length - x.topics.length)[0].review.id}">${esc(ui('tryReview'))}</a><a class="btn btn-ghost" href="#glossary">${ICON.book}${esc(ui('glossary'))}</a></div>
     </div>
     <div class="hero-side"><div class="sample" id="sample" aria-live="polite"></div><aside class="fact" id="fact" aria-live="polite"></aside></div>
   </section>
@@ -4562,6 +4775,7 @@ function renderLesson(t) {
         ${next ? `<a href="#${next.id}" class="pager-next"><small>${esc(ui('next'))}</small>${esc(tTitle(next))}</a>` : '<span></span>'}
       </nav>
     </div>`);
+  mountIx($('#panel'));
 }
 /* prerequisites and next topics, each with the one-sentence reason for the link */
 function ladderLinks(t) {
@@ -4598,8 +4812,9 @@ function renderPractice(t, fresh = false) {
     <div class="ws-controls no-print">
       <div class="ctrl"><span class="ctrl-label" id="cnt-label">${esc(ui('questions'))}</span><div class="seg" role="group" aria-labelledby="cnt-label">${[5, 10, 15, 20].map(n => `<button type="button" class="seg-btn" data-n="${n}" aria-pressed="${settings.n === n}">${n}</button>`).join('')}</div></div>
       <div class="ctrl"><label class="ctrl-label" for="mode-select">${esc(ui('qType'))}</label><select id="mode-select">${Object.entries(MODE_KEYS).map(([k, v]) => `<option value="${k}"${settings.mode === k ? ' selected' : ''}>${esc(ui(v))}</option>`).join('')}</select></div>
-      <div class="ctrl-actions"><button type="button" class="btn btn-primary" data-act="new">${ICON.refresh}${esc(ui('newSheet'))}</button><button type="button" class="btn" data-act="print-q">${ICON.print}${esc(ui('printQ'))}</button></div>
+      <div class="ctrl-actions"><button type="button" class="btn btn-primary" data-act="new">${ICON.refresh}${esc(ui('newSheet'))}</button><button type="button" class="btn" data-act="print-q">${ICON.print}${esc(ui('printQ'))}</button><button type="button" class="btn" data-act="exam-start">${ICON.clock}${esc(ui('examStart', examMinutes(sh)))}</button></div>
     </div>
+    ${sh.exam ? `<div class="exam-bar no-print" role="timer"><span class="exam-tag">${ICON.clock}${esc(ui('examOn'))}</span><span class="exam-left">${esc(ui('examLeft'))} <b id="exam-clock">--:--</b></span><button type="button" class="btn btn-primary btn-small" data-act="exam-finish">${esc(ui('examFinish'))}</button><p class="exam-note">${esc(ui('examNote'))}</p></div>` : ''}
     <section class="sheet" aria-label="${esc(ui('worksheet'))}">
       <header class="sheet-head">
         <div class="sheet-title"><p class="kicker">${esc(ui('practiceSheet', lvName(lv)))}</p><h2>${esc(tTitle(t))}</h2></div>
@@ -4622,6 +4837,8 @@ function renderPractice(t, fresh = false) {
       </div>
     </section>`);
   if (sh.checked) checkSheet(false);
+  $('#panel').classList.toggle('exam-on', !!sh.exam);
+  tickExam();
 }
 
 /* ---------------- checking ---------------- */
@@ -4724,6 +4941,50 @@ if ($('#subj-btn')) {
   $('#subj-menu').addEventListener('click', e => { const a = e.target.closest('a'); if (a && a.getAttribute('aria-current')) { e.preventDefault(); setSubjOpen(false); location.hash = ''; } });
 }
 
+/* ---------------- exam mode: a timed sheet; hints, checking and the key stay hidden until it ends ---------------- */
+const examMinutes = sh => Math.max(5, Math.round(sh.items.length * 1.5));
+let examTimer = null;
+function tickExam() {
+  clearInterval(examTimer);
+  const sh = currentSheet(); if (!sh || !sh.exam) return;
+  const upd = () => {
+    if (currentSheet() !== sh || !sh.exam) { clearInterval(examTimer); return; }
+    const left = sh.exam.end - Date.now();
+    if (left <= 0) { finishExam(true); return; }
+    const el = $('#exam-clock'), s = Math.ceil(left / 1000);
+    if (el) { el.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; el.parentElement.classList.toggle('exam-low', s <= 60); }
+  };
+  upd(); examTimer = setInterval(upd, 1000);
+}
+function finishExam(timeUp) {
+  const sh = currentSheet(); if (!sh || !sh.exam) return;
+  clearInterval(examTimer); sh.exam = null; sh.keyOpen = true;
+  renderPractice(TOPICS.get(current.id)); checkSheet(true);
+  toast(ui(timeUp ? 'examUp' : 'examDone'));
+}
+
+/* ---------------- glossary: key terms in English and Indonesian ---------------- */
+function renderGlossary() {
+  const site = (SUBJECTS.find(s => s.id === SUBJECT) || {}).name || '';
+  document.title = `${ui('glossary')} · ${site}`;
+  const idl = I18N.lang === 'id', coll = new Intl.Collator(idl ? 'id' : 'en', { sensitivity: 'base' });
+  const rows = GLOSSARY.filter(g => TOPICS.has(g[0])).map(([tid, en, id, den, did]) => ({ tid, main: idl ? id : en, other: idl ? en : id, def: idl ? did : den })).sort((a, b) => coll.compare(a.main, b.main));
+  let last = '', items = '';
+  rows.forEach(r => {
+    const L = r.main[0].toUpperCase();
+    if (L !== last) { items += `<h2 class="gl-letter">${esc(L)}</h2>`; last = L; }
+    items += `<div class="gl-item" data-s="${esc([r.main, r.other, r.def].join(' ').toLowerCase())}"><p class="gl-term"><b>${esc(r.main)}</b><span class="gl-other" lang="${idl ? 'en' : 'id'}">${esc(r.other)}</span></p><p class="gl-def">${esc(r.def)} <a href="#${r.tid}">${esc(tTitle(TOPICS.get(r.tid)))} →</a></p></div>`;
+  });
+  main.innerHTML = `<article class="topic glossary"><header class="topic-head"><nav class="crumbs" aria-label="${esc(ui('breadcrumb'))}"><a href="#">${esc(ui('home'))}</a><span aria-hidden="true">/</span><span>${esc(ui('glossary'))}</span></nav><h1>${esc(ui('glossary'))}</h1><p class="lede">${esc(ui('glossaryLede', rows.length))}</p><input type="search" class="gl-search" id="gl-search" placeholder="${esc(ui('glossarySearch'))}" aria-label="${esc(ui('glossarySearch'))}" autocomplete="off"></header><div class="gl-list">${items}</div><p class="gl-none" hidden>${esc(ui('glossaryNone'))}</p></article>`;
+  const inp = $('#gl-search');
+  inp.addEventListener('input', () => {
+    const q = inp.value.trim().toLowerCase(); let any = false;
+    main.querySelectorAll('.gl-item').forEach(el => { const hit = !q || el.dataset.s.includes(q); el.hidden = !hit; any = any || hit; });
+    main.querySelectorAll('.gl-letter').forEach(h => { let n = h.nextElementSibling, vis = false; while (n && !n.classList.contains('gl-letter')) { if (!n.hidden) vis = true; n = n.nextElementSibling; } h.hidden = !vis; });
+    main.querySelector('.gl-none').hidden = any;
+  });
+}
+
 /* ---------------- printing ---------------- */
 function toast(msg) { toastEl.textContent = msg; toastEl.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => { toastEl.hidden = true; }, 8000); }
 function doPrint(kind) {
@@ -4764,6 +5025,7 @@ function applyChrome() {
   $('#lang-code').textContent = code.toUpperCase();
   langSel.value = code;
   renderSubjects();
+  const glt = $('#nav-gl-t'); if (glt) glt.textContent = ui('glossary');
   updatePrintStyle();
 }
 async function changeLang(code, persist = true) {
@@ -4820,6 +5082,8 @@ main.addEventListener('click', e => {
     case 'fact-new': renderFact(); break;
     case 'hint': { const sh = currentSheet(), it = sh && sh.items[+btn.dataset.i]; if (it) toggleHint(btn, btn.parentElement.querySelector('.q-hint'), it.topic); break; }
     case 'sample-hint': if (sampleState) toggleHint(btn, $('#sample-hint'), sampleState.topicId); break;
+    case 'exam-start': { const sh = currentSheet(); sh.answers = {}; sh.checked = false; sh.keyOpen = false; sh.exam = { end: Date.now() + examMinutes(sh) * 60000 }; renderPractice(t); const bar = $('.exam-bar'); if (bar) bar.scrollIntoView({ block: 'start' }); break; }
+    case 'exam-finish': if (confirm(ui('examConfirm'))) finishExam(false); break;
     case 'pg-reset': if (confirm(ui('pgConfirm'))) { store.set('progress', {}); paintProgress(); } break;
     case 'sample-reveal': { const open = btn.getAttribute('aria-expanded') !== 'true'; btn.setAttribute('aria-expanded', String(open)); btn.textContent = ui(open ? 'hideAnswer' : 'showAnswer'); $('#sample-ans').classList.toggle('collapsed', !open); break; }
   }

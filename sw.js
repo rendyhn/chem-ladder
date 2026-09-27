@@ -1,7 +1,7 @@
 /* Service worker template: build.py fills in the version and the file list and writes ../sw.js.
    Same-origin files: network first, cache as fallback (so a new build shows at once when online).
    MathJax and fonts from their CDNs: cache first, refreshed in the background. */
-const PREFIX = 'chemladder-', CACHE = PREFIX + '57d8cffe17', RUNTIME = PREFIX + 'runtime';
+const PREFIX = 'chemladder-', CACHE = PREFIX + 'dd44f5187f', RUNTIME = PREFIX + 'runtime';
 const FILES = ["./", "index.html", "manifest.webmanifest", "icons/icon-180.png", "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-512.png"], WARM = ["https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap", "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js", "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/input/tex/extensions/mhchem.js"];   // WARM: CDN files (MathJax, font styles) fetched ahead so formulas work offline after the first visit
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES))

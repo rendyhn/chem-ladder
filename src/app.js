@@ -8,6 +8,8 @@ const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const LETTERS = 'ABCD';
 const ICON = {
+  book: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg>',
+  clock: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg>',
   grid: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg>',
   print: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2M6 14h12v7H6z"/></svg>',
   bulb: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg>',
@@ -48,6 +50,18 @@ const UI_EN = {
   funFact: 'Fun fact',
   anotherFact: 'Another fact',
   hint: 'Hint',
+  glossary: 'Glossary',
+  glossaryLede: '⟦0⟧ key terms in English and Indonesian, each with a short definition and a link to its lesson.',
+  glossarySearch: 'Search terms',
+  glossaryNone: 'No matching terms.',
+  examStart: 'Exam mode (⟦0⟧ min)',
+  examOn: 'Exam mode',
+  examLeft: 'Time left',
+  examFinish: 'Finish and mark',
+  examNote: 'Hints, checking and the answer key are hidden until you finish. The sheet is marked automatically when the time is up.',
+  examUp: 'Time is up: your sheet has been marked.',
+  examDone: 'Your sheet has been marked.',
+  examConfirm: 'Finish the exam and see your score?',
   hintHead: 'Key idea from the lesson',
   openLesson: 'Open the lesson',
   pgLevel: '⟦0⟧ of ⟦1⟧ mastered',
@@ -414,12 +428,14 @@ function parseHash() {
   const h = decodeURIComponent(location.hash.slice(1));
   const [id, tab] = h.split('.');
   if (TOPICS.has(id)) return { view: 'topic', id, tab: tab === 'practice' || TOPICS.get(id).review ? 'practice' : 'lesson' };
+  if (id === 'glossary') return { view: 'glossary' };
   return { view: 'home' };
 }
 function route(keepScroll = false) {
   const r = parseHash(), sameTopic = current.view === 'topic' && r.view === 'topic' && current.id === r.id;
   current = r;
-  if (r.view === 'home') renderHome(); else renderTopic(TOPICS.get(r.id), r.tab);
+  if (r.view === 'home') renderHome(); else if (r.view === 'glossary') renderGlossary(); else renderTopic(TOPICS.get(r.id), r.tab);
+  const gl = $('#nav-gl'); if (gl) { if (r.view === 'glossary') gl.setAttribute('aria-current', 'page'); else gl.removeAttribute('aria-current'); }
   markNav(r.id);
   paintProgress();
   if (keepScroll === true) return;
@@ -439,7 +455,7 @@ function renderHome() {
       <p class="eyebrow">${esc(ui('heroEyebrow'))}</p>
       <h1>${esc(ui('heroTitle'))}</h1>
       <p class="lede">${esc(ui('heroLede', ALL.length))}</p>
-      <div class="hero-cta"><a class="btn btn-primary" href="#${first.id}">${esc(ui('startWith', tTitle(first)))}</a><a class="btn" href="#${LEVELS.filter(l => l.review).sort((x, y) => y.topics.length - x.topics.length)[0].review.id}">${esc(ui('tryReview'))}</a></div>
+      <div class="hero-cta"><a class="btn btn-primary" href="#${first.id}">${esc(ui('startWith', tTitle(first)))}</a><a class="btn" href="#${LEVELS.filter(l => l.review).sort((x, y) => y.topics.length - x.topics.length)[0].review.id}">${esc(ui('tryReview'))}</a><a class="btn btn-ghost" href="#glossary">${ICON.book}${esc(ui('glossary'))}</a></div>
     </div>
     <div class="hero-side"><div class="sample" id="sample" aria-live="polite"></div><aside class="fact" id="fact" aria-live="polite"></aside></div>
   </section>
@@ -527,6 +543,7 @@ function renderLesson(t) {
         ${next ? `<a href="#${next.id}" class="pager-next"><small>${esc(ui('next'))}</small>${esc(tTitle(next))}</a>` : '<span></span>'}
       </nav>
     </div>`);
+  mountIx($('#panel'));
 }
 /* prerequisites and next topics, each with the one-sentence reason for the link */
 function ladderLinks(t) {
@@ -563,8 +580,9 @@ function renderPractice(t, fresh = false) {
     <div class="ws-controls no-print">
       <div class="ctrl"><span class="ctrl-label" id="cnt-label">${esc(ui('questions'))}</span><div class="seg" role="group" aria-labelledby="cnt-label">${[5, 10, 15, 20].map(n => `<button type="button" class="seg-btn" data-n="${n}" aria-pressed="${settings.n === n}">${n}</button>`).join('')}</div></div>
       <div class="ctrl"><label class="ctrl-label" for="mode-select">${esc(ui('qType'))}</label><select id="mode-select">${Object.entries(MODE_KEYS).map(([k, v]) => `<option value="${k}"${settings.mode === k ? ' selected' : ''}>${esc(ui(v))}</option>`).join('')}</select></div>
-      <div class="ctrl-actions"><button type="button" class="btn btn-primary" data-act="new">${ICON.refresh}${esc(ui('newSheet'))}</button><button type="button" class="btn" data-act="print-q">${ICON.print}${esc(ui('printQ'))}</button></div>
+      <div class="ctrl-actions"><button type="button" class="btn btn-primary" data-act="new">${ICON.refresh}${esc(ui('newSheet'))}</button><button type="button" class="btn" data-act="print-q">${ICON.print}${esc(ui('printQ'))}</button><button type="button" class="btn" data-act="exam-start">${ICON.clock}${esc(ui('examStart', examMinutes(sh)))}</button></div>
     </div>
+    ${sh.exam ? `<div class="exam-bar no-print" role="timer"><span class="exam-tag">${ICON.clock}${esc(ui('examOn'))}</span><span class="exam-left">${esc(ui('examLeft'))} <b id="exam-clock">--:--</b></span><button type="button" class="btn btn-primary btn-small" data-act="exam-finish">${esc(ui('examFinish'))}</button><p class="exam-note">${esc(ui('examNote'))}</p></div>` : ''}
     <section class="sheet" aria-label="${esc(ui('worksheet'))}">
       <header class="sheet-head">
         <div class="sheet-title"><p class="kicker">${esc(ui('practiceSheet', lvName(lv)))}</p><h2>${esc(tTitle(t))}</h2></div>
@@ -587,6 +605,8 @@ function renderPractice(t, fresh = false) {
       </div>
     </section>`);
   if (sh.checked) checkSheet(false);
+  $('#panel').classList.toggle('exam-on', !!sh.exam);
+  tickExam();
 }
 
 /* ---------------- checking ---------------- */
@@ -689,6 +709,50 @@ if ($('#subj-btn')) {
   $('#subj-menu').addEventListener('click', e => { const a = e.target.closest('a'); if (a && a.getAttribute('aria-current')) { e.preventDefault(); setSubjOpen(false); location.hash = ''; } });
 }
 
+/* ---------------- exam mode: a timed sheet; hints, checking and the key stay hidden until it ends ---------------- */
+const examMinutes = sh => Math.max(5, Math.round(sh.items.length * 1.5));
+let examTimer = null;
+function tickExam() {
+  clearInterval(examTimer);
+  const sh = currentSheet(); if (!sh || !sh.exam) return;
+  const upd = () => {
+    if (currentSheet() !== sh || !sh.exam) { clearInterval(examTimer); return; }
+    const left = sh.exam.end - Date.now();
+    if (left <= 0) { finishExam(true); return; }
+    const el = $('#exam-clock'), s = Math.ceil(left / 1000);
+    if (el) { el.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; el.parentElement.classList.toggle('exam-low', s <= 60); }
+  };
+  upd(); examTimer = setInterval(upd, 1000);
+}
+function finishExam(timeUp) {
+  const sh = currentSheet(); if (!sh || !sh.exam) return;
+  clearInterval(examTimer); sh.exam = null; sh.keyOpen = true;
+  renderPractice(TOPICS.get(current.id)); checkSheet(true);
+  toast(ui(timeUp ? 'examUp' : 'examDone'));
+}
+
+/* ---------------- glossary: key terms in English and Indonesian ---------------- */
+function renderGlossary() {
+  const site = (SUBJECTS.find(s => s.id === SUBJECT) || {}).name || '';
+  document.title = `${ui('glossary')} · ${site}`;
+  const idl = I18N.lang === 'id', coll = new Intl.Collator(idl ? 'id' : 'en', { sensitivity: 'base' });
+  const rows = GLOSSARY.filter(g => TOPICS.has(g[0])).map(([tid, en, id, den, did]) => ({ tid, main: idl ? id : en, other: idl ? en : id, def: idl ? did : den })).sort((a, b) => coll.compare(a.main, b.main));
+  let last = '', items = '';
+  rows.forEach(r => {
+    const L = r.main[0].toUpperCase();
+    if (L !== last) { items += `<h2 class="gl-letter">${esc(L)}</h2>`; last = L; }
+    items += `<div class="gl-item" data-s="${esc([r.main, r.other, r.def].join(' ').toLowerCase())}"><p class="gl-term"><b>${esc(r.main)}</b><span class="gl-other" lang="${idl ? 'en' : 'id'}">${esc(r.other)}</span></p><p class="gl-def">${esc(r.def)} <a href="#${r.tid}">${esc(tTitle(TOPICS.get(r.tid)))} →</a></p></div>`;
+  });
+  main.innerHTML = `<article class="topic glossary"><header class="topic-head"><nav class="crumbs" aria-label="${esc(ui('breadcrumb'))}"><a href="#">${esc(ui('home'))}</a><span aria-hidden="true">/</span><span>${esc(ui('glossary'))}</span></nav><h1>${esc(ui('glossary'))}</h1><p class="lede">${esc(ui('glossaryLede', rows.length))}</p><input type="search" class="gl-search" id="gl-search" placeholder="${esc(ui('glossarySearch'))}" aria-label="${esc(ui('glossarySearch'))}" autocomplete="off"></header><div class="gl-list">${items}</div><p class="gl-none" hidden>${esc(ui('glossaryNone'))}</p></article>`;
+  const inp = $('#gl-search');
+  inp.addEventListener('input', () => {
+    const q = inp.value.trim().toLowerCase(); let any = false;
+    main.querySelectorAll('.gl-item').forEach(el => { const hit = !q || el.dataset.s.includes(q); el.hidden = !hit; any = any || hit; });
+    main.querySelectorAll('.gl-letter').forEach(h => { let n = h.nextElementSibling, vis = false; while (n && !n.classList.contains('gl-letter')) { if (!n.hidden) vis = true; n = n.nextElementSibling; } h.hidden = !vis; });
+    main.querySelector('.gl-none').hidden = any;
+  });
+}
+
 /* ---------------- printing ---------------- */
 function toast(msg) { toastEl.textContent = msg; toastEl.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => { toastEl.hidden = true; }, 8000); }
 function doPrint(kind) {
@@ -729,6 +793,7 @@ function applyChrome() {
   $('#lang-code').textContent = code.toUpperCase();
   langSel.value = code;
   renderSubjects();
+  const glt = $('#nav-gl-t'); if (glt) glt.textContent = ui('glossary');
   updatePrintStyle();
 }
 async function changeLang(code, persist = true) {
@@ -785,6 +850,8 @@ main.addEventListener('click', e => {
     case 'fact-new': renderFact(); break;
     case 'hint': { const sh = currentSheet(), it = sh && sh.items[+btn.dataset.i]; if (it) toggleHint(btn, btn.parentElement.querySelector('.q-hint'), it.topic); break; }
     case 'sample-hint': if (sampleState) toggleHint(btn, $('#sample-hint'), sampleState.topicId); break;
+    case 'exam-start': { const sh = currentSheet(); sh.answers = {}; sh.checked = false; sh.keyOpen = false; sh.exam = { end: Date.now() + examMinutes(sh) * 60000 }; renderPractice(t); const bar = $('.exam-bar'); if (bar) bar.scrollIntoView({ block: 'start' }); break; }
+    case 'exam-finish': if (confirm(ui('examConfirm'))) finishExam(false); break;
     case 'pg-reset': if (confirm(ui('pgConfirm'))) { store.set('progress', {}); paintProgress(); } break;
     case 'sample-reveal': { const open = btn.getAttribute('aria-expanded') !== 'true'; btn.setAttribute('aria-expanded', String(open)); btn.textContent = ui(open ? 'hideAnswer' : 'showAnswer'); $('#sample-ans').classList.toggle('collapsed', !open); break; }
   }

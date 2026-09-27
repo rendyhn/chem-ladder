@@ -30,6 +30,18 @@ addUI('id', {
   funFact: R`Fakta unik`,
   anotherFact: R`Fakta lain`,
   hint: R`Petunjuk`,
+  glossary: R`Glosarium`,
+  glossaryLede: R`⟦0⟧ istilah penting dalam bahasa Indonesia dan Inggris, masing-masing dengan definisi singkat dan tautan ke materinya.`,
+  glossarySearch: R`Cari istilah`,
+  glossaryNone: R`Tidak ada istilah yang cocok.`,
+  examStart: R`Mode ujian (⟦0⟧ menit)`,
+  examOn: R`Mode ujian`,
+  examLeft: R`Sisa waktu`,
+  examFinish: R`Selesai dan nilai`,
+  examNote: R`Petunjuk, pengecekan, dan kunci jawaban disembunyikan sampai kamu selesai. Lembar dinilai otomatis saat waktu habis.`,
+  examUp: R`Waktu habis: lembarmu sudah dinilai.`,
+  examDone: R`Lembarmu sudah dinilai.`,
+  examConfirm: R`Selesaikan ujian dan lihat nilaimu?`,
   hintHead: R`Konsep kunci dari materi`,
   openLesson: R`Buka materi`,
   pgLevel: R`⟦0⟧ dari ⟦1⟧ dikuasai`,
@@ -422,6 +434,28 @@ addFacts('id', [
   { t: `Karat adalah pembakaran yang lambat`, b: `Perkaratan dan pembakaran sama-sama reaksi oksidasi: besi yang bergabung dengan oksigen melepaskan panas, hanya jauh lebih lambat. Kantong penghangat tangan memanfaatkan hal ini: isinya serbuk besi, garam, dan air, dan ketika dibuka sehingga udara masuk, besi berkarat cukup cepat untuk menghangatkan tanganmu selama berjam-jam.` },
   { t: `Mengapa sabun bisa menghilangkan lemak`, b: `Molekul sabun memiliki kepala yang suka air dan ekor panjang yang suka minyak. Di dalam air, ekor-ekornya menancap ke dalam lemak sementara kepalanya menghadap ke luar, membentuk bola-bola kecil yang disebut misel yang dapat dibilas. Manusia sudah membuat sabun selama lebih dari 4.000 tahun dengan memanaskan lemak bersama alkali dari abu kayu; bangsa Babilonia sudah mencatat resepnya.` }
 ]);
+
+/* Bahasa Indonesia — interactive figures */
+addT('id', {
+  'u95v462iox': R`kekuatan asam pKa (0 = asam kuat)`,
+  '1jantp0gmpz': R`konsentrasi asam (M)`,
+  'afr6jr0jes': R`titik ekuivalen pH ⟦0⟧`,
+  '1lzu78izaw1': R`setengah jalan pH ⟦0⟧`,
+  '1yq5avzg591': R`Kurva titrasi untuk asam yang dipilih, hasil perhitungan`,
+  'b3yqtrwu04': R`pH awal ⟦0⟧ · titik ekuivalen pada ⟦1⟧ mL, pH ⟦2⟧⟦3⟧. ⟦4⟧`,
+  '1axl2pezje7': R` · pada setengah titik ekuivalen pH = pKa = ⟦0⟧`,
+  'sn8jjkj3m4': R`Asam lemah: titik ekuivalen di atas 7, jadi pakai fenolftalein.`,
+  'bm3768ps3c': R`Asam kuat: titik ekuivalen tepat pada pH 7.`,
+  '2vjmibddub': R`suhu (K)`,
+  '1z1p7sjijhd': R`energi aktivasi Ea (kJ/mol)`,
+  '1v0k9dt9gch': R`E (kJ/mol)`,
+  '238xfr5z0km': R`fraksi`,
+  '1c7uiolinp7': R`Sebaran energi molekul pada suhu yang dipilih, dengan fraksi di atas energi aktivasi diarsir`,
+  '2490tuocovm': R`Fraksi molekul dengan E ≥ Ea: ⟦0⟧%. Garis putus-putus: 300 K. Suhu lebih tinggi membuat kurva lebih landai dan bergeser ke kanan, sehingga lebih banyak molekul dapat bereaksi.`,
+  'qgl9kj4nky': R`Coba sendiri`,
+  '9xe00q5rd1': R`Naikkan suhu atau turunkan energi aktivasi, lalu perhatikan fraksi molekul yang diarsir, yaitu yang energinya cukup untuk bereaksi.`,
+  '261fwwm2f7q': R`Ubah kekuatan dan konsentrasi asam yang dititrasi dengan NaOH 0,1 M (25 mL asam, kurva hasil perhitungan).`,
+});
 
 /* Bahasa Indonesia — ladder */
 addT('id', {
@@ -1799,13 +1833,15 @@ addT('id', {
   'f9xlu7k2pk': R`Hanya terjadi pemutusan ikatan`,
   '2gb2ko3z4ir': R`Hasil reaksi berenergi lebih besar daripada pereaksi`,
   '1gntls8p1d9': R`Pembentukan ikatan melepaskan energi; jika lebih besar daripada pemutusan ikatan, $\Delta H < 0$.`,
-  '1i8qss0fnxz': R`<p><b>Laju</b> reaksi adalah seberapa cepat pereaksi habis atau hasil reaksi terbentuk: $$\text{laju} = \frac{\Delta[\text{konsentrasi}]}{\Delta t} \quad (\mathrm{mol\,L^{-1}\,s^{-1}})$$ Laju dapat diikuti dengan mengukur volume gas yang dilepaskan, pengurangan massa, perubahan warna, atau waktu sampai tanda silang di bawah labu tidak terlihat.</p>
+  'src3u8mih0': R`<p><b>Laju</b> reaksi adalah seberapa cepat pereaksi habis atau hasil reaksi terbentuk: $$\text{laju} = \frac{\Delta[\text{konsentrasi}]}{\Delta t} \quad (\mathrm{mol\,L^{-1}\,s^{-1}})$$ Laju dapat diikuti dengan mengukur volume gas yang dilepaskan, pengurangan massa, perubahan warna, atau waktu sampai tanda silang di bawah labu tidak terlihat.</p>
 ⟦0⟧
 ⟦1⟧
 ⟦2⟧
 ⟦3⟧
 ⟦4⟧
-⟦5⟧`,
+⟦5⟧
+<h3>⟦6⟧</h3>⟦7⟧
+`,
   '1akw8fyw9av': R`waktu (menit)`,
   '15ary5c9dzr': R`volume gas (mL)`,
   '2agmj48ma14': R`serbuk / panas / pekat`,
@@ -2126,12 +2162,14 @@ addT('id', {
   '1fgki87seoe': R`$[\ce{OH-}] = \sqrt{1{,}8 \times 10^{-5} \times ⟦0⟧} = ⟦1⟧$ M; pOH $= ⟦2⟧$; pH $= ⟦3⟧$.`,
   '2fn4etp3cn1': R`Suatu larutan memiliki pH ⟦0⟧. Berapa pOH-nya?`,
   '13sbfes7uyl': R`pOH $= 14 - ⟦0⟧ = ⟦1⟧$.`,
-  '1nhf5icbcsd': R`<p><b>Titrasi</b> menentukan konsentrasi larutan yang belum diketahui dengan mereaksikannya secara tepat dengan larutan standar. Pipet menakar volume tertentu satu larutan ke dalam labu erlenmeyer berisi beberapa tetes indikator; larutan lain ditambahkan dari buret sampai indikator tepat berubah warna.</p>
+  'lxaukq4wn6': R`<p><b>Titrasi</b> menentukan konsentrasi larutan yang belum diketahui dengan mereaksikannya secara tepat dengan larutan standar. Pipet menakar volume tertentu satu larutan ke dalam labu erlenmeyer berisi beberapa tetes indikator; larutan lain ditambahkan dari buret sampai indikator tepat berubah warna.</p>
 ⟦0⟧
 ⟦1⟧
 ⟦2⟧
 ⟦3⟧
-⟦4⟧`,
+⟦4⟧
+<h3>⟦5⟧</h3>⟦6⟧
+`,
   '1eo76u2rutw': R`buret (titran)`,
   '10ifjyg496t': R`keran`,
   'ea1d5nstme': R`labu erlenmeyer + indikator`,

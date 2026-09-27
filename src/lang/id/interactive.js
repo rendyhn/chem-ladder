@@ -1,0 +1,21 @@
+/* Bahasa Indonesia — interactive figures */
+addT('id', {
+  'u95v462iox': R`kekuatan asam pKa (0 = asam kuat)`,
+  '1jantp0gmpz': R`konsentrasi asam (M)`,
+  'afr6jr0jes': R`titik ekuivalen pH ⟦0⟧`,
+  '1lzu78izaw1': R`setengah jalan pH ⟦0⟧`,
+  '1yq5avzg591': R`Kurva titrasi untuk asam yang dipilih, hasil perhitungan`,
+  'b3yqtrwu04': R`pH awal ⟦0⟧ · titik ekuivalen pada ⟦1⟧ mL, pH ⟦2⟧⟦3⟧. ⟦4⟧`,
+  '1axl2pezje7': R` · pada setengah titik ekuivalen pH = pKa = ⟦0⟧`,
+  'sn8jjkj3m4': R`Asam lemah: titik ekuivalen di atas 7, jadi pakai fenolftalein.`,
+  'bm3768ps3c': R`Asam kuat: titik ekuivalen tepat pada pH 7.`,
+  '2vjmibddub': R`suhu (K)`,
+  '1z1p7sjijhd': R`energi aktivasi Ea (kJ/mol)`,
+  '1v0k9dt9gch': R`E (kJ/mol)`,
+  '238xfr5z0km': R`fraksi`,
+  '1c7uiolinp7': R`Sebaran energi molekul pada suhu yang dipilih, dengan fraksi di atas energi aktivasi diarsir`,
+  '2490tuocovm': R`Fraksi molekul dengan E ≥ Ea: ⟦0⟧%. Garis putus-putus: 300 K. Suhu lebih tinggi membuat kurva lebih landai dan bergeser ke kanan, sehingga lebih banyak molekul dapat bereaksi.`,
+  'qgl9kj4nky': R`Coba sendiri`,
+  '9xe00q5rd1': R`Naikkan suhu atau turunkan energi aktivasi, lalu perhatikan fraksi molekul yang diarsir, yaitu yang energinya cukup untuk bereaksi.`,
+  '261fwwm2f7q': R`Ubah kekuatan dan konsentrasi asam yang dititrasi dengan NaOH 0,1 M (25 mL asam, kurva hasil perhitungan).`,
+});
