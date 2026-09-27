@@ -27,6 +27,8 @@ addUI('id', {
   reviewLink: R`Lembar latihan campuran →`,
   freshQ: R`Soal baru`,
   anotherQ: R`Soal lain`,
+  funFact: R`Fakta unik`,
+  anotherFact: R`Fakta lain`,
   showAnswer: R`Lihat jawaban`,
   hideAnswer: R`Sembunyikan jawaban`,
   answerColon: R`Jawaban:`,

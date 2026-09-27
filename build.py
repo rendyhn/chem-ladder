@@ -11,7 +11,7 @@ root = pathlib.Path(__file__).parent
 src = root / 'src'
 read = lambda name: (src / name).read_text(encoding='utf-8')
 
-js_files = [f for f in ['core.js', 'chem.js', 'fig.js', 'cfig.js', 'tA-matter.js', 'tB-atoms.js', 'tC-bonding.js', 'tD-stoichiometry.js', 'tE-solutions.js', 'tF-energetics.js', 'tG-acids.js', 'tH-redox.js', 'tI-organic.js', 'tJ-elements.js', 'tK-university.js', 'ladder.js', 'app.js'] if (src / f).exists()]
+js_files = [f for f in ['core.js', 'chem.js', 'fig.js', 'cfig.js', 'tA-matter.js', 'tB-atoms.js', 'tC-bonding.js', 'tD-stoichiometry.js', 'tE-solutions.js', 'tF-energetics.js', 'tG-acids.js', 'tH-redox.js', 'tI-organic.js', 'tJ-elements.js', 'tK-university.js', 'ladder.js', 'facts.js', 'app.js'] if (src / f).exists()]
 js = '\n'.join(read(f) for f in js_files)
 assert '</script' not in js.lower(), 'script body must not contain a closing script tag'
 

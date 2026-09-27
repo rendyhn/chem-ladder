@@ -9,6 +9,7 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;',
 const LETTERS = 'ABCD';
 const ICON = {
   print: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2M6 14h12v7H6z"/></svg>',
+  bulb: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg>',
   refresh: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8M4 4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16M20 20v-4h-4"/></svg>',
   chev: '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>',
   check: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>',
@@ -43,6 +44,8 @@ const UI_EN = {
   reviewLink: 'Mixed review worksheet →',
   freshQ: 'Fresh question',
   anotherQ: 'Another question',
+  funFact: 'Fun fact',
+  anotherFact: 'Another fact',
   showAnswer: 'Show answer',
   hideAnswer: 'Hide answer',
   answerColon: 'Answer:',
@@ -420,7 +423,7 @@ function renderHome() {
       <p class="lede">${esc(ui('heroLede', ALL.length))}</p>
       <div class="hero-cta"><a class="btn btn-primary" href="#${first.id}">${esc(ui('startWith', tTitle(first)))}</a><a class="btn" href="#${LEVELS.filter(l => l.review).sort((x, y) => y.topics.length - x.topics.length)[0].review.id}">${esc(ui('tryReview'))}</a></div>
     </div>
-    <div class="sample" id="sample" aria-live="polite"></div>
+    <div class="hero-side"><div class="sample" id="sample" aria-live="polite"></div><aside class="fact" id="fact" aria-live="polite"></aside></div>
   </section>
   <section class="ladder" aria-label="${esc(ui('levels'))}">
     ${LEVELS.map(lv => `
@@ -432,6 +435,24 @@ function renderHome() {
     </article>`).join('')}
   </section>`;
   renderSample();
+  renderFact(false);
+}
+/* fun facts: a shuffled deck in localStorage, so each visit shows a fact not seen recently */
+let factIdx = null;
+function nextFact() {
+  let deck = store.get('factDeck', []);
+  if (!Array.isArray(deck) || !deck.length || deck.some(i => !(i < FACTS.length))) {
+    deck = FACTS.map((_, i) => i);
+    for (let i = deck.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [deck[i], deck[j]] = [deck[j], deck[i]]; }
+  }
+  factIdx = deck.shift(); store.set('factDeck', deck);
+}
+function renderFact(fresh = true) {
+  const el = $('#fact'); if (!el || !FACTS.length) return;
+  if (fresh || factIdx === null) nextFact();
+  const p = I18N_PACKS[I18N.lang], f = (p && p.facts && p.facts[factIdx]) || FACTS[factIdx];
+  setHTML(el, `<p class="fact-label">${ICON.bulb}${esc(ui('funFact'))}</p><h2 class="fact-title">${f.t}</h2><p class="fact-body">${f.b}</p>
+    <div class="sample-actions"><button type="button" class="btn btn-small" data-act="fact-new">${ICON.refresh}${esc(ui('anotherFact'))}</button></div>`);
 }
 let sampleState = null;   // { topicId, seed } so a language switch shows the same question
 function renderSample(fresh = true) {
@@ -667,6 +688,7 @@ main.addEventListener('click', e => {
     case 'print-both': doPrint('both'); break;
     case 'print-lesson': doPrint('lesson'); break;
     case 'sample-new': renderSample(); break;
+    case 'fact-new': renderFact(); break;
     case 'sample-reveal': { const open = btn.getAttribute('aria-expanded') !== 'true'; btn.setAttribute('aria-expanded', String(open)); btn.textContent = ui(open ? 'hideAnswer' : 'showAnswer'); $('#sample-ans').classList.toggle('collapsed', !open); break; }
   }
 });

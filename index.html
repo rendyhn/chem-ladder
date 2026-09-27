@@ -123,6 +123,13 @@ mjx-container.mjx-wide { display: block; overflow-x: auto; overflow-y: hidden; m
 .hero h1 { font-size: clamp(2.1rem, 1.3rem + 3vw, 3.5rem); font-weight: 800; letter-spacing: -0.025em; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
 .hero-logo svg { width: 72px; height: 72px; display: block; margin-bottom: 18px; filter: drop-shadow(0 6px 14px rgba(20, 27, 43, 0.22)); }   /* the subject logo above the title */
+.hero-side { display: grid; gap: 16px; min-width: 0; }
+.fact { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--warn); border-radius: 10px; padding: 18px 22px; box-shadow: var(--shadow); }
+.fact-label { display: flex; align-items: center; gap: 6px; margin: 0 0 8px; font: 500 0.72rem var(--f-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--warn); }
+.fact-label svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.fact-title { font-size: 1.08rem; font-weight: 700; margin: 0 0 6px; line-height: 1.35; }
+.fact-body { margin: 0; color: var(--ink-2); font-size: 0.95rem; line-height: 1.6; }
+.fact .sample-actions { margin-top: 14px; }
 .sample { background: var(--paper); border: 1px solid var(--rule); border-radius: 10px; padding: 20px 22px; box-shadow: var(--shadow); background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size: 22px 22px; min-height: 200px; }
 .sample-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
 .sample-label { font: 500 0.72rem var(--f-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); }
@@ -582,6 +589,7 @@ const I18N_PACKS = {};
 const langPack = code => I18N_PACKS[code] || (I18N_PACKS[code] = { t: {}, ui: {}, meta: {} });
 function addT(code, o) { Object.assign(langPack(code).t, o); }
 function addUI(code, o) { Object.assign(langPack(code).ui, o); }
+function addFacts(code, a) { langPack(code).facts = a; }
 function addMeta(code, o) { const m = langPack(code).meta; for (const k in o) m[k] = Object.assign(m[k] || {}, o[k]); }
 function setLang(code) {
   const p = code === 'en' ? null : I18N_PACKS[code];
@@ -1679,19 +1687,21 @@ function ionicTransferSvg(metal, nm, { label, nmCount = 1 } = {}) {
   return s + '</svg>';
 }
 /* NaCl-type lattice in oblique projection: n × n × n ions, alternating */
-function latticeSvg({ label, n = 3, a = 60, names = ['Na⁺', 'Cl⁻'] } = {}) {
-  const dx = 0.5, dy = 0.36, W = 60 + (n - 1) * a * (1 + dx) + 40, H = 40 + (n - 1) * a * (1 + dy) + 60;
+function latticeSvg({ label, n = 3, a = 66, names = ['Na⁺', 'Cl⁻'] } = {}) {
+  const dx = 0.35, dy = 0.25, W = 60 + (n - 1) * a * (1 + dx) + 40, H = 40 + (n - 1) * a * (1 + dy) + 60;
   const P = (i, j, k) => [36 + i * a + k * a * dx, H - 58 - j * a - k * a * dy];
-  let s = svgBox(W, H, label), balls = [];
+  let s = svgBox(W, H, label);
+  const items = [];   // painter's order: back (large k) first; edges just behind the ions of their plane
+  const edge = (p, q, d) => items.push([d + 0.1, sL(...p, ...q, '', ` style="stroke:var(--ink-${d < 0.6 ? 2 : 3});stroke-width:${d < 0.6 ? 1.8 : 1.4};stroke-opacity:${d < 0.6 ? 1 : 0.9}"`)]);
   for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) for (let k = 0; k < n; k++) {
-    const [x, y] = P(i, j, k);
-    if (i < n - 1) s += sL(x, y, ...P(i + 1, j, k), 'mf-grid', ' stroke-width="1.4"');
-    if (j < n - 1) s += sL(x, y, ...P(i, j + 1, k), 'mf-grid', ' stroke-width="1.4"');
-    if (k < n - 1) s += sL(x, y, ...P(i, j, k + 1), 'mf-grid', ' stroke-width="1.4"');
-    balls.push([k, i, j, x, y, (i + j + k) % 2]);
+    const p = P(i, j, k);
+    if (i < n - 1) edge(p, P(i + 1, j, k), k);
+    if (j < n - 1) edge(p, P(i, j + 1, k), k);
+    if (k < n - 1) edge(p, P(i, j, k + 1), k + 0.95);
+    items.push([k - j * 0.01, (i + j + k) % 2 ? sC(...p, 11, 'ch-bX') : sC(...p, 7.5, 'ch-bN')]);
   }
-  balls.sort((p, q) => q[0] - p[0] || p[2] - q[2]).forEach(([, , , x, y, t]) => { s += t ? sC(x, y, 12.5, 'ch-bX') : sC(x, y, 7.5, 'ch-bN'); });
-  s += sC(W / 2 - 70, H - 16, 9, 'ch-bN') + sT(W / 2 - 56, H - 12, names[0], 'mf-small', 'start') + sC(W / 2 + 20, H - 16, 13, 'ch-bX') + sT(W / 2 + 38, H - 12, names[1], 'mf-small', 'start');
+  items.sort((u, v) => v[0] - u[0]).forEach(([, t]) => { s += t; });
+  s += sC(W / 2 - 70, H - 16, 7.5, 'ch-bN') + sT(W / 2 - 56, H - 12, names[0], 'mf-small', 'start') + sC(W / 2 + 20, H - 16, 11, 'ch-bX') + sT(W / 2 + 38, H - 12, names[1], 'mf-small', 'start');
   return s + '</svg>';
 }
 /* metallic bonding: a lattice of positive ions in a sea of delocalised electrons */
@@ -3893,6 +3903,74 @@ link('phys:em-waves', 'spectroscopy', () => T`Each technique uses a different pa
 link('transition-metals', 'crystal-field', () => T`Crystal-field theory explains the colours of complexes.`);
 link('molecular-orbitals', 'crystal-field', () => T`d-orbital splitting builds on orbital theory.`);
 
+/* Fun facts for the home page (Chemistry). Indonesian versions, in the same order, are in src/lang/id/facts.js. */
+const FACTS = [
+  { t: `Graphene was made with sticky tape`, b: `In 2004 Andre Geim and Konstantin Novoselov at the University of Manchester used ordinary sticky tape to peel thinner and thinner flakes from a lump of graphite, until they had graphene, a sheet of carbon just one atom thick. It is about 200 times stronger than steel and conducts electricity extremely well. They won the 2010 Nobel Prize in Physics.` },
+  { t: `A Nobel Prize and an Ig Nobel Prize`, b: `Andre Geim, co-discoverer of graphene, is the only person to have won both a Nobel Prize (2010) and an Ig Nobel Prize, which honours research that "makes people laugh, then think". His Ig Nobel came in 2000 for using a very strong magnetic field to levitate a live frog, which works because water in the frog is weakly repelled by magnets.` },
+  { t: `Mendeleev left gaps and was proved right`, b: `When Dmitri Mendeleev published his periodic table in 1869, he left gaps and predicted the properties of elements not yet discovered. Gallium (1875), scandium (1879) and germanium (1886) were soon found with almost exactly the atomic masses, densities and compounds he had forecast. Element 101, mendelevium, is named after him.` },
+  { t: `The newest elements`, b: `The periodic table now has 118 confirmed elements. The four newest were named in 2016: nihonium (113, after Japan, Nihon), moscovium (115, after Moscow), tennessine (117, after Tennessee) and oganesson (118). They were made by smashing lighter nuclei together, and only a handful of atoms, each lasting a fraction of a second, have ever existed.` },
+  { t: `An element named after a living scientist`, b: `Oganesson, element 118, is named after the Russian physicist Yuri Oganessian, who led the teams that made many superheavy elements. He is only the second person to have an element named after him while still alive; the first was Glenn Seaborg, honoured by seaborgium (106) in 1997.` },
+  { t: `Helium was found in the Sun before the Earth`, b: `During a solar eclipse in 1868, astronomers saw a bright yellow line in the spectrum of the Sun that matched no known element. Norman Lockyer named the new element helium, from the Greek helios, "sun". It was not found on Earth until 1895, when William Ramsay detected it in gas released from a uranium mineral.` },
+  { t: `Only two elements are liquid at room temperature`, b: `At normal room temperature, only mercury and bromine are liquids. But gallium melts at 29.8 °C, so it turns to liquid in your hand, and a gallium spoon will melt in a cup of hot tea. Caesium melts at about 28 °C, but it reacts so violently with air and water that it must be kept sealed.` },
+  { t: `Diamonds can burn`, b: `Diamond is pure carbon, just like graphite and soot. In 1772 Antoine Lavoisier focused sunlight with a giant lens onto a diamond in a sealed jar and showed that it burns and produces carbon dioxide. At ordinary pressure diamond is actually slightly less stable than graphite, but the change is so slow that "diamonds are forever" is safe in practice.` },
+  { t: `The father of modern chemistry lost his head`, b: `Antoine Lavoisier showed that mass is conserved in chemical reactions, named oxygen and hydrogen, and helped create the modern system of chemical names. He was also a tax collector, and during the French Revolution he was guillotined in 1794. The mathematician Lagrange said: "It took them only an instant to cut off that head, and a hundred years may not produce another like it."` },
+  { t: `Oxygen's name is a mistake`, b: `Lavoisier named oxygen from Greek words meaning "acid maker", because he believed every acid contains oxygen. He was wrong: hydrochloric acid, HCl, has none. The element itself was discovered independently by Carl Wilhelm Scheele around 1772 and Joseph Priestley in 1774, before Lavoisier explained its role in burning and breathing.` },
+  { t: `Hydrogen is most of the universe`, b: `Hydrogen, the simplest element, makes up about three quarters of all the ordinary matter in the universe by mass, and helium most of the rest. Everything else, including the carbon, oxygen and iron in your body, adds up to only about 2%. On Earth, most hydrogen is locked up in water.` },
+  { t: `You are made of star dust`, b: `Almost every element in your body heavier than hydrogen and helium, the carbon in your cells, the oxygen you breathe, the calcium in your bones and the iron in your blood, was forged inside stars that lived and died before the Sun formed. Their explosions scattered these elements into the gas clouds that later made our Solar System.` },
+  { t: `Gold comes from colliding neutron stars`, b: `Much of the gold, platinum and other heavy elements in the universe is thought to be made when two neutron stars collide. In 2017 astronomers watched such a collision, first detected as gravitational waves, and saw the glow of freshly made heavy elements, with an estimated several Earth masses of gold and platinum.` },
+  { t: `All the gold ever mined would fit in a small cube`, b: `Around 216,000 tonnes of gold have been mined in all of human history. Gold is so dense (19.3 g/cm³) that all of it would fit in a cube only about 22 metres on each side, roughly the height of a seven-storey building. Gold does not rust or tarnish, so most of it is still in use today as jewellery, bars and electronics.` },
+  { t: `Aluminium was once more precious than gold`, b: `Aluminium is the most common metal in the Earth's crust, but it is so tightly bound in its ores that it was very hard to extract. In the 1850s it cost more than gold, and Napoleon III reportedly served his most honoured guests on aluminium plates. In 1886 Charles Hall and Paul Héroult independently invented cheap electrolysis, and aluminium became an everyday metal.` },
+  { t: `Marie Curie, twice a Nobel laureate`, b: `Marie Curie discovered polonium, named after her homeland Poland, and radium. She is the only person to win Nobel Prizes in two different sciences: physics in 1903 and chemistry in 1911. Her notebooks are still so radioactive that they are kept in lead-lined boxes in Paris, and readers must wear protective clothing.` },
+  { t: `More molecules in a glass than glasses in the sea`, b: `A glass of water (250 g) contains about 8 × 10²⁴ water molecules. All the oceans together hold roughly 1.3 billion cubic kilometres of water, about 5 × 10²¹ glassfuls. So there are over a thousand times more molecules in one glass of water than there are glasses of water in all the oceans on Earth.` },
+  { t: `Avogadro's number is now exact`, b: `Since 20 May 2019 the Avogadro constant has been fixed at exactly 6.02214076 × 10²³ per mole, and the mole is defined as exactly that many particles. Chemists celebrate Mole Day on 23 October from 6:02 in the morning to 6:02 in the evening, because of the date and time 6:02 10/23.` },
+  { t: `Most of your body is oxygen`, b: `By mass, your body is about 65% oxygen, 18% carbon, 10% hydrogen and 3% nitrogen, with calcium, phosphorus and a sprinkling of other elements making up the rest. The oxygen and hydrogen are mostly in water, which makes up around 60% of an adult's body. Yet by number of atoms, hydrogen is by far the most common.` },
+  { t: `Argon is more common than carbon dioxide`, b: `Dry air is about 78% nitrogen, 21% oxygen and 0.93% argon. Carbon dioxide, which matters so much for climate, is only about 0.04%. Argon, a noble gas, was discovered in 1894 by Lord Rayleigh and William Ramsay; its name comes from the Greek for "lazy", because it hardly reacts with anything.` },
+  { t: `Neon signs are only red-orange`, b: `Pure neon glows red-orange when electricity passes through it. The other colours of "neon" signs come from different gases, such as argon with a little mercury for blue, or from coloured phosphor coatings inside the glass. Neon was discovered in 1898 by William Ramsay and Morris Travers, and its name means "new".` },
+  { t: `Bread from air`, b: `The Haber–Bosch process, developed in Germany around 1909–1913, combines nitrogen from the air with hydrogen to make ammonia for fertiliser. It is estimated that about half of the world's population today is fed by crops grown with this synthetic nitrogen. Fritz Haber received the 1918 Nobel Prize in Chemistry, though he is also remembered for developing poison gas in the First World War.` },
+  { t: `Teflon was an accident`, b: `In 1938 the chemist Roy Plunkett at DuPont opened a cylinder of a refrigerant gas and found that nothing came out, even though it still weighed the same. The gas had turned into a slippery white solid: polytetrafluoroethylene, PTFE, better known as Teflon. It is so unreactive and slippery that it is used for non-stick pans, and almost nothing sticks to it.` },
+  { t: `The first fully synthetic plastic`, b: `In 1907 Leo Baekeland made Bakelite by reacting phenol with formaldehyde. It was the first fully synthetic plastic: hard, heat-resistant and a good electrical insulator, perfect for telephones, radios and light switches. Today the world produces more than 400 million tonnes of plastic every year.` },
+  { t: `Nylon stockings caused queues`, b: `Wallace Carothers and his team at DuPont made nylon in 1935, the first synthetic fibre made entirely from chemicals. When nylon stockings went on sale in the USA in 1940, millions of pairs sold in days. During the Second World War nylon was needed for parachutes and ropes, and stockings became so scarce that there were "nylon riots" when they returned.` },
+  { t: `Kevlar: stronger than steel`, b: `In 1965 the chemist Stephanie Kwolek at DuPont made a cloudy, runny polymer solution that colleagues wanted to throw away. She insisted on spinning it into fibres, and the result was Kevlar, about five times stronger than steel for the same weight. It is now used in bulletproof vests, helmets, ropes and bicycle tyres.` },
+  { t: `Super glue was rejected for being too sticky`, b: `In 1942 Harry Coover was trying to make clear plastic gun sights and found that cyanoacrylates stuck to everything, so the project dropped them. Years later he realised the stickiness was the point, and super glue went on sale in 1958. It sets when traces of water on surfaces start the polymerisation, and it was even used to close wounds.` },
+  { t: `A purple accident started the dye industry`, b: `In 1856 the 18-year-old William Perkin was trying to make the malaria drug quinine from coal tar. Instead he got a black sludge that dissolved to give a brilliant purple. He patented it as "mauveine", the first synthetic dye, and made purple, once a colour only the rich could afford, fashionable across Europe.` },
+  { t: `Saccharin was found by unwashed hands`, b: `In 1879 Constantin Fahlberg, working on coal-tar chemicals, noticed that his bread tasted remarkably sweet at dinner. He had not washed his hands after work in the lab, and he traced the sweetness back to the compound saccharin, about 300–400 times sweeter than sugar. Tasting chemicals in the lab is extremely dangerous, so do not try this.` },
+  { t: `Dynamite and the Nobel Prizes`, b: `Alfred Nobel invented dynamite in 1867 by soaking unstable nitroglycerine into a porous powdery earth called kieselguhr, making it safe to handle. In 1888 a newspaper mistakenly printed his obituary, calling him "the merchant of death". Shocked, Nobel left most of his fortune to fund the prizes that bear his name, first awarded in 1901.` },
+  { t: `One village, four elements`, b: `A quarry near the village of Ytterby in Sweden produced minerals from which chemists isolated several new elements in the 19th century. Four of them are named after the village: yttrium, ytterbium, terbium and erbium. No other place on Earth has given its name to so many elements.` },
+  { t: `The metal with the highest melting point`, b: `Tungsten melts at 3,422 °C, the highest melting point of any metal, which is why it was used for the glowing filaments of old light bulbs. Its symbol W comes from its other name, wolfram. The densest element of all is osmium, at about 22.6 g/cm³: a litre of it would weigh over 22 kg.` },
+  { t: `The "fluorine martyrs"`, b: `Fluorine is the most reactive element, and for decades chemists who tried to isolate it were poisoned or injured; several died. In 1886 Henri Moissan finally made it by electrolysis at low temperature in equipment made of platinum, and he won the 1906 Nobel Prize in Chemistry. Tiny amounts of fluoride in toothpaste help harden tooth enamel.` },
+  { t: `Astronauts drank water from their fuel cells`, b: `The Apollo spacecraft got their electricity from hydrogen–oxygen fuel cells. The only waste product was pure water, which the astronauts used for drinking. Fuel cells make electricity directly from a chemical reaction, without burning, and today they power some buses, cars and backup generators.` },
+  { t: `Octopuses have blue blood`, b: `Human blood is red because haemoglobin carries oxygen using iron. Octopuses, squid and horseshoe crabs use haemocyanin instead, which contains copper and turns blue when it carries oxygen. Octopuses also have three hearts. In plants, chlorophyll has a magnesium atom at its centre, in a ring structure very similar to the one in haemoglobin.` },
+  { t: `Bananas are slightly radioactive`, b: `Bananas are rich in potassium, and a tiny fraction of natural potassium is radioactive potassium-40. Eating a banana gives you a very small dose of radiation, so small that the "banana equivalent dose" is sometimes used to explain radiation levels. Your own body contains about 4,000 decaying potassium-40 atoms every second.` },
+  { t: `Carbon-14 tells the age of ancient things`, b: `Living things constantly take in carbon, including a small, steady fraction of radioactive carbon-14. When they die, the carbon-14 decays with a half-life of about 5,730 years and is not replaced. By measuring how much is left, Willard Libby showed in 1949 how to date wood, bone and cloth up to about 50,000 years old, and won the 1960 Nobel Prize in Chemistry.` },
+  { t: `From sand to smartphones`, b: `Computer chips are made from silicon, the second most common element in the Earth's crust after oxygen, found in ordinary sand as silicon dioxide. For chips it must be purified to about 99.9999999% or better, so that fewer than one atom in a billion is an impurity. Tiny, controlled amounts of boron or phosphorus are then added to make the transistors work.` },
+  { t: `The smell of rain has a name`, b: `The earthy smell after rain on dry ground is called petrichor, a word coined by two Australian scientists in 1964. Much of it comes from geosmin, a compound made by soil bacteria. The human nose is extraordinarily sensitive to geosmin and can detect it at a few parts per trillion, more sensitive than a shark is to blood.` },
+  { t: `Why onions make you cry`, b: `When you cut an onion, you break its cells and mix enzymes with sulfur compounds. The reaction releases a volatile gas, syn-propanethial-S-oxide, which reaches your eyes and reacts with the water there to irritate them, so your eyes make tears to wash it away. Chilling the onion first slows the reaction.` },
+  { t: `Measuring the heat of chilli`, b: `The heat of chillies comes from capsaicin, which triggers the same nerve receptors in your mouth that detect burning heat. In 1912 the pharmacist Wilbur Scoville created a scale by diluting chilli extract until tasters could no longer feel it. Capsaicin dissolves in fat and alcohol but not in water, which is why milk soothes a burning mouth better than water.` },
+  { t: `Why durian smells so strong`, b: `Chemists who analysed durian in 2012 identified about 50 compounds that contribute to its aroma, including fruity esters and pungent sulfur compounds similar to those in onions and rotten eggs. The mixture is so powerful that durian is banned on public transport and in many hotels in Singapore and other parts of Southeast Asia.` },
+  { t: `Chocolate is designed to melt in your mouth`, b: `Cocoa butter can crystallise in six different forms, each with its own melting point. Chocolate makers carefully "temper" chocolate so it sets in form V, which melts at about 34 °C: solid and snappy at room temperature, but melting just below body temperature on your tongue. If chocolate gets warm and re-sets in the wrong form, a whitish "bloom" appears.` },
+  { t: `The chemistry of firework colours`, b: `Firework colours come from metal salts heated in the explosion: strontium gives red, sodium yellow, barium green, copper blue and a mix of strontium and copper purple. Each metal's electrons jump to higher energy levels and emit light of particular wavelengths as they fall back. A deep, pure blue is the hardest colour for pyrotechnicians to make.` },
+  { t: `The Statue of Liberty used to be copper-coloured`, b: `The Statue of Liberty has a skin of copper sheets only about 2.4 mm thick. When it was unveiled in 1886 it was shiny reddish-brown. Over the following decades, the copper reacted with air, water and pollutants to form a green patina of copper carbonates, sulfates and chlorides, which now protects the metal underneath from further corrosion.` },
+  { t: `Why stainless steel does not rust`, b: `In 1913 Harry Brearley in Sheffield found that steel containing about 13% chromium did not rust. The chromium reacts with oxygen to form an invisible layer of chromium oxide only a few nanometres thick, which seals the surface. If the layer is scratched, it repairs itself almost instantly in air.` },
+  { t: `Dry ice skips the liquid stage`, b: `Solid carbon dioxide, "dry ice", is at −78.5 °C and turns directly from solid to gas without melting, which is called sublimation. That is why it leaves no puddle and is used to ship frozen food and vaccines. The fog effect on stages comes from dropping dry ice into warm water: the cold gas condenses water vapour into tiny droplets.` },
+  { t: `Liquid nitrogen boils at −196 °C`, b: `Nitrogen, which makes up 78% of the air, becomes liquid only below −196 °C. Poured onto a warm floor, it boils so fast that the drops skate around on a cushion of vapour. It is used to freeze and store cells and embryos, to remove warts, and to make ice cream in seconds; because it expands about 700 times as it boils, it must never be sealed in a closed container.` },
+  { t: `A bacterium that eats plastic bottles`, b: `PET plastic bottles can last for centuries in the environment. In 2016 Japanese scientists reported a bacterium, Ideonella sakaiensis, found near a bottle recycling plant, that can break down PET using two enzymes and live on it. Researchers are now engineering faster versions of these enzymes to recycle plastic back into its building blocks.` },
+  { t: `Enzymes are astonishingly fast`, b: `Enzymes are protein catalysts. One of the most impressive, orotidine 5'-phosphate decarboxylase, speeds up a reaction needed to make DNA and RNA by a factor of about 10¹⁷. Without it, the reaction would have a half-life of about 78 million years; with the enzyme, it happens in a few milliseconds.` },
+  { t: `Catalytic converters use precious metals`, b: `A car's catalytic converter contains tiny amounts of platinum, palladium and rhodium spread on a honeycomb of ceramic. They turn toxic carbon monoxide, nitrogen oxides and unburnt fuel into carbon dioxide, nitrogen and water. Rhodium is so rare that in 2021 it became the most expensive precious metal, worth many times the price of gold.` },
+  { t: `Indonesia leads the world in nickel`, b: `Indonesia is the world's largest producer of nickel, supplying about half of global output in recent years. Nickel is used in stainless steel and, increasingly, in the cathodes of lithium-ion batteries for electric vehicles. Much of Indonesia's nickel ore comes from Sulawesi and Halmahera, where it is refined in large industrial parks.` },
+  { t: `The islands of tin`, b: `The islands of Bangka and Belitung have been mined for tin for centuries, making Indonesia one of the world's top tin producers. Tin is essential for solder, which joins components on almost every circuit board in phones and computers. It is also used to coat steel cans, because tin resists corrosion.` },
+  { t: `Your stomach holds hydrochloric acid`, b: `Gastric acid in your stomach has a pH of about 1.5 to 3.5, strong enough to dissolve some metals. It kills most bacteria in food and helps the enzyme pepsin break down proteins. The stomach protects itself with a thick layer of mucus and by constantly renewing its lining cells.` },
+  { t: `Pure water hardly conducts electricity`, b: `It is the dissolved ions in tap water, sea water and sweat, not the water molecules themselves, that let electricity flow. Ultrapure water used in chip factories conducts electricity about a million times less well than sea water. Even so, never use electrical devices near water: ordinary water always contains enough ions to be dangerous.` },
+  { t: `A dangerous metal plus a poisonous gas makes salt`, b: `Sodium is a soft metal that reacts violently with water, and chlorine is a toxic green gas that was used as a weapon in the First World War. Yet when they react together they form sodium chloride, ordinary table salt, which we need to live. Compounds can have completely different properties from the elements they are made of.` },
+  { t: `Water is densest at 4 °C`, b: `Most liquids get denser as they cool, but water is densest at about 4 °C and expands as it approaches freezing. Hydrogen bonds hold the molecules of ice in an open hexagonal lattice with lots of empty space, which is why ice floats and why snowflakes have six-fold symmetry.` },
+  { t: `Why ozone smells after a storm`, b: `Lightning splits oxygen molecules, and some of the atoms join O₂ to form ozone, O₃, which has a sharp, clean smell; its name comes from the Greek for "to smell". High in the stratosphere, the ozone layer absorbs most of the Sun's harmful ultraviolet light. Near the ground, however, ozone is a pollutant that irritates the lungs.` },
+  { t: `The rarest natural element`, b: `Astatine, element 85, is formed only briefly during the decay of uranium and thorium, and its longest-lived form has a half-life of about 8 hours. It is estimated that less than a gram of it exists in the entire Earth's crust at any moment. No one has ever seen a visible piece of it, because any sample would vaporise from its own radioactive heat.` },
+  { t: `Vulcanised rubber was discovered on a stove`, b: `Natural rubber turns sticky in heat and brittle in cold. In 1839 Charles Goodyear accidentally dropped a mixture of rubber and sulfur on a hot stove and found it became tough and elastic. Sulfur atoms form cross-links between the long rubber molecules. Vulcanised rubber made car tyres possible, and Indonesia is today one of the world's largest producers of natural rubber.` },
+  { t: `The symbol J is missing`, b: `Look at the periodic table and you will not find the letter J in any element symbol. Symbols come from names in Latin, Greek, German or other languages: Fe for iron (ferrum), Na for sodium (natrium), K for potassium (kalium), Pb for lead (plumbum), Au for gold (aurum) and Ag for silver (argentum).` },
+  { t: `Glass is an amorphous solid`, b: `In a crystal such as quartz, atoms sit in a regular repeating pattern. Glass is made of the same main ingredient, silicon dioxide, but it is cooled so quickly from the melt that the atoms freeze in a disordered arrangement, like a snapshot of a liquid. Nature makes glass too: obsidian forms when lava cools very fast.` },
+  { t: `Rust is slow burning`, b: `Rusting and burning are both oxidation reactions: iron combining with oxygen releases heat, just much more slowly. Hand-warmer packets use this: they contain iron powder, salt and water, and when you open them and let air in, the iron rusts quickly enough to warm your hands for hours.` },
+  { t: `Why soap removes grease`, b: `A soap molecule has a water-loving head and a long oil-loving tail. In water, the tails bury themselves in grease while the heads face outwards, forming tiny balls called micelles that can be rinsed away. People have made soap for more than 4,000 years by heating fats with alkali from wood ash; the Babylonians already recorded a recipe.` }
+];
+
 /* ==========================================================================
    App: routing, lessons, worksheet generation, checking, answer key, print,
    language switching
@@ -3904,6 +3982,7 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;',
 const LETTERS = 'ABCD';
 const ICON = {
   print: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2M6 14h12v7H6z"/></svg>',
+  bulb: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg>',
   refresh: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8M4 4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16M20 20v-4h-4"/></svg>',
   chev: '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>',
   check: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>',
@@ -3938,6 +4017,8 @@ const UI_EN = {
   reviewLink: 'Mixed review worksheet →',
   freshQ: 'Fresh question',
   anotherQ: 'Another question',
+  funFact: 'Fun fact',
+  anotherFact: 'Another fact',
   showAnswer: 'Show answer',
   hideAnswer: 'Hide answer',
   answerColon: 'Answer:',
@@ -4315,7 +4396,7 @@ function renderHome() {
       <p class="lede">${esc(ui('heroLede', ALL.length))}</p>
       <div class="hero-cta"><a class="btn btn-primary" href="#${first.id}">${esc(ui('startWith', tTitle(first)))}</a><a class="btn" href="#${LEVELS.filter(l => l.review).sort((x, y) => y.topics.length - x.topics.length)[0].review.id}">${esc(ui('tryReview'))}</a></div>
     </div>
-    <div class="sample" id="sample" aria-live="polite"></div>
+    <div class="hero-side"><div class="sample" id="sample" aria-live="polite"></div><aside class="fact" id="fact" aria-live="polite"></aside></div>
   </section>
   <section class="ladder" aria-label="${esc(ui('levels'))}">
     ${LEVELS.map(lv => `
@@ -4327,6 +4408,24 @@ function renderHome() {
     </article>`).join('')}
   </section>`;
   renderSample();
+  renderFact(false);
+}
+/* fun facts: a shuffled deck in localStorage, so each visit shows a fact not seen recently */
+let factIdx = null;
+function nextFact() {
+  let deck = store.get('factDeck', []);
+  if (!Array.isArray(deck) || !deck.length || deck.some(i => !(i < FACTS.length))) {
+    deck = FACTS.map((_, i) => i);
+    for (let i = deck.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [deck[i], deck[j]] = [deck[j], deck[i]]; }
+  }
+  factIdx = deck.shift(); store.set('factDeck', deck);
+}
+function renderFact(fresh = true) {
+  const el = $('#fact'); if (!el || !FACTS.length) return;
+  if (fresh || factIdx === null) nextFact();
+  const p = I18N_PACKS[I18N.lang], f = (p && p.facts && p.facts[factIdx]) || FACTS[factIdx];
+  setHTML(el, `<p class="fact-label">${ICON.bulb}${esc(ui('funFact'))}</p><h2 class="fact-title">${f.t}</h2><p class="fact-body">${f.b}</p>
+    <div class="sample-actions"><button type="button" class="btn btn-small" data-act="fact-new">${ICON.refresh}${esc(ui('anotherFact'))}</button></div>`);
 }
 let sampleState = null;   // { topicId, seed } so a language switch shows the same question
 function renderSample(fresh = true) {
@@ -4562,6 +4661,7 @@ main.addEventListener('click', e => {
     case 'print-both': doPrint('both'); break;
     case 'print-lesson': doPrint('lesson'); break;
     case 'sample-new': renderSample(); break;
+    case 'fact-new': renderFact(); break;
     case 'sample-reveal': { const open = btn.getAttribute('aria-expanded') !== 'true'; btn.setAttribute('aria-expanded', String(open)); btn.textContent = ui(open ? 'hideAnswer' : 'showAnswer'); $('#sample-ans').classList.toggle('collapsed', !open); break; }
   }
 });

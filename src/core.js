@@ -20,6 +20,7 @@ const I18N_PACKS = {};
 const langPack = code => I18N_PACKS[code] || (I18N_PACKS[code] = { t: {}, ui: {}, meta: {} });
 function addT(code, o) { Object.assign(langPack(code).t, o); }
 function addUI(code, o) { Object.assign(langPack(code).ui, o); }
+function addFacts(code, a) { langPack(code).facts = a; }
 function addMeta(code, o) { const m = langPack(code).meta; for (const k in o) m[k] = Object.assign(m[k] || {}, o[k]); }
 function setLang(code) {
   const p = code === 'en' ? null : I18N_PACKS[code];

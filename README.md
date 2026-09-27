@@ -75,6 +75,7 @@ python tools/i18n.py missing id  # strings still untranslated
 | `src/fig.js`, `src/chem.js` | General figure builders (graphs, charts, flows) and number and unit helpers. |
 | `src/ladder.js` | Prerequisite links between topics and to Math Ladder and Physics Ladder, each with its reason. |
 | `src/core.js` | Random numbers, number formatting, formula builders, the translation system. |
+| `src/facts.js` | Fun facts shown on the home page, one per visit from a shuffled deck (Indonesian versions in `src/lang/id/facts.js`, same order). |
 | `src/app.js` | Navigation, worksheets, answer checking, answer key, printing, language menu, day/night mode. |
 | `src/style.css`, `src/head.html`, `src/body.html` | Styles (light/dark, print, chemistry colours) and page skeleton. |
 | `src/lang/<code>/` | Translation sources. |

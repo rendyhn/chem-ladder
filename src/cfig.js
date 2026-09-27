@@ -350,19 +350,21 @@ function ionicTransferSvg(metal, nm, { label, nmCount = 1 } = {}) {
   return s + '</svg>';
 }
 /* NaCl-type lattice in oblique projection: n × n × n ions, alternating */
-function latticeSvg({ label, n = 3, a = 60, names = ['Na⁺', 'Cl⁻'] } = {}) {
-  const dx = 0.5, dy = 0.36, W = 60 + (n - 1) * a * (1 + dx) + 40, H = 40 + (n - 1) * a * (1 + dy) + 60;
+function latticeSvg({ label, n = 3, a = 66, names = ['Na⁺', 'Cl⁻'] } = {}) {
+  const dx = 0.35, dy = 0.25, W = 60 + (n - 1) * a * (1 + dx) + 40, H = 40 + (n - 1) * a * (1 + dy) + 60;
   const P = (i, j, k) => [36 + i * a + k * a * dx, H - 58 - j * a - k * a * dy];
-  let s = svgBox(W, H, label), balls = [];
+  let s = svgBox(W, H, label);
+  const items = [];   // painter's order: back (large k) first; edges just behind the ions of their plane
+  const edge = (p, q, d) => items.push([d + 0.1, sL(...p, ...q, '', ` style="stroke:var(--ink-${d < 0.6 ? 2 : 3});stroke-width:${d < 0.6 ? 1.8 : 1.4};stroke-opacity:${d < 0.6 ? 1 : 0.9}"`)]);
   for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) for (let k = 0; k < n; k++) {
-    const [x, y] = P(i, j, k);
-    if (i < n - 1) s += sL(x, y, ...P(i + 1, j, k), 'mf-grid', ' stroke-width="1.4"');
-    if (j < n - 1) s += sL(x, y, ...P(i, j + 1, k), 'mf-grid', ' stroke-width="1.4"');
-    if (k < n - 1) s += sL(x, y, ...P(i, j, k + 1), 'mf-grid', ' stroke-width="1.4"');
-    balls.push([k, i, j, x, y, (i + j + k) % 2]);
+    const p = P(i, j, k);
+    if (i < n - 1) edge(p, P(i + 1, j, k), k);
+    if (j < n - 1) edge(p, P(i, j + 1, k), k);
+    if (k < n - 1) edge(p, P(i, j, k + 1), k + 0.95);
+    items.push([k - j * 0.01, (i + j + k) % 2 ? sC(...p, 11, 'ch-bX') : sC(...p, 7.5, 'ch-bN')]);
   }
-  balls.sort((p, q) => q[0] - p[0] || p[2] - q[2]).forEach(([, , , x, y, t]) => { s += t ? sC(x, y, 12.5, 'ch-bX') : sC(x, y, 7.5, 'ch-bN'); });
-  s += sC(W / 2 - 70, H - 16, 9, 'ch-bN') + sT(W / 2 - 56, H - 12, names[0], 'mf-small', 'start') + sC(W / 2 + 20, H - 16, 13, 'ch-bX') + sT(W / 2 + 38, H - 12, names[1], 'mf-small', 'start');
+  items.sort((u, v) => v[0] - u[0]).forEach(([, t]) => { s += t; });
+  s += sC(W / 2 - 70, H - 16, 7.5, 'ch-bN') + sT(W / 2 - 56, H - 12, names[0], 'mf-small', 'start') + sC(W / 2 + 20, H - 16, 11, 'ch-bX') + sT(W / 2 + 38, H - 12, names[1], 'mf-small', 'start');
   return s + '</svg>';
 }
 /* metallic bonding: a lattice of positive ions in a sea of delocalised electrons */
