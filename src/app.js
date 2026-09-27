@@ -8,6 +8,7 @@ const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const LETTERS = 'ABCD';
 const ICON = {
+  grid: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg>',
   print: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2M6 14h12v7H6z"/></svg>',
   bulb: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg>',
   refresh: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8M4 4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16M20 20v-4h-4"/></svg>',
@@ -24,14 +25,14 @@ const UI_EN = {
   language: 'Language',
   mixedReview: 'Mixed review',
   reviewTitle: '⟦0⟧: Mixed Review',
-  reviewBlurb: 'One worksheet drawing questions from all ⟦0⟧ ready topics of this track — good for revision before a test.',
+  reviewBlurb: 'One worksheet drawing questions from all ⟦0⟧ topics of this track — good for revision before a test.',
   heroEyebrow: 'Chemistry · Topic by topic',
   heroTitle: 'From atoms to reactions, one rung at a time.',
   heroLede: '⟦0⟧ topics from junior high school to university, laid out in tracks from matter and atoms to bonding, reactions, acids, electrochemistry and organic chemistry. Each has an illustrated lesson and a practice worksheet that is generated fresh every time you open it, with worked solutions, an answer key and print-ready pages.',
   startWith: 'Start with ⟦0⟧',
   tryReview: 'Try a mixed review',
   levels: 'Tracks',
-  nTopics: '⟦0⟧ of ⟦1⟧ topics ready',
+  nTopics: '⟦0⟧ topics',
   soon: 'Coming soon',
   trackSoon: 'This track is being written. Its topics are listed so you can see where they fit.',
   stage_jh: 'Junior high',
@@ -46,6 +47,22 @@ const UI_EN = {
   anotherQ: 'Another question',
   funFact: 'Fun fact',
   anotherFact: 'Another fact',
+  hint: 'Hint',
+  hintHead: 'Key idea from the lesson',
+  openLesson: 'Open the lesson',
+  pgLevel: '⟦0⟧ of ⟦1⟧ mastered',
+  pgSum: 'Your progress: ⟦0⟧ of ⟦1⟧ topics mastered',
+  pgNote: 'A topic counts as mastered after 70% or more on a worksheet. Saved only in this browser.',
+  pgReset: 'Reset progress',
+  pgConfirm: 'Delete your saved scores on this device?',
+  pgDoneTip: 'Mastered',
+  pgStartTip: 'Started',
+  bestScore: 'Best: ⟦0⟧%',
+  subjects: 'Other subjects',
+  subjMath: 'Mathematics',
+  subjPhysics: 'Physics',
+  subjChem: 'Chemistry',
+  subjGeo: 'Geography',
   showAnswer: 'Show answer',
   hideAnswer: 'Hide answer',
   answerColon: 'Answer:',
@@ -404,6 +421,7 @@ function route(keepScroll = false) {
   current = r;
   if (r.view === 'home') renderHome(); else renderTopic(TOPICS.get(r.id), r.tab);
   markNav(r.id);
+  paintProgress();
   if (keepScroll === true) return;
   if (!sameTopic) window.scrollTo(0, 0);
   else { const head = $('.topic-tabs'); if (head && head.getBoundingClientRect().top < 0) head.scrollIntoView(); }
@@ -425,10 +443,11 @@ function renderHome() {
     </div>
     <div class="hero-side"><div class="sample" id="sample" aria-live="polite"></div><aside class="fact" id="fact" aria-live="polite"></aside></div>
   </section>
+  <div class="pg-sum" id="pg-sum" hidden></div>
   <section class="ladder" aria-label="${esc(ui('levels'))}">
     ${LEVELS.map(lv => `
     <article class="level" style="--lv: var(--${lv.color})">
-      <header class="level-head"><span class="rung rung-lg" aria-hidden="true">${lv.mark}</span><div><h2>${esc(lvName(lv))}</h2><p class="band">${esc(lvBand(lv))} · ${esc(ui('nTopics', lv.topics.length, lv.all.length))}</p></div></header>
+      <header class="level-head"><span class="rung rung-lg" aria-hidden="true">${lv.mark}</span><div><h2>${esc(lvName(lv))}</h2><p class="band">${esc(lvBand(lv))} · ${esc(ui('nTopics', lv.topics.length))}</p></div></header>
       <p class="level-blurb">${esc(lvBlurb(lv))}</p>
       <ol class="level-topics">${lv.all.map(t => t.soon ? `<li class="soon">${esc(tTitle(t))}</li>` : `<li><a href="#${t.id}">${esc(tTitle(t))}</a></li>`).join('')}</ol>
       ${lv.review ? `<a class="level-review" href="#${lv.review.id}">${esc(ui('reviewLink'))}</a>` : lv.topics.length ? '' : `<p class="level-soon">${esc(ui('trackSoon'))}</p>`}
@@ -470,7 +489,8 @@ function renderSample(fresh = true) {
     <div class="sample-head"><span class="sample-label">${esc(ui('freshQ'))}</span><a class="sample-topic" style="--lv: var(--${t.level.color})" href="#${t.id}.practice">${esc(lvShort(t.level))} · ${esc(tTitle(t))}</a></div>
     <div class="sample-q">${it.q}</div>
     ${it.type === 'mc' ? `<ol class="sample-choices">${it.choices.map((c, j) => `<li><span class="letter" aria-hidden="true">${LETTERS[j]}</span><span>${c}</span></li>`).join('')}</ol>` : ''}
-    <div class="sample-actions"><button type="button" class="btn btn-small" data-act="sample-new">${ICON.refresh}${esc(ui('anotherQ'))}</button><button type="button" class="btn btn-small btn-ghost" data-act="sample-reveal" aria-expanded="false" aria-controls="sample-ans">${esc(ui('showAnswer'))}</button></div>
+    <div class="sample-actions"><button type="button" class="btn btn-small" data-act="sample-new">${ICON.refresh}${esc(ui('anotherQ'))}</button>${topicHint(t.id) ? `<button type="button" class="btn btn-small btn-ghost" data-act="sample-hint" aria-expanded="false" aria-controls="sample-hint">${ICON.bulb}${esc(ui('hint'))}</button>` : ''}<button type="button" class="btn btn-small btn-ghost" data-act="sample-reveal" aria-expanded="false" aria-controls="sample-ans">${esc(ui('showAnswer'))}</button></div>
+    <div class="q-hint" id="sample-hint" hidden></div>
     <div class="sample-ans reveal collapsed" id="sample-ans"><p class="sample-answer"><b>${esc(ui('answerColon'))}</b> ${it.type === 'mc' ? `${LETTERS[it.correct]} — ${it.choices[it.correct]}` : it.ansHTML}</p><p class="sample-sol">${it.s}</p></div>`);
 }
 
@@ -492,6 +512,7 @@ function renderTopic(t, tab) {
   if (tab === 'practice') renderPractice(t); else renderLesson(t);
 }
 function renderLesson(t) {
+  markSeen(t.id);
   const i = ALL.indexOf(t), prev = ALL[i - 1], next = ALL[i + 1];
   const body = typeof t.lesson === 'function' ? t.lesson() : t.lesson;
   setHTML($('#panel'), `
@@ -535,7 +556,7 @@ function renderPractice(t, fresh = false) {
     const body = it.type === 'mc'
       ? `<div class="choices" role="radiogroup" aria-label="${esc(ui('choicesFor', i + 1))}">${it.choices.map((c, j) => `<label class="choice${ans === j ? ' sel' : ''}" for="${base}-${j}"><input type="radio" id="${base}-${j}" name="${base}" value="${j}" data-i="${i}"${ans === j ? ' checked' : ''}><span class="letter" aria-hidden="true">${LETTERS[j]}</span><span class="choice-body">${c}</span></label>`).join('')}</div>`
       : `<div class="fill"><label class="fill-label" for="${base}-in">${esc(ui('answer'))}</label><input type="text" dir="ltr" id="${base}-in" data-i="${i}" autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="text" placeholder="${esc(ui('typeAnswer'))}" value="${esc(ans || '')}">${it.u ? `<span class="fill-unit">${esc(it.u)}</span>` : ''}</div>${it.h ? `<p class="fill-hint no-print">${esc(it.h)}</p>` : ''}`;
-    return `<li class="q" data-i="${i}"><div class="q-meta"><span class="q-num">${i + 1}</span><span class="q-type">${esc(ui(it.type === 'mc' ? 'qMc' : 'qFill'))}</span>${t.review ? `<span class="q-topic">${esc(tTitle(TOPICS.get(it.topic)))}</span>` : ''}</div><div class="q-text">${it.q}</div>${body}<p class="feedback" aria-live="polite"></p></li>`;
+    return `<li class="q" data-i="${i}"><div class="q-meta"><span class="q-num">${i + 1}</span><span class="q-type">${esc(ui(it.type === 'mc' ? 'qMc' : 'qFill'))}</span>${t.review ? `<span class="q-topic">${esc(tTitle(TOPICS.get(it.topic)))}</span>` : ''}</div><div class="q-text">${it.q}</div>${body}${hintUI(it.topic, i)}<p class="feedback" aria-live="polite"></p></li>`;
   }).join('');
   const key = sh.items.map((it, i) => `<li><div class="key-row"><span class="q-num">${i + 1}</span><div class="key-ans">${it.type === 'mc' ? `<span class="key-letter">${LETTERS[it.correct]}</span>${it.choices[it.correct]}` : it.ansHTML}</div></div>${it.s ? `<div class="key-sol">${it.s}</div>` : ''}</li>`).join('');
   setHTML($('#panel'), `
@@ -590,10 +611,82 @@ function checkSheet(announce = true) {
     fbs.push(fb);
   });
   sh.checked = true;
+  if (announce) saveScore(sh.topicId, Math.round(100 * right / sh.items.length));
   const score = main.querySelector('.score');
   if (score) score.innerHTML = `<b>${esc(ui('scoreLine', right, sh.items.length))}</b>${blank ? ` · ${esc(ui('unanswered', blank))}` : ''}`;
+  const best = (prog()[sh.topicId] || {}).best;
+  if (score && best != null) score.insertAdjacentHTML('beforeend', ` · ${esc(ui('bestScore', best))}`);
+  if (announce) paintProgress();
   fbs.forEach(typeset);
   if (announce) { const first = main.querySelector('.q.is-wrong, .q.is-blank'); if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+}
+
+/* ---------------- progress: best score per topic, kept in this browser only ---------------- */
+const PASS = 70;   // a topic counts as mastered after a worksheet scored at least this (%)
+const prog = () => { const p = store.get('progress', {}); return p && typeof p === 'object' ? p : {}; };
+function saveScore(id, pct) {
+  const p = prog(), r = p[id] || {};
+  p[id] = { best: Math.max(r.best || 0, pct), last: pct, n: (r.n || 0) + 1, t: Date.now() };
+  store.set('progress', p);
+}
+function markSeen(id) { const p = prog(); if (!p[id]) { p[id] = { seen: 1 }; store.set('progress', p); } }
+const topicState = (p, id) => { const r = p[id]; return !r ? '' : r.best >= PASS ? 'done' : 'started'; };
+function paintProgress() {
+  const p = prog(), mark = (a, id) => {
+    const s = topicState(p, id); a.classList.toggle('pg-done', s === 'done'); a.classList.toggle('pg-started', s === 'started');
+    if (s) a.title = ui(s === 'done' ? 'pgDoneTip' : 'pgStartTip') + (p[id].best != null ? ' · ' + ui('bestScore', p[id].best) : ''); else a.removeAttribute('title');
+  };
+  nav.querySelectorAll('a[data-id]').forEach(a => mark(a, a.dataset.id));
+  if (current.view !== 'home') return;
+  const any = Object.keys(p).length > 0;
+  let total = 0, done = 0;
+  main.querySelectorAll('.level').forEach((card, k) => {
+    const lv = LEVELS[k]; if (!lv) return;
+    const ids = lv.topics.map(t => t.id), d = ids.filter(id => topicState(p, id) === 'done').length;
+    total += ids.length; done += d;
+    card.querySelectorAll('.level-topics a[href^="#"]').forEach(a => mark(a, a.getAttribute('href').slice(1)));
+    let bar = card.querySelector('.level-pg');
+    if (!any || !ids.length) { if (bar) bar.remove(); return; }
+    if (!bar) { bar = document.createElement('div'); bar.className = 'level-pg'; card.querySelector('.level-head').after(bar); }
+    bar.innerHTML = `<span class="pg-track"><span style="width:${Math.round(100 * d / ids.length)}%"></span></span><span class="pg-text">${esc(ui('pgLevel', d, ids.length))}</span>`;
+  });
+  const sum = main.querySelector('#pg-sum');
+  if (sum) { sum.hidden = !any; sum.innerHTML = any ? `<p>${esc(ui('pgSum', done, total))} <small>${esc(ui('pgNote'))}</small></p><button type="button" class="btn btn-small btn-ghost" data-act="pg-reset">${esc(ui('pgReset'))}</button>` : ''; }
+}
+
+/* ---------------- hints: the key ideas of a question's topic, taken from its lesson ---------------- */
+const hintCache = new Map();
+function topicHint(id) {
+  const k = I18N.lang + ':' + id; if (hintCache.has(k)) return hintCache.get(k);
+  const t = TOPICS.get(id); let html = '';
+  if (t && !t.review && t.lesson) {
+    try {
+      const tpl = document.createElement('template'); tpl.innerHTML = typeof t.lesson === 'function' ? t.lesson() : t.lesson;
+      html = [...tpl.content.querySelectorAll('.box-key')].map(b => { const l = b.querySelector('.box-label'); if (l) l.remove(); return b.innerHTML; }).join('');
+    } catch (e) { html = ''; }
+  }
+  hintCache.set(k, html); return html;
+}
+const hintUI = (topicId, i) => topicHint(topicId) ? `<div class="q-hint-wrap no-print"><button type="button" class="hint-btn" data-act="hint" data-i="${i}" aria-expanded="false">${ICON.bulb}${esc(ui('hint'))}</button><div class="q-hint" hidden></div></div>` : '';
+function toggleHint(btn, box, topicId) {
+  const open = btn.getAttribute('aria-expanded') !== 'true'; btn.setAttribute('aria-expanded', String(open)); box.hidden = !open;
+  if (open && !box.dataset.done) { box.dataset.done = '1'; setHTML(box, `<p class="hint-head">${esc(ui('hintHead'))} · <a href="#${topicId}">${esc(ui('openLesson'))}</a></p>${topicHint(topicId)}`); }
+}
+
+/* ---------------- the subject menu: jump to the other Ladder sites in the same language ---------------- */
+const SUBJ_KEY = { math: 'subjMath', physics: 'subjPhysics', chem: 'subjChem', geo: 'subjGeo' };
+function renderSubjects() {
+  const btn = $('#subj-btn'), menu = $('#subj-menu'); if (!btn) return;
+  btn.setAttribute('aria-label', ui('subjects')); btn.title = ui('subjects');
+  const q = I18N.lang === 'en' ? '' : '?lang=' + I18N.lang;
+  menu.innerHTML = `<p class="subj-head">${esc(ui('subjects'))}</p>` + SUBJECTS.map(s => `<a class="subj-item" href="${s.id === SUBJECT ? '#' : s.url + q}"${s.id === SUBJECT ? ' aria-current="page"' : ''}>${s.logo}<span><b>${esc(s.name)}</b><small>${esc(ui(SUBJ_KEY[s.id]))}</small></span></a>`).join('');
+}
+function setSubjOpen(open) { const b = $('#subj-btn'), m = $('#subj-menu'); if (!b) return; b.setAttribute('aria-expanded', String(open)); m.hidden = !open; }
+if ($('#subj-btn')) {
+  $('#subj-btn').addEventListener('click', e => { e.stopPropagation(); setSubjOpen($('#subj-menu').hidden); });
+  document.addEventListener('click', e => { if (!e.target.closest('#subj')) setSubjOpen(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#subj-menu').hidden) { setSubjOpen(false); $('#subj-btn').focus(); } });
+  $('#subj-menu').addEventListener('click', e => { const a = e.target.closest('a'); if (a && a.getAttribute('aria-current')) { e.preventDefault(); setSubjOpen(false); location.hash = ''; } });
 }
 
 /* ---------------- printing ---------------- */
@@ -635,6 +728,7 @@ function applyChrome() {
   updateThemeBtn();
   $('#lang-code').textContent = code.toUpperCase();
   langSel.value = code;
+  renderSubjects();
   updatePrintStyle();
 }
 async function changeLang(code, persist = true) {
@@ -689,6 +783,9 @@ main.addEventListener('click', e => {
     case 'print-lesson': doPrint('lesson'); break;
     case 'sample-new': renderSample(); break;
     case 'fact-new': renderFact(); break;
+    case 'hint': { const sh = currentSheet(), it = sh && sh.items[+btn.dataset.i]; if (it) toggleHint(btn, btn.parentElement.querySelector('.q-hint'), it.topic); break; }
+    case 'sample-hint': if (sampleState) toggleHint(btn, $('#sample-hint'), sampleState.topicId); break;
+    case 'pg-reset': if (confirm(ui('pgConfirm'))) { store.set('progress', {}); paintProgress(); } break;
     case 'sample-reveal': { const open = btn.getAttribute('aria-expanded') !== 'true'; btn.setAttribute('aria-expanded', String(open)); btn.textContent = ui(open ? 'hideAnswer' : 'showAnswer'); $('#sample-ans').classList.toggle('collapsed', !open); break; }
   }
 });
@@ -708,4 +805,6 @@ window.__mathLadder = { finalize, checkFill, canFill, TOPICS, changeLang, UI_EN 
 const startLang = initialLang();
 if (startLang === 'en') { setLang('en'); applyChrome(); renderNav(); route(); }
 else changeLang(startLang, false);
+/* offline support: cache the site with a service worker (only when served over http(s), not from a file or an artifact) */
+if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol) && !window.__noSW) window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => { /* not available here */ }); });
 })();

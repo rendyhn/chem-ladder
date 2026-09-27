@@ -10,6 +10,9 @@
 <meta property="og:description" content="Chemistry topic by topic, with illustrated lessons, fresh practice worksheets every time, worked solutions and printable answer keys.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#2340B8">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="apple-mobile-web-app-title" content="Chem Ladder">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='1' y='1' width='62' height='62' rx='14' fill='%23141B2B' stroke='%23FFFFFF' stroke-opacity='0.14' stroke-width='2'/%3E%3Cdefs%3E%3CclipPath id='fl'%3E%3Cpath d='M28 12H36V26L49 47Q51 51 46 51H18Q13 51 15 47L28 26Z'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg clip-path='url%28%23fl%29'%3E%3Crect x='10' y='34' width='44' height='4.5' fill='%23F58BB0'/%3E%3Crect x='10' y='38.5' width='44' height='4.5' fill='%23A9B2FF'/%3E%3Crect x='10' y='43' width='44' height='4.5' fill='%2334CDB8'/%3E%3Crect x='10' y='47.5' width='44' height='5' fill='%23FB8B52'/%3E%3C/g%3E%3Ccircle cx='31' cy='29.5' r='1.9' fill='%23FFFFFF'/%3E%3Ccircle cx='33.4' cy='23.5' r='1.4' fill='%23FFFFFF' fill-opacity='0.8'/%3E%3Ccircle cx='30.6' cy='18.5' r='1.1' fill='%23FFFFFF' fill-opacity='0.6'/%3E%3Cpath d='M28 12H36V26L49 47Q51 51 46 51H18Q13 51 15 47L28 26Z' fill='none' stroke='%23FFFFFF' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M25 12H39' stroke='%23FFFFFF' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -123,7 +126,9 @@ mjx-container.mjx-wide { display: block; overflow-x: auto; overflow-y: hidden; m
 .hero h1 { font-size: clamp(2.1rem, 1.3rem + 3vw, 3.5rem); font-weight: 800; letter-spacing: -0.025em; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
 .hero-logo svg { width: 72px; height: 72px; display: block; margin-bottom: 18px; filter: drop-shadow(0 6px 14px rgba(20, 27, 43, 0.22)); }   /* the subject logo above the title */
-.hero-side { display: grid; gap: 16px; min-width: 0; }
+.hero-side { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; min-width: 0; }
+.sample, .fact { min-width: 0; overflow-wrap: break-word; }
+.sample-q, .sample-choices, .sample-ans { overflow-x: auto; }
 .fact { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--warn); border-radius: 10px; padding: 18px 22px; box-shadow: var(--shadow); }
 .fact-label { display: flex; align-items: center; gap: 6px; margin: 0 0 8px; font: 700 0.74rem var(--f-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--warn); }
 .fact-label svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -529,6 +534,53 @@ mjx-container { direction: ltr; unicode-bidi: isolate; }
 .ch-hb { stroke: var(--lv4); stroke-width: 1.8; stroke-dasharray: 3 3; fill: none; }
 .ch-delta { fill: var(--ink-2); font: italic 600 12px var(--f-body); }
 
+/* ---------- progress ---------- */
+.nav-topics a.pg-done::after, .nav-topics a.pg-started::after { margin-inline-start: auto; padding-inline-start: 6px; font-weight: 700; }
+.nav-topics a.pg-done::after { content: '\2713'; color: var(--good); }
+.nav-topics a.pg-started::after { content: '\2022'; color: var(--ink-3); }
+.level-topics a.pg-done::after { content: ' \2713'; color: var(--good); font-weight: 700; }
+.level-pg { display: flex; align-items: center; gap: 10px; margin: 12px 0 0; }
+.pg-track { flex: 1; height: 6px; border-radius: 3px; background: var(--sunken); overflow: hidden; }
+.pg-track span { display: block; height: 100%; background: var(--lv); border-radius: 3px; }
+.pg-text { font: 500 0.72rem var(--f-mono); color: var(--ink-3); white-space: nowrap; }
+.pg-sum { max-width: 1180px; margin: -24px auto 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding: 12px 16px; border: 1px solid var(--rule); border-radius: 10px; background: var(--paper); }
+.pg-sum p { margin: 0; font-weight: 700; flex: 1 1 320px; } .pg-sum small { display: block; font-weight: 400; font-size: 0.82rem; color: var(--ink-3); }
+.pg-sum[hidden] { display: none; }
+/* ---------- hints ---------- */
+.q-hint-wrap { margin-top: 10px; }
+.hint-btn { display: inline-flex; align-items: center; gap: 6px; border: 0; background: none; padding: 2px 0; font: 600 0.85rem var(--f-body); color: var(--warn); cursor: pointer; }
+.hint-btn svg, .sample-actions .btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.hint-btn:hover { text-decoration: underline; }
+.q-hint { margin-top: 8px; padding: 12px 14px; border-radius: 8px; background: var(--warn-soft); border-inline-start: 3px solid var(--warn); font-size: 0.93rem; }
+.q-hint > :last-child { margin-bottom: 0; } .q-hint p { margin: 0 0 8px; }
+.hint-head { font: 600 0.72rem var(--f-mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--warn); }
+.hint-head a { color: inherit; }
+.sample .q-hint { margin-top: 12px; }
+/* ---------- subject menu ---------- */
+.subj { position: relative; margin-inline-start: auto; }
+.subj + .lang-pick { margin-inline-start: 0; }
+.subj-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border: 1px solid var(--rule); border-radius: 8px; background: var(--paper); color: var(--ink-2); cursor: pointer; }
+.subj-btn:hover { color: var(--ink); border-color: var(--ink-3); }
+.subj-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.subj-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.subj-menu { position: absolute; top: calc(100% + 8px); inset-inline-end: 0; z-index: 50; width: 260px; padding: 8px; border: 1px solid var(--rule); border-radius: 10px; background: var(--paper); box-shadow: var(--shadow), 0 12px 32px -12px rgba(20, 27, 43, 0.35); }
+.subj-menu[hidden] { display: none; }
+.subj-head { margin: 4px 8px 6px; font: 600 0.7rem var(--f-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); }
+.subj-item { display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 8px; color: var(--ink); text-decoration: none; }
+.subj-item:hover { background: var(--sunken); }
+.subj-item[aria-current] { background: var(--accent-soft); }
+.subj-item svg { width: 32px; height: 32px; flex: none; }
+.subj-item span { display: flex; flex-direction: column; line-height: 1.25; }
+.subj-item b { font: 700 0.95rem var(--f-display); } .subj-item small { color: var(--ink-3); font-size: 0.8rem; }
+@media (max-width: 560px) { .subj-btn { width: 36px; height: 36px; } }
+@media print { .subj, .pg-sum, .level-pg { display: none !important; } }
+@media (max-width: 420px) {   /* room for the subject menu beside the name, language and theme buttons */
+  .topbar { gap: 6px; padding-inline: 12px; }
+  .brand { font-size: 1.02rem; gap: 7px; min-width: 0; white-space: normal; line-height: 1.1; }
+  .subj-btn, .theme-btn, .menu-btn { width: 34px; height: 34px; }
+  .lang-pick { height: 34px; padding-inline: 8px; gap: 4px; }
+}
+
 </style>
 <script>
 window.MathJax = {
@@ -553,6 +605,7 @@ window.MathJax = {
 <header class="topbar">
   <button class="menu-btn" id="menu-btn" type="button" aria-label="Show topics" aria-expanded="false" aria-controls="sidebar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   <a class="brand" href="#"><svg class="brand-logo" viewBox="0 0 64 64" aria-hidden="true"><rect x="1" y="1" width="62" height="62" rx="14" fill="#141B2B" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="2"/><defs><clipPath id="fl-h"><path d="M28 12H36V26L49 47Q51 51 46 51H18Q13 51 15 47L28 26Z"/></clipPath></defs><g clip-path="url(#fl-h)"><rect x="10" y="34" width="44" height="4.5" fill="#F58BB0"/><rect x="10" y="38.5" width="44" height="4.5" fill="#A9B2FF"/><rect x="10" y="43" width="44" height="4.5" fill="#34CDB8"/><rect x="10" y="47.5" width="44" height="5" fill="#FB8B52"/></g><circle cx="31" cy="29.5" r="1.9" fill="#FFFFFF"/><circle cx="33.4" cy="23.5" r="1.4" fill="#FFFFFF" fill-opacity="0.8"/><circle cx="30.6" cy="18.5" r="1.1" fill="#FFFFFF" fill-opacity="0.6"/><path d="M28 12H36V26L49 47Q51 51 46 51H18Q13 51 15 47L28 26Z" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/><path d="M25 12H39" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg><span dir="ltr">Chem Ladder</span><small id="brand-tag">Atoms → Molecules → Reactions</small></a>
+  <div class="subj" id="subj"><button class="subj-btn" id="subj-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="subj-menu" aria-label="Other subjects"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg></button><div class="subj-menu" id="subj-menu" hidden></div></div>
   <label class="lang-pick"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span class="sr-only" id="lang-label">Language</span><span class="lang-code" id="lang-code" aria-hidden="true">EN</span><select id="lang-select" aria-labelledby="lang-label"></select></label>
   <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch to night mode"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
 </header>
@@ -3971,6 +4024,15 @@ const FACTS = [
   { t: `Why soap removes grease`, b: `A soap molecule has a water-loving head and a long oil-loving tail. In water, the tails bury themselves in grease while the heads face outwards, forming tiny balls called micelles that can be rinsed away. People have made soap for more than 4,000 years by heating fats with alkali from wood ash; the Babylonians already recorded a recipe.` }
 ];
 
+/* the four Ladder sites, for the subject menu in the top bar */
+const SUBJECTS = [
+  { id: 'math', url: 'https://rendyhn.github.io/math-ladder/', name: 'Math Ladder', logo: "<svg class=\"subj-logo\" viewBox='0 0 64 64' aria-hidden=\"true\"><rect x='1' y='1' width='62' height='62' rx='14' fill='#141B2B' stroke='#FFFFFF' stroke-opacity='0.14' stroke-width='2'/><path d='M21 12.5V29.5M12.5 21H29.5' stroke='#FB8B52' stroke-width='4.4' stroke-linecap='round'/><path d='M34.5 21H51.5' stroke='#34CDB8' stroke-width='4.4' stroke-linecap='round'/><path d='M15 37L27 49M27 37L15 49' stroke='#A9B2FF' stroke-width='4.4' stroke-linecap='round'/><path d='M34.5 43H51.5' stroke='#F58BB0' stroke-width='4.4' stroke-linecap='round'/><circle cx='43' cy='35.5' r='2.7' fill='#F58BB0'/><circle cx='43' cy='50.5' r='2.7' fill='#F58BB0'/></svg>" },
+  { id: 'physics', url: 'https://rendyhn.github.io/physics-ladder/', name: 'Physics Ladder', logo: "<svg class=\"subj-logo\" viewBox='0 0 64 64' aria-hidden=\"true\"><rect x='1' y='1' width='62' height='62' rx='14' fill='#141B2B' stroke='#FFFFFF' stroke-opacity='0.14' stroke-width='2'/><ellipse cx='32' cy='32' rx='23' ry='8.6' fill='none' stroke='#34CDB8' stroke-width='3'/><ellipse cx='32' cy='32' rx='23' ry='8.6' fill='none' stroke='#A9B2FF' stroke-width='3' transform='rotate(60 32 32)'/><ellipse cx='32' cy='32' rx='23' ry='8.6' fill='none' stroke='#F58BB0' stroke-width='3' transform='rotate(-60 32 32)'/><circle cx='32' cy='32' r='5.6' fill='#FB8B52'/><circle cx='55' cy='32' r='3.2' fill='#FFFFFF'/></svg>" },
+  { id: 'chem', url: 'https://rendyhn.github.io/chem-ladder/', name: 'Chem Ladder', logo: "<svg class=\"subj-logo\" viewBox=\"0 0 64 64\" aria-hidden=\"true\"><rect x=\"1\" y=\"1\" width=\"62\" height=\"62\" rx=\"14\" fill=\"#141B2B\" stroke=\"#FFFFFF\" stroke-opacity=\"0.14\" stroke-width=\"2\"/><defs><clipPath id=\"fl-h-s\"><path d=\"M28 12H36V26L49 47Q51 51 46 51H18Q13 51 15 47L28 26Z\"/></clipPath></defs><g clip-path=\"url(#fl-h-s)\"><rect x=\"10\" y=\"34\" width=\"44\" height=\"4.5\" fill=\"#F58BB0\"/><rect x=\"10\" y=\"38.5\" width=\"44\" height=\"4.5\" fill=\"#A9B2FF\"/><rect x=\"10\" y=\"43\" width=\"44\" height=\"4.5\" fill=\"#34CDB8\"/><rect x=\"10\" y=\"47.5\" width=\"44\" height=\"5\" fill=\"#FB8B52\"/></g><circle cx=\"31\" cy=\"29.5\" r=\"1.9\" fill=\"#FFFFFF\"/><circle cx=\"33.4\" cy=\"23.5\" r=\"1.4\" fill=\"#FFFFFF\" fill-opacity=\"0.8\"/><circle cx=\"30.6\" cy=\"18.5\" r=\"1.1\" fill=\"#FFFFFF\" fill-opacity=\"0.6\"/><path d=\"M28 12H36V26L49 47Q51 51 46 51H18Q13 51 15 47L28 26Z\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"3\" stroke-linejoin=\"round\"/><path d=\"M25 12H39\" stroke=\"#FFFFFF\" stroke-width=\"3\" stroke-linecap=\"round\"/></svg>" },
+  { id: 'geo', url: 'https://rendyhn.github.io/geography-ladder/', name: 'Geography Ladder', logo: "<svg class=\"subj-logo\" viewBox='0 0 64 64' aria-hidden=\"true\"><rect x='1' y='1' width='62' height='62' rx='14' fill='#141B2B' stroke='#FFFFFF' stroke-opacity='0.14' stroke-width='2'/><defs><clipPath id='gl-h'><circle cx='32' cy='32' r='21'/></clipPath></defs><circle cx='32' cy='32' r='21' fill='#2C6DB0'/><g clip-path='url(#gl-h)'><path d='M13 17C18 13 25 13 27 17C29 21 24 24 25 29C26 34 22 38 18 36C14 34 16 28 12 25Z' fill='#6CC070'/><path d='M36 22C40 19 47 20 50 25C53 30 50 34 46 33C42 32 43 37 45 41C47 46 42 50 38 47C34 44 37 38 35 34C33 30 33 25 36 22Z' fill='#6CC070'/><g stroke-width='2' stroke-linecap='round'><path d='M8 18.5H56' stroke='#F58BB0'/><path d='M8 27.5H56' stroke='#A9B2FF'/><path d='M8 36.5H56' stroke='#34CDB8'/><path d='M8 45.5H56' stroke='#FB8B52'/></g><ellipse cx='32' cy='32' rx='9.5' ry='21' fill='none' stroke='#FFFFFF' stroke-opacity='0.7' stroke-width='1.6'/></g><circle cx='32' cy='32' r='21' fill='none' stroke='#FFFFFF' stroke-width='3'/></svg>" }
+];
+const SUBJECT = 'chem';
+
 /* ==========================================================================
    App: routing, lessons, worksheet generation, checking, answer key, print,
    language switching
@@ -3981,6 +4043,7 @@ const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const LETTERS = 'ABCD';
 const ICON = {
+  grid: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg>',
   print: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2M6 14h12v7H6z"/></svg>',
   bulb: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.3 1.1 2.2h5c0-.9.4-1.6 1.1-2.2A6 6 0 0 0 12 3z"/></svg>',
   refresh: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8M4 4v4h4M4 13a8 8 0 0 0 14.3 4.9L20 16M20 20v-4h-4"/></svg>',
@@ -3997,14 +4060,14 @@ const UI_EN = {
   language: 'Language',
   mixedReview: 'Mixed review',
   reviewTitle: '⟦0⟧: Mixed Review',
-  reviewBlurb: 'One worksheet drawing questions from all ⟦0⟧ ready topics of this track — good for revision before a test.',
+  reviewBlurb: 'One worksheet drawing questions from all ⟦0⟧ topics of this track — good for revision before a test.',
   heroEyebrow: 'Chemistry · Topic by topic',
   heroTitle: 'From atoms to reactions, one rung at a time.',
   heroLede: '⟦0⟧ topics from junior high school to university, laid out in tracks from matter and atoms to bonding, reactions, acids, electrochemistry and organic chemistry. Each has an illustrated lesson and a practice worksheet that is generated fresh every time you open it, with worked solutions, an answer key and print-ready pages.',
   startWith: 'Start with ⟦0⟧',
   tryReview: 'Try a mixed review',
   levels: 'Tracks',
-  nTopics: '⟦0⟧ of ⟦1⟧ topics ready',
+  nTopics: '⟦0⟧ topics',
   soon: 'Coming soon',
   trackSoon: 'This track is being written. Its topics are listed so you can see where they fit.',
   stage_jh: 'Junior high',
@@ -4019,6 +4082,22 @@ const UI_EN = {
   anotherQ: 'Another question',
   funFact: 'Fun fact',
   anotherFact: 'Another fact',
+  hint: 'Hint',
+  hintHead: 'Key idea from the lesson',
+  openLesson: 'Open the lesson',
+  pgLevel: '⟦0⟧ of ⟦1⟧ mastered',
+  pgSum: 'Your progress: ⟦0⟧ of ⟦1⟧ topics mastered',
+  pgNote: 'A topic counts as mastered after 70% or more on a worksheet. Saved only in this browser.',
+  pgReset: 'Reset progress',
+  pgConfirm: 'Delete your saved scores on this device?',
+  pgDoneTip: 'Mastered',
+  pgStartTip: 'Started',
+  bestScore: 'Best: ⟦0⟧%',
+  subjects: 'Other subjects',
+  subjMath: 'Mathematics',
+  subjPhysics: 'Physics',
+  subjChem: 'Chemistry',
+  subjGeo: 'Geography',
   showAnswer: 'Show answer',
   hideAnswer: 'Hide answer',
   answerColon: 'Answer:',
@@ -4377,6 +4456,7 @@ function route(keepScroll = false) {
   current = r;
   if (r.view === 'home') renderHome(); else renderTopic(TOPICS.get(r.id), r.tab);
   markNav(r.id);
+  paintProgress();
   if (keepScroll === true) return;
   if (!sameTopic) window.scrollTo(0, 0);
   else { const head = $('.topic-tabs'); if (head && head.getBoundingClientRect().top < 0) head.scrollIntoView(); }
@@ -4398,10 +4478,11 @@ function renderHome() {
     </div>
     <div class="hero-side"><div class="sample" id="sample" aria-live="polite"></div><aside class="fact" id="fact" aria-live="polite"></aside></div>
   </section>
+  <div class="pg-sum" id="pg-sum" hidden></div>
   <section class="ladder" aria-label="${esc(ui('levels'))}">
     ${LEVELS.map(lv => `
     <article class="level" style="--lv: var(--${lv.color})">
-      <header class="level-head"><span class="rung rung-lg" aria-hidden="true">${lv.mark}</span><div><h2>${esc(lvName(lv))}</h2><p class="band">${esc(lvBand(lv))} · ${esc(ui('nTopics', lv.topics.length, lv.all.length))}</p></div></header>
+      <header class="level-head"><span class="rung rung-lg" aria-hidden="true">${lv.mark}</span><div><h2>${esc(lvName(lv))}</h2><p class="band">${esc(lvBand(lv))} · ${esc(ui('nTopics', lv.topics.length))}</p></div></header>
       <p class="level-blurb">${esc(lvBlurb(lv))}</p>
       <ol class="level-topics">${lv.all.map(t => t.soon ? `<li class="soon">${esc(tTitle(t))}</li>` : `<li><a href="#${t.id}">${esc(tTitle(t))}</a></li>`).join('')}</ol>
       ${lv.review ? `<a class="level-review" href="#${lv.review.id}">${esc(ui('reviewLink'))}</a>` : lv.topics.length ? '' : `<p class="level-soon">${esc(ui('trackSoon'))}</p>`}
@@ -4443,7 +4524,8 @@ function renderSample(fresh = true) {
     <div class="sample-head"><span class="sample-label">${esc(ui('freshQ'))}</span><a class="sample-topic" style="--lv: var(--${t.level.color})" href="#${t.id}.practice">${esc(lvShort(t.level))} · ${esc(tTitle(t))}</a></div>
     <div class="sample-q">${it.q}</div>
     ${it.type === 'mc' ? `<ol class="sample-choices">${it.choices.map((c, j) => `<li><span class="letter" aria-hidden="true">${LETTERS[j]}</span><span>${c}</span></li>`).join('')}</ol>` : ''}
-    <div class="sample-actions"><button type="button" class="btn btn-small" data-act="sample-new">${ICON.refresh}${esc(ui('anotherQ'))}</button><button type="button" class="btn btn-small btn-ghost" data-act="sample-reveal" aria-expanded="false" aria-controls="sample-ans">${esc(ui('showAnswer'))}</button></div>
+    <div class="sample-actions"><button type="button" class="btn btn-small" data-act="sample-new">${ICON.refresh}${esc(ui('anotherQ'))}</button>${topicHint(t.id) ? `<button type="button" class="btn btn-small btn-ghost" data-act="sample-hint" aria-expanded="false" aria-controls="sample-hint">${ICON.bulb}${esc(ui('hint'))}</button>` : ''}<button type="button" class="btn btn-small btn-ghost" data-act="sample-reveal" aria-expanded="false" aria-controls="sample-ans">${esc(ui('showAnswer'))}</button></div>
+    <div class="q-hint" id="sample-hint" hidden></div>
     <div class="sample-ans reveal collapsed" id="sample-ans"><p class="sample-answer"><b>${esc(ui('answerColon'))}</b> ${it.type === 'mc' ? `${LETTERS[it.correct]} — ${it.choices[it.correct]}` : it.ansHTML}</p><p class="sample-sol">${it.s}</p></div>`);
 }
 
@@ -4465,6 +4547,7 @@ function renderTopic(t, tab) {
   if (tab === 'practice') renderPractice(t); else renderLesson(t);
 }
 function renderLesson(t) {
+  markSeen(t.id);
   const i = ALL.indexOf(t), prev = ALL[i - 1], next = ALL[i + 1];
   const body = typeof t.lesson === 'function' ? t.lesson() : t.lesson;
   setHTML($('#panel'), `
@@ -4508,7 +4591,7 @@ function renderPractice(t, fresh = false) {
     const body = it.type === 'mc'
       ? `<div class="choices" role="radiogroup" aria-label="${esc(ui('choicesFor', i + 1))}">${it.choices.map((c, j) => `<label class="choice${ans === j ? ' sel' : ''}" for="${base}-${j}"><input type="radio" id="${base}-${j}" name="${base}" value="${j}" data-i="${i}"${ans === j ? ' checked' : ''}><span class="letter" aria-hidden="true">${LETTERS[j]}</span><span class="choice-body">${c}</span></label>`).join('')}</div>`
       : `<div class="fill"><label class="fill-label" for="${base}-in">${esc(ui('answer'))}</label><input type="text" dir="ltr" id="${base}-in" data-i="${i}" autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="text" placeholder="${esc(ui('typeAnswer'))}" value="${esc(ans || '')}">${it.u ? `<span class="fill-unit">${esc(it.u)}</span>` : ''}</div>${it.h ? `<p class="fill-hint no-print">${esc(it.h)}</p>` : ''}`;
-    return `<li class="q" data-i="${i}"><div class="q-meta"><span class="q-num">${i + 1}</span><span class="q-type">${esc(ui(it.type === 'mc' ? 'qMc' : 'qFill'))}</span>${t.review ? `<span class="q-topic">${esc(tTitle(TOPICS.get(it.topic)))}</span>` : ''}</div><div class="q-text">${it.q}</div>${body}<p class="feedback" aria-live="polite"></p></li>`;
+    return `<li class="q" data-i="${i}"><div class="q-meta"><span class="q-num">${i + 1}</span><span class="q-type">${esc(ui(it.type === 'mc' ? 'qMc' : 'qFill'))}</span>${t.review ? `<span class="q-topic">${esc(tTitle(TOPICS.get(it.topic)))}</span>` : ''}</div><div class="q-text">${it.q}</div>${body}${hintUI(it.topic, i)}<p class="feedback" aria-live="polite"></p></li>`;
   }).join('');
   const key = sh.items.map((it, i) => `<li><div class="key-row"><span class="q-num">${i + 1}</span><div class="key-ans">${it.type === 'mc' ? `<span class="key-letter">${LETTERS[it.correct]}</span>${it.choices[it.correct]}` : it.ansHTML}</div></div>${it.s ? `<div class="key-sol">${it.s}</div>` : ''}</li>`).join('');
   setHTML($('#panel'), `
@@ -4563,10 +4646,82 @@ function checkSheet(announce = true) {
     fbs.push(fb);
   });
   sh.checked = true;
+  if (announce) saveScore(sh.topicId, Math.round(100 * right / sh.items.length));
   const score = main.querySelector('.score');
   if (score) score.innerHTML = `<b>${esc(ui('scoreLine', right, sh.items.length))}</b>${blank ? ` · ${esc(ui('unanswered', blank))}` : ''}`;
+  const best = (prog()[sh.topicId] || {}).best;
+  if (score && best != null) score.insertAdjacentHTML('beforeend', ` · ${esc(ui('bestScore', best))}`);
+  if (announce) paintProgress();
   fbs.forEach(typeset);
   if (announce) { const first = main.querySelector('.q.is-wrong, .q.is-blank'); if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+}
+
+/* ---------------- progress: best score per topic, kept in this browser only ---------------- */
+const PASS = 70;   // a topic counts as mastered after a worksheet scored at least this (%)
+const prog = () => { const p = store.get('progress', {}); return p && typeof p === 'object' ? p : {}; };
+function saveScore(id, pct) {
+  const p = prog(), r = p[id] || {};
+  p[id] = { best: Math.max(r.best || 0, pct), last: pct, n: (r.n || 0) + 1, t: Date.now() };
+  store.set('progress', p);
+}
+function markSeen(id) { const p = prog(); if (!p[id]) { p[id] = { seen: 1 }; store.set('progress', p); } }
+const topicState = (p, id) => { const r = p[id]; return !r ? '' : r.best >= PASS ? 'done' : 'started'; };
+function paintProgress() {
+  const p = prog(), mark = (a, id) => {
+    const s = topicState(p, id); a.classList.toggle('pg-done', s === 'done'); a.classList.toggle('pg-started', s === 'started');
+    if (s) a.title = ui(s === 'done' ? 'pgDoneTip' : 'pgStartTip') + (p[id].best != null ? ' · ' + ui('bestScore', p[id].best) : ''); else a.removeAttribute('title');
+  };
+  nav.querySelectorAll('a[data-id]').forEach(a => mark(a, a.dataset.id));
+  if (current.view !== 'home') return;
+  const any = Object.keys(p).length > 0;
+  let total = 0, done = 0;
+  main.querySelectorAll('.level').forEach((card, k) => {
+    const lv = LEVELS[k]; if (!lv) return;
+    const ids = lv.topics.map(t => t.id), d = ids.filter(id => topicState(p, id) === 'done').length;
+    total += ids.length; done += d;
+    card.querySelectorAll('.level-topics a[href^="#"]').forEach(a => mark(a, a.getAttribute('href').slice(1)));
+    let bar = card.querySelector('.level-pg');
+    if (!any || !ids.length) { if (bar) bar.remove(); return; }
+    if (!bar) { bar = document.createElement('div'); bar.className = 'level-pg'; card.querySelector('.level-head').after(bar); }
+    bar.innerHTML = `<span class="pg-track"><span style="width:${Math.round(100 * d / ids.length)}%"></span></span><span class="pg-text">${esc(ui('pgLevel', d, ids.length))}</span>`;
+  });
+  const sum = main.querySelector('#pg-sum');
+  if (sum) { sum.hidden = !any; sum.innerHTML = any ? `<p>${esc(ui('pgSum', done, total))} <small>${esc(ui('pgNote'))}</small></p><button type="button" class="btn btn-small btn-ghost" data-act="pg-reset">${esc(ui('pgReset'))}</button>` : ''; }
+}
+
+/* ---------------- hints: the key ideas of a question's topic, taken from its lesson ---------------- */
+const hintCache = new Map();
+function topicHint(id) {
+  const k = I18N.lang + ':' + id; if (hintCache.has(k)) return hintCache.get(k);
+  const t = TOPICS.get(id); let html = '';
+  if (t && !t.review && t.lesson) {
+    try {
+      const tpl = document.createElement('template'); tpl.innerHTML = typeof t.lesson === 'function' ? t.lesson() : t.lesson;
+      html = [...tpl.content.querySelectorAll('.box-key')].map(b => { const l = b.querySelector('.box-label'); if (l) l.remove(); return b.innerHTML; }).join('');
+    } catch (e) { html = ''; }
+  }
+  hintCache.set(k, html); return html;
+}
+const hintUI = (topicId, i) => topicHint(topicId) ? `<div class="q-hint-wrap no-print"><button type="button" class="hint-btn" data-act="hint" data-i="${i}" aria-expanded="false">${ICON.bulb}${esc(ui('hint'))}</button><div class="q-hint" hidden></div></div>` : '';
+function toggleHint(btn, box, topicId) {
+  const open = btn.getAttribute('aria-expanded') !== 'true'; btn.setAttribute('aria-expanded', String(open)); box.hidden = !open;
+  if (open && !box.dataset.done) { box.dataset.done = '1'; setHTML(box, `<p class="hint-head">${esc(ui('hintHead'))} · <a href="#${topicId}">${esc(ui('openLesson'))}</a></p>${topicHint(topicId)}`); }
+}
+
+/* ---------------- the subject menu: jump to the other Ladder sites in the same language ---------------- */
+const SUBJ_KEY = { math: 'subjMath', physics: 'subjPhysics', chem: 'subjChem', geo: 'subjGeo' };
+function renderSubjects() {
+  const btn = $('#subj-btn'), menu = $('#subj-menu'); if (!btn) return;
+  btn.setAttribute('aria-label', ui('subjects')); btn.title = ui('subjects');
+  const q = I18N.lang === 'en' ? '' : '?lang=' + I18N.lang;
+  menu.innerHTML = `<p class="subj-head">${esc(ui('subjects'))}</p>` + SUBJECTS.map(s => `<a class="subj-item" href="${s.id === SUBJECT ? '#' : s.url + q}"${s.id === SUBJECT ? ' aria-current="page"' : ''}>${s.logo}<span><b>${esc(s.name)}</b><small>${esc(ui(SUBJ_KEY[s.id]))}</small></span></a>`).join('');
+}
+function setSubjOpen(open) { const b = $('#subj-btn'), m = $('#subj-menu'); if (!b) return; b.setAttribute('aria-expanded', String(open)); m.hidden = !open; }
+if ($('#subj-btn')) {
+  $('#subj-btn').addEventListener('click', e => { e.stopPropagation(); setSubjOpen($('#subj-menu').hidden); });
+  document.addEventListener('click', e => { if (!e.target.closest('#subj')) setSubjOpen(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#subj-menu').hidden) { setSubjOpen(false); $('#subj-btn').focus(); } });
+  $('#subj-menu').addEventListener('click', e => { const a = e.target.closest('a'); if (a && a.getAttribute('aria-current')) { e.preventDefault(); setSubjOpen(false); location.hash = ''; } });
 }
 
 /* ---------------- printing ---------------- */
@@ -4608,6 +4763,7 @@ function applyChrome() {
   updateThemeBtn();
   $('#lang-code').textContent = code.toUpperCase();
   langSel.value = code;
+  renderSubjects();
   updatePrintStyle();
 }
 async function changeLang(code, persist = true) {
@@ -4662,6 +4818,9 @@ main.addEventListener('click', e => {
     case 'print-lesson': doPrint('lesson'); break;
     case 'sample-new': renderSample(); break;
     case 'fact-new': renderFact(); break;
+    case 'hint': { const sh = currentSheet(), it = sh && sh.items[+btn.dataset.i]; if (it) toggleHint(btn, btn.parentElement.querySelector('.q-hint'), it.topic); break; }
+    case 'sample-hint': if (sampleState) toggleHint(btn, $('#sample-hint'), sampleState.topicId); break;
+    case 'pg-reset': if (confirm(ui('pgConfirm'))) { store.set('progress', {}); paintProgress(); } break;
     case 'sample-reveal': { const open = btn.getAttribute('aria-expanded') !== 'true'; btn.setAttribute('aria-expanded', String(open)); btn.textContent = ui(open ? 'hideAnswer' : 'showAnswer'); $('#sample-ans').classList.toggle('collapsed', !open); break; }
   }
 });
@@ -4681,6 +4840,8 @@ window.__mathLadder = { finalize, checkFill, canFill, TOPICS, changeLang, UI_EN 
 const startLang = initialLang();
 if (startLang === 'en') { setLang('en'); applyChrome(); renderNav(); route(); }
 else changeLang(startLang, false);
+/* offline support: cache the site with a service worker (only when served over http(s), not from a file or an artifact) */
+if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol) && !window.__noSW) window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => { /* not available here */ }); });
 })();
 
 </script>
