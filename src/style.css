@@ -105,20 +105,6 @@ mjx-container.mjx-wide { display: block; overflow-x: auto; overflow-y: hidden; m
 .hero h1 { font-size: clamp(2.1rem, 1.3rem + 3vw, 3.5rem); font-weight: 800; letter-spacing: -0.025em; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
 .hero-logo svg { width: 72px; height: 72px; display: block; margin-bottom: 18px; filter: drop-shadow(0 6px 14px rgba(20, 27, 43, 0.22)); }   /* the subject logo above the title */
-.hero { position: relative; isolation: isolate; }
-.hero-bg { position: absolute; inset: -32px -16px -24px; z-index: -1; pointer-events: none; overflow: hidden; color: var(--ink);
-  -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent); mask-image: linear-gradient(to bottom, #000 86%, transparent); }
-.hero-bg svg { width: 100%; height: 100%; display: block; }
-.hero-bg .hb-l { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: 0.11; }
-.hero-bg .hb-t { fill: currentColor; opacity: 0.1; }
-.hero-bg .hb-f { fill: currentColor; stroke: none; opacity: 0.08; }
-.hero-bg .hb-d { stroke-dasharray: 5 7; }
-.hero-bg .hbc1 { color: var(--lv1); } .hero-bg .hbc2 { color: var(--lv2); } .hero-bg .hbc3 { color: var(--lv3); } .hero-bg .hbc4 { color: var(--lv4); }
-.hero-bg .hbc1, .hero-bg .hbc2, .hero-bg .hbc3, .hero-bg .hbc4 { opacity: 0.22; }
-@media (max-width: 900px) { .hero-bg svg { width: 170%; height: auto; margin-left: -35%; } }
-.hero-bg .hb-serif { font-family: 'Times New Roman', Georgia, serif; font-style: italic; }
-.hero-bg .hb-mono { font-family: var(--f-mono); }
-.hero-bg .hb-sans { font-family: var(--f-display); font-weight: 700; }
 .hero-side { display: grid; gap: 16px; min-width: 0; }
 .fact { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--warn); border-radius: 10px; padding: 18px 22px; box-shadow: var(--shadow); }
 .fact-label { display: flex; align-items: center; gap: 6px; margin: 0 0 8px; font: 700 0.74rem var(--f-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--warn); }
