@@ -13,7 +13,7 @@ const sPoly = (pts, cls = 'mf-shape', extra = '') => `<polygon points="${pts.map
 const sPline = (pts, cls = 'mf-line', extra = '') => `<polyline points="${pts.map(p => f1(p[0]) + ',' + f1(p[1])).join(' ')}" class="${cls}"${extra}/>`;
 function sArrow(x1, y1, x2, y2, cls = 'mf-line', head = 8) {   // line with a filled head; cls may be a curve class (mf-c1 …)
   const a = Math.atan2(y2 - y1, x2 - x1), bx = x2 - head * Math.cos(a), by = y2 - head * Math.sin(a), w = head * 0.45;
-  const hc = cls.replace(/mf-c(\d)/, 'mf-s$1').replace('mf-line', 'mf-ink').replace('mf-axis', 'mf-ink3');
+  const hc = cls.replace(/mf-c(\d)/, 'mf-s$1').replace('mf-line', 'mf-ink').replace('mf-axis', 'mf-ink').replace('mf-thin', 'mf-ink3');
   return sL(x1, y1, bx, by, cls) + sPoly([[x2, y2], [bx + w * Math.sin(a), by - w * Math.cos(a)], [bx - w * Math.sin(a), by + w * Math.cos(a)]], hc);
 }
 const sAngle = (cx, cy, r, a1, a2, cls = 'mf-line') => {   // arc between two directions (degrees, maths convention, y up)

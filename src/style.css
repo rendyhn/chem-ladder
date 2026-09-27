@@ -194,8 +194,8 @@ mjx-container.mjx-wide { display: block; overflow-x: auto; overflow-y: hidden; m
 @media (max-width: 560px) { .fig-row.c4, .fig-row.c5 { grid-template-columns: repeat(2, 1fr) !important; } }
 .fig-row .cap { font-size: 0.8rem; color: var(--ink-3); text-align: center; margin-top: 4px; }
 /* figure library (src/fig.js) */
-.mf-grid { stroke: var(--rule-soft); stroke-width: 1; }
-.mf-axis { stroke: var(--ink-3); stroke-width: 1.4; fill: none; }
+.mf-grid { stroke: var(--rule); stroke-width: 1; }
+.mf-axis { stroke: var(--ink-2); stroke-width: 1.6; fill: none; }
 .mf-line { stroke: var(--ink-2); stroke-width: 1.6; fill: none; }
 .mf-thin { stroke: var(--ink-3); stroke-width: 0.8; fill: none; }
 .mf-ink { fill: var(--ink-2); } .mf-ink3 { fill: var(--ink-3); }

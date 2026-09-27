@@ -47,8 +47,8 @@ $\tfrac{1}{1836}$ (almost 0)
 A carbon-12 atom: 6 protons and 6 neutrons in the nucleus, 6 electrons in two shells (2, 4)
 @1lxzzq80igg
 A carbon-12 atom: 6 protons, 6 neutrons and 6 electrons (2 in the first shell, 4 in the second).
-@b4fhy1sxon
-<p><b>Atomic number</b> $Z$ = number of protons (it defines the element). <b>Mass number</b> $A$ = protons + neutrons. So</p><p>$$\text{neutrons} = A - Z.$$</p><p>A neutral atom has as many electrons as protons. The nuclide notation writes both numbers: $$ {}^{A}_{Z}\mathrm{X} \qquad \text{e.g. } {}^{23}_{11}\mathrm{Na}: 11 \text{ protons},\ 12 \text{ neutrons},\ 11 \text{ electrons}.$$</p>
+@8tzja6g47h
+<p><b>Atomic number</b> $Z$ = number of protons (it defines the element).<br><b>Mass number</b> $A$ = protons + neutrons. So</p><p>$$\text{neutrons} = A - Z.$$</p><p>A neutral atom has as many electrons as protons. The nuclide notation writes both numbers: $$ {}^{A}_{Z}\mathrm{X} \qquad \text{e.g. } {}^{23}_{11}\mathrm{Na}: 11 \text{ protons},\ 12 \text{ neutrons},\ 11 \text{ electrons}.$$</p>
 @2g3pv9n6lbm
 hydrogen-1 (protium)
 @19ebjii22u9
@@ -274,7 +274,7 @@ A type of ion
 The quantum model gives probabilities, not exact paths.
 
 ##### electron-config
-@yugce347vt  ; 0=Tbl([T`Subshell`, T`Orbitals`, T`Maximum | 1=FigW(orbitalShapesSvg(['s', 'p_x', 'p_z' | 2=Key(T`<p><b>Aufbau principle:</b> electr | 3=Fig(aufbauSvg({ label: T`The diagonal ru | 4=Ex(T`<p>Iron, $Z = 26$: $1s^2\,2s^2\,2p^ | 5=Fig(orbitalSvg(26, { from: 5, label: T`O | 6=Key(T`<p>Two common exceptions: chromium | 7=Tbl([T`Quantum number`, T`Symbol`, T`Val | 8=Tip(T`<p>When an atom forms a positive i
+@yugce347vt  ; 0=Tbl([T`Subshell`, T`Orbitals`, T`Maximum | 1=FigW(orbitalShapesSvg(['s', 'p_x', 'p_y' | 2=Key(T`<p><b>Aufbau principle:</b> electr | 3=Fig(aufbauSvg({ label: T`The diagonal ru | 4=Ex(T`<p>Iron, $Z = 26$: $1s^2\,2s^2\,2p^ | 5=Fig(orbitalSvg(26, { from: 5, label: T`O | 6=Key(T`<p>Two common exceptions: chromium | 7=Tbl([T`Quantum number`, T`Symbol`, T`Val | 8=Tip(T`<p>When an atom forms a positive i
 
 <p>Electrons fill <b>shells</b> ($n = 1, 2, 3, \ldots$), each made of <b>subshells</b> $s$, $p$, $d$, $f$. A subshell is made of <b>orbitals</b>, and each orbital holds at most two electrons of opposite spin.</p>
 ⟦0⟧
@@ -297,8 +297,8 @@ Maximum electrons
 Shapes of an s orbital (a sphere) and the three p orbitals (dumbbells along x, z and y)
 @d5fnbscbbr
 An $s$ orbital is a sphere; the three $p$ orbitals are dumbbells along the $x$, $y$ and $z$ axes.
-@1ehu0von4np
-<p><b>Aufbau principle:</b> electrons fill the lowest energy subshell first: $1s\ 2s\ 2p\ 3s\ 3p\ 4s\ 3d\ 4p\ 5s \ldots$ <b>Pauli exclusion principle:</b> an orbital holds at most two electrons, with opposite spins. <b>Hund's rule:</b> in a subshell, electrons occupy empty orbitals singly (same spin) before they pair up.</p>
+@50ir8ebktk
+<p><b>Aufbau principle:</b> electrons fill the lowest energy subshell first: $1s\ 2s\ 2p\ 3s\ 3p\ 4s\ 3d\ 4p\ 5s \ldots$<br><b>Pauli exclusion principle:</b> an orbital holds at most two electrons, with opposite spins.<br><b>Hund's rule:</b> in a subshell, electrons occupy empty orbitals singly (same spin) before they pair up.</p>
 @1bfxc1fntjm
 The diagonal rule for the filling order of subshells
 @180uzclniy6

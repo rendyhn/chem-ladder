@@ -839,8 +839,8 @@ Two amino acids join with loss of water to form a peptide bond
 peptide bond
 @1bg92o2z11t
 Two amino acids make a dipeptide by condensation; the new –CO–NH– group is the peptide bond.
-@8jnbw4630j
-<p><b>Lipids</b> (fats and oils) are esters of glycerol (propane-1,2,3-triol) with three fatty acids: <b>triglycerides</b>. Saturated fats (mostly animal) are solid; unsaturated oils (C=C bonds, mostly plant) are liquid. <b>Nucleic acids</b> (DNA, RNA) are polymers of nucleotides (sugar + phosphate + base) and store genetic information.</p>
+@2440cqnccck
+<p><b>Lipids</b> (fats and oils) are esters of glycerol (propane-1,2,3-triol) with three fatty acids: <b>triglycerides</b>. Saturated fats (mostly animal) are solid; unsaturated oils (C=C bonds, mostly plant) are liquid.<br><b>Nucleic acids</b> (DNA, RNA) are polymers of nucleotides (sugar + phosphate + base) and store genetic information.</p>
 @1fv7uha3bb4
 Test
 @2428h9uazj

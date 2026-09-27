@@ -424,7 +424,7 @@ addT('id', {
   '10yvpifs35p': R`Dua asam amino bergabung dengan melepaskan air membentuk ikatan peptida`,
   '259tsjho3pa': R`ikatan peptida`,
   '1bg92o2z11t': R`Dua asam amino membentuk dipeptida melalui kondensasi; gugus –CO–NH– yang baru adalah ikatan peptida.`,
-  '8jnbw4630j': R`<p><b>Lipid</b> (lemak dan minyak) adalah ester dari gliserol (propana-1,2,3-triol) dengan tiga asam lemak: <b>trigliserida</b>. Lemak jenuh (kebanyakan dari hewan) berwujud padat; minyak tak jenuh (ikatan C=C, kebanyakan dari tumbuhan) berwujud cair. <b>Asam nukleat</b> (DNA, RNA) adalah polimer nukleotida (gula + fosfat + basa) yang menyimpan informasi genetik.</p>`,
+  '2440cqnccck': R`<p><b>Lipid</b> (lemak dan minyak) adalah ester dari gliserol (propana-1,2,3-triol) dengan tiga asam lemak: <b>trigliserida</b>. Lemak jenuh (kebanyakan dari hewan) berwujud padat; minyak tak jenuh (ikatan C=C, kebanyakan dari tumbuhan) berwujud cair.<br><b>Asam nukleat</b> (DNA, RNA) adalah polimer nukleotida (gula + fosfat + basa) yang menyimpan informasi genetik.</p>`,
   '2428h9uazj': R`Untuk`,
   '2cjw4kzfggv': R`Hasil positif`,
   'thuwhnts9q': R`larutan iodin`,

@@ -311,13 +311,15 @@ function aufbauSvg({ label } = {}) {
 }
 /* shapes of s and p orbitals */
 function orbitalShapesSvg(names, { label } = {}) {
-  const cw = 130, W = cw * 4, cy = 70;
-  let s = svgBox(W, 150, label);
-  const axes = cx => sL(cx - 50, cy, cx + 50, cy, 'mf-grid') + sL(cx, cy - 50, cx, cy + 50, 'mf-grid');
-  const lobe = (cx, a, cls) => `<ellipse cx="${f1(cx + 24 * Math.cos(a))}" cy="${f1(cy - 24 * Math.sin(a))}" rx="24" ry="13" transform="rotate(${f1(-a * 180 / Math.PI)} ${f1(cx + 24 * Math.cos(a))} ${f1(cy - 24 * Math.sin(a))})" class="${cls}" stroke="var(--ink-2)" stroke-width="1.2"/>`;
-  s += axes(cw / 2) + sC(cw / 2, cy, 34, 'mf-s1l', ' stroke="var(--ink-2)" stroke-width="1.2"');
-  [[0, 'x'], [Math.PI / 2, 'z'], [Math.PI / 4, 'y']].forEach(([a], i) => { const cx = cw * (i + 1) + cw / 2; s += axes(cx) + lobe(cx, a, 'mf-s2l') + lobe(cx, a + Math.PI, 'mf-s4l'); });
-  names.forEach((t, i) => { s += sT(i * cw + cw / 2, 140, t.replace(/_(\w)/, '<tspan baseline-shift="sub" font-size="75%">$1</tspan>'), 'mf-lab-b'); });
+  const cw = 150, W = cw * 4, cy = 84, H = 180;
+  let s = svgBox(W, H, label);
+  // x to the right, z up, y drawn in perspective (up-right); the axis that holds the orbital is drawn darker
+  const axes = (cx, on) => [['x', 62, 0], ['z', 0, -62], ['y', 42, -42]].map(([t, dx, dy]) => { const hl = on === t, cls = hl ? 'mf-axis' : 'mf-thin';
+    return sL(cx - dx, cy - dy, cx, cy, cls, hl ? '' : ' stroke-dasharray="3 3"') + sArrow(cx, cy, cx + dx, cy + dy, cls, 6) + sT(cx + dx * 1.13 + (t === 'z' ? 8 : 0), cy + dy * 1.13 + (t === 'x' ? 4 : t === 'y' ? 2 : 0), t, 'mf-var', 'middle'); }).join('');
+  const lobe = (cx, a, cls) => `<ellipse cx="${f1(cx + 25 * Math.cos(a))}" cy="${f1(cy - 25 * Math.sin(a))}" rx="25" ry="13" transform="rotate(${f1(-a * 180 / Math.PI)} ${f1(cx + 25 * Math.cos(a))} ${f1(cy - 25 * Math.sin(a))})" class="${cls}" stroke="var(--ink-2)" stroke-width="1.2" fill-opacity="0.85"/>`;
+  s += axes(cw / 2) + sC(cw / 2, cy, 34, 'mf-s1l', ' stroke="var(--ink-2)" stroke-width="1.2" fill-opacity="0.85"');
+  [[0, 'x'], [Math.PI / 4, 'y'], [Math.PI / 2, 'z']].forEach(([a, ax], i) => { const cx = cw * (i + 1) + cw / 2; s += axes(cx, ax) + lobe(cx, a, 'mf-s2l') + lobe(cx, a + Math.PI, 'mf-s4l'); });
+  names.forEach((t, i) => { s += sT(i * cw + cw / 2, H - 10, t.replace(/_(\w)/, '<tspan baseline-shift="sub" font-size="75%">$1</tspan>'), 'mf-lab-b'); });
   return s + '</svg>';
 }
 
@@ -596,7 +598,7 @@ function phScaleSvg(items, { label, names = [] } = {}) {
   const W = 480, L = 20, R = 20, cw = (W - L - R) / 15, y0 = 110, H = 220, X = p => L + (p + 0.5) * cw;
   let s = svgBox(W, H, label);
   UI_COL.forEach((c, i) => { s += sR(L + i * cw, y0, cw, 26, '', 0, ` style="fill:${c}"`) + sT(L + i * cw + cw / 2, y0 + 18, String(i), 'mf-small', 'middle', ' style="fill:#fff;stroke:none;font-weight:700"'); });
-  items.forEach(([p, t], k) => { const up = k % 2 === 0, x = X(p), lvl = (k >> 1) % 3, y = up ? y0 - 12 - lvl * 26 : y0 + 38 + lvl * 26; s += sL(x, up ? y0 : y0 + 26, x, up ? y + 4 : y - 12, 'mf-grid') + sC(x, up ? y0 - 2 : y0 + 28, 2.5, 'mf-dot') + sT(x, y, t, 'mf-small'); });
+  items.forEach(([p, t], k) => { const up = k % 2 === 0, x = X(p), lvl = (k >> 1) % 3, y = up ? y0 - 12 - lvl * 26 : y0 + 38 + lvl * 26; s += sL(x, up ? y0 : y0 + 26, x, up ? y + 4 : y - 12, 'mf-thin') + sC(x, up ? y0 - 2 : y0 + 28, 2.5, 'mf-dot') + sT(x, y, t, 'mf-small'); });
   if (names.length) s += sT(L, H - 4, names[0], 'mf-lab-b', 'start') + sT(W / 2, H - 4, names[1], 'mf-lab-b') + sT(W - R, H - 4, names[2], 'mf-lab-b', 'end');
   return s + '</svg>';
 }
@@ -640,7 +642,7 @@ function titrationSetupSvg({ label, names } = {}) {
   s += sR(40, 270, 120, 8, 'mf-s3l', 2, ' stroke="var(--ink-2)"') + sR(52, 20, 6, 252, 'mf-s3l', 1, ' stroke="var(--ink-2)"') + sR(58, 60, 50, 6, 'mf-s3l', 1, ' stroke="var(--ink-2)"');
   s += sR(104, 14, 14, 180, 'ch-glass', 3) + sR(106, 40, 10, 152, 'ch-liq') + [...Array(9)].map((_, i) => sL(104, 30 + i * 18, 111, 30 + i * 18, 'mf-thin')).join('') + sR(100, 194, 22, 8, 'mf-s4l', 2, ' stroke="var(--ink-2)"') + sP('M108 202v14h6v-14', 'ch-glass');
   s += sR(70, 260, 90, 8, '', 1, ' style="fill:var(--paper);stroke:var(--ink-3)"') + sP('M101 208v16l-26 34a4 4 0 0 0 3 4h68a4 4 0 0 0 3-4l-26-34v-16z', 'ch-glass') + sP('M84 244h54l12 16a3 3 0 0 1-2 4h-74a3 3 0 0 1-2-4z', '', ' style="fill:#f4a6c9;opacity:.85"');
-  s += sL(122, 60, 170, 60, 'mf-grid') + sT(176, 64, names[0], 'mf-small', 'start') + sL(124, 198, 170, 198, 'mf-grid') + sT(176, 202, names[1], 'mf-small', 'start') + sL(150, 250, 170, 240, 'mf-grid') + sT(176, 242, names[2], 'mf-small', 'start') + sL(160, 264, 170, 270, 'mf-grid') + sT(176, 276, names[3], 'mf-small', 'start');
+  s += sL(122, 60, 170, 60, 'mf-thin') + sT(176, 64, names[0], 'mf-small', 'start') + sL(124, 198, 170, 198, 'mf-thin') + sT(176, 202, names[1], 'mf-small', 'start') + sL(150, 250, 170, 240, 'mf-thin') + sT(176, 242, names[2], 'mf-small', 'start') + sL(160, 264, 170, 270, 'mf-thin') + sT(176, 276, names[3], 'mf-small', 'start');
   return s + '</svg>';
 }
 /* a saturated solution: undissolved solid at the bottom, ions in solution */

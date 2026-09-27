@@ -14,7 +14,7 @@ addT('id', {
   'fnnw9reqjs': R`asam fluorida`,
   '1fazv91bo9c': R`asam nitrit`,
   '1hk6ohmdj59': R`asam sianida`,
-  '1ltcijecxjy': R`<p><b>Asam</b> terasa masam (air jeruk nipis, cuka), mengubah lakmus biru menjadi merah, dan bereaksi dengan logam dan karbonat. <b>Basa</b> adalah kebalikan kimianya; basa yang larut dalam air disebut <b>alkali</b>: terasa licin seperti sabun dan mengubah lakmus merah menjadi biru. Dalam air, asam menghasilkan ion hidrogen $\ce{H+}$ dan basa menghasilkan ion hidroksida $\ce{OH-}$.</p>
+  'qvx81mgnnq': R`<p><b>Asam</b> terasa masam (air jeruk nipis, cuka), mengubah lakmus biru menjadi merah, dan bereaksi dengan logam dan karbonat.<br><b>Basa</b> adalah kebalikan kimianya; basa yang larut dalam air disebut <b>alkali</b>: terasa licin seperti sabun dan mengubah lakmus merah menjadi biru. Dalam air, asam menghasilkan ion hidrogen $\ce{H+}$ dan basa menghasilkan ion hidroksida $\ce{OH-}$.</p>
 ⟦0⟧
 ⟦1⟧
 ⟦2⟧

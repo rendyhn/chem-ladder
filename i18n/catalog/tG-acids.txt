@@ -31,9 +31,9 @@ nitrous acid
 hydrocyanic acid
 
 ##### acids-bases-intro
-@1ltcijecxjy  ; 0=FigW(phScaleSvg(EVERYDAY(), { names: [T` | 1=Tbl([T`Indicator`, T`In acid`, T`In alka | 2=Key(T`<p><b>Neutralisation:</b> acid + b | 3=Tbl([T`Acid`, T`Formula`, T`Salts are ca | 4=Tip(T`<p>Test for hydrogen: a lit splint
+@qvx81mgnnq  ; 0=FigW(phScaleSvg(EVERYDAY(), { names: [T` | 1=Tbl([T`Indicator`, T`In acid`, T`In alka | 2=Key(T`<p><b>Neutralisation:</b> acid + b | 3=Tbl([T`Acid`, T`Formula`, T`Salts are ca | 4=Tip(T`<p>Test for hydrogen: a lit splint
 
-<p><b>Acids</b> taste sour (lemon juice, vinegar), turn blue litmus red and react with metals and carbonates. <b>Bases</b> are their chemical opposites; bases that dissolve in water are called <b>alkalis</b>: they feel soapy and turn red litmus blue. In water, acids produce hydrogen ions $\ce{H+}$ and alkalis produce hydroxide ions $\ce{OH-}$.</p>
+<p><b>Acids</b> taste sour (lemon juice, vinegar), turn blue litmus red and react with metals and carbonates.<br><b>Bases</b> are their chemical opposites; bases that dissolve in water are called <b>alkalis</b>: they feel soapy and turn red litmus blue. In water, acids produce hydrogen ions $\ce{H+}$ and alkalis produce hydroxide ions $\ce{OH-}$.</p>
 ⟦0⟧
 ⟦1⟧
 ⟦2⟧

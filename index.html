@@ -212,8 +212,8 @@ mjx-container.mjx-wide { display: block; overflow-x: auto; overflow-y: hidden; m
 @media (max-width: 560px) { .fig-row.c4, .fig-row.c5 { grid-template-columns: repeat(2, 1fr) !important; } }
 .fig-row .cap { font-size: 0.8rem; color: var(--ink-3); text-align: center; margin-top: 4px; }
 /* figure library (src/fig.js) */
-.mf-grid { stroke: var(--rule-soft); stroke-width: 1; }
-.mf-axis { stroke: var(--ink-3); stroke-width: 1.4; fill: none; }
+.mf-grid { stroke: var(--rule); stroke-width: 1; }
+.mf-axis { stroke: var(--ink-2); stroke-width: 1.6; fill: none; }
 .mf-line { stroke: var(--ink-2); stroke-width: 1.6; fill: none; }
 .mf-thin { stroke: var(--ink-3); stroke-width: 0.8; fill: none; }
 .mf-ink { fill: var(--ink-2); } .mf-ink3 { fill: var(--ink-3); }
@@ -970,7 +970,7 @@ const sPoly = (pts, cls = 'mf-shape', extra = '') => `<polygon points="${pts.map
 const sPline = (pts, cls = 'mf-line', extra = '') => `<polyline points="${pts.map(p => f1(p[0]) + ',' + f1(p[1])).join(' ')}" class="${cls}"${extra}/>`;
 function sArrow(x1, y1, x2, y2, cls = 'mf-line', head = 8) {   // line with a filled head; cls may be a curve class (mf-c1 …)
   const a = Math.atan2(y2 - y1, x2 - x1), bx = x2 - head * Math.cos(a), by = y2 - head * Math.sin(a), w = head * 0.45;
-  const hc = cls.replace(/mf-c(\d)/, 'mf-s$1').replace('mf-line', 'mf-ink').replace('mf-axis', 'mf-ink3');
+  const hc = cls.replace(/mf-c(\d)/, 'mf-s$1').replace('mf-line', 'mf-ink').replace('mf-axis', 'mf-ink').replace('mf-thin', 'mf-ink3');
   return sL(x1, y1, bx, by, cls) + sPoly([[x2, y2], [bx + w * Math.sin(a), by - w * Math.cos(a)], [bx - w * Math.sin(a), by + w * Math.cos(a)]], hc);
 }
 const sAngle = (cx, cy, r, a1, a2, cls = 'mf-line') => {   // arc between two directions (degrees, maths convention, y up)
@@ -1640,13 +1640,15 @@ function aufbauSvg({ label } = {}) {
 }
 /* shapes of s and p orbitals */
 function orbitalShapesSvg(names, { label } = {}) {
-  const cw = 130, W = cw * 4, cy = 70;
-  let s = svgBox(W, 150, label);
-  const axes = cx => sL(cx - 50, cy, cx + 50, cy, 'mf-grid') + sL(cx, cy - 50, cx, cy + 50, 'mf-grid');
-  const lobe = (cx, a, cls) => `<ellipse cx="${f1(cx + 24 * Math.cos(a))}" cy="${f1(cy - 24 * Math.sin(a))}" rx="24" ry="13" transform="rotate(${f1(-a * 180 / Math.PI)} ${f1(cx + 24 * Math.cos(a))} ${f1(cy - 24 * Math.sin(a))})" class="${cls}" stroke="var(--ink-2)" stroke-width="1.2"/>`;
-  s += axes(cw / 2) + sC(cw / 2, cy, 34, 'mf-s1l', ' stroke="var(--ink-2)" stroke-width="1.2"');
-  [[0, 'x'], [Math.PI / 2, 'z'], [Math.PI / 4, 'y']].forEach(([a], i) => { const cx = cw * (i + 1) + cw / 2; s += axes(cx) + lobe(cx, a, 'mf-s2l') + lobe(cx, a + Math.PI, 'mf-s4l'); });
-  names.forEach((t, i) => { s += sT(i * cw + cw / 2, 140, t.replace(/_(\w)/, '<tspan baseline-shift="sub" font-size="75%">$1</tspan>'), 'mf-lab-b'); });
+  const cw = 150, W = cw * 4, cy = 84, H = 180;
+  let s = svgBox(W, H, label);
+  // x to the right, z up, y drawn in perspective (up-right); the axis that holds the orbital is drawn darker
+  const axes = (cx, on) => [['x', 62, 0], ['z', 0, -62], ['y', 42, -42]].map(([t, dx, dy]) => { const hl = on === t, cls = hl ? 'mf-axis' : 'mf-thin';
+    return sL(cx - dx, cy - dy, cx, cy, cls, hl ? '' : ' stroke-dasharray="3 3"') + sArrow(cx, cy, cx + dx, cy + dy, cls, 6) + sT(cx + dx * 1.13 + (t === 'z' ? 8 : 0), cy + dy * 1.13 + (t === 'x' ? 4 : t === 'y' ? 2 : 0), t, 'mf-var', 'middle'); }).join('');
+  const lobe = (cx, a, cls) => `<ellipse cx="${f1(cx + 25 * Math.cos(a))}" cy="${f1(cy - 25 * Math.sin(a))}" rx="25" ry="13" transform="rotate(${f1(-a * 180 / Math.PI)} ${f1(cx + 25 * Math.cos(a))} ${f1(cy - 25 * Math.sin(a))})" class="${cls}" stroke="var(--ink-2)" stroke-width="1.2" fill-opacity="0.85"/>`;
+  s += axes(cw / 2) + sC(cw / 2, cy, 34, 'mf-s1l', ' stroke="var(--ink-2)" stroke-width="1.2" fill-opacity="0.85"');
+  [[0, 'x'], [Math.PI / 4, 'y'], [Math.PI / 2, 'z']].forEach(([a, ax], i) => { const cx = cw * (i + 1) + cw / 2; s += axes(cx, ax) + lobe(cx, a, 'mf-s2l') + lobe(cx, a + Math.PI, 'mf-s4l'); });
+  names.forEach((t, i) => { s += sT(i * cw + cw / 2, H - 10, t.replace(/_(\w)/, '<tspan baseline-shift="sub" font-size="75%">$1</tspan>'), 'mf-lab-b'); });
   return s + '</svg>';
 }
 
@@ -1925,7 +1927,7 @@ function phScaleSvg(items, { label, names = [] } = {}) {
   const W = 480, L = 20, R = 20, cw = (W - L - R) / 15, y0 = 110, H = 220, X = p => L + (p + 0.5) * cw;
   let s = svgBox(W, H, label);
   UI_COL.forEach((c, i) => { s += sR(L + i * cw, y0, cw, 26, '', 0, ` style="fill:${c}"`) + sT(L + i * cw + cw / 2, y0 + 18, String(i), 'mf-small', 'middle', ' style="fill:#fff;stroke:none;font-weight:700"'); });
-  items.forEach(([p, t], k) => { const up = k % 2 === 0, x = X(p), lvl = (k >> 1) % 3, y = up ? y0 - 12 - lvl * 26 : y0 + 38 + lvl * 26; s += sL(x, up ? y0 : y0 + 26, x, up ? y + 4 : y - 12, 'mf-grid') + sC(x, up ? y0 - 2 : y0 + 28, 2.5, 'mf-dot') + sT(x, y, t, 'mf-small'); });
+  items.forEach(([p, t], k) => { const up = k % 2 === 0, x = X(p), lvl = (k >> 1) % 3, y = up ? y0 - 12 - lvl * 26 : y0 + 38 + lvl * 26; s += sL(x, up ? y0 : y0 + 26, x, up ? y + 4 : y - 12, 'mf-thin') + sC(x, up ? y0 - 2 : y0 + 28, 2.5, 'mf-dot') + sT(x, y, t, 'mf-small'); });
   if (names.length) s += sT(L, H - 4, names[0], 'mf-lab-b', 'start') + sT(W / 2, H - 4, names[1], 'mf-lab-b') + sT(W - R, H - 4, names[2], 'mf-lab-b', 'end');
   return s + '</svg>';
 }
@@ -1969,7 +1971,7 @@ function titrationSetupSvg({ label, names } = {}) {
   s += sR(40, 270, 120, 8, 'mf-s3l', 2, ' stroke="var(--ink-2)"') + sR(52, 20, 6, 252, 'mf-s3l', 1, ' stroke="var(--ink-2)"') + sR(58, 60, 50, 6, 'mf-s3l', 1, ' stroke="var(--ink-2)"');
   s += sR(104, 14, 14, 180, 'ch-glass', 3) + sR(106, 40, 10, 152, 'ch-liq') + [...Array(9)].map((_, i) => sL(104, 30 + i * 18, 111, 30 + i * 18, 'mf-thin')).join('') + sR(100, 194, 22, 8, 'mf-s4l', 2, ' stroke="var(--ink-2)"') + sP('M108 202v14h6v-14', 'ch-glass');
   s += sR(70, 260, 90, 8, '', 1, ' style="fill:var(--paper);stroke:var(--ink-3)"') + sP('M101 208v16l-26 34a4 4 0 0 0 3 4h68a4 4 0 0 0 3-4l-26-34v-16z', 'ch-glass') + sP('M84 244h54l12 16a3 3 0 0 1-2 4h-74a3 3 0 0 1-2-4z', '', ' style="fill:#f4a6c9;opacity:.85"');
-  s += sL(122, 60, 170, 60, 'mf-grid') + sT(176, 64, names[0], 'mf-small', 'start') + sL(124, 198, 170, 198, 'mf-grid') + sT(176, 202, names[1], 'mf-small', 'start') + sL(150, 250, 170, 240, 'mf-grid') + sT(176, 242, names[2], 'mf-small', 'start') + sL(160, 264, 170, 270, 'mf-grid') + sT(176, 276, names[3], 'mf-small', 'start');
+  s += sL(122, 60, 170, 60, 'mf-thin') + sT(176, 64, names[0], 'mf-small', 'start') + sL(124, 198, 170, 198, 'mf-thin') + sT(176, 202, names[1], 'mf-small', 'start') + sL(150, 250, 170, 240, 'mf-thin') + sT(176, 242, names[2], 'mf-small', 'start') + sL(160, 264, 170, 270, 'mf-thin') + sT(176, 276, names[3], 'mf-small', 'start');
   return s + '</svg>';
 }
 /* a saturated solution: undissolved solid at the bottom, ions in solution */
@@ -2210,7 +2212,7 @@ ${Tbl([T`Property`, T`Solid`, T`Liquid`, T`Gas`], [[T`Shape`, T`fixed`, T`takes 
 ${FigW(statesSvg({ names: stateNames(), label: T`The six changes of state between solid, liquid and gas` }), T`Heating (red arrows) gives particles more energy; cooling (blue arrows) takes energy away.`)}
 <p>A pure substance melts at its <b>melting point</b> and boils at its <b>boiling point</b>. For water at normal air pressure these are $0\,^\circ\mathrm{C}$ and $100\,^\circ\mathrm{C}$. While a substance is melting or boiling, its temperature stays constant: the energy goes into separating the particles, not into making them move faster.</p>
 ${Fig(planeSvg({ W: 380, H: 230, x: [0, 10.4], y: [-30, 135], step: [1, 20], ticks: false, xl: T`time of heating`, yl: 'T (°C)', segs: [[0, -20, 1, 0, 'mf-c1'], [1, 0, 3, 0, 'mf-c4'], [3, 0, 5, 100, 'mf-c1'], [5, 100, 9, 100, 'mf-c4'], [9, 100, 10, 120, 'mf-c1']], texts: [[0.2, -8, T`ice`, 'start', 'mf-small'], [2, 7, T`melting`, 'middle', 'mf-small'], [4.1, 45, T`water`, 'end', 'mf-small'], [7, 106, T`boiling`, 'middle', 'mf-small'], [9.6, 124, T`steam`, 'end', 'mf-small'], [-0.15, 0, '0', 'end', 'mf-small'], [-0.15, 100, '100', 'end', 'mf-small']], label: T`Heating curve of water with flat parts at 0 and 100 degrees Celsius` }), T`Heating curve of water: the flat parts are melting ($0\,^\circ\mathrm{C}$) and boiling ($100\,^\circ\mathrm{C}$).`)}
-${Key(T`<p><b>Physical change</b>: no new substance forms, and it is usually easy to reverse (melting ice, dissolving sugar, cutting paper). <b>Chemical change</b>: new substances form (burning, rusting, cooking an egg). Signs of a chemical change: a new colour, a gas given off, a precipitate, a change in temperature, light or a new smell.</p>`)}
+${Key(T`<p><b>Physical change</b>: no new substance forms, and it is usually easy to reverse (melting ice, dissolving sugar, cutting paper).<br><b>Chemical change</b>: new substances form (burning, rusting, cooking an egg). Signs of a chemical change: a new colour, a gas given off, a precipitate, a change in temperature, light or a new smell.</p>`)}
 ${Tip(T`<p><b>Evaporation</b> happens at the surface at any temperature; <b>boiling</b> happens throughout the liquid, at the boiling point only. That is why wet clothes dry in the sun without boiling.</p>`)}`,
   gens: [
     () => {
@@ -2358,7 +2360,7 @@ level({
 <p>An <b>atom</b> is the smallest particle of an element. It has a tiny, dense <b>nucleus</b> of protons and neutrons, surrounded by electrons. The atom is mostly empty space: if the nucleus were a marble in the middle of a football stadium, the electrons would be moving around the outer stands.</p>
 ${Tbl([T`Particle`, T`Where`, T`Relative mass`, T`Relative charge`], [[T`proton`, T`nucleus`, '1', '+1'], [T`neutron`, T`nucleus`, '1', '0'], [T`electron`, T`shells around the nucleus`, T`$\tfrac{1}{1836}$ (almost 0)`, '−1']])}
 ${Fig(bohrSvg(6, { A: 12, W: 250, label: T`A carbon-12 atom: 6 protons and 6 neutrons in the nucleus, 6 electrons in two shells (2, 4)` }), T`A carbon-12 atom: 6 protons, 6 neutrons and 6 electrons (2 in the first shell, 4 in the second).`)}
-${Key(T`<p><b>Atomic number</b> $Z$ = number of protons (it defines the element). <b>Mass number</b> $A$ = protons + neutrons. So</p><p>$$\text{neutrons} = A - Z.$$</p><p>A neutral atom has as many electrons as protons. The nuclide notation writes both numbers: $$ {}^{A}_{Z}\mathrm{X} \qquad \text{e.g. } {}^{23}_{11}\mathrm{Na}: 11 \text{ protons},\ 12 \text{ neutrons},\ 11 \text{ electrons}.$$</p>`)}
+${Key(T`<p><b>Atomic number</b> $Z$ = number of protons (it defines the element).<br><b>Mass number</b> $A$ = protons + neutrons. So</p><p>$$\text{neutrons} = A - Z.$$</p><p>A neutral atom has as many electrons as protons. The nuclide notation writes both numbers: $$ {}^{A}_{Z}\mathrm{X} \qquad \text{e.g. } {}^{23}_{11}\mathrm{Na}: 11 \text{ protons},\ 12 \text{ neutrons},\ 11 \text{ electrons}.$$</p>`)}
 <h3>Ions</h3>
 <p>An <b>ion</b> is an atom that has lost or gained electrons; the nucleus does not change. Losing electrons gives a <b>positive</b> ion (cation), gaining them a <b>negative</b> ion (anion): $\ce{Na+}$ has 10 electrons, $\ce{Cl-}$ has 18.</p>
 <h3>Isotopes</h3>
@@ -2440,8 +2442,8 @@ ${Tip(T`<p>Electrons in the Bohr model are not little planets: in the modern mod
   lesson: () => T`
 <p>Electrons fill <b>shells</b> ($n = 1, 2, 3, \ldots$), each made of <b>subshells</b> $s$, $p$, $d$, $f$. A subshell is made of <b>orbitals</b>, and each orbital holds at most two electrons of opposite spin.</p>
 ${Tbl([T`Subshell`, T`Orbitals`, T`Maximum electrons`], [['s', '1', '2'], ['p', '3', '6'], ['d', '5', '10'], ['f', '7', '14']])}
-${FigW(orbitalShapesSvg(['s', 'p_x', 'p_z', 'p_y'], { label: T`Shapes of an s orbital (a sphere) and the three p orbitals (dumbbells along x, z and y)` }), T`An $s$ orbital is a sphere; the three $p$ orbitals are dumbbells along the $x$, $y$ and $z$ axes.`)}
-${Key(T`<p><b>Aufbau principle:</b> electrons fill the lowest energy subshell first: $1s\ 2s\ 2p\ 3s\ 3p\ 4s\ 3d\ 4p\ 5s \ldots$ <b>Pauli exclusion principle:</b> an orbital holds at most two electrons, with opposite spins. <b>Hund's rule:</b> in a subshell, electrons occupy empty orbitals singly (same spin) before they pair up.</p>`)}
+${FigW(orbitalShapesSvg(['s', 'p_x', 'p_y', 'p_z'], { label: T`Shapes of an s orbital (a sphere) and the three p orbitals (dumbbells along x, z and y)` }), T`An $s$ orbital is a sphere; the three $p$ orbitals are dumbbells along the $x$, $y$ and $z$ axes.`)}
+${Key(T`<p><b>Aufbau principle:</b> electrons fill the lowest energy subshell first: $1s\ 2s\ 2p\ 3s\ 3p\ 4s\ 3d\ 4p\ 5s \ldots$<br><b>Pauli exclusion principle:</b> an orbital holds at most two electrons, with opposite spins.<br><b>Hund's rule:</b> in a subshell, electrons occupy empty orbitals singly (same spin) before they pair up.</p>`)}
 ${Fig(aufbauSvg({ label: T`The diagonal rule for the filling order of subshells` }), T`Follow the arrows for the filling order: 1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, 5s, 4d, …`)}
 ${Ex(T`<p>Iron, $Z = 26$: $1s^2\,2s^2\,2p^6\,3s^2\,3p^6\,4s^2\,3d^6$, or in short $[\mathrm{Ar}]\,4s^2\,3d^6$.</p>`)}
 ${Fig(orbitalSvg(26, { from: 5, label: T`Orbital diagram of the 4s and 3d subshells of iron` }), T`The $4s$ and $3d$ electrons of iron: by Hund's rule the six $3d$ electrons give four unpaired electrons.`)}
@@ -2795,7 +2797,7 @@ ${Ex(T`<p>What mass of calcium oxide forms when 50 g of calcium carbonate is hea
 <h3>Limiting reagent</h3>
 <p>Reactants are often not mixed in exactly the right ratio. The reactant that runs out first is the <b>limiting reagent</b>: it decides how much product forms. The other one is <b>in excess</b> and some is left over.</p>
 ${Fig(reactionBoxesSvg([[5, MOL.H2], [2, MOL.O2]], [[4, MOL.H2O], [1, MOL.H2]], { names: [T`before: 5 H₂ + 2 O₂`, T`after: 4 H₂O + 1 H₂ left`], seeds: [3, 11], label: T`Five hydrogen and two oxygen molecules give four water molecules with one hydrogen molecule left over` }), T`2 $\ce{O2}$ can only react with 4 $\ce{H2}$: oxygen is the limiting reagent and one $\ce{H2}$ is left over.`)}
-${Key(T`<p>To find the limiting reagent, divide the moles of each reactant by its coefficient: the smallest result is limiting. <b>Percentage yield</b> compares what you actually obtained with the theoretical maximum: $$\text{percentage yield} = \frac{\text{actual yield}}{\text{theoretical yield}} \times 100\%$$ <b>Atom economy</b> measures how much of the reactants ends up in the useful product: $$\text{atom economy} = \frac{M_r \text{ of desired product}}{\text{sum of } M_r \text{ of all products}} \times 100\%$$</p>`)}
+${Key(T`<p>To find the limiting reagent, divide the moles of each reactant by its coefficient: the smallest result is limiting.<br><b>Percentage yield</b> compares what you actually obtained with the theoretical maximum: $$\text{percentage yield} = \frac{\text{actual yield}}{\text{theoretical yield}} \times 100\%$$ <b>Atom economy</b> measures how much of the reactants ends up in the useful product: $$\text{atom economy} = \frac{M_r \text{ of desired product}}{\text{sum of } M_r \text{ of all products}} \times 100\%$$</p>`)}
 ${Tip(T`<p>Yields are below 100% because reactions may be reversible, some product is lost while separating and purifying it, and side reactions make other products. A high atom economy means less waste: a key idea of green chemistry.</p>`)}`,
   gens: [
     () => {
@@ -3108,7 +3110,7 @@ level({
   id: 'acids-bases-intro', stage: 'jh', title: 'Acids, Bases, Indicators & pH',
   blurb: 'Properties of acids and bases, alkalis, indicators, the pH scale and everyday examples, neutralisation, and the reactions of acids with metals, carbonates and bases.',
   lesson: () => T`
-<p><b>Acids</b> taste sour (lemon juice, vinegar), turn blue litmus red and react with metals and carbonates. <b>Bases</b> are their chemical opposites; bases that dissolve in water are called <b>alkalis</b>: they feel soapy and turn red litmus blue. In water, acids produce hydrogen ions $\ce{H+}$ and alkalis produce hydroxide ions $\ce{OH-}$.</p>
+<p><b>Acids</b> taste sour (lemon juice, vinegar), turn blue litmus red and react with metals and carbonates.<br><b>Bases</b> are their chemical opposites; bases that dissolve in water are called <b>alkalis</b>: they feel soapy and turn red litmus blue. In water, acids produce hydrogen ions $\ce{H+}$ and alkalis produce hydroxide ions $\ce{OH-}$.</p>
 ${FigW(phScaleSvg(EVERYDAY(), { names: [T`← more acidic`, T`neutral`, T`more alkaline →`], label: T`The pH scale from 0 to 14 in universal indicator colours with everyday examples from battery acid to drain cleaner` }), T`The pH scale with universal-indicator colours and typical values (US EPA and USGS). Each step of 1 pH unit is a tenfold change in $\ce{H+}$ concentration: lemon juice (pH 2) has 1000 times more $\ce{H+}$ than coffee (pH 5).`)}
 ${Tbl([T`Indicator`, T`In acid`, T`In alkali`], [[T`litmus`, T`red`, T`blue`], [T`phenolphthalein`, T`colourless`, T`pink`], [T`methyl orange`, T`red`, T`yellow`], [T`universal indicator`, T`red → orange → yellow`, T`blue → violet`], [T`red cabbage or turmeric extract`, T`red / yellow`, T`green / red-brown`]])}
 ${Key(T`<p><b>Neutralisation:</b> acid + base → salt + water. The ionic equation is always $\ce{H+(aq) + OH-(aq) -> H2O(l)}$. Other acid reactions:</p><p>acid + metal → salt + hydrogen: $\ce{Zn + 2HCl -> ZnCl2 + H2}$<br>acid + carbonate → salt + water + carbon dioxide: $\ce{CaCO3 + 2HCl -> CaCl2 + H2O + CO2}$<br>acid + metal oxide → salt + water: $\ce{CuO + H2SO4 -> CuSO4 + H2O}$</p>`)}
@@ -3490,7 +3492,7 @@ ${FigRow([[glucoseSvg({ label: T`Ring structure of alpha glucose` }), T`α-gluco
 ${Tbl([T`Carbohydrate`, T`Made of`, T`Role`], [[T`glucose, fructose`, T`monosaccharides`, T`energy`], [T`sucrose (table sugar)`, T`glucose + fructose`, T`transport in plants, sweetener`], [T`lactose`, T`glucose + galactose`, T`milk sugar`], [T`starch, glycogen`, T`many α-glucose`, T`energy store in plants / animals`], [T`cellulose`, T`many β-glucose`, T`plant cell walls, fibre`]])}
 ${Key(T`<p><b>Proteins</b> are polymers of <b>amino acids</b>, $\ce{H2N-CHR-COOH}$, joined by <b>peptide (amide) bonds</b> –CO–NH–. The 20 amino acids differ in the side chain R. The sequence (primary structure) folds into helices and sheets (secondary), then into a 3-D shape (tertiary). <b>Enzymes</b> are proteins that catalyse reactions; heat or extreme pH <b>denatures</b> them by destroying the shape.</p>`)}
 ${Fig(`<svg viewBox="0 0 530 130" style="max-width:690px" role="img" aria-label="${T`Two amino acids join with loss of water to form a peptide bond`}">` + sT(60, 60, 'H₂N–CH–COOH', 'mf-lab-b') + sT(60, 86, 'R₁', 'mf-small') + sT(128, 64, '+', 'mf-lab-b') + sT(195, 60, 'H₂N–CH–COOH', 'mf-lab-b') + sT(195, 86, 'R₂', 'mf-small') + sArrow(252, 56, 290, 56, 'mf-line', 8) + sT(410, 60, 'H₂N–CH–CO–NH–CH–COOH', 'mf-lab-b') + sT(370, 86, 'R₁', 'mf-small') + sT(437, 86, 'R₂', 'mf-small') + sR(377, 42, 52, 26, '', 5, ' style="fill:none;stroke:var(--lv4);stroke-width:2"') + sT(417, 112, T`peptide bond`, 'mf-small') + sT(271, 44, '−H₂O', 'mf-small') + '</svg>', T`Two amino acids make a dipeptide by condensation; the new –CO–NH– group is the peptide bond.`)}
-${Key(T`<p><b>Lipids</b> (fats and oils) are esters of glycerol (propane-1,2,3-triol) with three fatty acids: <b>triglycerides</b>. Saturated fats (mostly animal) are solid; unsaturated oils (C=C bonds, mostly plant) are liquid. <b>Nucleic acids</b> (DNA, RNA) are polymers of nucleotides (sugar + phosphate + base) and store genetic information.</p>`)}
+${Key(T`<p><b>Lipids</b> (fats and oils) are esters of glycerol (propane-1,2,3-triol) with three fatty acids: <b>triglycerides</b>. Saturated fats (mostly animal) are solid; unsaturated oils (C=C bonds, mostly plant) are liquid.<br><b>Nucleic acids</b> (DNA, RNA) are polymers of nucleotides (sugar + phosphate + base) and store genetic information.</p>`)}
 ${Tbl([T`Test`, T`For`, T`Positive result`], [[T`iodine solution`, T`starch`, T`orange → blue-black`], [T`Benedict's (or Fehling's) solution, heat`, T`reducing sugars (glucose)`, T`blue → brick-red precipitate`], [T`biuret reagent`, T`protein (peptide bonds)`, T`blue → purple`], [T`ethanol emulsion`, T`lipids`, T`cloudy white emulsion`]])}
 ${Tip(T`<p>Daily energy values on food labels: carbohydrate and protein about 17 kJ/g, fat about 37 kJ/g, which is why fat is the body's compact energy store.</p>`)}`,
   gens: [
@@ -3529,7 +3531,7 @@ ${Key(T`<p><b>Group 1, the alkali metals</b> (Li, Na, K, Rb, Cs): soft, low-dens
 ${Fig(barChartSvg([['Li', 180.5], ['Na', 97.8], ['K', 63.5], ['Rb', 39.3], ['Cs', 28.5]].map(([l, v], i) => ({ label: l, value: v, cls: 'g-s' + (i + 1) })), { W: 380, H: 230, yMax: 200, yStep: 50, yl: T`melting point (°C)`, label: T`Melting points of the alkali metals fall from lithium 180 degrees to caesium 28 degrees` }), T`Melting points of the alkali metals fall down the group (CRC Handbook): the metallic bonding gets weaker as the atoms get larger. Caesium melts on a hot day.`)}
 ${Key(T`<p><b>Group 2, the alkaline earth metals</b> (Be–Ba) are less reactive than group 1 but show the same trend: $\ce{Ca + 2H2O -> Ca(OH)2 + H2}$, while magnesium reacts only with steam. Their hydroxides get more soluble down the group; their sulfates less soluble ($\ce{BaSO4}$ is used as a "barium meal" for X-rays).</p>`)}
 ${Tbl([T`Halogen`, T`Appearance at room temperature`, T`Boiling point (°C)`], HAL0().map(([e, b, a]) => [`$\\ce{${e}2}$`, a, M(b)]))}
-${Key(T`<p><b>Group 17, the halogens</b>, exist as diatomic molecules. Reactivity <b>decreases</b> down the group: the atoms are larger, so they attract an extra electron less strongly. A more reactive halogen <b>displaces</b> a less reactive one from its salts: $$\ce{Cl2 + 2KBr -> 2KCl + Br2}$$ (the colourless solution turns orange). <b>Group 18, the noble gases</b>, have full outer shells and are very unreactive: helium in balloons, neon in signs, argon in light bulbs and welding.</p>`)}
+${Key(T`<p><b>Group 17, the halogens</b>, exist as diatomic molecules. Reactivity <b>decreases</b> down the group: the atoms are larger, so they attract an extra electron less strongly. A more reactive halogen <b>displaces</b> a less reactive one from its salts: $$\ce{Cl2 + 2KBr -> 2KCl + Br2}$$ (the colourless solution turns orange).<br><b>Group 18, the noble gases</b>, have full outer shells and are very unreactive: helium in balloons, neon in signs, argon in light bulbs and welding.</p>`)}
 ${Tip(T`<p>Test for halide ions: add dilute nitric acid, then silver nitrate. Chloride gives a white precipitate (AgCl), bromide cream (AgBr), iodide yellow (AgI).</p>`)}`,
   gens: [
     () => { const g = pick([['Li', 'Na', 'K', 'Rb', 'Cs'], ['F', 'Cl', 'Br', 'I']]), [a, b] = [...g].sort(() => rng() - 0.5).slice(0, 2), m = g[0] === 'Li', hi = m ? (g.indexOf(a) > g.indexOf(b) ? a : b) : (g.indexOf(a) < g.indexOf(b) ? a : b); return { q: T`Which is more reactive: ${elName(a)} or ${elName(b)}?`, a: elName(hi), w: [elName(hi === a ? b : a), T`they are equally reactive`], only: 'mc', s: m ? T`Group 1 reactivity increases down the group: <b>${elName(hi)}</b>.` : T`Group 17 reactivity decreases down the group: <b>${elName(hi)}</b>.` }; },
@@ -3592,7 +3594,7 @@ ${Fig(penetrationSvg({ names: [T`alpha`, T`beta`, T`gamma`, T`paper`, T`aluminiu
 ${Key(T`<p>In a <b>nuclear equation</b> the mass numbers and atomic numbers must balance on both sides: $$^{238}_{92}\mathrm{U} \to {}^{234}_{90}\mathrm{Th} + {}^{4}_{2}\mathrm{He} \qquad ^{14}_{6}\mathrm{C} \to {}^{14}_{7}\mathrm{N} + {}^{0}_{-1}e$$</p>`)}
 ${Fig(stabilitySvg({ names: [T`β⁻ decay (too many neutrons)`, T`β⁺ decay / electron capture`, T`α decay (heavy nuclei)`], label: T`The band of stability: stable nuclei lie close to N equals Z for light elements and above it for heavier ones` }), T`The <b>band of stability</b>. Light stable nuclei have $N \approx Z$; heavier ones need more neutrons (lead-208: 126 neutrons, 82 protons). Nuclei above the band decay by β⁻, below it by β⁺, and very heavy ones ($Z > 83$) by α.`)}
 ${Fig(planeSvg({ W: 420, H: 240, x: [0, 5.3], y: [0, 105], step: [1, 25], tickX: 1, tickY: 25, xl: T`half-lives`, yl: T`% remaining`, fns: [{ f: t => 100 * Math.pow(0.5, t), from: 0, to: 5.2, cls: 'mf-c1' }], pts: [[1, 50, '50%'], [2, 25, '25%'], [3, 12.5, '12.5%'], [4, 6.25, '6.25%', 'start', false, 7, -16]], label: T`Radioactive decay: the amount halves every half-life` }), T`The <b>half-life</b> $t_{1/2}$ is the time for half of the radioactive nuclei to decay. After $n$ half-lives the fraction left is $\left(\frac{1}{2}\right)^n$. Carbon-14 ($t_{1/2}$ = 5730 years) dates archaeological remains.`)}
-${Key(T`<p><b>Fission:</b> a heavy nucleus (U-235) splits after absorbing a neutron, releasing energy and more neutrons (a chain reaction) — nuclear power stations. <b>Fusion:</b> light nuclei join, as in the Sun: $^{2}_{1}\mathrm{H} + {}^{3}_{1}\mathrm{H} \to {}^{4}_{2}\mathrm{He} + {}^{1}_{0}n$. Both release energy because a little mass is converted: $E = mc^2$.</p>`)}
+${Key(T`<p><b>Fission:</b> a heavy nucleus (U-235) splits after absorbing a neutron, releasing energy and more neutrons (a chain reaction) — nuclear power stations.<br><b>Fusion:</b> light nuclei join, as in the Sun: $^{2}_{1}\mathrm{H} + {}^{3}_{1}\mathrm{H} \to {}^{4}_{2}\mathrm{He} + {}^{1}_{0}n$. Both release energy because a little mass is converted: $E = mc^2$.</p>`)}
 ${Tip(T`<p>Uses: medical tracers (Tc-99m, 6 h) and radiotherapy (Co-60), iodine-131 for thyroid treatment, smoke detectors (Am-241, α), sterilising food and instruments (γ), thickness gauges (β). Dangers: radiation damages DNA, so exposure is kept as low as possible with shielding, distance and short times.</p>`)}`,
   gens: [
     () => { const [s0, A, Z, , , mode] = pick(ISOT.filter(x => x[5] !== 'γ')), [A2, Z2] = mode === 'α' ? [A - 4, Z - 2] : [A, Z + 1], sym = SYMBOLS[Z2 - 1]; return { q: T`$^{${A}}_{${Z}}\mathrm{${s0}}$ undergoes ${mode} decay. What nucleus is formed?`, a: `$^{${A2}}_{${Z2}}\\mathrm{${sym}}$`, w: [mode === 'α' ? `$^{${A}}_{${Z + 1}}\\mathrm{${SYMBOLS[Z]}}$` : `$^{${A - 4}}_{${Z - 2}}\\mathrm{${SYMBOLS[Z - 3]}}$`, `$^{${A2}}_{${Z}}\\mathrm{${s0}}$`, `$^{${A - (mode === 'α' ? 2 : 1)}}_{${Z - 1}}\\mathrm{${SYMBOLS[Z - 2]}}$`], only: 'mc', s: mode === 'α' ? T`Alpha: $A - 4$, $Z - 2$ → $^{${A2}}_{${Z2}}\mathrm{${sym}}$.` : T`Beta: $A$ unchanged, $Z + 1$ → $^{${A2}}_{${Z2}}\mathrm{${sym}}$.` }; },

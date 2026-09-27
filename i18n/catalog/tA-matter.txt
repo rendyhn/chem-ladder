@@ -96,8 +96,8 @@ steam
 Heating curve of water with flat parts at 0 and 100 degrees Celsius
 @4zledh4fbk
 Heating curve of water: the flat parts are melting ($0\,^\circ\mathrm{C}$) and boiling ($100\,^\circ\mathrm{C}$).
-@20qb40pg1wc
-<p><b>Physical change</b>: no new substance forms, and it is usually easy to reverse (melting ice, dissolving sugar, cutting paper). <b>Chemical change</b>: new substances form (burning, rusting, cooking an egg). Signs of a chemical change: a new colour, a gas given off, a precipitate, a change in temperature, light or a new smell.</p>
+@nm2aresc6o
+<p><b>Physical change</b>: no new substance forms, and it is usually easy to reverse (melting ice, dissolving sugar, cutting paper).<br><b>Chemical change</b>: new substances form (burning, rusting, cooking an egg). Signs of a chemical change: a new colour, a gas given off, a precipitate, a change in temperature, light or a new smell.</p>
 @vdhurnwoxo
 <p><b>Evaporation</b> happens at the surface at any temperature; <b>boiling</b> happens throughout the liquid, at the boiling point only. That is why wet clothes dry in the sun without boiling.</p>
 @atwgg0ncb7  ; 0=a | 1=b

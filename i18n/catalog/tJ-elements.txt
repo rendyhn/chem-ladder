@@ -34,8 +34,8 @@ Halogen
 Appearance at room temperature
 @1uvijy09e30
 Boiling point (°C)
-@to70sp2ywh
-<p><b>Group 17, the halogens</b>, exist as diatomic molecules. Reactivity <b>decreases</b> down the group: the atoms are larger, so they attract an extra electron less strongly. A more reactive halogen <b>displaces</b> a less reactive one from its salts: $$\ce{Cl2 + 2KBr -> 2KCl + Br2}$$ (the colourless solution turns orange). <b>Group 18, the noble gases</b>, have full outer shells and are very unreactive: helium in balloons, neon in signs, argon in light bulbs and welding.</p>
+@1pwsgwyo7p1
+<p><b>Group 17, the halogens</b>, exist as diatomic molecules. Reactivity <b>decreases</b> down the group: the atoms are larger, so they attract an extra electron less strongly. A more reactive halogen <b>displaces</b> a less reactive one from its salts: $$\ce{Cl2 + 2KBr -> 2KCl + Br2}$$ (the colourless solution turns orange).<br><b>Group 18, the noble gases</b>, have full outer shells and are very unreactive: helium in balloons, neon in signs, argon in light bulbs and welding.</p>
 @2emklezbb07
 <p>Test for halide ions: add dilute nitric acid, then silver nitrate. Chloride gives a white precipitate (AgCl), bromide cream (AgBr), iodide yellow (AgI).</p>
 @20m519bul2z  ; 0=elName(a) | 1=elName(b)
@@ -370,8 +370,8 @@ half-lives
 Radioactive decay: the amount halves every half-life
 @1yx24fdrlg8
 The <b>half-life</b> $t_{1/2}$ is the time for half of the radioactive nuclei to decay. After $n$ half-lives the fraction left is $\left(\frac{1}{2}\right)^n$. Carbon-14 ($t_{1/2}$ = 5730 years) dates archaeological remains.
-@162ya41kv5c
-<p><b>Fission:</b> a heavy nucleus (U-235) splits after absorbing a neutron, releasing energy and more neutrons (a chain reaction) — nuclear power stations. <b>Fusion:</b> light nuclei join, as in the Sun: $^{2}_{1}\mathrm{H} + {}^{3}_{1}\mathrm{H} \to {}^{4}_{2}\mathrm{He} + {}^{1}_{0}n$. Both release energy because a little mass is converted: $E = mc^2$.</p>
+@22js1ov52qj
+<p><b>Fission:</b> a heavy nucleus (U-235) splits after absorbing a neutron, releasing energy and more neutrons (a chain reaction) — nuclear power stations.<br><b>Fusion:</b> light nuclei join, as in the Sun: $^{2}_{1}\mathrm{H} + {}^{3}_{1}\mathrm{H} \to {}^{4}_{2}\mathrm{He} + {}^{1}_{0}n$. Both release energy because a little mass is converted: $E = mc^2$.</p>
 @20pwwbuujtg
 <p>Uses: medical tracers (Tc-99m, 6 h) and radiotherapy (Co-60), iodine-131 for thyroid treatment, smoke detectors (Am-241, α), sterilising food and instruments (γ), thickness gauges (β). Dangers: radiation damages DNA, so exposure is kept as low as possible with shielding, distance and short times.</p>
 @2bi2oa1vlbk  ; 0=A | 1=Z | 2=s0 | 3=mode

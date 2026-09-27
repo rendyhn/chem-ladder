@@ -40,7 +40,7 @@ addT('id', {
   '1sgm94avzun': R`waktu pemanasan`,
   '160rdwzlbse': R`Kurva pemanasan air dengan bagian datar pada 0 dan 100 derajat Celsius`,
   '4zledh4fbk': R`Kurva pemanasan air: bagian datarnya adalah peleburan ($0\,^\circ\mathrm{C}$) dan pendidihan ($100\,^\circ\mathrm{C}$).`,
-  '20qb40pg1wc': R`<p><b>Perubahan fisika</b>: tidak terbentuk zat baru, dan biasanya mudah dibalik (es mencair, gula larut, kertas dipotong). <b>Perubahan kimia</b>: terbentuk zat baru (pembakaran, perkaratan, memasak telur). Tanda perubahan kimia: warna baru, gas yang dilepaskan, endapan, perubahan suhu, cahaya, atau bau baru.</p>`,
+  'nm2aresc6o': R`<p><b>Perubahan fisika</b>: tidak terbentuk zat baru, dan biasanya mudah dibalik (es mencair, gula larut, kertas dipotong).<br><b>Perubahan kimia</b>: terbentuk zat baru (pembakaran, perkaratan, memasak telur). Tanda perubahan kimia: warna baru, gas yang dilepaskan, endapan, perubahan suhu, cahaya, atau bau baru.</p>`,
   'vdhurnwoxo': R`<p><b>Penguapan</b> terjadi di permukaan pada suhu berapa pun; <b>pendidihan</b> terjadi di seluruh bagian cairan, hanya pada titik didih. Itulah sebabnya pakaian basah bisa kering di bawah sinar matahari tanpa mendidih.</p>`,
   'atwgg0ncb7': R`Apa nama perubahan dari <b>⟦0⟧</b> langsung menjadi <b>⟦1⟧</b>?`,
   '1d8bu61whmw': R`Kapur barus (naftalena) di lemari lama-lama mengecil`,
