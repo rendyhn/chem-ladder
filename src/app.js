@@ -416,6 +416,7 @@ function renderHome() {
   const first = LEVELS[0].topics[0];
   main.innerHTML = `
   <section class="hero">
+    ${typeof HERO_ART === 'string' ? `<div class="hero-bg" aria-hidden="true">${HERO_ART}</div>` : ''}
     <div class="hero-copy">
       <div class="hero-logo" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="#141B2B" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="2"/><defs><clipPath id="fl-x"><path d="M28 12H36V26L49 47Q51 51 46 51H18Q13 51 15 47L28 26Z"/></clipPath></defs><g clip-path="url(#fl-x)"><rect x="10" y="34" width="44" height="4.5" fill="#F58BB0"/><rect x="10" y="38.5" width="44" height="4.5" fill="#A9B2FF"/><rect x="10" y="43" width="44" height="4.5" fill="#34CDB8"/><rect x="10" y="47.5" width="44" height="5" fill="#FB8B52"/></g><circle cx="31" cy="29.5" r="1.9" fill="#FFFFFF"/><circle cx="33.4" cy="23.5" r="1.4" fill="#FFFFFF" fill-opacity="0.8"/><circle cx="30.6" cy="18.5" r="1.1" fill="#FFFFFF" fill-opacity="0.6"/><path d="M28 12H36V26L49 47Q51 51 46 51H18Q13 51 15 47L28 26Z" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/><path d="M25 12H39" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg></div>
       <p class="eyebrow">${esc(ui('heroEyebrow'))}</p>

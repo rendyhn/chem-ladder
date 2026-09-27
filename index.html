@@ -123,6 +123,20 @@ mjx-container.mjx-wide { display: block; overflow-x: auto; overflow-y: hidden; m
 .hero h1 { font-size: clamp(2.1rem, 1.3rem + 3vw, 3.5rem); font-weight: 800; letter-spacing: -0.025em; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
 .hero-logo svg { width: 72px; height: 72px; display: block; margin-bottom: 18px; filter: drop-shadow(0 6px 14px rgba(20, 27, 43, 0.22)); }   /* the subject logo above the title */
+.hero { position: relative; isolation: isolate; }
+.hero-bg { position: absolute; inset: -32px -16px -24px; z-index: -1; pointer-events: none; overflow: hidden; color: var(--ink);
+  -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent); mask-image: linear-gradient(to bottom, #000 86%, transparent); }
+.hero-bg svg { width: 100%; height: 100%; display: block; }
+.hero-bg .hb-l { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: 0.11; }
+.hero-bg .hb-t { fill: currentColor; opacity: 0.1; }
+.hero-bg .hb-f { fill: currentColor; stroke: none; opacity: 0.08; }
+.hero-bg .hb-d { stroke-dasharray: 5 7; }
+.hero-bg .hbc1 { color: var(--lv1); } .hero-bg .hbc2 { color: var(--lv2); } .hero-bg .hbc3 { color: var(--lv3); } .hero-bg .hbc4 { color: var(--lv4); }
+.hero-bg .hbc1, .hero-bg .hbc2, .hero-bg .hbc3, .hero-bg .hbc4 { opacity: 0.22; }
+@media (max-width: 900px) { .hero-bg svg { width: 170%; height: auto; margin-left: -35%; } }
+.hero-bg .hb-serif { font-family: 'Times New Roman', Georgia, serif; font-style: italic; }
+.hero-bg .hb-mono { font-family: var(--f-mono); }
+.hero-bg .hb-sans { font-family: var(--f-display); font-weight: 700; }
 .hero-side { display: grid; gap: 16px; min-width: 0; }
 .fact { background: var(--paper); border: 1px solid var(--rule); border-top: 3px solid var(--warn); border-radius: 10px; padding: 18px 22px; box-shadow: var(--shadow); }
 .fact-label { display: flex; align-items: center; gap: 6px; margin: 0 0 8px; font: 700 0.74rem var(--f-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--warn); }
@@ -3971,6 +3985,41 @@ const FACTS = [
   { t: `Why soap removes grease`, b: `A soap molecule has a water-loving head and a long oil-loving tail. In water, the tails bury themselves in grease while the heads face outwards, forming tiny balls called micelles that can be rinsed away. People have made soap for more than 4,000 years by heating fats with alkali from wood ash; the Babylonians already recorded a recipe.` }
 ];
 
+/* Decorative background behind the home-page hero: faint, subject-themed doodles (aria-hidden, drawn in a 1200 × 640 box). */
+const HERO_ART = (() => {
+  const tf = (x, y, rot) => (rot ? ` transform="rotate(${rot} ${x} ${y})"` : '');
+  // text: t(x, y, content, size, { rot, cls, font, anchor })
+  const t = (x, y, s, size, { rot = 0, cls = '', font = 'serif', anchor = 'start' } = {}) => `<text x="${x}" y="${y}" font-size="${size}" text-anchor="${anchor}" class="hb-t hb-${font} ${cls}"${tf(x, y, rot)}>${s}</text>`;
+  const p = (d, cls = '') => `<path d="${d}" class="hb-l ${cls}"/>`;
+  const c = (x, y, r, cls = '') => `<circle cx="${x}" cy="${y}" r="${r}" class="hb-l ${cls}"/>`;
+  const dot = (x, y, r, cls = '') => `<circle cx="${x}" cy="${y}" r="${r}" class="hb-f ${cls}"/>`;
+  const e = (x, y, rx, ry, rot, cls = '') => `<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" class="hb-l ${cls}"${tf(x, y, rot)}/>`;
+  const wave = (x0, y0, len, amp, per) => { let d = `M${x0} ${y0}`; for (let x = 0; x <= len; x += 4) d += `L${(x0 + x).toFixed(1)} ${(y0 - amp * Math.sin(2 * Math.PI * x / per)).toFixed(1)}`; return d; };
+  const poly = (cx, cy, r, n, a0 = -Math.PI / 2) => 'M' + [...Array(n)].map((_, k) => { const a = a0 + 2 * Math.PI * k / n; return `${(cx + r * Math.cos(a)).toFixed(1)} ${(cy + r * Math.sin(a)).toFixed(1)}`; }).join('L') + 'Z';
+  const parts = [];
+  // top strip
+  parts.push(p('M232 12h74v78h-74z') + t(240, 30, '6', 14, { font: 'mono' }) + t(269, 68, 'C', 38, { font: 'sans', anchor: 'middle', cls: 'hbc3' }) + t(269, 84, '12.011', 11, { font: 'mono', anchor: 'middle' }));
+  parts.push(t(340, 66, '2H₂ + O₂ → 2H₂O', 30, { rot: -2 }));
+  parts.push(t(610, 30, 'N₂ + 3H₂ ⇌ 2NH₃', 22, { font: 'mono' }));
+  // gap column
+  parts.push(p(poly(612, 200, 26, 6)) + c(612, 200, 15, 'hbc2'));
+  parts.push(t(628, 440, 'PV = nRT     ΔH < 0', 20, { rot: -90 }));
+  parts.push(t(612, 545, 'e⁻', 44, { cls: 'hbc1', anchor: 'middle' }));
+  // behind the text: faint line drawings only
+  parts.push(p('M470 260L510 290L550 260') + c(510, 290, 16) + c(470, 260, 10) + c(550, 260, 10));
+  parts.push(p('M470 400h36M478 400v40l-34 60q-5 10 7 10h72q12 0 7-10l-34-60v-40'));
+  parts.push(c(200, 520, 14) + c(200, 520, 32) + c(200, 520, 50, 'hb-d'));
+  // bottom strip
+  parts.push(p(poly(170, 612, 26, 6)) + p(poly(215, 638, 26, 6)));
+  parts.push(t(270, 628, 'NaCl   CO₂   CH₄   H₂SO₄', 20, { font: 'mono' }));
+  parts.push(t(580, 628, 'pH 7', 28, { font: 'sans' }));
+  for (let i = 0; i < 12; i++) parts.push(dot(760 + i * 26 + (i % 2) * 6, 610 + (i % 3) * 10, 4, i % 4 ? '' : 'hbc2'));
+  parts.push(t(1070, 638, 'Fe₂O₃ + 3CO → 2Fe + 3CO₂', 18, { anchor: 'end', font: 'mono' }));
+  // outer edges
+  parts.push(p(poly(70, 260, 40, 6)) + c(70, 260, 24, 'hbc2') + t(30, 480, 'H₂O', 24, { rot: -90, font: 'sans' }) + t(1130, 200, 'Au', 40, { font: 'sans', cls: 'hbc4' }) + p('M1100 380v100a12 12 0 0 0 24 0v-100M1094 380h36'));
+  return '<svg viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">' + parts.join('') + '</svg>';
+})();
+
 /* ==========================================================================
    App: routing, lessons, worksheet generation, checking, answer key, print,
    language switching
@@ -4389,6 +4438,7 @@ function renderHome() {
   const first = LEVELS[0].topics[0];
   main.innerHTML = `
   <section class="hero">
+    ${typeof HERO_ART === 'string' ? `<div class="hero-bg" aria-hidden="true">${HERO_ART}</div>` : ''}
     <div class="hero-copy">
       <div class="hero-logo" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" rx="14" fill="#141B2B" stroke="#FFFFFF" stroke-opacity="0.14" stroke-width="2"/><defs><clipPath id="fl-x"><path d="M28 12H36V26L49 47Q51 51 46 51H18Q13 51 15 47L28 26Z"/></clipPath></defs><g clip-path="url(#fl-x)"><rect x="10" y="34" width="44" height="4.5" fill="#F58BB0"/><rect x="10" y="38.5" width="44" height="4.5" fill="#A9B2FF"/><rect x="10" y="43" width="44" height="4.5" fill="#34CDB8"/><rect x="10" y="47.5" width="44" height="5" fill="#FB8B52"/></g><circle cx="31" cy="29.5" r="1.9" fill="#FFFFFF"/><circle cx="33.4" cy="23.5" r="1.4" fill="#FFFFFF" fill-opacity="0.8"/><circle cx="30.6" cy="18.5" r="1.1" fill="#FFFFFF" fill-opacity="0.6"/><path d="M28 12H36V26L49 47Q51 51 46 51H18Q13 51 15 47L28 26Z" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/><path d="M25 12H39" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg></div>
       <p class="eyebrow">${esc(ui('heroEyebrow'))}</p>
